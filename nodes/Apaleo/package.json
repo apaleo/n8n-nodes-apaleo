@@ -1,0 +1,53 @@
+{
+	"name": "n8n-nodes-apaleo-custom",
+	"version": "1.0.0",
+	"description": "n8n custom node for Apaleo API",
+	"scripts": {
+		"build": "tsc",
+		"lint": "eslint . --ext .ts",
+		"lint:fix": "eslint . --ext .ts --fix",
+		"dev": "tsc --watch"
+	},
+	"keywords": [
+		"apaleo-n8n",
+		"apaleo",
+		"n8n-community-node-package"
+	],
+	"author": {
+		"name": "Apaleo",
+		"email": "support@apaleo.com"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/apaleo/n8n-nodes-apaleo"
+	},
+	"homepage": "https://github.com/apaleo/n8n-nodes-apaleo#readme",
+	"bugs": {
+		"url": "https://github.com/apaleo/n8n-nodes-apaleo/issues"
+	},
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^18.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"@typescript-eslint/parser": "^5.42.0",
+		"eslint": "^8.27.0",
+		"eslint-config-prettier": "^8.5.0",
+		"prettier": "^2.7.1",
+		"typescript": "^4.8.4"
+	},
+	"peerDependencies": {
+		"n8n-workflow": ">=0.125.0"
+	},
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/ApaleoOAuth2Api.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Apaleo/Apaleo.node.js"
+		]
+	}
+}
