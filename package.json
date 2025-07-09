@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-apaleo-official",
+  "name": "@apaleo/n8n-nodes-apaleo-official",
   "version": "0.1.0",
   "description": "Apaleo API Node for n8n",
   "keywords": [
