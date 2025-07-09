@@ -21,7 +21,7 @@ pipeline {
                     sh '''
                         echo "@apaleo:registry=https://npm.pkg.github.com" > .npmrc
                         echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
-                        yarn install
+                        npm install
                     '''
                 }
             }
@@ -29,7 +29,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    yarn build
+                    npm run build
                 '''
             }
         }
@@ -47,16 +47,16 @@ pipeline {
                     sh '''
                         echo "Current package.json version:"
                         cat package.json | grep version
-                        yarn version --patch
+                        npm version patch
                         echo "New package.json version:"
                         PACKAGE_VERSION=$(node -p "require('./package.json').version")
                         echo "Version: $PACKAGE_VERSION"
                         
                         echo "Publishing package..."
-                        yarn publish
+                        npm publish --registry=https://npm.pkg.github.com
                         
                         echo "Package published successfully!"
-                        echo "Packages URL: https://github.com/apaleo/n8n-nodes-apaleo/pkgs/npm/n8n-nodes-apaleo/versions"
+                        echo "Packages URL: https://github.com/apaleo/n8n-nodes-apaleo/pkgs/npm/%40apaleo%2Fn8n-nodes-apaleo-official/versions"
                     '''
                 }
             }
