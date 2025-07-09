@@ -1,4 +1,4 @@
-# n8n-nodes-apaleo
+# n8n-nodes-apaleo-official
 
 ![Apaleo Logo](nodes/Apaleo/apaleo.svg)
 
@@ -23,7 +23,7 @@ This integration provides two nodes:
 
 1. Go to **Settings > Community Nodes**
 2. Click on **Install**
-3. Enter `n8n-nodes-apaleo` in the **Enter npm package name** field
+3. Enter `n8n-nodes-apaleo-official` in the **Enter npm package name** field
 4. Click on **Install**
 
 ### Manual Installation
@@ -156,16 +156,15 @@ If you want to contribute or modify the nodes:
    ```
    npm install
    ```
-3. Start development mode:
-   ```
-   npm run dev
-   ```
-4. Make your changes
-5. Build the package:
+3. Make your changes
+4. Build the package:
    ```
    npm run build
    ```
-6. Test your changes locally
+5. Test your changes locally:
+   ```
+   n8n start
+   ```
 
 ## License
 
