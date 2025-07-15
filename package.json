@@ -1,5 +1,5 @@
 {
-  "name": "@apaleo/n8n-nodes-apaleo-official",
+  "name": "@apaleo/n8n-nodes-apaleo",
   "version": "0.1.0",
   "description": "Apaleo API Node for n8n",
   "keywords": [
@@ -14,7 +14,7 @@
   "homepage": "",
   "author": {
     "name": "Apaleo",
-    "email": "api@apaleo.com"
+    "email": "support@apaleo.com"
   },
   "repository": {
     "type": "git",

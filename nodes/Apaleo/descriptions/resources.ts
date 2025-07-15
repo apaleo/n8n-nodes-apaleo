@@ -1,234 +1,234 @@
 import { INodeProperties } from 'n8n-workflow';
 
 export const resourcesByGroup = {
-	'account-v1': [
-		{
-			displayName: 'Account',
-			value: 'account',
-		},
-		{
-			displayName: 'AccountActions',
-			value: 'accountactions',
-		},
-	],
-	'availability-v1': [
-		{
-			displayName: 'Availability',
-			value: 'availability',
-		},
-		{
-			displayName: 'ReservationAvailability',
-			value: 'reservationavailability',
-		},
-	],
-	'booking-v1': [
-		{
-			displayName: 'Block',
-			value: 'block',
-		},
-		{
-			displayName: 'BlockActions',
-			value: 'blockactions',
-		},
-		{
-			displayName: 'Booking',
-			value: 'booking',
-		},
-		{
-			displayName: 'Group',
-			value: 'group',
-		},
-		{
-			displayName: 'Offer',
-			value: 'offer',
-		},
-		{
-			displayName: 'Reservation',
-			value: 'reservation',
-		},
-		{
-			displayName: 'ReservationActions',
-			value: 'reservationactions',
-		},
-		{
-			displayName: 'Types',
-			value: 'types',
-		},
-	],
-	'finance-v1': [
-		{
-			displayName: 'Folio',
-			value: 'folio',
-		},
-		{
-			displayName: 'FolioActions',
-			value: 'folioactions',
-		},
-		{
-			displayName: 'FolioPayments',
-			value: 'foliopayments',
-		},
-		{
-			displayName: 'Invoice',
-			value: 'invoice',
-		},
-		{
-			displayName: 'InvoiceAction',
-			value: 'invoiceaction',
-		},
-		{
-			displayName: 'SubLedger',
-			value: 'subledger',
-		},
-		{
-			displayName: 'Types',
-			value: 'types',
-		},
-	],
-	'integration-v1': [
-		{
-			displayName: 'UiIntegrations',
-			value: 'uiintegrations',
-		},
-	],
-	'inventory-v1': [
-		{
-			displayName: 'Property',
-			value: 'property',
-		},
-		{
-			displayName: 'PropertyActions',
-			value: 'propertyactions',
-		},
-		{
-			displayName: 'Types',
-			value: 'types',
-		},
-		{
-			displayName: 'Unit',
-			value: 'unit',
-		},
-		{
-			displayName: 'UnitAttribute',
-			value: 'unitattribute',
-		},
-		{
-			displayName: 'UnitGroup',
-			value: 'unitgroup',
-		},
-	],
-	'logs-v1': [
-		{
-			displayName: 'BookingLogs',
-			value: 'bookinglogs',
-		},
-		{
-			displayName: 'FinanceLogs',
-			value: 'financelogs',
-		},
-	],
-	'operations-v1': [
-		{
-			displayName: 'Maintenance',
-			value: 'maintenance',
-		},
-		{
-			displayName: 'Operations',
-			value: 'operations',
-		},
-	],
-	'rateplan-v1': [
-		{
-			displayName: 'AgeCategory',
-			value: 'agecategory',
-		},
-		{
-			displayName: 'CancellationPolicy',
-			value: 'cancellationpolicy',
-		},
-		{
-			displayName: 'Company',
-			value: 'company',
-		},
-		{
-			displayName: 'CorporateCodes',
-			value: 'corporatecodes',
-		},
-		{
-			displayName: 'NoShowPolicy',
-			value: 'noshowpolicy',
-		},
-		{
-			displayName: 'PromoCodes',
-			value: 'promocodes',
-		},
-		{
-			displayName: 'Rate',
-			value: 'rate',
-		},
-		{
-			displayName: 'RatePlan',
-			value: 'rateplan',
-		},
-		{
-			displayName: 'Service',
-			value: 'service',
-		},
-	],
-	'reports-v1': [
-		{
-			displayName: 'Reports',
-			value: 'reports',
-		},
-	],
-	'settings-v1': [
-		{
-			displayName: 'CapturePolicies',
-			value: 'capturepolicies',
-		},
-		{
-			displayName: 'CityTax',
-			value: 'citytax',
-		},
-		{
-			displayName: 'CustomSubAccounts',
-			value: 'customsubaccounts',
-		},
-		{
-			displayName: 'FeatureSettings',
-			value: 'featuresettings',
-		},
-		{
-			displayName: 'InvoiceAddress',
-			value: 'invoiceaddress',
-		},
-		{
-			displayName: 'Languages',
-			value: 'languages',
-		},
-		{
-			displayName: 'MarketSegment',
-			value: 'marketsegment',
-		},
-		{
-			displayName: 'PropertySettings',
-			value: 'propertysettings',
-		},
-		{
-			displayName: 'TimeSliceDefinitions',
-			value: 'timeslicedefinitions',
-		},
-	],
-	'webhook-v1': [
-		{
-			displayName: 'HealthCheck',
-			value: 'healthcheck',
-		},
-		{
-			displayName: 'Subscriptions',
-			value: 'subscriptions',
-		},
-	],
+  "account-v1": [
+    {
+      "displayName": "Account",
+      "value": "account"
+    },
+    {
+      "displayName": "AccountActions",
+      "value": "accountactions"
+    }
+  ],
+  "availability-v1": [
+    {
+      "displayName": "Availability",
+      "value": "availability"
+    },
+    {
+      "displayName": "ReservationAvailability",
+      "value": "reservationavailability"
+    }
+  ],
+  "booking-v1": [
+    {
+      "displayName": "Block",
+      "value": "block"
+    },
+    {
+      "displayName": "BlockActions",
+      "value": "blockactions"
+    },
+    {
+      "displayName": "Booking",
+      "value": "booking"
+    },
+    {
+      "displayName": "Group",
+      "value": "group"
+    },
+    {
+      "displayName": "Offer",
+      "value": "offer"
+    },
+    {
+      "displayName": "Reservation",
+      "value": "reservation"
+    },
+    {
+      "displayName": "ReservationActions",
+      "value": "reservationactions"
+    },
+    {
+      "displayName": "Types",
+      "value": "types"
+    }
+  ],
+  "finance-v1": [
+    {
+      "displayName": "Folio",
+      "value": "folio"
+    },
+    {
+      "displayName": "FolioActions",
+      "value": "folioactions"
+    },
+    {
+      "displayName": "FolioPayments",
+      "value": "foliopayments"
+    },
+    {
+      "displayName": "Invoice",
+      "value": "invoice"
+    },
+    {
+      "displayName": "InvoiceAction",
+      "value": "invoiceaction"
+    },
+    {
+      "displayName": "SubLedger",
+      "value": "subledger"
+    },
+    {
+      "displayName": "Types",
+      "value": "types"
+    }
+  ],
+  "integration-v1": [
+    {
+      "displayName": "UiIntegrations",
+      "value": "uiintegrations"
+    }
+  ],
+  "inventory-v1": [
+    {
+      "displayName": "Property",
+      "value": "property"
+    },
+    {
+      "displayName": "PropertyActions",
+      "value": "propertyactions"
+    },
+    {
+      "displayName": "Types",
+      "value": "types"
+    },
+    {
+      "displayName": "Unit",
+      "value": "unit"
+    },
+    {
+      "displayName": "UnitAttribute",
+      "value": "unitattribute"
+    },
+    {
+      "displayName": "UnitGroup",
+      "value": "unitgroup"
+    }
+  ],
+  "logs-v1": [
+    {
+      "displayName": "BookingLogs",
+      "value": "bookinglogs"
+    },
+    {
+      "displayName": "FinanceLogs",
+      "value": "financelogs"
+    }
+  ],
+  "operations-v1": [
+    {
+      "displayName": "Maintenance",
+      "value": "maintenance"
+    },
+    {
+      "displayName": "Operations",
+      "value": "operations"
+    }
+  ],
+  "rateplan-v1": [
+    {
+      "displayName": "AgeCategory",
+      "value": "agecategory"
+    },
+    {
+      "displayName": "CancellationPolicy",
+      "value": "cancellationpolicy"
+    },
+    {
+      "displayName": "Company",
+      "value": "company"
+    },
+    {
+      "displayName": "CorporateCodes",
+      "value": "corporatecodes"
+    },
+    {
+      "displayName": "NoShowPolicy",
+      "value": "noshowpolicy"
+    },
+    {
+      "displayName": "PromoCodes",
+      "value": "promocodes"
+    },
+    {
+      "displayName": "Rate",
+      "value": "rate"
+    },
+    {
+      "displayName": "RatePlan",
+      "value": "rateplan"
+    },
+    {
+      "displayName": "Service",
+      "value": "service"
+    }
+  ],
+  "reports-v1": [
+    {
+      "displayName": "Reports",
+      "value": "reports"
+    }
+  ],
+  "settings-v1": [
+    {
+      "displayName": "CapturePolicies",
+      "value": "capturepolicies"
+    },
+    {
+      "displayName": "CityTax",
+      "value": "citytax"
+    },
+    {
+      "displayName": "CustomSubAccounts",
+      "value": "customsubaccounts"
+    },
+    {
+      "displayName": "FeatureSettings",
+      "value": "featuresettings"
+    },
+    {
+      "displayName": "InvoiceAddress",
+      "value": "invoiceaddress"
+    },
+    {
+      "displayName": "Languages",
+      "value": "languages"
+    },
+    {
+      "displayName": "MarketSegment",
+      "value": "marketsegment"
+    },
+    {
+      "displayName": "PropertySettings",
+      "value": "propertysettings"
+    },
+    {
+      "displayName": "TimeSliceDefinitions",
+      "value": "timeslicedefinitions"
+    }
+  ],
+  "webhook-v1": [
+    {
+      "displayName": "HealthCheck",
+      "value": "healthcheck"
+    },
+    {
+      "displayName": "Subscriptions",
+      "value": "subscriptions"
+    }
+  ]
 };
 
 export const resourceOptions: INodeProperties[] = [
@@ -248,9 +248,9 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'account',
 			},
 			{
-				name: 'AccountAction',
+				name: 'AccountActions',
 				value: 'accountactions',
-			},
+			}
 		],
 		default: 'account',
 	},
@@ -272,7 +272,7 @@ export const resourceOptions: INodeProperties[] = [
 			{
 				name: 'ReservationAvailability',
 				value: 'reservationavailability',
-			},
+			}
 		],
 		default: 'availability',
 	},
@@ -292,7 +292,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'block',
 			},
 			{
-				name: 'BlockAction',
+				name: 'BlockActions',
 				value: 'blockactions',
 			},
 			{
@@ -312,13 +312,13 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'reservation',
 			},
 			{
-				name: 'ReservationAction',
+				name: 'ReservationActions',
 				value: 'reservationactions',
 			},
 			{
-				name: 'Type',
+				name: 'Types',
 				value: 'types',
-			},
+			}
 		],
 		default: 'block',
 	},
@@ -338,11 +338,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'folio',
 			},
 			{
-				name: 'FolioAction',
+				name: 'FolioActions',
 				value: 'folioactions',
 			},
 			{
-				name: 'FolioPayment',
+				name: 'FolioPayments',
 				value: 'foliopayments',
 			},
 			{
@@ -358,9 +358,9 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'subledger',
 			},
 			{
-				name: 'Type',
+				name: 'Types',
 				value: 'types',
-			},
+			}
 		],
 		default: 'folio',
 	},
@@ -376,9 +376,9 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'UiIntegration',
+				name: 'UiIntegrations',
 				value: 'uiintegrations',
-			},
+			}
 		],
 		default: 'uiintegrations',
 	},
@@ -398,11 +398,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'property',
 			},
 			{
-				name: 'PropertyAction',
+				name: 'PropertyActions',
 				value: 'propertyactions',
 			},
 			{
-				name: 'Type',
+				name: 'Types',
 				value: 'types',
 			},
 			{
@@ -416,7 +416,7 @@ export const resourceOptions: INodeProperties[] = [
 			{
 				name: 'UnitGroup',
 				value: 'unitgroup',
-			},
+			}
 		],
 		default: 'property',
 	},
@@ -432,13 +432,13 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'BookingLog',
+				name: 'BookingLogs',
 				value: 'bookinglogs',
 			},
 			{
-				name: 'FinanceLog',
+				name: 'FinanceLogs',
 				value: 'financelogs',
-			},
+			}
 		],
 		default: 'bookinglogs',
 	},
@@ -458,9 +458,9 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'maintenance',
 			},
 			{
-				name: 'Operation',
+				name: 'Operations',
 				value: 'operations',
-			},
+			}
 		],
 		default: 'maintenance',
 	},
@@ -488,7 +488,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'company',
 			},
 			{
-				name: 'CorporateCode',
+				name: 'CorporateCodes',
 				value: 'corporatecodes',
 			},
 			{
@@ -496,7 +496,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'noshowpolicy',
 			},
 			{
-				name: 'PromoCode',
+				name: 'PromoCodes',
 				value: 'promocodes',
 			},
 			{
@@ -510,7 +510,7 @@ export const resourceOptions: INodeProperties[] = [
 			{
 				name: 'Service',
 				value: 'service',
-			},
+			}
 		],
 		default: 'agecategory',
 	},
@@ -526,9 +526,9 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Report',
+				name: 'Reports',
 				value: 'reports',
-			},
+			}
 		],
 		default: 'reports',
 	},
@@ -544,7 +544,7 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'CapturePolicy',
+				name: 'CapturePolicies',
 				value: 'capturepolicies',
 			},
 			{
@@ -552,11 +552,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'citytax',
 			},
 			{
-				name: 'CustomSubAccount',
+				name: 'CustomSubAccounts',
 				value: 'customsubaccounts',
 			},
 			{
-				name: 'FeatureSetting',
+				name: 'FeatureSettings',
 				value: 'featuresettings',
 			},
 			{
@@ -564,7 +564,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'invoiceaddress',
 			},
 			{
-				name: 'Language',
+				name: 'Languages',
 				value: 'languages',
 			},
 			{
@@ -572,13 +572,13 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'marketsegment',
 			},
 			{
-				name: 'PropertySetting',
+				name: 'PropertySettings',
 				value: 'propertysettings',
 			},
 			{
-				name: 'TimeSliceDefinition',
+				name: 'TimeSliceDefinitions',
 				value: 'timeslicedefinitions',
-			},
+			}
 		],
 		default: 'capturepolicies',
 	},
@@ -598,10 +598,10 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'healthcheck',
 			},
 			{
-				name: 'Subscription',
+				name: 'Subscriptions',
 				value: 'subscriptions',
-			},
+			}
 		],
 		default: 'healthcheck',
-	},
+	}
 ];
