@@ -151,39 +151,21 @@ The trigger node works by subscribing to Apaleo's webhook events, allowing your 
 
 If you want to contribute or modify the nodes:
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/apaleo/n8n-nodes-apaleo.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd n8n-nodes-apaleo
-   ```
-3. Install dependencies:
+1. Clone the repository
+2. Install dependencies:
    ```
    npm install
    ```
-4. Start development mode (watches for changes):
+3. Start development mode:
    ```
    npm run dev
    ```
-5. Format code:
-   ```
-   npm run format
-   ```
-6. Lint code:
-   ```
-   npm run lint
-   ```
-7. Fix linting issues automatically:
-   ```
-   npm run lintfix
-   ```
-8. Build the package:
+4. Make your changes
+5. Build the package:
    ```
    npm run build
    ```
-9. Test your changes locally
+6. Test your changes locally
 
 ## License
 

@@ -17,58 +17,58 @@ export const groupOptions: INodeProperties = {
 		{ name: 'rateplan-v1', value: 'rateplan-v1' },
 		{ name: 'reports-v1', value: 'reports-v1' },
 		{ name: 'settings-v1', value: 'settings-v1' },
-		{ name: 'webhook-v1', value: 'webhook-v1' },
+		{ name: 'webhook-v1', value: 'webhook-v1' }
 	],
 	default: 'account-v1',
 };
 
 export const groups = [
-	{
-		displayName: 'account-v1',
-		value: 'account-v1',
-	},
-	{
-		displayName: 'availability-v1',
-		value: 'availability-v1',
-	},
-	{
-		displayName: 'booking-v1',
-		value: 'booking-v1',
-	},
-	{
-		displayName: 'finance-v1',
-		value: 'finance-v1',
-	},
-	{
-		displayName: 'integration-v1',
-		value: 'integration-v1',
-	},
-	{
-		displayName: 'inventory-v1',
-		value: 'inventory-v1',
-	},
-	{
-		displayName: 'logs-v1',
-		value: 'logs-v1',
-	},
-	{
-		displayName: 'operations-v1',
-		value: 'operations-v1',
-	},
-	{
-		displayName: 'rateplan-v1',
-		value: 'rateplan-v1',
-	},
-	{
-		displayName: 'reports-v1',
-		value: 'reports-v1',
-	},
-	{
-		displayName: 'settings-v1',
-		value: 'settings-v1',
-	},
-	{
-		displayName: 'webhook-v1',
-		value: 'webhook-v1',
-	},
+  {
+    "displayName": "account-v1",
+    "value": "account-v1"
+  },
+  {
+    "displayName": "availability-v1",
+    "value": "availability-v1"
+  },
+  {
+    "displayName": "booking-v1",
+    "value": "booking-v1"
+  },
+  {
+    "displayName": "finance-v1",
+    "value": "finance-v1"
+  },
+  {
+    "displayName": "integration-v1",
+    "value": "integration-v1"
+  },
+  {
+    "displayName": "inventory-v1",
+    "value": "inventory-v1"
+  },
+  {
+    "displayName": "logs-v1",
+    "value": "logs-v1"
+  },
+  {
+    "displayName": "operations-v1",
+    "value": "operations-v1"
+  },
+  {
+    "displayName": "rateplan-v1",
+    "value": "rateplan-v1"
+  },
+  {
+    "displayName": "reports-v1",
+    "value": "reports-v1"
+  },
+  {
+    "displayName": "settings-v1",
+    "value": "settings-v1"
+  },
+  {
+    "displayName": "webhook-v1",
+    "value": "webhook-v1"
+  }
 ];
