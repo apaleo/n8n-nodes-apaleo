@@ -47,7 +47,7 @@ pipeline {
                     sh '''
                         echo "Current package.json version:"
                         cat package.json | grep version
-                        npm version patch
+                        npm version patch --no-git-tag-version
                         echo "New package.json version:"
                         PACKAGE_VERSION=$(node -p "require('./package.json').version")
                         echo "Version: $PACKAGE_VERSION"
