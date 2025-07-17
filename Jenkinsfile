@@ -34,6 +34,9 @@ pipeline {
             }
         }
         stage('Publish') {
+            when {
+                branch 'master'
+            }
             steps {
                 withCredentials([[
                     $class: 'UsernamePasswordMultiBinding',
