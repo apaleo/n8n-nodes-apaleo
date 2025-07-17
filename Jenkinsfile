@@ -34,9 +34,7 @@ pipeline {
             }
         }
         stage('Publish') {
-            when {
-                branch 'master'
-            }
+            
             steps {
                 withCredentials([[
                     $class: 'UsernamePasswordMultiBinding',
@@ -53,7 +51,7 @@ pipeline {
                         echo "Version: $PACKAGE_VERSION"
                         
                         echo "Publishing package..."
-                        npm publish --registry=https://npm.pkg.github.com
+                        npm publish --registry=https://npm.pkg.github.com --access public
                         
                         echo "Package published successfully!"
                         echo "Packages URL: https://github.com/apaleo/n8n-nodes-apaleo/pkgs/npm/%40apaleo%2Fn8n-nodes-apaleo-official/versions"
