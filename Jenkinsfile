@@ -37,7 +37,8 @@ pipeline {
             steps {
                 withCredentials([[$class: 'StringBinding', credentialsId: 'npmjs-token', variable: 'NPM_TOKEN']]) {
                     sh '''
-                        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+                        echo "@apaleo:registry=https://registry.npmjs.org/" > .npmrc
+                        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
                         echo "Current package.json version:"
                         cat package.json | grep version
                         npm version patch --no-git-tag-version
