@@ -40,14 +40,14 @@ async function apaleoApiRequest(
 
 export class ApaleoTrigger implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Apaleo Trigger',
+		displayName: 'Apaleo Official Trigger',
 		name: 'apaleoTrigger',
 		icon: 'file:apaleo.svg',
 		group: ['trigger'],
 		version: 1,
 		description: 'Starts the workflow when Apaleo events occur',
 		defaults: {
-			name: 'Apaleo Trigger',
+			name: 'Apaleo Official Trigger',
 		},
 		eventTriggerDescription: 'Waiting for Apaleo webhook events',
 		activationMessage: 'Your Apaleo webhook is now active and will trigger on the selected events.',
