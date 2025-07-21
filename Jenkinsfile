@@ -50,6 +50,7 @@ pipeline {
                         PACKAGE_VERSION=$(node -p "require('./package.json').version")
                         echo "Version: $PACKAGE_VERSION"
                         echo "Publishing package..."
+                        npm publish
                         echo "Package published successfully!"
                         echo "Packages URL: https://github.com/apaleo/n8n-nodes-apaleo/pkgs/npm/%40apaleo%2Fn8n-nodes-apaleo-official/versions"
                     '''
