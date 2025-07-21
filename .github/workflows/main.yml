@@ -1,7 +1,7 @@
 name: Publish Package to npmjs
 on:
   push:
-    branches: ['feat/set-up-github-action']
+    branches: ['master']
 permissions:
   contents: write
   issues: write
