@@ -2340,24 +2340,24 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get a list of all available units in a property',
+				name: 'Get a List of All Available Units in a Property',
 				value: 'AvailabilityUnitsGet',
-				description: `Get the list of available units for a specific property and time period.<br>You must have this scope: 'availability.read'`,
+				description: 'Get the list of available units for a specific property and time period.You must have this scope: \'availability.read\'',
 				action: 'Get a list of all available units in a property'
 			},{
-				name: 'Get a list of all available unit groups in a property',
+				name: 'Get a List of All Available Unit Groups in a Property',
 				value: 'AvailabilityUnit-groupsGet',
-				description: `Get the list of available unit groups for a specific property and time period.<br>You must have this scope: 'availability.read'`,
+				description: 'Get the list of available unit groups for a specific property and time period.You must have this scope: \'availability.read\'',
 				action: 'Get a list of all available unit groups in a property'
 			},{
-				name: 'Allows to modify the unit group availability',
+				name: 'Allows to Modify the Unit Group Availability',
 				value: 'AvailabilityUnit-groupsByIdPatch',
-				description: `You can replace AllowedOverbooking for a unit group<br>You must have this scope: 'availability.manage'`,
+				description: 'You can replace AllowedOverbooking for a unit groupYou must have this scope: \'availability.manage\'',
 				action: 'Allows to modify the unit group availability'
 			},{
-				name: 'Get a list of all available services in a property',
+				name: 'Get a List of All Available Services in a Property',
 				value: 'AvailabilityServicesGet',
-				description: `Get the list of available services for a specific property and time period.<br>You must have this scope: 'availability.read'`,
+				description: 'Get the list of available services for a specific property and time period.You must have this scope: \'availability.read\'',
 				action: 'Get a list of all available services in a property'
 			}
 		],
@@ -2375,9 +2375,9 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get a list of all available units for a reservation',
+				name: 'Get a List of All Available Units for a Reservation',
 				value: 'AvailabilityReservationsByIdUnitsGet',
-				description: `Get the list of available units for a specific reservation and time period.<br>You must have at least one of these scopes: 'availability.read, reservations.manage'`,
+				description: 'Get the list of available units for a specific reservation and time period.You must have at least one of these scopes: \'availability.read, reservations.manage\'',
 				action: 'Get a list of all available units for a reservation'
 			}
 		],
@@ -2395,25 +2395,25 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Creates a block',
+				name: 'Creates a Block',
 				value: 'BookingBlocksPost',
-				description: `<br>You must have at least one of these scopes: 'blocks.create, reservations.manage'`,
+				description: 'You must have at least one of these scopes: \'blocks.create, reservations.manage\'',
 				action: 'Creates a block'
 			},{
-				name: 'Returns a list of blocks',
+				name: 'Returns a List of Blocks',
 				value: 'BookingBlocksGet',
-				description: `Returns a list of all blocks, filtered by the specified parameters. If no parameters are set, returns the entire list.<br>You must have at least one of these scopes: 'blocks.read, reservations.read, reservations.manage'`,
+				description: 'Returns a list of all blocks, filtered by the specified parameters. If no parameters are set, returns the entire list.You must have at least one of these scopes: \'blocks.read, reservations.read, reservations.manage\'.',
 				action: 'Returns a list of blocks'
 			},{
-				name: 'Returns number of blocks',
+				name: 'Returns Number of Blocks',
 				value: 'BookingBlocks$countGet',
-				description: `Returns number of blocks matching the filter criteria<br>You must have at least one of these scopes: 'blocks.read, reservations.read, reservations.manage'`,
+				description: 'Returns number of blocks matching the filter criteriaYou must have at least one of these scopes: \'blocks.read, reservations.read, reservations.manage\'',
 				action: 'Returns number of blocks'
 			},{
-				name: 'Returns a specific block.',
+				name: 'Returns a Specific Block.',
 				value: 'BookingBlocksByIdGet',
-				description: `Retrieves a block, specified by its ID.<br>You must have at least one of these scopes: 'blocks.read, reservations.read, reservations.manage'`,
-				action: 'Returns a specific block.'
+				description: 'Retrieves a block, specified by its ID.You must have at least one of these scopes: \'blocks.read, reservations.read, reservations.manage\'',
+				action: 'Returns a specific block'
 			}
 		],
 		default: 'BookingBlocksPost',
@@ -2430,30 +2430,30 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allow to modify a block',
+				name: 'Allow to Modify a Block',
 				value: 'BookingBlock-actionsByIdAmendPut',
-				description: `Use this call to modify a block.<br>You must have at least one of these scopes: 'blocks.manage, reservations.manage'`,
+				description: 'Use this call to modify a block.You must have at least one of these scopes: \'blocks.manage, reservations.manage\'',
 				action: 'Allow to modify a block'
 			},{
-				name: 'Cancel a block.',
+				name: 'Cancel a Block.',
 				value: 'BookingBlock-actionsByIdCancelPut',
-				description: `Cancel a specific block which is in status 'Definite' or 'Tentative'. This changes the status to 'Canceled'.<br>You must have at least one of these scopes: 'blocks.manage, reservations.manage'`,
-				action: 'Cancel a block.'
+				description: 'Cancel a specific block which is in status \'Definite\' or \'Tentative\'. This changes the status to \'Canceled\'.You must have at least one of these scopes: \'blocks.manage, reservations.manage\'.',
+				action: 'Cancel a block'
 			},{
-				name: 'Confirm a block.',
+				name: 'Confirm a Block.',
 				value: 'BookingBlock-actionsByIdConfirmPut',
-				description: `Confirm a specific block which is in status 'Tentative'. This changes the status to 'Definite'.<br>You must have at least one of these scopes: 'blocks.manage, reservations.manage'`,
-				action: 'Confirm a block.'
+				description: 'Confirm a specific block which is in status \'Tentative\'. This changes the status to \'Definite\'.You must have at least one of these scopes: \'blocks.manage, reservations.manage\'.',
+				action: 'Confirm a block'
 			},{
-				name: 'Release a block.',
+				name: 'Release a Block.',
 				value: 'BookingBlock-actionsByIdReleasePut',
-				description: `Release a specific block which is in status 'Definite'. This changes the status to 'Tentative'.<br>You must have at least one of these scopes: 'blocks.manage, reservations.manage'`,
-				action: 'Release a block.'
+				description: 'Release a specific block which is in status \'Definite\'. This changes the status to \'Tentative\'.You must have at least one of these scopes: \'blocks.manage, reservations.manage\'.',
+				action: 'Release a block'
 			},{
-				name: 'Wash a block.',
+				name: 'Wash a Block.',
 				value: 'BookingBlock-actionsByIdWashPut',
-				description: `Wash a specific block which is in status 'Definite'. This releases all unpicked units.<br>You must have at least one of these scopes: 'blocks.manage, reservations.manage'`,
-				action: 'Wash a block.'
+				description: 'Wash a specific block which is in status \'Definite\'. This releases all unpicked units.You must have at least one of these scopes: \'blocks.manage, reservations.manage\'.',
+				action: 'Wash a block'
 			}
 		],
 		default: 'BookingBlock-actionsByIdAmendPut',
@@ -2470,40 +2470,40 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Add one or multiple reservations to an existing booking regardless of availability or restrictions.',
+				name: 'Add One or Multiple Reservations to an Existing Booking Regardless of Availability or Restrictions.',
 				value: 'BookingBookingsByIdReservations$forcePost',
-				description: `Creates new reservations and adds them to an existing booking taking a list of reservations as input<br>You must have at least one of these scopes: 'reservations.force-create, reservations.force-manage'`,
-				action: 'Add one or multiple reservations to an existing booking regardless of availability or restrictions.'
+				description: 'Creates new reservations and adds them to an existing booking taking a list of reservations as inputYou must have at least one of these scopes: \'reservations.force-create, reservations.force-manage\'',
+				action: 'Add one or multiple reservations to an existing booking regardless of availability or restrictions'
 			},{
-				name: 'Add one or multiple reservations to an existing booking.',
+				name: 'Add One or Multiple Reservations to an Existing Booking.',
 				value: 'BookingBookingsByIdReservationsPost',
-				description: `Creates new reservations and adds them to an existing booking taking a list of reservations as input<br>You must have at least one of these scopes: 'reservations.create, reservations.manage'`,
-				action: 'Add one or multiple reservations to an existing booking.'
+				description: 'Creates new reservations and adds them to an existing booking taking a list of reservations as inputYou must have at least one of these scopes: \'reservations.create, reservations.manage\'',
+				action: 'Add one or multiple reservations to an existing booking'
 			},{
-				name: 'Allows to modify certain booking properties',
+				name: 'Allows to Modify Certain Booking Properties',
 				value: 'BookingBookingsByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Add, replace and remove PaymentAccount - Add, replace and remove Comment - Add, replace and remove BookerComment - Copy PaymentAccount, Comment and BookerComment from the booking to any reservation, or the other way around - Replace Booker<br>You must have this scope: 'reservations.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Add, replace and remove PaymentAccount - Add, replace and remove Comment - Add, replace and remove BookerComment - Copy PaymentAccount, Comment and BookerComment from the booking to any reservation, or the other way around - Replace BookerYou must have this scope: \'reservations.manage\'',
 				action: 'Allows to modify certain booking properties'
 			},{
-				name: 'Creates a booking for one or more reservations regardless of availability or restrictions.',
+				name: 'Creates a Booking for One or More Reservations Regardless of Availability or Restrictions.',
 				value: 'BookingBookings$forcePost',
-				description: `Creates a booking taking a list of reservations as input.<br>You must have at least one of these scopes: 'reservations.force-create, reservations.force-manage'`,
-				action: 'Creates a booking for one or more reservations regardless of availability or restrictions.'
+				description: 'Creates a booking taking a list of reservations as input.You must have at least one of these scopes: \'reservations.force-create, reservations.force-manage\'',
+				action: 'Creates a booking for one or more reservations regardless of availability or restrictions'
 			},{
-				name: 'Creates a booking for one or more reservations.',
+				name: 'Creates a Booking for One or More Reservations.',
 				value: 'BookingBookingsPost',
-				description: `Creates a booking taking a list of reservations as input.<br>You must have at least one of these scopes: 'reservations.create, reservations.manage'`,
-				action: 'Creates a booking for one or more reservations.'
+				description: 'Creates a booking taking a list of reservations as input.You must have at least one of these scopes: \'reservations.create, reservations.manage\'',
+				action: 'Creates a booking for one or more reservations'
 			},{
-				name: 'Returns a list of all bookings, filtered by the specified parameters.',
+				name: 'Returns a List of All Bookings, Filtered by the Specified Parameters.',
 				value: 'BookingBookingsGet',
-				description: `Returns a list of all bookings, filtered by the specified parameters. If no parameters are set, returns the entire list.<br>You must have at least one of these scopes: 'reservations.read, reservations.manage'`,
-				action: 'Returns a list of all bookings, filtered by the specified parameters.'
+				description: 'Returns a list of all bookings, filtered by the specified parameters. If no parameters are set, returns the entire list.You must have at least one of these scopes: \'reservations.read, reservations.manage\'.',
+				action: 'Returns a list of all bookings filtered by the specified parameters'
 			},{
-				name: 'Returns a specific booking.',
+				name: 'Returns a Specific Booking.',
 				value: 'BookingBookingsByIdGet',
-				description: `Retrieves a booking with all its reservations.<br>You must have at least one of these scopes: 'reservations.read, reservations.manage'`,
-				action: 'Returns a specific booking.'
+				description: 'Retrieves a booking with all its reservations.You must have at least one of these scopes: \'reservations.read, reservations.manage\'',
+				action: 'Returns a specific booking'
 			}
 		],
 		default: 'BookingBookingsByIdReservations$forcePost',
@@ -2520,30 +2520,30 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Add one or multiple reservations to an existing group booking using blocked inventory.',
+				name: 'Add One or Multiple Reservations to an Existing Group Booking Using Blocked Inventory.',
 				value: 'BookingGroupsByIdReservationsPost',
-				description: `Creates new reservations and adds them to an existing group booking taking a list of reservations as input<br>You must have at least one of these scopes: 'groups.manage, reservations.manage'`,
-				action: 'Add one or multiple reservations to an existing group booking using blocked inventory.'
+				description: 'Creates new reservations and adds them to an existing group booking taking a list of reservations as inputYou must have at least one of these scopes: \'groups.manage, reservations.manage\'',
+				action: 'Add one or multiple reservations to an existing group booking using blocked inventory'
 			},{
-				name: 'Allows to modify certain group booking properties',
+				name: 'Allows to Modify Certain Group Booking Properties',
 				value: 'BookingGroupsByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Add and replace Name - Add, replace and remove Comment - Add, replace and remove BookerComment - Add, replace and remove PaymentAccount - Add, replace and remove PropertyIds - Replace Booker<br>You must have at least one of these scopes: 'groups.manage, reservations.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Add and replace Name - Add, replace and remove Comment - Add, replace and remove BookerComment - Add, replace and remove PaymentAccount - Add, replace and remove PropertyIds - Replace BookerYou must have at least one of these scopes: \'groups.manage, reservations.manage\'',
 				action: 'Allows to modify certain group booking properties'
 			},{
-				name: 'Creates a group booking.',
+				name: 'Creates a Group Booking.',
 				value: 'BookingGroupsPost',
-				description: `<br>You must have at least one of these scopes: 'groups.create, reservations.manage'`,
-				action: 'Creates a group booking.'
+				description: 'You must have at least one of these scopes: \'groups.create, reservations.manage\'',
+				action: 'Creates a group booking'
 			},{
-				name: 'Returns a list of all group bookings, filtered by the specified parameters.',
+				name: 'Returns a List of All Group Bookings, Filtered by the Specified Parameters.',
 				value: 'BookingGroupsGet',
-				description: `Returns a list of all group bookings, filtered by the specified parameters. If no parameters are set, returns the entire list<br>You must have at least one of these scopes: 'groups.read, reservations.read, reservations.manage'`,
-				action: 'Returns a list of all group bookings, filtered by the specified parameters.'
+				description: 'Returns a list of all group bookings, filtered by the specified parameters. If no parameters are set, returns the entire listYou must have at least one of these scopes: \'groups.read, reservations.read, reservations.manage\'.',
+				action: 'Returns a list of all group bookings filtered by the specified parameters'
 			},{
-				name: 'Returns a specific group booking.',
+				name: 'Returns a Specific Group Booking.',
 				value: 'BookingGroupsByIdGet',
-				description: `Retrieves a specific group booking with all its related blocks<br>You must have at least one of these scopes: 'groups.read, reservations.read, reservations.manage'`,
-				action: 'Returns a specific group booking.'
+				description: 'Retrieves a specific group booking with all its related blocksYou must have at least one of these scopes: \'groups.read, reservations.read, reservations.manage\'',
+				action: 'Returns a specific group booking'
 			}
 		],
 		default: 'BookingGroupsByIdReservationsPost',
@@ -2560,25 +2560,25 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Returns offers for one specific stay.',
+				name: 'Returns Offers for One Specific Stay.',
 				value: 'BookingOffersGet',
-				description: `Calculates and returns available offers for a specific property, arrival and departure date.<br>You must have at least one of these scopes: 'offers.read, reservations.manage'`,
-				action: 'Returns offers for one specific stay.'
+				description: 'Calculates and returns available offers for a specific property, arrival and departure date.You must have at least one of these scopes: \'offers.read, reservations.manage\'',
+				action: 'Returns offers for one specific stay'
 			},{
-				name: 'Returns offers for a specific rate plan.',
+				name: 'Returns Offers for a Specific Rate Plan.',
 				value: 'BookingRate-plan-offersGet',
-				description: `Calculates and returns available offers for a specific rate plan, arrival and departure date.<br>You must have at least one of these scopes: 'offers.read, reservations.manage'`,
-				action: 'Returns offers for a specific rate plan.'
+				description: 'Calculates and returns available offers for a specific rate plan, arrival and departure date.You must have at least one of these scopes: \'offers.read, reservations.manage\'',
+				action: 'Returns offers for a specific rate plan'
 			},{
-				name: 'Returns service offers for one specific stay.',
+				name: 'Returns Service Offers for One Specific Stay.',
 				value: 'BookingService-offersGet',
-				description: `<br>You must have at least one of these scopes: 'offers.read, reservations.manage'`,
-				action: 'Returns service offers for one specific stay.'
+				description: 'You must have at least one of these scopes: \'offers.read, reservations.manage\'',
+				action: 'Returns service offers for one specific stay'
 			},{
-				name: 'Returns offers with rates and availabilities for the specified range.',
+				name: 'Returns Offers with Rates and Availabilities for the Specified Range.',
 				value: 'BookingOffer-indexGet',
-				description: `Calculates and returns offers per time slice for a specific rate plan, arrival and departure date.<br>You must have at least one of these scopes: 'offer-index.read, offers.read'`,
-				action: 'Returns offers with rates and availabilities for the specified range.'
+				description: 'Calculates and returns offers per time slice for a specific rate plan, arrival and departure date.You must have at least one of these scopes: \'offer-index.read, offers.read\'',
+				action: 'Returns offers with rates and availabilities for the specified range'
 			}
 		],
 		default: 'BookingOffersGet',
@@ -2595,45 +2595,45 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allows to modify certain reservation properties',
+				name: 'Allows to Modify Certain Reservation Properties',
 				value: 'BookingReservationsByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Add, replace and remove Comment - Add, replace and remove GuestComment - Add, replace and remove PaymentAccount - Add, replace and remove TravelPurpose - Add, replace and remove AdditionalGuests - Add a company (using company/Id, and only if not already set) - Add, replace and remove Commission - Replace PrimaryGuest - Remove ValidationMessages - Add, replace and remove MarketSegment<br>You must have this scope: 'reservations.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Add, replace and remove Comment - Add, replace and remove GuestComment - Add, replace and remove PaymentAccount - Add, replace and remove TravelPurpose - Add, replace and remove AdditionalGuests - Add a company (using company/ID, and only if not already set) - Add, replace and remove Commission - Replace PrimaryGuest - Remove ValidationMessages - Add, replace and remove MarketSegmentYou must have this scope: \'reservations.manage\'',
 				action: 'Allows to modify certain reservation properties'
 			},{
-				name: 'Removes a service from a reservation.',
+				name: 'Removes a Service From a Reservation.',
 				value: 'BookingReservationsByIdServicesDelete',
-				description: `Removes a service from a reservation. The service will not be removed if it is mandatory, already posted or if the service date is in the past.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Removes a service from a reservation.'
+				description: 'Removes a service from a reservation. The service will not be removed if it is mandatory, already posted or if the service date is in the past.You must have this scope: \'reservations.manage\'.',
+				action: 'Removes a service from a reservation'
 			},{
-				name: 'Returns a list of all reservations, filtered by the specified parameters.',
+				name: 'Returns a List of All Reservations, Filtered by the Specified Parameters.',
 				value: 'BookingReservationsGet',
-				description: `Returns a list of all reservations, filtered by the specified parameters. If no parameters are set, returns the entire list.<br>You must have at least one of these scopes: 'reservations.read, reservations.manage'`,
-				action: 'Returns a list of all reservations, filtered by the specified parameters.'
+				description: 'Returns a list of all reservations, filtered by the specified parameters. If no parameters are set, returns the entire list.You must have at least one of these scopes: \'reservations.read, reservations.manage\'.',
+				action: 'Returns a list of all reservations filtered by the specified parameters'
 			},{
-				name: 'Returns a specific reservation.',
+				name: 'Returns a Specific Reservation.',
 				value: 'BookingReservationsByIdGet',
-				description: `Retrieves a reservation, specified by its ID.<br>You must have at least one of these scopes: 'reservations.read, reservations.manage'`,
-				action: 'Returns a specific reservation.'
+				description: 'Retrieves a reservation, specified by its ID.You must have at least one of these scopes: \'reservations.read, reservations.manage\'',
+				action: 'Returns a specific reservation'
 			},{
-				name: 'Returns offers for one specific reservation.',
+				name: 'Returns Offers for One Specific Reservation.',
 				value: 'BookingReservationsByIdOffersGet',
-				description: `Calculates and returns offers for amending a specific reservation.<br>You must have at least one of these scopes: 'offers.read, reservations.manage'`,
-				action: 'Returns offers for one specific reservation.'
+				description: 'Calculates and returns offers for amending a specific reservation.You must have at least one of these scopes: \'offers.read, reservations.manage\'',
+				action: 'Returns offers for one specific reservation'
 			},{
-				name: 'Returns service offers for one specific reservation.',
+				name: 'Returns Service Offers for One Specific Reservation.',
 				value: 'BookingReservationsByIdService-offersGet',
-				description: `Calculates and returns service offers for a specific reservation.<br>You must have at least one of these scopes: 'offers.read, reservations.manage'`,
-				action: 'Returns service offers for one specific reservation.'
+				description: 'Calculates and returns service offers for a specific reservation.You must have at least one of these scopes: \'offers.read, reservations.manage\'',
+				action: 'Returns service offers for one specific reservation'
 			},{
-				name: 'Returns the number of reservations fulfilling the criteria specified in the parameters.',
+				name: 'Returns the Number of Reservations Fulfilling the Criteria Specified in the Parameters.',
 				value: 'BookingReservations$countGet',
-				description: `If no parameters are set, returns the total count of reservations.<br>You must have at least one of these scopes: 'reservations.read, reservations.manage'`,
-				action: 'Returns the number of reservations fulfilling the criteria specified in the parameters.'
+				description: 'If no parameters are set, returns the total count of reservations.You must have at least one of these scopes: \'reservations.read, reservations.manage\'',
+				action: 'Returns the number of reservations fulfilling the criteria specified in the parameters'
 			},{
-				name: 'Returns the services booked for a specific reservation.',
+				name: 'Returns the Services Booked for a Specific Reservation.',
 				value: 'BookingReservationsByIdServicesGet',
-				description: `Returns the services booked for a specific reservation.<br>You must have at least one of these scopes: 'reservations.read, reservations.manage'`,
-				action: 'Returns the services booked for a specific reservation.'
+				description: 'Returns the services booked for a specific reservation.You must have at least one of these scopes: \'reservations.read, reservations.manage\'',
+				action: 'Returns the services booked for a specific reservation'
 			}
 		],
 		default: 'BookingReservationsByIdPatch',
@@ -2650,75 +2650,75 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Adds the city tax to a reservation.',
+				name: 'Adds the City Tax to a Reservation.',
 				value: 'BookingReservation-actionsByIdAdd-city-taxPut',
-				description: `Use this if you want to add the city tax to a reservation.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Adds the city tax to a reservation.'
+				description: 'Use this if you want to add the city tax to a reservation.You must have this scope: \'reservations.manage\'',
+				action: 'Adds the city tax to a reservation'
 			},{
-				name: 'Allows you to amend the stay details of a reservation',
+				name: 'Allows You to Amend the Stay Details of a Reservation',
 				value: 'BookingReservation-actionsByIdAmendPut',
-				description: `Modifies the stay-related data of a reservation. If a reservation is 'Confirmed', you can change all fields. If a reservation is 'InHouse', only changes to future time slices are possible. Changes to reservations that are in the status 'CheckedOut' or 'Canceled' are not possible at all.<br>You must have this scope: 'reservations.manage'`,
+				description: 'Modifies the stay-related data of a reservation. If a reservation is \'Confirmed\', you can change all fields. If a reservation is \'InHouse\', only changes to future time slices are possible. Changes to reservations that are in the status \'CheckedOut\' or \'Canceled\' are not possible at all.You must have this scope: \'reservations.manage\'',
 				action: 'Allows you to amend the stay details of a reservation'
 			},{
-				name: 'Allows you to amend the stay details of a reservation regardless of availability or restrictions.',
+				name: 'Allows You to Amend the Stay Details of a Reservation Regardless of Availability or Restrictions.',
 				value: 'BookingReservation-actionsByIdAmend$forcePut',
-				description: `Modifies the stay-related data of a reservation. If a reservation is 'Confirmed', you can change all fields. If a reservation is 'InHouse', only changes to future time slices are possible. Changes to reservations that are in the status 'CheckedOut' or 'Canceled' are not possible at all.<br>You must have this scope: 'reservations.force-manage'`,
-				action: 'Allows you to amend the stay details of a reservation regardless of availability or restrictions.'
+				description: 'Modifies the stay-related data of a reservation. If a reservation is \'Confirmed\', you can change all fields. If a reservation is \'InHouse\', only changes to future time slices are possible. Changes to reservations that are in the status \'CheckedOut\' or \'Canceled\' are not possible at all.You must have this scope: \'reservations.force-manage\'',
+				action: 'Allows you to amend the stay details of a reservation regardless of availability or restrictions'
 			},{
-				name: 'Assign a specific unit to a reservation.',
+				name: 'Assign a Specific Unit to a Reservation.',
 				value: 'BookingReservation-actionsByIdAssign-unitByUnitIdPut',
-				description: `Assigns a specific unit to a reservation which is in state 'Confirmed' or 'InHouse'. If the unit is not available, the call will return an error, and no unit will be assigned.<br>You must have at least one of these scopes: 'reservations.assign-unit, reservations.manage'`,
-				action: 'Assign a specific unit to a reservation.'
+				description: 'Assigns a specific unit to a reservation which is in state \'Confirmed\' or \'InHouse\'. If the unit is not available, the call will return an error, and no unit will be assigned.You must have at least one of these scopes: \'reservations.assign-unit, reservations.manage\'.',
+				action: 'Assign a specific unit to a reservation'
 			},{
-				name: 'Assign a unit to a reservation.',
+				name: 'Assign a Unit to a Reservation.',
 				value: 'BookingReservation-actionsByIdAssign-unitPut',
-				description: `Assigns one of the available units to a reservation which is in state 'Confirmed' or 'InHouse'.<br>You must have at least one of these scopes: 'reservations.assign-unit, reservations.manage'`,
-				action: 'Assign a unit to a reservation.'
+				description: 'Assigns one of the available units to a reservation which is in state \'Confirmed\' or \'InHouse\'.You must have at least one of these scopes: \'reservations.assign-unit, reservations.manage\'',
+				action: 'Assign a unit to a reservation'
 			},{
-				name: 'Book the service for a specific reservation regardless of availability.',
+				name: 'Book the Service for a Specific Reservation Regardless of Availability.',
 				value: 'BookingReservation-actionsByIdBook-service$forcePut',
-				description: `Use this to book a service for a specific reservation. Please note that when dates are specified, all desired dates must be specified or they will be removed if not posted to the folio.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Book the service for a specific reservation regardless of availability.'
+				description: 'Use this to book a service for a specific reservation. Please note that when dates are specified, all desired dates must be specified or they will be removed if not posted to the folio.You must have this scope: \'reservations.manage\'.',
+				action: 'Book the service for a specific reservation regardless of availability'
 			},{
-				name: 'Book the service for a specific reservation.',
+				name: 'Book the Service for a Specific Reservation.',
 				value: 'BookingReservation-actionsByIdBook-servicePut',
-				description: `Use this to book a service for a specific reservation. Please note that when dates are specified, all desired dates must be specified or they will be removed if not posted to the folio.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Book the service for a specific reservation.'
+				description: 'Use this to book a service for a specific reservation. Please note that when dates are specified, all desired dates must be specified or they will be removed if not posted to the folio.You must have this scope: \'reservations.manage\'.',
+				action: 'Book the service for a specific reservation'
 			},{
-				name: 'Cancel a reservation.',
+				name: 'Cancel a Reservation.',
 				value: 'BookingReservation-actionsByIdCancelPut',
-				description: `Cancel a specific reservation which is in status 'Confirmed' and where the arrival time is in the future. This changes the status to 'Canceled', and sets the cancellation date and time.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Cancel a reservation.'
+				description: 'Cancel a specific reservation which is in status \'Confirmed\' and where the arrival time is in the future. This changes the status to \'Canceled\', and sets the cancellation date and time.You must have this scope: \'reservations.manage\'.',
+				action: 'Cancel a reservation'
 			},{
-				name: 'Check-in of a reservation.',
+				name: 'Check-in of a Reservation.',
 				value: 'BookingReservation-actionsByIdCheckinPut',
-				description: `Check in a specific reservation which is in status 'Confirmed', and has a unit assigned. This changes the status to 'InHouse', and sets the check-in date and time.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Check-in of a reservation.'
+				description: 'Check in a specific reservation which is in status \'Confirmed\', and has a unit assigned. This changes the status to \'InHouse\', and sets the check-in date and time.You must have this scope: \'reservations.manage\'.',
+				action: 'Check in of a reservation'
 			},{
-				name: 'Check-out of a reservation.',
+				name: 'Check-Out of a Reservation.',
 				value: 'BookingReservation-actionsByIdCheckoutPut',
-				description: `Check out a specific reservation which is in status 'InHouse'. This changes the status to 'CheckedOut', and sets the check-out date and time. All open charges on the folio will be posted. Check-out is only possible, if the departure date is not later than tomorrow. Otherwise, first amend the reservation and shorten the stay.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Check-out of a reservation.'
+				description: 'Check out a specific reservation which is in status \'InHouse\'. This changes the status to \'CheckedOut\', and sets the check-out date and time. All open charges on the folio will be posted. Check-out is only possible, if the departure date is not later than tomorrow. Otherwise, first amend the reservation and shorten the stay.You must have this scope: \'reservations.manage\'',
+				action: 'Check out of a reservation'
 			},{
-				name: 'Removes the city tax from a reservation.',
+				name: 'Removes the City Tax From a Reservation.',
 				value: 'BookingReservation-actionsByIdRemove-city-taxPut',
-				description: `Use this is you want to remove the city tax from a reservation before the stay.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Removes the city tax from a reservation.'
+				description: 'Use this is you want to remove the city tax from a reservation before the stay.You must have this scope: \'reservations.manage\'',
+				action: 'Removes the city tax from a reservation'
 			},{
-				name: 'Reverses the check-in of a reservation.',
+				name: 'Reverses the Check-in of a Reservation.',
 				value: 'BookingReservation-actionsByIdRevert-checkinPut',
-				description: `<br>You must have this scope: 'reservations.manage'`,
-				action: 'Reverses the check-in of a reservation.'
+				description: 'You must have this scope: \'reservations.manage\'',
+				action: 'Reverses the check in of a reservation'
 			},{
-				name: 'Set a reservation to No-show.',
+				name: 'Set a Reservation to No-Show.',
 				value: 'BookingReservation-actionsByIdNoshowPut',
-				description: `Set a specific reservation to No-show which is in status 'Confirmed' and where the arrival date is in the past. This changes the status to 'NoShow', and sets the no-show date and time.<br>You must have this scope: 'reservations.manage'`,
-				action: 'Set a reservation to No-show.'
+				description: 'Set a specific reservation to No-show which is in status \'Confirmed\' and where the arrival date is in the past. This changes the status to \'NoShow\', and sets the no-show date and time.You must have this scope: \'reservations.manage\'.',
+				action: 'Set a reservation to no show'
 			},{
-				name: 'Unassign units from a reservation.',
+				name: 'Unassign Units From a Reservation.',
 				value: 'BookingReservation-actionsByIdUnassign-unitsPut',
-				description: `Unassigns units for all time slices of the given reservation. If no units are assigned for the reservation nothing will happen. It will fail for reservations in status 'CheckedOut'.<br>You must have at least one of these scopes: 'reservations.assign-unit, reservations.manage'`,
-				action: 'Unassign units from a reservation.'
+				description: 'Unassigns units for all time slices of the given reservation. If no units are assigned for the reservation nothing will happen. It will fail for reservations in status \'CheckedOut\'.You must have at least one of these scopes: \'reservations.assign-unit, reservations.manage\'',
+				action: 'Unassign units from a reservation'
 			}
 		],
 		default: 'BookingReservation-actionsByIdAdd-city-taxPut',
@@ -2735,35 +2735,35 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Returns a list of all currencies.',
+				name: 'Returns a List of All Currencies.',
 				value: 'FinanceTypesCurrenciesGet',
-				description: `Returns a list of all currencies`,
-				action: 'Returns a list of all currencies.'
+				description: 'Returns a list of all currencies',
+				action: 'Returns a list of all currencies'
 			},{
-				name: 'Returns a list of all supported payment methods.',
+				name: 'Returns a List of All Supported Payment Methods.',
 				value: 'FinanceTypesPayment-methodsGet',
-				description: `Returns a list of all supported payment methods`,
-				action: 'Returns a list of all supported payment methods.'
+				description: 'Returns a list of all supported payment methods',
+				action: 'Returns a list of all supported payment methods'
 			},{
-				name: 'Returns a list of all supported service types.',
+				name: 'Returns a List of All Supported Service Types.',
 				value: 'FinanceTypesService-typesGet',
-				description: `Returns a list of all supported service types`,
-				action: 'Returns a list of all supported service types.'
+				description: 'Returns a list of all supported service types',
+				action: 'Returns a list of all supported service types'
 			},{
-				name: 'Returns a list of all VAT types.',
+				name: 'Returns a List of All VAT Types.',
 				value: 'FinanceTypesVatGet',
-				description: `Returns a list of all VAT types and percents for a country. Supported: - Albania (AL) - Austria (AT) - Azerbaijan (AZ) - Belgium (BE) - Bulgaria (BG) - Cape Verde (CV) - Croatia (HR) - Czech Republic (CZ) - Denmark (DK) - Finland (FI) - France (FR) - without the super-reduced 2.1% VAT - French Polynesia (PF) - Germany (DE) - Greece (GR) - Hungary (HU) - Indonesia (ID) - Ireland (IE) - Italy (IT) - Iceland (IS) - Japan (JP) - Liechtenstein (LI) - Madagascar (MG) - Malaysia (MY) - Malta (MT) - Mexico (MX) - Monaco (MC) - Morocco (MA) - Netherlands (NL) - New Zealand (NZ) - Norway (NO) - without the VAT for raw fish supplies - Portugal (PT) - Reunion (RE) - Saudi Arabia (SA) - Slovakia (SK) - Slovenia (SI) - South Africa (ZA) - Spain (ES) - Sweden (SE) - Switzerland (CH) - Taiwan (TW) - United Kingdom (GB) - United Arab Emirates (AE)`,
-				action: 'Returns a list of all VAT types.'
+				description: 'Returns a list of all VAT types and percents for a country. Supported: - Albania (AL) - Austria (AT) - Azerbaijan (AZ) - Belgium (BE) - Bulgaria (BG) - Cape Verde (CV) - Croatia (HR) - Czech Republic (CZ) - Denmark (DK) - Finland (FI) - France (FR) - without the super-reduced 2.1% VAT - French Polynesia (PF) - Germany (DE) - Greece (GR) - Hungary (HU) - Indonesia (ID) - Ireland (IE) - Italy (IT) - Iceland (IS) - Japan (JP) - Liechtenstein (LI) - Madagascar (MG) - Malaysia (MY) - Malta (MT) - Mexico (MX) - Monaco (MC) - Morocco (MA) - Netherlands (NL) - New Zealand (NZ) - Norway (NO) - without the VAT for raw fish supplies - Portugal (PT) - Reunion (RE) - Saudi Arabia (SA) - Slovakia (SK) - Slovenia (SI) - South Africa (ZA) - Spain (ES) - Sweden (SE) - Switzerland (CH) - Taiwan (TW) - United Kingdom (GB) - United Arab Emirates (AE).',
+				action: 'Returns a list of all vat types'
 			},{
-				name: 'Returns a list of supported sources.',
+				name: 'Returns a List of Supported Sources.',
 				value: 'BookingTypesSourcesGet',
-				description: `Returns a list of channels that could be used as a source to create bookings`,
-				action: 'Returns a list of supported sources.'
+				description: 'Returns a list of channels that could be used as a source to create bookings',
+				action: 'Returns a list of supported sources'
 			},{
-				name: 'Returns a list of values that a field of the specified type can take in the specified country.',
+				name: 'Returns a List of Values that a Field of the Specified Type Can Take in the Specified Country.',
 				value: 'BookingTypesByTypeAllowed-valuesGet',
-				description: `<br>You need to be authorized (no particular scope required)`,
-				action: 'Returns a list of values that a field of the specified type can take in the specified country.'
+				description: 'You need to be authorized (no particular scope required)',
+				action: 'Returns a list of values that a field of the specified type can take in the specified country'
 			}
 		],
 		default: 'FinanceTypesCurrenciesGet',
@@ -2780,35 +2780,35 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allows to modify certain properties of a folio',
+				name: 'Allows to Modify Certain Properties of a Folio',
 				value: 'FinanceFoliosByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace debitor (for guest folios only) - Add a company (not for house folios) - Replace/remove a company (not for house folios)<br>You must have this scope: 'folios.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Replace debitor (for guest folios only) - Add a company (not for house folios) - Replace/remove a company (not for house folios)You must have this scope: \'folios.manage\'',
 				action: 'Allows to modify certain properties of a folio'
 			},{
-				name: 'Check if the folio exists.',
+				name: 'Check if the Folio Exists.',
 				value: 'FinanceFoliosByIdHead',
-				description: `Check if the folio exists.<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
-				action: 'Check if the folio exists.'
+				description: 'Check if the folio exists.You must have at least one of these scopes: \'folios.read, folios.manage\'',
+				action: 'Check if the folio exists'
 			},{
-				name: 'Create additional folios for a reservation, or new external folios',
+				name: 'Create Additional Folios for a Reservation, or New External Folios',
 				value: 'FinanceFoliosPost',
-				description: `Use this call to create a new folio.<br>You must have at least one of these scopes: 'reservations.create, reservations.manage, folios.manage'`,
-				action: 'Create additional folios for a reservation, or new external folios'
+				description: 'Use this call to create a new folio.You must have at least one of these scopes: \'reservations.create, reservations.manage, folios.manage\'',
+				action: 'Create additional folios for a reservation or new external folios'
 			},{
-				name: 'Returns a list of all folios.',
+				name: 'Returns a List of All Folios.',
 				value: 'FinanceFoliosGet',
-				description: `Allowed actions are only returned, when the list is filtered by reservation ID.<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
-				action: 'Returns a list of all folios.'
+				description: 'Allowed actions are only returned, when the list is filtered by reservation ID.You must have at least one of these scopes: \'folios.read, folios.manage\'',
+				action: 'Returns a list of all folios'
 			},{
-				name: 'Returns number of folios.',
+				name: 'Returns Number of Folios.',
 				value: 'FinanceFolios$countGet',
-				description: `Returns number of folios matching the filter criteria.<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
-				action: 'Returns number of folios.'
+				description: 'Returns number of folios matching the filter criteria.You must have at least one of these scopes: \'folios.read, folios.manage\'',
+				action: 'Returns number of folios'
 			},{
-				name: 'Returns one folio.',
+				name: 'Returns One Folio.',
 				value: 'FinanceFoliosByIdGet',
-				description: `Get a folio by ID.<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
-				action: 'Returns one folio.'
+				description: 'Get a folio by ID.You must have at least one of these scopes: \'folios.read, folios.manage\'',
+				action: 'Returns one folio'
 			}
 		],
 		default: 'FinanceFoliosByIdPatch',
@@ -2825,90 +2825,90 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Adds and directly posts a cancellation fee to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added. If a routing instruction is defined for the cancellation fee service type, the fee will be moved to the destination folio.',
+				name: 'Adds and Directly Posts a Cancellation Fee to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added. If a Routing Instruction Is Defined for the Cancellation Fee Service Type, the Fee Will Be Moved to the Destination Folio.',
 				value: 'FinanceFolio-actionsByFolioIdCancellation-feePost',
-				description: `Adds a cancellation fee, and directly posts it. Cancellation fees can only be posted on guest folios. Requires 'allowed action': AddCancellationFee.<br>You must have at least one of these scopes: 'charges.create, folios.manage'`,
-				action: 'Adds and directly posts a cancellation fee to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added. If a routing instruction is defined for the cancellation fee service type, the fee will be moved to the destination folio.'
+				description: 'Adds a cancellation fee, and directly posts it. Cancellation fees can only be posted on guest folios. Requires \'allowed action\': AddCancellationFee.You must have at least one of these scopes: \'charges.create, folios.manage\'',
+				action: 'Adds and directly posts a cancellation fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the cancellation fee service type the fee will be moved to the destination folio'
 			},{
-				name: 'Adds and directly posts a charge to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added.',
+				name: 'Adds and Directly Posts a Charge to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added.',
 				value: 'FinanceFolio-actionsByFolioIdChargesPost',
-				description: `Adds a charge for any good or service, and directly posts it. Can be used to charge items that are not part of the reservation, but should appear on the invoice. Requires 'allowed action': AddCharge.<br>You must have at least one of these scopes: 'charges.create, folios.manage'`,
-				action: 'Adds and directly posts a charge to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added.'
+				description: 'Adds a charge for any good or service, and directly posts it. Can be used to charge items that are not part of the reservation, but should appear on the invoice. Requires \'allowed action\': AddCharge.You must have at least one of these scopes: \'charges.create, folios.manage\'',
+				action: 'Adds and directly posts a charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added'
 			},{
-				name: 'Adds and directly posts a no-show fee to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added. If a routing instruction is defined for the no-show fee service type, the fee will be moved to the destination folio.',
+				name: 'Adds and Directly Posts a No-Show Fee to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added. If a Routing Instruction Is Defined for the No-Show Fee Service Type, the Fee Will Be Moved to the Destination Folio.',
 				value: 'FinanceFolio-actionsByFolioIdNo-show-feePost',
-				description: `Adds a no-show fee, and directly posts it. No-show fees can only be posted on guest folios. Requires 'allowed action': AddNoShowFee.<br>You must have at least one of these scopes: 'charges.create, folios.manage'`,
-				action: 'Adds and directly posts a no-show fee to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added. If a routing instruction is defined for the no-show fee service type, the fee will be moved to the destination folio.'
+				description: 'Adds a no-show fee, and directly posts it. No-show fees can only be posted on guest folios. Requires \'allowed action\': AddNoShowFee.You must have at least one of these scopes: \'charges.create, folios.manage\'',
+				action: 'Adds and directly posts a no show fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the no show fee service type the fee will be moved to the destination folio'
 			},{
-				name: 'Adds and directly posts a transitory charge to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added.',
+				name: 'Adds and Directly Posts a Transitory Charge to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added.',
 				value: 'FinanceFolio-actionsByFolioIdTransitory-chargesPost',
-				description: `Adds a transitory item for any good or service, and directly posts it. To be used for sales that are not revenue of the property, but should appear on te guest's invoice. Requires 'allowed action': AddCharge.<br>You must have at least one of these scopes: 'charges.create, folios.manage'`,
-				action: 'Adds and directly posts a transitory charge to the folio. If there are any fees configured for the property, an additional charge for each configured fee will be added.'
+				description: 'Adds a transitory item for any good or service, and directly posts it. To be used for sales that are not revenue of the property, but should appear on te guest\'s invoice. Requires \'allowed action\': AddCharge.You must have at least one of these scopes: \'charges.create, folios.manage\'',
+				action: 'Adds and directly posts a transitory charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added'
 			},{
-				name: 'Closes a folio.',
+				name: 'Closes a Folio.',
 				value: 'FinanceFolio-actionsByFolioIdClosePut',
-				description: `Mark a folio as closed to prevent adding charges and payments. This action cannot be undone, and is only possible if the balance is 0. Requires 'allowed action': Close.<br>You must have this scope: 'folios.manage'`,
-				action: 'Closes a folio.'
+				description: 'Mark a folio as closed to prevent adding charges and payments. This action cannot be undone, and is only possible if the balance is 0. Requires \'allowed action\': Close.You must have this scope: \'folios.manage\'',
+				action: 'Closes a folio'
 			},{
-				name: 'Corrects a folio by moving some charges. This operation creates a new folio with the charges from the request. The payment, equal to the sum of charges, is also split to this new folio so that both folios will have 0 balance.',
+				name: 'Corrects a Folio by Moving some Charges. This Operation Creates a New Folio with the Charges From the Request. The Payment, Equal to the Sum of Charges, Is Also Split to This New Folio so that Both Folios Will Have 0 Balance.',
 				value: 'FinanceFolio-actionsByFolioIdCorrectPost',
-				description: `Allowance value posted must not exceed sum of charges minus existing allowances<br>You must have this scope: 'folios.manage'`,
-				action: 'Corrects a folio by moving some charges. This operation creates a new folio with the charges from the request. The payment, equal to the sum of charges, is also split to this new folio so that both folios will have 0 balance.'
+				description: 'Allowance value posted must not exceed sum of charges minus existing allowancesYou must have this scope: \'folios.manage\'',
+				action: 'Corrects a folio by moving some charges this operation creates a new folio with the charges from the request the payment equal to the sum of charges is also split to this new folio so that both folios will have 0 balance'
 			},{
-				name: 'Move all charges and transitory charges from one folio to another.',
+				name: 'Move All Charges and Transitory Charges From One Folio to Another.',
 				value: 'FinanceFolio-actionsByFolioIdMove-all-chargesPut',
-				description: `If one of the folios is closed, this action cannot be performed. Only charges that can be moved will be moved. <br>You must have at least one of these scopes: 'charges.move, folios.manage'`,
-				action: 'Move all charges and transitory charges from one folio to another.'
+				description: 'If one of the folios is closed, this action cannot be performed. Only charges that can be moved will be moved. You must have at least one of these scopes: \'charges.move, folios.manage\'',
+				action: 'Move all charges and transitory charges from one folio to another'
 			},{
-				name: 'Move multiple charges from one folio to another. Multiple source folios and multiple target folios can be specified.',
+				name: 'Move Multiple Charges From One Folio to Another. Multiple Source Folios and Multiple Target Folios Can Be Specified.',
 				value: 'FinanceFolio-actionsBulk-movePut',
-				description: `If one of the folios is closed, this action cannot be performed. If any of the specified charges does not exist, this action cannot be performed. Moving negative charges to a house folio is not supported. Create additional folios instead, and move the charges there.<br>You must have this scope: 'folios.manage'`,
-				action: 'Move multiple charges from one folio to another. Multiple source folios and multiple target folios can be specified.'
+				description: 'If one of the folios is closed, this action cannot be performed. If any of the specified charges does not exist, this action cannot be performed. Moving negative charges to a house folio is not supported. Create additional folios instead, and move the charges there.You must have this scope: \'folios.manage\'',
+				action: 'Move multiple charges from one folio to another multiple source folios and multiple target folios can be specified'
 			},{
-				name: 'Move multiple charges, allowances and transitory charges from one folio to another.',
+				name: 'Move Multiple Charges, Allowances and Transitory Charges From One Folio to Another.',
 				value: 'FinanceFolio-actionsByFolioIdMove-chargesPut',
-				description: `If one of the folios is closed, this action cannot be performed. If any of the specified charges does not exist, this action cannot be performed. Moving negative charges to a house folio is not supported. Create additional folios instead, and move the charges there.<br>You must have at least one of these scopes: 'charges.move, folios.manage'`,
-				action: 'Move multiple charges, allowances and transitory charges from one folio to another.'
+				description: 'If one of the folios is closed, this action cannot be performed. If any of the specified charges does not exist, this action cannot be performed. Moving negative charges to a house folio is not supported. Create additional folios instead, and move the charges there.You must have at least one of these scopes: \'charges.move, folios.manage\'',
+				action: 'Move multiple charges allowances and transitory charges from one folio to another'
 			},{
-				name: 'Move multiple payments from one guest/booking folio to another.',
+				name: 'Move Multiple Payments From One Guest/booking Folio to Another.',
 				value: 'FinanceFolio-actionsByFolioIdMove-paymentsPut',
-				description: `Move payments from one guest/booking folio to another - moving between different bookings is not supported, and will lead to an error. If one of the folios is closed, this action cannot be performed. The PSP reference, if present, will be removed when moving and only be persisted on the original payment.<br>You must have at least one of these scopes: 'charges.move, folios.manage'`,
-				action: 'Move multiple payments from one guest/booking folio to another.'
+				description: 'Move payments from one guest/booking folio to another - moving between different bookings is not supported, and will lead to an error. If one of the folios is closed, this action cannot be performed. The PSP reference, if present, will be removed when moving and only be persisted on the original payment.You must have at least one of these scopes: \'charges.move, folios.manage\'',
+				action: 'Move multiple payments from one guest booking folio to another'
 			},{
-				name: 'Posts all unposted charges for the whole length of stay.',
+				name: 'Posts All Unposted Charges for the Whole Length of Stay.',
 				value: 'FinanceFolio-actionsByFolioIdPost-chargesPut',
-				description: `Use this call for cases when the folio should be closed early. For example, when a guest wants to get the invoice right after the check-in As posting charges before the service is delivered is potentially risky, this operation will fail if there are any unposted charges further in the future than 7 days. Posting open charges is only possible for fully prepaid folios. Requires 'allowed action': PostOpenCharges.<br>You must have this scope: 'folios.manage'`,
-				action: 'Posts all unposted charges for the whole length of stay.'
+				description: 'Use this call for cases when the folio should be closed early. For example, when a guest wants to get the invoice right after the check-in As posting charges before the service is delivered is potentially risky, this operation will fail if there are any unposted charges further in the future than 7 days. Posting open charges is only possible for fully prepaid folios. Requires \'allowed action\': PostOpenCharges.You must have this scope: \'folios.manage\'',
+				action: 'Posts all unposted charges for the whole length of stay'
 			},{
-				name: 'Posts allowances for a folio',
+				name: 'Posts Allowances for a Folio',
 				value: 'FinanceFolio-actionsByFolioIdBulk-allowancesPost',
-				description: `Allowance value posted must not exceed sum of charges minus existing allowances<br>You must have at least one of these scopes: 'allowances.post, folios.manage'`,
+				description: 'Allowance value posted must not exceed sum of charges minus existing allowancesYou must have at least one of these scopes: \'allowances.post, folios.manage\'',
 				action: 'Posts allowances for a folio'
 			},{
-				name: 'Posts an allowance for a charge',
+				name: 'Posts an Allowance for a Charge',
 				value: 'FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost',
-				description: `Allowance value posted must not exceed source charge minus allowances posted for this charge<br>You must have at least one of these scopes: 'allowances.post, folios.manage'`,
+				description: 'Allowance value posted must not exceed source charge minus allowances posted for this chargeYou must have at least one of these scopes: \'allowances.post, folios.manage\'',
 				action: 'Posts an allowance for a charge'
 			},{
-				name: 'Posts an allowance for a folio',
+				name: 'Posts an Allowance for a Folio',
 				value: 'FinanceFolio-actionsByFolioIdAllowancesPost',
-				description: `Allowance value posted must not exceed sum of charges minus existing allowances<br>You must have at least one of these scopes: 'allowances.post, folios.manage'`,
+				description: 'Allowance value posted must not exceed sum of charges minus existing allowancesYou must have at least one of these scopes: \'allowances.post, folios.manage\'',
 				action: 'Posts an allowance for a folio'
 			},{
-				name: 'Reopens a folio.',
+				name: 'Reopens a Folio.',
 				value: 'FinanceFolio-actionsByFolioIdReopenPut',
-				description: `Reopens a closed folio. You can only reopen a folio if no invoice has been created for the folio. Otherwise, use \`invoice-actions/{invoiceId}/cancel\` endpoint to cancel an invoice and reopen the folio. Requires 'allowed action': Reopen.<br>You must have this scope: 'folios.manage'`,
-				action: 'Reopens a folio.'
+				description: 'Reopens a closed folio. You can only reopen a folio if no invoice has been created for the folio. Otherwise, use \`invoice-actions/{invoiceId}/cancel\` endpoint to cancel an invoice and reopen the folio. Requires \'allowed action\': Reopen.You must have this scope: \'folios.manage\'',
+				action: 'Reopens a folio'
 			},{
-				name: 'Splits a charge into two using the percent or amount provided Creates an allowance and two new charges.',
+				name: 'Splits a Charge Into Two Using the Percent or Amount Provided Creates an Allowance and Two New Charges.',
 				value: 'FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost',
-				description: `<br>You must have at least one of these scopes: 'allowances.post, charges.create, folios.manage'`,
-				action: 'Splits a charge into two using the percent or amount provided Creates an allowance and two new charges.'
+				description: 'You must have at least one of these scopes: \'allowances.post, charges.create, folios.manage\'',
+				action: 'Splits a charge into two using the percent or amount provided creates an allowance and two new charges'
 			},{
-				name: 'Splits a payment into two using the percent or amount provided Creates a refund and two new payments.',
+				name: 'Splits a Payment Into Two Using the Percent or Amount Provided Creates a Refund and Two New Payments.',
 				value: 'FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost',
-				description: `<br>You must have at least one of these scopes: 'payments.create, refunds.create, folios.manage'`,
-				action: 'Splits a payment into two using the percent or amount provided Creates a refund and two new payments.'
+				description: 'You must have at least one of these scopes: \'payments.create, refunds.create, folios.manage\'',
+				action: 'Splits a payment into two using the percent or amount provided creates a refund and two new payments'
 			}
 		],
 		default: 'FinanceFolio-actionsByFolioIdCancellation-feePost',
@@ -2925,65 +2925,65 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Cancels a pending payment link.',
+				name: 'Cancels a Pending Payment Link.',
 				value: 'FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut',
-				description: `Sets a pending payment with payment link to cancelled and triggers the cancellation.<br>You must have this scope: 'folios.manage'`,
-				action: 'Cancels a pending payment link.'
+				description: 'Sets a pending payment with payment link to cancelled and triggers the cancellation.You must have this scope: \'folios.manage\'',
+				action: 'Cancels a pending payment link'
 			},{
-				name: 'Captures a specific amount from a pre-authorization and posts it to the folio.',
+				name: 'Captures a Specific Amount From a Pre-Authorization and Posts It to the Folio.',
 				value: 'FinanceFoliosByFolioIdPaymentsBy-authorizationPost',
-				description: `Captures a specific amount from a pre-authorization and posts it to the folio. For the pre-authorization please ensure to set the respective metadata in the original payment transaction. The flow type has to be set to <i>CaptureOnly</i>. For more information please refer to the documentation of <a href="https://apaleo.dev/guides/business-cases/ibe/get-the-money" target="_blank">how to do a pre-authorization on a booking engine</a>. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio. The payment times out after 60 minutes automatically<br>You must have this scope: 'folios.manage'`,
-				action: 'Captures a specific amount from a pre-authorization and posts it to the folio.'
+				description: 'Captures a specific amount from a pre-authorization and posts it to the folio. For the pre-authorization please ensure to set the respective metadata in the original payment transaction. The flow type has to be set to <i>CaptureOnly</i>. For more information please refer to the documentation of <a href="https://apaleo.dev/guides/business-cases/ibe/get-the-money" target="_blank">how to do a pre-authorization on a booking engine</a>. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio. The payment times out after 60 minutes automaticallyYou must have this scope: \'folios.manage\'',
+				action: 'Captures a specific amount from a pre authorization and posts it to the folio'
 			},{
-				name: 'Creates a link to a payment form where guests can pay.',
+				name: 'Creates a Link to a Payment Form Where Guests Can Pay.',
 				value: 'FinanceFoliosByFolioIdPaymentsBy-linkPost',
-				description: `Creates a link to a payment form where guests can pay. To enable open invoice payment methods you need to provide at least the paid charges with the request. For some open invoice payment methods you also need to ensure that the full billing address of the folio is set, before you create the payment link. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio.<br>You must have this scope: 'folios.manage'`,
-				action: 'Creates a link to a payment form where guests can pay.'
+				description: 'Creates a link to a payment form where guests can pay. To enable open invoice payment methods you need to provide at least the paid charges with the request. For some open invoice payment methods you also need to ensure that the full billing address of the folio is set, before you create the payment link. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio.You must have this scope: \'folios.manage\'',
+				action: 'Creates a link to a payment form where guests can pay'
 			},{
-				name: 'Get a list of payments.',
+				name: 'Get a List of Payments.',
 				value: 'FinanceFoliosByFolioIdPaymentsGet',
-				description: `Returns a list of all payments for this folio ordered by creation date, newest first<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
-				action: 'Get a list of payments.'
+				description: 'Returns a list of all payments for this folio ordered by creation date, newest firstYou must have at least one of these scopes: \'folios.read, folios.manage\'',
+				action: 'Get a list of payments'
 			},{
-				name: 'Get a list of refunds.',
+				name: 'Get a List of Refunds.',
 				value: 'FinanceFoliosByFolioIdRefundsGet',
-				description: `Returns a list of all refunds for this folio ordered by creation date, newest first<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
-				action: 'Get a list of refunds.'
+				description: 'Returns a list of all refunds for this folio ordered by creation date, newest firstYou must have at least one of these scopes: \'folios.read, folios.manage\'',
+				action: 'Get a list of refunds'
 			},{
-				name: 'Get a payment by ID.',
+				name: 'Get a Payment by ID.',
 				value: 'FinanceFoliosByFolioIdPaymentsByPaymentIdGet',
-				description: `Get a payment by its ID<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
+				description: 'Get a payment by its IDYou must have at least one of these scopes: \'folios.read, folios.manage\'',
 				action: 'Get a payment by ID.'
 			},{
-				name: 'Get a refund by ID.',
+				name: 'Get a Refund by ID.',
 				value: 'FinanceFoliosByFolioIdRefundsByRefundIdGet',
-				description: `Get a refund by its ID<br>You must have at least one of these scopes: 'folios.read, folios.manage'`,
+				description: 'Get a refund by its IDYou must have at least one of these scopes: \'folios.read, folios.manage\'',
 				action: 'Get a refund by ID.'
 			},{
-				name: 'Trigger a custom payment for the folio.',
+				name: 'Trigger a Custom Payment for the Folio.',
 				value: 'FinanceFoliosByFolioIdPaymentsPost',
-				description: `A custom payment will not involve any automatic processing. This is best to be used for cash, cheque or voucher payments or payments that have been processed by an external system and it should just be recorded in apaleo for accounting purposes.<br>You must have this scope: 'folios.manage'`,
-				action: 'Trigger a custom payment for the folio.'
+				description: 'A custom payment will not involve any automatic processing. This is best to be used for cash, cheque or voucher payments or payments that have been processed by an external system and it should just be recorded in apaleo for accounting purposes.You must have this scope: \'folios.manage\'.',
+				action: 'Trigger a custom payment for the folio'
 			},{
-				name: 'Trigger a payment on a card terminal for the folio.',
+				name: 'Trigger a Payment on a Card Terminal for the Folio.',
 				value: 'FinanceFoliosByFolioIdPaymentsBy-terminalPost',
-				description: `Trigger a terminal payment for the folio. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio. The payment times out after 60 minutes automatically<br>You must have this scope: 'folios.manage'`,
-				action: 'Trigger a payment on a card terminal for the folio.'
+				description: 'Trigger a terminal payment for the folio. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio. The payment times out after 60 minutes automaticallyYou must have this scope: \'folios.manage\'',
+				action: 'Trigger a payment on a card terminal for the folio'
 			},{
-				name: 'Trigger a payment using the payment account stored on the reservation.',
+				name: 'Trigger a Payment Using the Payment Account Stored on the Reservation.',
 				value: 'FinanceFoliosByFolioIdPaymentsBy-payment-accountPost',
-				description: `Trigger a payment for the folio using the payment account stored on the reservation. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio. The payment times out after 60 minutes automatically<br>You must have this scope: 'folios.manage'`,
-				action: 'Trigger a payment using the payment account stored on the reservation.'
+				description: 'Trigger a payment for the folio using the payment account stored on the reservation. The payment will be processed asynchronously. Use the location header to poll for the status of the payment. As long as a payment is pending it reduces the amount of allowed payments for the folio. The payment times out after 60 minutes automaticallyYou must have this scope: \'folios.manage\'',
+				action: 'Trigger a payment using the payment account stored on the reservation'
 			},{
-				name: 'Trigger a refund for a specific payment.',
+				name: 'Trigger a Refund for a Specific Payment.',
 				value: 'FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost',
-				description: `Trigger a refund for a specific payment on this folio. The refund will be processed asynchronously. Use the location header to poll for the status of the refund. As long as a refund is pending the allowed refund amount for this payment will be reduced by the amount. The refund times out after 10 minutes automatically<br>You must have this scope: 'folios.manage'`,
-				action: 'Trigger a refund for a specific payment.'
+				description: 'Trigger a refund for a specific payment on this folio. The refund will be processed asynchronously. Use the location header to poll for the status of the refund. As long as a refund is pending the allowed refund amount for this payment will be reduced by the amount. The refund times out after 10 minutes automaticallyYou must have this scope: \'folios.manage\'',
+				action: 'Trigger a refund for a specific payment'
 			},{
-				name: 'Trigger a refund for the folio.',
+				name: 'Trigger a Refund for the Folio.',
 				value: 'FinanceFoliosByFolioIdRefundsPost',
-				description: `Trigger a generic refund for the folio. The refund will be processed asynchronously. Use the location header to poll for the status of the refund. As long as a refund is pending it reduces the amount of allowed refunds for the folio. The refund times out after 60 minutes automatically<br>You must have this scope: 'folios.manage'`,
-				action: 'Trigger a refund for the folio.'
+				description: 'Trigger a generic refund for the folio. The refund will be processed asynchronously. Use the location header to poll for the status of the refund. As long as a refund is pending it reduces the amount of allowed refunds for the folio. The refund times out after 60 minutes automaticallyYou must have this scope: \'folios.manage\'',
+				action: 'Trigger a refund for the folio'
 			}
 		],
 		default: 'FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut',
@@ -3000,35 +3000,35 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Creates an invoice for one specific folio.',
+				name: 'Creates an Invoice for One Specific Folio.',
 				value: 'FinanceInvoicesPost',
-				description: `Creates an invoice for one specific folio. The invoice can only be created once. The debitor needs to have name, city, postal code and country code, as these are required for invoices. If the folio is not fully paid, this will check out the reservation on AR and create an invoice with outstanding payments.<br>You must have at least one of these scopes: 'invoices.create, invoices.manage'`,
-				action: 'Creates an invoice for one specific folio.'
+				description: 'Creates an invoice for one specific folio. The invoice can only be created once. The debitor needs to have name, city, postal code and country code, as these are required for invoices. If the folio is not fully paid, this will check out the reservation on AR and create an invoice with outstanding payments.You must have at least one of these scopes: \'invoices.create, invoices.manage\'',
+				action: 'Creates an invoice for one specific folio'
 			},{
-				name: 'Gets a preview invoice PDF for one specific folio.',
+				name: 'Gets a Preview Invoice PDF for One Specific Folio.',
 				value: 'FinanceInvoicesPreview-pdfGet',
-				description: `Gets a preview invoice PDF for one specific folio.<br>You must have this scope: 'invoices.read'`,
-				action: 'Gets a preview invoice PDF for one specific folio.'
+				description: 'Gets a preview invoice PDF for one specific folio.You must have this scope: \'invoices.read\'',
+				action: 'Gets a preview invoice pdf for one specific folio'
 			},{
-				name: 'Gets an invoice PDF file.',
+				name: 'Gets an Invoice PDF File.',
 				value: 'FinanceInvoicesByIdPdfGet',
-				description: `Gets an invoice PDF file by its ID. Only works for invoices that have already been created using POST /invoices.<br>You must have this scope: 'invoices.read'`,
-				action: 'Gets an invoice PDF file.'
+				description: 'Gets an invoice PDF file by its ID. Only works for invoices that have already been created using POST /invoices.You must have this scope: \'invoices.read\'.',
+				action: 'Gets an invoice pdf file'
 			},{
-				name: 'Gets an invoice preview for one specific folio.',
+				name: 'Gets an Invoice Preview for One Specific Folio.',
 				value: 'FinanceInvoicesPreviewGet',
-				description: `To see if the invoice creation would be successful, check the warnings.<br>You must have this scope: 'invoices.read'`,
-				action: 'Gets an invoice preview for one specific folio.'
+				description: 'To see if the invoice creation would be successful, check the warnings.You must have this scope: \'invoices.read\'',
+				action: 'Gets an invoice preview for one specific folio'
 			},{
-				name: 'Gets invoice data.',
+				name: 'Gets Invoice Data.',
 				value: 'FinanceInvoicesByIdGet',
-				description: `Gets invoice data by its ID. Only works for invoices that have already been created using POST /invoices.<br>You must have this scope: 'invoices.read'`,
-				action: 'Gets invoice data.'
+				description: 'Gets invoice data by its ID. Only works for invoices that have already been created using POST /invoices.You must have this scope: \'invoices.read\'.',
+				action: 'Gets invoice data'
 			},{
-				name: 'Gets the list of all invoices (the metadata only, not the files).',
+				name: 'Gets the List of All Invoices (the Metadata only, Not the Files).',
 				value: 'FinanceInvoicesGet',
-				description: `Gets the list of all invoices (the metadata only, not the files).<br>You must have this scope: 'invoices.read'`,
-				action: 'Gets the list of all invoices (the metadata only, not the files).'
+				description: 'Gets the list of all invoices (the metadata only, not the files).You must have this scope: \'invoices.read\'',
+				action: 'Gets the list of all invoices the metadata only not the files'
 			}
 		],
 		default: 'FinanceInvoicesPost',
@@ -3045,14 +3045,14 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Marks an invoice as paid.',
+				name: 'Marks an Invoice as Paid.',
 				value: 'FinanceInvoice-actionsByIdPayPut',
-				description: `Settles the invoice, if the invoice has an amount to be paid (total != 0).<br>You must have this scope: 'invoices.manage'`,
-				action: 'Marks an invoice as paid.'
+				description: 'Settles the invoice, if the invoice has an amount to be paid (total != 0).You must have this scope: \'invoices.manage\'',
+				action: 'Marks an invoice as paid'
 			},{
-				name: 'Cancels an invoice',
+				name: 'Cancels an Invoice',
 				value: 'FinanceInvoice-actionsByIdCancelPut',
-				description: `For regular invoices and AR invoices that haven't been paid yet, creates a new cancellation invoice and opens the folio again. For advance invoices, creates a new cancellation invoice.<br>You must have this scope: 'invoices.manage'`,
+				description: 'For regular invoices and AR invoices that haven\'t been paid yet, creates a new cancellation invoice and opens the folio again. For advance invoices, creates a new cancellation invoice.You must have this scope: \'invoices.manage\'.',
 				action: 'Cancels an invoice'
 			}
 		],
@@ -3070,65 +3070,65 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Aggregates transactions by date (business day) for all accounts and a given period.',
+				name: 'Aggregates Transactions by Date (Business Day) for All Accounts and a Given Period.',
 				value: 'FinanceAccountsAggregate-dailyPost',
-				description: `Returns credited and debited amounts aggregated by transactions' date (business day) for all accounts and a given period. Stores an entry in the export audit log.<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Aggregates transactions by date (business day) for all accounts and a given period.'
+				description: 'Returns credited and debited amounts aggregated by transactions\' date (business day) for all accounts and a given period. Stores an entry in the export audit log.You must have at least one of these scopes: \'subledger.read, accounting.read\'.',
+				action: 'Aggregates transactions by date business day for all accounts and a given period'
 			},{
-				name: 'Aggregates transactions by timestamp for all accounts and a given period.',
+				name: 'Aggregates Transactions by Timestamp for All Accounts and a Given Period.',
 				value: 'FinanceAccountsAggregatePost',
-				description: `Returns credited and debited amounts aggregated by transactions' timestamp for all accounts and a given period. Stores an entry in the export audit log.<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Aggregates transactions by timestamp for all accounts and a given period.'
+				description: 'Returns credited and debited amounts aggregated by transactions\' timestamp for all accounts and a given period. Stores an entry in the export audit log.You must have at least one of these scopes: \'subledger.read, accounting.read\'.',
+				action: 'Aggregates transactions by timestamp for all accounts and a given period'
 			},{
-				name: 'Aggregates transactions pairs by date (business day) for all accounts and a given period.',
+				name: 'Aggregates Transactions Pairs by Date (Business Day) for All Accounts and a Given Period.',
 				value: 'FinanceAccountsAggregate-pairs-dailyPost',
-				description: `Returns total amount credited from one account to another<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Aggregates transactions pairs by date (business day) for all accounts and a given period.'
+				description: 'Returns total amount credited from one account to anotherYou must have at least one of these scopes: \'subledger.read, accounting.read\'',
+				action: 'Aggregates transactions pairs by date business day for all accounts and a given period'
 			},{
-				name: 'Returns a list of child accounts for a specified parent account.',
+				name: 'Returns a List of Child Accounts for a Specified Parent Account.',
 				value: 'FinanceAccountsChild-accountsGet',
-				description: `<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Returns a list of child accounts for a specified parent account.'
+				description: 'You must have at least one of these scopes: \'subledger.read, accounting.read\'',
+				action: 'Returns a list of child accounts for a specified parent account'
 			},{
-				name: 'Returns a list of external accounts.',
+				name: 'Returns a List of External Accounts.',
 				value: 'FinanceExternal-accountsGet',
-				description: `Returns a list of accounts in one property for a folio.<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Returns a list of external accounts.'
+				description: 'Returns a list of accounts in one property for a folio.You must have at least one of these scopes: \'subledger.read, accounting.read\'',
+				action: 'Returns a list of external accounts'
 			},{
-				name: 'Returns a list of global accounts.',
+				name: 'Returns a List of Global Accounts.',
 				value: 'FinanceGlobal-accountsGet',
-				description: `Returns a list of accounts in one property, having the same global account as parent.<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Returns a list of global accounts.'
+				description: 'Returns a list of accounts in one property, having the same global account as parent.You must have at least one of these scopes: \'subledger.read, accounting.read\'',
+				action: 'Returns a list of global accounts'
 			},{
-				name: 'Returns a list of guest accounts.',
+				name: 'Returns a List of Guest Accounts.',
 				value: 'FinanceGuest-accountsGet',
-				description: `Returns a list of accounts in one property for a reservation.<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Returns a list of guest accounts.'
+				description: 'Returns a list of accounts in one property for a reservation.You must have at least one of these scopes: \'subledger.read, accounting.read\'',
+				action: 'Returns a list of guest accounts'
 			},{
-				name: 'Returns gross transactions filtered by date (business day) for a property for a given period.',
+				name: 'Returns Gross Transactions Filtered by Date (Business Day) for a Property for a Given Period.',
 				value: 'FinanceAccountsExport-gross-dailyPost',
-				description: `Returns the raw transaction data for a given property and time period. Stores an entry in the export audit log.<br>You must have at least one of these scopes: 'transactions.export, accounting.read'`,
-				action: 'Returns gross transactions filtered by date (business day) for a property for a given period.'
+				description: 'Returns the raw transaction data for a given property and time period. Stores an entry in the export audit log.You must have at least one of these scopes: \'transactions.export, accounting.read\'.',
+				action: 'Returns gross transactions filtered by date business day for a property for a given period'
 			},{
-				name: 'Returns one account.',
+				name: 'Returns One Account.',
 				value: 'FinanceAccountsByNumberGet',
-				description: `Returns one account, as specified by its number and the property.<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Returns one account.'
+				description: 'Returns one account, as specified by its number and the property.You must have at least one of these scopes: \'subledger.read, accounting.read\'',
+				action: 'Returns one account'
 			},{
-				name: 'Returns the chart of accounts of the subledger.',
+				name: 'Returns the Chart of Accounts of the Subledger.',
 				value: 'FinanceAccountsSchemaGet',
-				description: `Returns the schema of subledger, split into global and guest ledger.<br>You must have at least one of these scopes: 'subledger.read, accounting.read'`,
-				action: 'Returns the chart of accounts of the subledger.'
+				description: 'Returns the schema of subledger, split into global and guest ledger.You must have at least one of these scopes: \'subledger.read, accounting.read\'',
+				action: 'Returns the chart of accounts of the subledger'
 			},{
-				name: 'Returns transactions filtered by date (business day) for a property for a given period.',
+				name: 'Returns Transactions Filtered by Date (Business Day) for a Property for a Given Period.',
 				value: 'FinanceAccountsExport-dailyPost',
-				description: `Returns the raw transaction data for a given property and time period. Stores an entry in the export audit log.<br>You must have at least one of these scopes: 'transactions.export, accounting.read'`,
-				action: 'Returns transactions filtered by date (business day) for a property for a given period.'
+				description: 'Returns the raw transaction data for a given property and time period. Stores an entry in the export audit log.You must have at least one of these scopes: \'transactions.export, accounting.read\'.',
+				action: 'Returns transactions filtered by date business day for a property for a given period'
 			},{
-				name: 'Returns transactions filtered by timestamp for a property for a given period.',
+				name: 'Returns Transactions Filtered by Timestamp for a Property for a Given Period.',
 				value: 'FinanceAccountsExportPost',
-				description: `Returns the raw transaction data for a given property and time period. Stores an entry in the export audit log.<br>You must have at least one of these scopes: 'transactions.export, accounting.read'`,
-				action: 'Returns transactions filtered by timestamp for a property for a given period.'
+				description: 'Returns the raw transaction data for a given property and time period. Stores an entry in the export audit log.You must have at least one of these scopes: \'transactions.export, accounting.read\'.',
+				action: 'Returns transactions filtered by timestamp for a property for a given period'
 			}
 		],
 		default: 'FinanceAccountsAggregate-dailyPost',
@@ -3145,24 +3145,24 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get a properties list',
+				name: 'Get a Properties List',
 				value: 'InventoryPropertiesGet',
-				description: `Get the list of properties.<br>You need to be authorized (no particular scope required)`,
+				description: 'Get the list of properties.You need to be authorized (no particular scope required)',
 				action: 'Get a properties list'
 			},{
-				name: 'Creates a property',
+				name: 'Creates a Property',
 				value: 'InventoryPropertiesPost',
-				description: `Use this call to create a new property.<br>You must have at least one of these scopes: 'properties.create, setup.manage'`,
+				description: 'Use this call to create a new property.You must have at least one of these scopes: \'properties.create, setup.manage\'',
 				action: 'Creates a property'
 			},{
-				name: 'Get a property',
+				name: 'Get a Property',
 				value: 'InventoryPropertiesByIdGet',
-				description: `Get a property by ID.<br>You need to be authorized (no particular scope required)`,
+				description: 'Get a property by ID.You need to be authorized (no particular scope required)',
 				action: 'Get a property'
 			},{
-				name: 'Allows to modify property',
+				name: 'Allows to Modify Property',
 				value: 'InventoryPropertiesByIdPatch',
-				description: `Here's a list of allowed operations: - Replace Name - Add, replace and remove Description - Replace CompanyName - Add, replace and remove ManagingDirectors - Replace CommercialRegisterEntry - Replace TaxId - Replace Location - Add, replace and remove BankAccount - Replace PaymentTerms - Set IsTemplate<br>You must have at least one of these scopes: 'properties.manage, setup.manage'`,
+				description: 'Here\'s a list of allowed operations: - Replace Name - Add, replace and remove Description - Replace CompanyName - Add, replace and remove ManagingDirectors - Replace CommercialRegisterEntry - Replace TaxId - Replace Location - Add, replace and remove BankAccount - Replace PaymentTerms - Set IsTemplateYou must have at least one of these scopes: \'properties.manage, setup.manage\'',
 				action: 'Allows to modify property'
 			}
 		],
@@ -3180,49 +3180,49 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allows to patch one or more units',
+				name: 'Allows to Patch One or More Units',
 				value: 'InventoryUnitsPatch',
-				description: `Here's a list of allowed operations: - Set unit condition - Set unit description - Set unit name - Set unit unitGroupId - Set unit maxPersons - Add unit attribute - Remove unit attribute<br>You must have at least one of these scopes: 'units.manage, setup.manage'`,
+				description: 'Here\'s a list of allowed operations: - Set unit condition - Set unit description - Set unit name - Set unit unitGroupId - Set unit maxPersons - Add unit attribute - Remove unit attributeYou must have at least one of these scopes: \'units.manage, setup.manage\'',
 				action: 'Allows to patch one or more units'
 			},{
-				name: 'Allows to patch unit',
+				name: 'Allows to Patch Unit',
 				value: 'InventoryUnitsByIdPatch',
-				description: `Here's a list of allowed operations: - Set unit condition - Set unit description - Set unit name - Set unit unitGroupId - Set unit maxPersons - Add unit attribute - Remove unit attribute<br>You must have at least one of these scopes: 'units.manage, setup.manage'`,
+				description: 'Here\'s a list of allowed operations: - Set unit condition - Set unit description - Set unit name - Set unit unitGroupId - Set unit maxPersons - Add unit attribute - Remove unit attributeYou must have at least one of these scopes: \'units.manage, setup.manage\'',
 				action: 'Allows to patch unit'
 			},{
-				name: 'Check if a unit exists',
+				name: 'Check if a Unit Exists',
 				value: 'InventoryUnitsByIdHead',
-				description: `Check if a unit exists by ID.<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'`,
+				description: 'Check if a unit exists by ID.You must have at least one of these scopes: \'units.read, setup.read, setup.manage\'',
 				action: 'Check if a unit exists'
 			},{
-				name: 'Create a unit',
+				name: 'Create a Unit',
 				value: 'InventoryUnitsPost',
-				description: `Use this call to create a new unit.<br>You must have at least one of these scopes: 'units.create, setup.manage'`,
+				description: 'Use this call to create a new unit.You must have at least one of these scopes: \'units.create, setup.manage\'',
 				action: 'Create a unit'
 			},{
-				name: 'Create multiple units',
+				name: 'Create Multiple Units',
 				value: 'InventoryUnitsBulkPost',
-				description: `Use this call to create multiple units, following a naming rule.<br>You must have at least one of these scopes: 'units.create, setup.manage'`,
+				description: 'Use this call to create multiple units, following a naming rule.You must have at least one of these scopes: \'units.create, setup.manage\'',
 				action: 'Create multiple units'
 			},{
-				name: 'Delete a unit',
+				name: 'Delete a Unit',
 				value: 'InventoryUnitsByIdDelete',
-				description: `Use this call to delete a unit.<br>You must have at least one of these scopes: 'units.delete, setup.manage'`,
+				description: 'Use this call to delete a unit.You must have at least one of these scopes: \'units.delete, setup.manage\'',
 				action: 'Delete a unit'
 			},{
-				name: 'Get a unit',
+				name: 'Get a Unit',
 				value: 'InventoryUnitsByIdGet',
-				description: `Get a unit by ID.<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'`,
+				description: 'Get a unit by ID.You must have at least one of these scopes: \'units.read, setup.read, setup.manage\'',
 				action: 'Get a unit'
 			},{
-				name: 'Get a units list',
+				name: 'Get a Units List',
 				value: 'InventoryUnitsGet',
-				description: `Get the list of units.<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'`,
+				description: 'Get the list of units.You must have at least one of these scopes: \'units.read, setup.read, setup.manage\'',
 				action: 'Get a units list'
 			},{
-				name: 'Returns number of units',
+				name: 'Returns Number of Units',
 				value: 'InventoryUnits$countGet',
-				description: `Returns number of units matching the filter criteria<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'`,
+				description: 'Returns number of units matching the filter criteriaYou must have at least one of these scopes: \'units.read, setup.read, setup.manage\'',
 				action: 'Returns number of units'
 			}
 		],
@@ -3240,29 +3240,29 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allows to modify unit attribute',
+				name: 'Allows to Modify Unit Attribute',
 				value: 'InventoryUnit-attributesByIdPatch',
-				description: `Here's a list of allowed operations: - Replace / Remove Description<br>You must have at least one of these scopes: 'unitattributes.manage, setup.manage'`,
+				description: 'Here\'s a list of allowed operations: - Replace / Remove DescriptionYou must have at least one of these scopes: \'unitattributes.manage, setup.manage\'',
 				action: 'Allows to modify unit attribute'
 			},{
-				name: 'Check if a unit attribute exists',
+				name: 'Check if a Unit Attribute Exists',
 				value: 'InventoryUnit-attributesByIdHead',
-				description: `Check if a unit attribute exists<br>You must have at least one of these scopes: 'unitattributes.read, setup.read, setup.manage'`,
+				description: 'Check if a unit attribute existsYou must have at least one of these scopes: \'unitattributes.read, setup.read, setup.manage\'',
 				action: 'Check if a unit attribute exists'
 			},{
-				name: 'Create a unit attribute',
+				name: 'Create a Unit Attribute',
 				value: 'InventoryUnit-attributesPost',
-				description: `Use this call to create a new unit attribute.<br>You must have at least one of these scopes: 'unitattributes.create, setup.manage'`,
+				description: 'Use this call to create a new unit attribute.You must have at least one of these scopes: \'unitattributes.create, setup.manage\'',
 				action: 'Create a unit attribute'
 			},{
-				name: 'Get unit attribute by id',
+				name: 'Get Unit Attribute by ID',
 				value: 'InventoryUnit-attributesByIdGet',
-				description: `Get unit attribute by ID<br>You must have at least one of these scopes: 'unitattributes.read, setup.read, setup.manage'`,
+				description: 'Get unit attribute by IDYou must have at least one of these scopes: \'unitattributes.read, setup.read, setup.manage\'',
 				action: 'Get unit attribute by id'
 			},{
-				name: 'Get unit attribute list',
+				name: 'Get Unit Attribute List',
 				value: 'InventoryUnit-attributesGet',
-				description: `Get unit attribute list<br>You must have at least one of these scopes: 'unitattributes.read, setup.read, setup.manage'`,
+				description: 'Get unit attribute listYou must have at least one of these scopes: \'unitattributes.read, setup.read, setup.manage\'',
 				action: 'Get unit attribute list'
 			}
 		],
@@ -3280,34 +3280,34 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Check if a unit group exists',
+				name: 'Check if a Unit Group Exists',
 				value: 'InventoryUnit-groupsByIdHead',
-				description: `Check if a unit group exists by ID.<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'`,
+				description: 'Check if a unit group exists by ID.You must have at least one of these scopes: \'unitgroups.read, setup.read, setup.manage\'',
 				action: 'Check if a unit group exists'
 			},{
-				name: 'Create a unit group',
+				name: 'Create a Unit Group',
 				value: 'InventoryUnit-groupsPost',
-				description: `Use this call to create a new unit group.<br>You must have at least one of these scopes: 'unitgroups.create, setup.manage'`,
+				description: 'Use this call to create a new unit group.You must have at least one of these scopes: \'unitgroups.create, setup.manage\'',
 				action: 'Create a unit group'
 			},{
-				name: 'Get a unit group',
+				name: 'Get a Unit Group',
 				value: 'InventoryUnit-groupsByIdGet',
-				description: `Get a unit group by ID.<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'`,
+				description: 'Get a unit group by ID.You must have at least one of these scopes: \'unitgroups.read, setup.read, setup.manage\'',
 				action: 'Get a unit group'
 			},{
-				name: 'Get all unit groups, or all unit groups for a property',
+				name: 'Get All Unit Groups, or All Unit Groups for a Property',
 				value: 'InventoryUnit-groupsGet',
-				description: `Get the list of unit groups.<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'`,
-				action: 'Get all unit groups, or all unit groups for a property'
+				description: 'Get the list of unit groups.You must have at least one of these scopes: \'unitgroups.read, setup.read, setup.manage\'',
+				action: 'Get all unit groups or all unit groups for a property'
 			},{
-				name: 'Replace a unit group',
+				name: 'Replace a Unit Group',
 				value: 'InventoryUnit-groupsByIdPut',
-				description: `Use this call to modify a unit group.<br>You must have at least one of these scopes: 'unitgroups.manage, setup.manage'`,
+				description: 'Use this call to modify a unit group.You must have at least one of these scopes: \'unitgroups.manage, setup.manage\'',
 				action: 'Replace a unit group'
 			},{
-				name: 'Returns number of unit groups',
+				name: 'Returns Number of Unit Groups',
 				value: 'InventoryUnit-groups$countGet',
-				description: `Returns number of unit groups matching the filter criteria<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'`,
+				description: 'Returns number of unit groups matching the filter criteriaYou must have at least one of these scopes: \'unitgroups.read, setup.read, setup.manage\'',
 				action: 'Returns number of unit groups'
 			}
 		],
@@ -3325,10 +3325,10 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Returns reservation change log entries sorted by the timestamp.',
+				name: 'Returns Reservation Change Log Entries Sorted by the Timestamp.',
 				value: 'LogsBookingReservationGet',
-				description: `<br>You must have this scope: 'logs.read'`,
-				action: 'Returns reservation change log entries sorted by the timestamp.'
+				description: 'You must have this scope: \'logs.read\'',
+				action: 'Returns reservation change log entries sorted by the timestamp'
 			}
 		],
 		default: 'LogsBookingReservationGet',
@@ -3345,20 +3345,20 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Returns folio change log entries sorted by the timestamp.',
+				name: 'Returns Folio Change Log Entries Sorted by the Timestamp.',
 				value: 'LogsFinanceFolioGet',
-				description: `<br>You must have this scope: 'logs.read'`,
-				action: 'Returns folio change log entries sorted by the timestamp.'
+				description: 'You must have this scope: \'logs.read\'',
+				action: 'Returns folio change log entries sorted by the timestamp'
 			},{
-				name: 'Returns the night audit logs.',
+				name: 'Returns the Night Audit Logs.',
 				value: 'LogsFinanceNight-auditGet',
-				description: `Returns a log of all night audits Newest log entries are returned first.<br>You must have this scope: 'logs.read'`,
-				action: 'Returns the night audit logs.'
+				description: 'Returns a log of all night audits Newest log entries are returned first.You must have this scope: \'logs.read\'',
+				action: 'Returns the night audit logs'
 			},{
-				name: 'Returns the audit log for all accounting exports that have been done.',
+				name: 'Returns the Audit Log for All Accounting Exports that Have Been Done.',
 				value: 'LogsFinanceTransactions-exportGet',
-				description: `Returns the audit log for all exports if accounting data that have been done.<br>You must have this scope: 'logs.read'`,
-				action: 'Returns the audit log for all accounting exports that have been done.'
+				description: 'Returns the audit log for all exports if accounting data that have been done.You must have this scope: \'logs.read\'',
+				action: 'Returns the audit log for all accounting exports that have been done'
 			}
 		],
 		default: 'LogsFinanceFolioGet',
@@ -3375,44 +3375,44 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Check if a maintenance exists',
+				name: 'Check if a Maintenance Exists',
 				value: 'OperationsMaintenancesByIdHead',
-				description: `Check if a maintenance exists by ID.<br>You must have at least one of these scopes: 'maintenances.read, maintenances.manage'`,
+				description: 'Check if a maintenance exists by ID.You must have at least one of these scopes: \'maintenances.read, maintenances.manage\'',
 				action: 'Check if a maintenance exists'
 			},{
-				name: 'Create a new maintenance window',
+				name: 'Create a New Maintenance Window',
 				value: 'OperationsMaintenancesPost',
-				description: `Use this call to create a new maintenance window for the given unit. You can only create maintenances for today and days in the future.<br>You must have at least one of these scopes: 'maintenances.create, maintenances.manage'`,
+				description: 'Use this call to create a new maintenance window for the given unit. You can only create maintenances for today and days in the future.You must have at least one of these scopes: \'maintenances.create, maintenances.manage\'.',
 				action: 'Create a new maintenance window'
 			},{
-				name: 'Create multiple maintenances',
+				name: 'Create Multiple Maintenances',
 				value: 'OperationsMaintenancesBulkPost',
-				description: `Use this call to create multiple maintenances.<br>You must have at least one of these scopes: 'maintenances.create, setup.manage'`,
+				description: 'Use this call to create multiple maintenances.You must have at least one of these scopes: \'maintenances.create, setup.manage\'',
 				action: 'Create multiple maintenances'
 			},{
-				name: 'Delete a maintenance',
+				name: 'Delete a Maintenance',
 				value: 'OperationsMaintenancesByIdDelete',
-				description: `Use this call to delete a maintenance. It is not possible to delete maintenances that started yesterday or earlier.<br>You must have at least one of these scopes: 'maintenances.delete, maintenances.manage'`,
+				description: 'Use this call to delete a maintenance. It is not possible to delete maintenances that started yesterday or earlier.You must have at least one of these scopes: \'maintenances.delete, maintenances.manage\'.',
 				action: 'Delete a maintenance'
 			},{
-				name: 'Get a specific maintenance',
+				name: 'Get a Specific Maintenance',
 				value: 'OperationsMaintenancesByIdGet',
-				description: `Get a specific maintenance by ID.<br>You must have at least one of these scopes: 'maintenances.read, maintenances.manage'`,
+				description: 'Get a specific maintenance by ID.You must have at least one of these scopes: \'maintenances.read, maintenances.manage\'',
 				action: 'Get a specific maintenance'
 			},{
-				name: 'Get list of maintenances',
+				name: 'Get List of Maintenances',
 				value: 'OperationsMaintenancesGet',
-				description: `Get a list of maintenances matching your filter.<br>You must have at least one of these scopes: 'maintenances.read, maintenances.manage'`,
+				description: 'Get a list of maintenances matching your filter.You must have at least one of these scopes: \'maintenances.read, maintenances.manage\'',
 				action: 'Get list of maintenances'
 			},{
-				name: 'Modify a maintenance',
+				name: 'Modify a Maintenance',
 				value: 'OperationsMaintenancesByIdPatch',
-				description: `You can only change maintenances which are in the future or still ongoing today. Here is the list of operations that are currently allowed: - Add, replace and remove Description - Replace From and To. 'From' cannot be changed, if the maintenance started yesterday or before.<br>You must have this scope: 'maintenances.manage'`,
+				description: 'You can only change maintenances which are in the future or still ongoing today. Here is the list of operations that are currently allowed: - Add, replace and remove Description - Replace From and To. \'From\' cannot be changed, if the maintenance started yesterday or before.You must have this scope: \'maintenances.manage\'',
 				action: 'Modify a maintenance'
 			},{
-				name: 'Returns number of maintenances',
+				name: 'Returns Number of Maintenances',
 				value: 'OperationsMaintenances$countGet',
-				description: `Returns the number of maintenances matching your filter.<br>You must have at least one of these scopes: 'maintenances.read, maintenances.manage'`,
+				description: 'Returns the number of maintenances matching your filter.You must have at least one of these scopes: \'maintenances.read, maintenances.manage\'',
 				action: 'Returns number of maintenances'
 			}
 		],
@@ -3430,14 +3430,14 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Performs the night audit for one property.',
+				name: 'Performs the Night Audit for One Property.',
 				value: 'OperationsNight-auditPut',
-				description: `The night audit will post all charges for services that were delivered on the past business day in the folio and set all occupied rooms to 'Dirty'<br>You must have at least one of these scopes: 'operations.manage, operations.trigger-night-audit'`,
-				action: 'Performs the night audit for one property.'
+				description: 'The night audit will post all charges for services that were delivered on the past business day in the folio and set all occupied rooms to \'Dirty\'You must have at least one of these scopes: \'operations.manage, operations.trigger-night-audit\'',
+				action: 'Performs the night audit for one property'
 			},{
-				name: 'Change the condition of a unit',
+				name: 'Change the Condition of a Unit',
 				value: 'OperationsUnits-conditionPut',
-				description: `<br>You must have this scope: 'operations.change-room-state'`,
+				description: 'You must have this scope: \'operations.change-room-state\'',
 				action: 'Change the condition of a unit'
 			}
 		],
@@ -3455,24 +3455,24 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get an age category',
+				name: 'Get an Age Category',
 				value: 'SettingsAge-categoriesByIdGet',
-				description: `Get an age category by ID.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
+				description: 'Get an age category by ID.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
 				action: 'Get an age category'
 			},{
-				name: 'Allows to modify properties of an age category',
+				name: 'Allows to Modify Properties of an Age Category',
 				value: 'SettingsAge-categoriesByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace name, minimum age and maximum age <br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Replace name, minimum age and maximum age You must have at least one of these scopes: \'settings.manage, setup.manage\'',
 				action: 'Allows to modify properties of an age category'
 			},{
-				name: 'Create an age category',
+				name: 'Create an Age Category',
 				value: 'SettingsAge-categoriesPost',
-				description: `Use this call to create a new age category. The age ranges for categories must not overlap each other and the allowed values span from 0 to 17. <br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'Use this call to create a new age category. The age ranges for categories must not overlap each other and the allowed values span from 0 to 17. You must have at least one of these scopes: \'settings.manage, setup.manage\'',
 				action: 'Create an age category'
 			},{
-				name: 'Get an age category list',
+				name: 'Get an Age Category List',
 				value: 'SettingsAge-categoriesGet',
-				description: `Get the list of age categories. <br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
+				description: 'Get the list of age categories. You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'.',
 				action: 'Get an age category list'
 			}
 		],
@@ -3490,24 +3490,24 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Create a cancellation policy.',
+				name: 'Create a Cancellation Policy.',
 				value: 'RateplanCancellation-policiesPost',
-				description: `Create a cancellation policy.<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
-				action: 'Create a cancellation policy.'
+				description: 'Create a cancellation policy.You must have at least one of these scopes: \'settings.manage, setup.manage\'',
+				action: 'Create a cancellation policy'
 			},{
-				name: 'Get all cancellation policies.',
+				name: 'Get All Cancellation Policies.',
 				value: 'RateplanCancellation-policiesGet',
-				description: `Get the list of cancellation policies.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get all cancellation policies.'
+				description: 'Get the list of cancellation policies.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get all cancellation policies'
 			},{
-				name: 'Get a specific cancellation policy.',
+				name: 'Get a Specific Cancellation Policy.',
 				value: 'RateplanCancellation-policiesByIdGet',
-				description: `Get a specific cancellation policy.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get a specific cancellation policy.'
+				description: 'Get a specific cancellation policy.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get a specific cancellation policy'
 			},{
-				name: 'Allows to modify properties of a cancellation policy',
+				name: 'Allows to Modify Properties of a Cancellation Policy',
 				value: 'RateplanCancellation-policiesByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace name and description - Replace the period from reference - Replace the reference - Replace the fee details: fixed and percent values<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Replace name and description - Replace the period from reference - Replace the reference - Replace the fee details: fixed and percent valuesYou must have at least one of these scopes: \'settings.manage, setup.manage\'',
 				action: 'Allows to modify properties of a cancellation policy'
 			}
 		],
@@ -3525,24 +3525,24 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Create a company',
+				name: 'Create a Company',
 				value: 'RateplanCompaniesPost',
-				description: `Use this call to create a new company.<br>You must have at least one of these scopes: 'companies.create, companies.manage'`,
+				description: 'Use this call to create a new company.You must have at least one of these scopes: \'companies.create, companies.manage\'',
 				action: 'Create a company'
 			},{
-				name: 'Get a list of companies',
+				name: 'Get a List of Companies',
 				value: 'RateplanCompaniesGet',
-				description: `Get the list of companies. <br>You must have at least one of these scopes: 'companies.read, companies.manage'`,
+				description: 'Get the list of companies. You must have at least one of these scopes: \'companies.read, companies.manage\'.',
 				action: 'Get a list of companies'
 			},{
-				name: 'Get a company',
+				name: 'Get a Company',
 				value: 'RateplanCompaniesByIdGet',
-				description: `Get a company by ID.<br>You must have at least one of these scopes: 'companies.read, companies.manage'`,
+				description: 'Get a company by ID.You must have at least one of these scopes: \'companies.read, companies.manage\'',
 				action: 'Get a company'
 			},{
-				name: 'Modify a company',
+				name: 'Modify a Company',
 				value: 'RateplanCompaniesByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace name, invoicingEmail, phone, taxId, additionalTaxId, additionalTaxId2, address, canCheckOutOnAr - Add, replace and remove rate plans<br>You must have this scope: 'companies.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Replace name, invoicingEmail, phone, taxId, additionalTaxId, additionalTaxId2, address, canCheckOutOnAr - Add, replace and remove rate plansYou must have this scope: \'companies.manage\'',
 				action: 'Modify a company'
 			}
 		],
@@ -3560,10 +3560,10 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Returns a list of corporate codes.',
+				name: 'Returns a List of Corporate Codes.',
 				value: 'RateplanCorporate-codesCodesGet',
-				description: `Returns all existing corporate codes that match given criteria.<br>You must have this scope: 'rateplans.read-corporate'`,
-				action: 'Returns a list of corporate codes.'
+				description: 'Returns all existing corporate codes that match given criteria.You must have this scope: \'rateplans.read-corporate\'',
+				action: 'Returns a list of corporate codes'
 			}
 		],
 		default: 'RateplanCorporate-codesCodesGet',
@@ -3580,25 +3580,25 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Create a no-show policy.',
+				name: 'Create a No-Show Policy.',
 				value: 'RateplanNo-show-policiesPost',
-				description: `Create a no-show policy.<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
-				action: 'Create a no-show policy.'
+				description: 'Create a no-show policy.You must have at least one of these scopes: \'settings.manage, setup.manage\'',
+				action: 'Create a no show policy'
 			},{
-				name: 'Get all no-show policies.',
+				name: 'Get All No-Show Policies.',
 				value: 'RateplanNo-show-policiesGet',
-				description: `Get the list of no-show policies.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get all no-show policies.'
+				description: 'Get the list of no-show policies.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get all no show policies'
 			},{
-				name: 'Get a specific no-show policy.',
+				name: 'Get a Specific No-Show Policy.',
 				value: 'RateplanNo-show-policiesByIdGet',
-				description: `Get a specific no-show policy.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get a specific no-show policy.'
+				description: 'Get a specific no-show policy.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get a specific no show policy'
 			},{
-				name: 'Allows to modify properties of a no-show policy',
+				name: 'Allows to Modify Properties of a No-Show Policy',
 				value: 'RateplanNo-show-policiesByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace name and description - Replace the fee details: fixed and percent values<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
-				action: 'Allows to modify properties of a no-show policy'
+				description: 'Here is the list of operations that are currently allowed: - Replace name and description - Replace the fee details: fixed and percent valuesYou must have at least one of these scopes: \'settings.manage, setup.manage\'',
+				action: 'Allows to modify properties of a no show policy'
 			}
 		],
 		default: 'RateplanNo-show-policiesPost',
@@ -3615,10 +3615,10 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Returns a list of promo codes.',
+				name: 'Returns a List of Promo Codes.',
 				value: 'RateplanPromo-codesCodesGet',
-				description: `Returns all existing promo codes that match given criteria.<br>You must have this scope: 'rateplans.read-corporate'`,
-				action: 'Returns a list of promo codes.'
+				description: 'Returns all existing promo codes that match given criteria.You must have this scope: \'rateplans.read-corporate\'',
+				action: 'Returns a list of promo codes'
 			}
 		],
 		default: 'RateplanPromo-codesCodesGet',
@@ -3635,20 +3635,20 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Returns a list of rates.',
+				name: 'Returns a List of Rates.',
 				value: 'RateplanRate-plansByIdRatesGet',
-				description: `Returns all rates for a specific rate plan within the specified time range. If a rate has not been initialized, it will still be returned, but anything besides the from and to values will be empty. The time range of a rate is defined by the time slice definition of the rate plan. Time ranges with no initialized rates will not be available for sell. To be able to read rates for a corporate rate plan a client must additionally have the 'rateplans.read-corporate' scope.<br>You must have at least one of these scopes: 'rates.read, rates.manage'`,
-				action: 'Returns a list of rates.'
+				description: 'Returns all rates for a specific rate plan within the specified time range. If a rate has not been initialized, it will still be returned, but anything besides the from and to values will be empty. The time range of a rate is defined by the time slice definition of the rate plan. Time ranges with no initialized rates will not be available for sell. To be able to read rates for a corporate rate plan a client must additionally have the \'rateplans.read-corporate\' scope.You must have at least one of these scopes: \'rates.read, rates.manage\'',
+				action: 'Returns a list of rates'
 			},{
-				name: 'Initializes and changes the rates for the rate plan.',
+				name: 'Initializes and Changes the Rates for the Rate Plan.',
 				value: 'RateplanRate-plansByIdRatesPut',
-				description: `All rates specified in the request will be initialized, or overwritten if they already exist. Make sure that the from and to date and time in the rates match the time slice definition of the rate plan. The easiest way to achieve this is calling the GET /rate-plans/{ID}/rates for the time range you want to update and then resend the payload with the set prices and restrictions.<br>You must have this scope: 'rates.manage'`,
-				action: 'Initializes and changes the rates for the rate plan.'
+				description: 'All rates specified in the request will be initialized, or overwritten if they already exist. Make sure that the from and to date and time in the rates match the time slice definition of the rate plan. The easiest way to achieve this is calling the GET /rate-plans/{ID}/rates for the time range you want to update and then resend the payload with the set prices and restrictions.You must have this scope: \'rates.manage\'',
+				action: 'Initializes and changes the rates for the rate plan'
 			},{
-				name: 'Allows to patch the rates of multiple rate plans.',
+				name: 'Allows to Patch the Rates of Multiple Rate Plans.',
 				value: 'RateplanRatesPatch',
-				description: `Note that the specified PATCH operations are applied to each and every rate for the specified time range. Here is the list of operations that are currently allowed: - Add, replace and remove Price - Add, replace and remove Restrictions<br>You must have this scope: 'rates.manage'`,
-				action: 'Allows to patch the rates of multiple rate plans.'
+				description: 'Note that the specified PATCH operations are applied to each and every rate for the specified time range. Here is the list of operations that are currently allowed: - Add, replace and remove Price - Add, replace and remove RestrictionsYou must have this scope: \'rates.manage\'.',
+				action: 'Allows to patch the rates of multiple rate plans'
 			}
 		],
 		default: 'RateplanRate-plansByIdRatesGet',
@@ -3665,29 +3665,29 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allows to patch one or more rate plans',
+				name: 'Allows to Patch One or More Rate Plans',
 				value: 'RateplanRate-plansPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace Name - Replace Description - Replace MinGuaranteeType - Replace PriceCalculationMode - Replace CancellationPolicy - Replace NoShowPolicy - Replace ChannelCodes - Replace Companies - Add, replace and remove PromoCode - Add, replace and remove Restrictions - Add, replace and remove BookingPeriods - Add, replace and remove IsSubjectToCityTax - Add, replace and remove PricingRule - Add, replace and remove Surcharges - Add, replace and remove AgeCategories - Add, replace and remove IncludedServices - Add/Replace/Remove/Update AccountingConfigs - Add, replace and remove MarketSegment/Id<br>You must have at least one of these scopes: 'rateplans.manage, setup.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Replace Name - Replace Description - Replace MinGuaranteeType - Replace PriceCalculationMode - Replace CancellationPolicy - Replace NoShowPolicy - Replace ChannelCodes - Replace Companies - Add, replace and remove PromoCode - Add, replace and remove Restrictions - Add, replace and remove BookingPeriods - Add, replace and remove IsSubjectToCityTax - Add, replace and remove PricingRule - Add, replace and remove Surcharges - Add, replace and remove AgeCategories - Add, replace and remove IncludedServices - Add/Replace/Remove/Update AccountingConfigs - Add, replace and remove MarketSegment/IdYou must have at least one of these scopes: \'rateplans.manage, setup.manage\'',
 				action: 'Allows to patch one or more rate plans'
 			},{
-				name: 'Create a rate plan',
+				name: 'Create a Rate Plan',
 				value: 'RateplanRate-plansPost',
-				description: `Use this call to create a new rate plan. The rate plan will already contain empty rates, fill them later using PUT rates.<br>You must have at least one of these scopes: 'rateplans.create, setup.manage'`,
+				description: 'Use this call to create a new rate plan. The rate plan will already contain empty rates, fill them later using PUT rates.You must have at least one of these scopes: \'rateplans.create, setup.manage\'.',
 				action: 'Create a rate plan'
 			},{
-				name: 'Get a rate plan',
+				name: 'Get a Rate Plan',
 				value: 'RateplanRate-plansByIdGet',
-				description: `Get a rate plan by ID.              To be able to read a corporate rate plan a client must additionaly have 'rateplans.read-corporate' scope assigned.<br>You must have at least one of these scopes: 'rateplans.read, setup.read, setup.manage'`,
+				description: 'Get a rate plan by ID. To be able to read a corporate rate plan a client must additionaly have \'rateplans.read-corporate\' scope assigned.You must have at least one of these scopes: \'rateplans.read, setup.read, setup.manage\'.',
 				action: 'Get a rate plan'
 			},{
-				name: 'Get a rate plan list',
+				name: 'Get a Rate Plan List',
 				value: 'RateplanRate-plansGet',
-				description: `Get the list of rate plans depending on client scopes.              If a client has no additional scopes, only public rate plans are returned. The 'rateplans.read-corporate' scope adds corporate rate plans to the response.<br>You must have at least one of these scopes: 'rateplans.read, setup.read, setup.manage'`,
+				description: 'Get the list of rate plans depending on client scopes. If a client has no additional scopes, only public rate plans are returned. The \'rateplans.read-corporate\' scope adds corporate rate plans to the response.You must have at least one of these scopes: \'rateplans.read, setup.read, setup.manage\'',
 				action: 'Get a rate plan list'
 			},{
-				name: 'Replace a rate plan',
+				name: 'Replace a Rate Plan',
 				value: 'RateplanRate-plansByIdPut',
-				description: `Use this call to modify a rate plan.<br>You must have at least one of these scopes: 'rateplans.manage, setup.manage'`,
+				description: 'Use this call to modify a rate plan.You must have at least one of these scopes: \'rateplans.manage, setup.manage\'',
 				action: 'Replace a rate plan'
 			}
 		],
@@ -3705,25 +3705,25 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Create a service.',
+				name: 'Create a Service.',
 				value: 'RateplanServicesPost',
-				description: `Create a service.<br>You must have at least one of these scopes: 'services.create, setup.manage'`,
-				action: 'Create a service.'
+				description: 'Create a service.You must have at least one of these scopes: \'services.create, setup.manage\'',
+				action: 'Create a service'
 			},{
-				name: 'Get all services.',
+				name: 'Get All Services.',
 				value: 'RateplanServicesGet',
-				description: `Get the list of services.<br>You must have at least one of these scopes: 'services.read, setup.read, setup.manage'`,
-				action: 'Get all services.'
+				description: 'Get the list of services.You must have at least one of these scopes: \'services.read, setup.read, setup.manage\'',
+				action: 'Get all services'
 			},{
-				name: 'Modify a service.',
+				name: 'Modify a Service.',
 				value: 'RateplanServicesByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace Name - Replace Description - Replace DefaultGrossPrice - Replace PricingUnit - Replace PostNextDay - Replace Availability - Add/Replace/Remove/Update AccountingConfigs - Replace ChannelCodes - Replace AgeCategoryId<br>You must have at least one of these scopes: 'services.manage, setup.manage'`,
-				action: 'Modify a service.'
+				description: 'Here is the list of operations that are currently allowed: - Replace Name - Replace Description - Replace DefaultGrossPrice - Replace PricingUnit - Replace PostNextDay - Replace Availability - Add/Replace/Remove/Update AccountingConfigs - Replace ChannelCodes - Replace AgeCategoryIdYou must have at least one of these scopes: \'services.manage, setup.manage\'',
+				action: 'Modify a service'
 			},{
-				name: 'Get a specific service.',
+				name: 'Get a Specific Service.',
 				value: 'RateplanServicesByIdGet',
-				description: `Get a specific service.<br>You must have at least one of these scopes: 'services.read, setup.read, setup.manage'`,
-				action: 'Get a specific service.'
+				description: 'Get a specific service.You must have at least one of these scopes: \'services.read, setup.read, setup.manage\'',
+				action: 'Get a specific service'
 			}
 		],
 		default: 'RateplanServicesPost',
@@ -3740,29 +3740,29 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'List of ordered services',
+				name: 'List of Ordered Services',
 				value: 'ReportsReportsOrdered-servicesGet',
-				description: `Returns a list of ordered services per day with information about the guest and the reservation this service was ordered for.<br>You must have this scope: 'reports.read'`,
+				description: 'Returns a list of ordered services per day with information about the guest and the reservation this service was ordered for.You must have this scope: \'reports.read\'',
 				action: 'List of ordered services'
 			},{
-				name: 'Returns the list of company invoices with information on the company and the VAT breakdown',
+				name: 'Returns the List of Company Invoices with Information on the Company and the VAT Breakdown',
 				value: 'ReportsReportsCompany-invoices-vatGet',
-				description: `<br>You must have this scope: 'reports.read'`,
+				description: 'You must have this scope: \'reports.read\'',
 				action: 'Returns the list of company invoices with information on the company and the VAT breakdown'
 			},{
-				name: 'Returns the number of arrivals in a month for a property',
+				name: 'Returns the Number of Arrivals in a Month for a Property',
 				value: 'ReportsReportsArrivalsGet',
-				description: `Returns number of arriving guests for a property for a certain month. Only over-night rateplans are considered. Includes statistical information on purpose of travel, and nationality. The data is taken from the primary guest only. The status considered are: in-house, confirmed, and checked out.<br>You must have this scope: 'reports.read'`,
+				description: 'Returns number of arriving guests for a property for a certain month. Only over-night rateplans are considered. Includes statistical information on purpose of travel, and nationality. The data is taken from the primary guest only. The status considered are: in-house, confirmed, and checked out.You must have this scope: \'reports.read\'',
 				action: 'Returns the number of arrivals in a month for a property'
 			},{
-				name: 'Returns the property performance report which includes the ADR and the RevPAR for each business day.',
+				name: 'Returns the Property Performance Report Which Includes the ADR and the RevPAR for Each Business Day.',
 				value: 'ReportsReportsProperty-performanceGet',
-				description: `The property performance API return you key performance indicator for the selected property like occupancy, ADR and RevPAR. It only considers the originally booked amounts for sold units excluding any additional services or manually posted charges or allowances. The results can be filterd to only show you data for a certain part of the business. For example you can exclude day-use reservations or complimentary rate plans.<br>You must have this scope: 'reports.read'`,
-				action: 'Returns the property performance report which includes the ADR and the RevPAR for each business day.'
+				description: 'The property performance API return you key performance indicator for the selected property like occupancy, ADR and RevPAR. It only considers the originally booked amounts for sold units excluding any additional services or manually posted charges or allowances. The results can be filterd to only show you data for a certain part of the business. For example you can exclude day-use reservations or complimentary rate plans.You must have this scope: \'reports.read\'',
+				action: 'Returns the property performance report which includes the adr and the rev par for each business day'
 			},{
-				name: 'Returns the revenues report for a property',
+				name: 'Returns the Revenues Report for a Property',
 				value: 'ReportsReportsRevenuesGet',
-				description: `<br>You must have this scope: 'reports.read'`,
+				description: 'You must have this scope: \'reports.read\'',
 				action: 'Returns the revenues report for a property'
 			}
 		],
@@ -3780,20 +3780,20 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get all capture policies.',
+				name: 'Get All Capture Policies.',
 				value: 'SettingsCapture-policiesGet',
-				description: `Get the list of capture policies.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get all capture policies.'
+				description: 'Get the list of capture policies.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get all capture policies'
 			},{
-				name: 'Get a specific capture policy.',
+				name: 'Get a Specific Capture Policy.',
 				value: 'SettingsCapture-policiesByIdGet',
-				description: `Get a specific capture policy.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get a specific capture policy.'
+				description: 'Get a specific capture policy.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get a specific capture policy'
 			},{
-				name: 'Allows to modify properties of a capture policy.',
+				name: 'Allows to Modify Properties of a Capture Policy.',
 				value: 'SettingsCapture-policiesByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace captureNoShowFee flag - Replace captureCancellationFee flag - Replace capturePrepayment flag - Replace PostOtaBankTransferOnCheckOut flag - Replace capturePayment configuration<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
-				action: 'Allows to modify properties of a capture policy.'
+				description: 'Here is the list of operations that are currently allowed: - Replace captureNoShowFee flag - Replace captureCancellationFee flag - Replace capturePrepayment flag - Replace PostOtaBankTransferOnCheckOut flag - Replace capturePayment configurationYou must have at least one of these scopes: \'settings.manage, setup.manage\'',
+				action: 'Allows to modify properties of a capture policy'
 			}
 		],
 		default: 'SettingsCapture-policiesGet',
@@ -3810,24 +3810,24 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Create a city tax.',
+				name: 'Create a City Tax.',
 				value: 'SettingsCity-taxPost',
-				description: `You can only create one city tax per property. It can be changed and deleted any time.<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
-				action: 'Create a city tax.'
+				description: 'You can only create one city tax per property. It can be changed and deleted any time.You must have at least one of these scopes: \'settings.manage, setup.manage\'.',
+				action: 'Create a city tax'
 			},{
-				name: 'Get all city taxes.',
+				name: 'Get All City Taxes.',
 				value: 'SettingsCity-taxGet',
-				description: `Get the list of all city taxes.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get all city taxes.'
+				description: 'Get the list of all city taxes.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get all city taxes'
 			},{
-				name: 'Get a specific city tax.',
+				name: 'Get a Specific City Tax.',
 				value: 'SettingsCity-taxByIdGet',
-				description: `Get a specific city tax.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get a specific city tax.'
+				description: 'Get a specific city tax.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get a specific city tax'
 			},{
-				name: 'Allows to modify city tax',
+				name: 'Allows to Modify City Tax',
 				value: 'SettingsCity-taxByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace name and description - Replace value and type - Replace or delete the VAT type - Replace priority<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Replace name and description - Replace value and type - Replace or delete the VAT type - Replace priorityYou must have at least one of these scopes: \'settings.manage, setup.manage\'',
 				action: 'Allows to modify city tax'
 			}
 		],
@@ -3845,35 +3845,35 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allows to modify the name of the sub-account.',
+				name: 'Allows to Modify the Name of the Sub-Account.',
 				value: 'SettingsSub-accountsByIdPatch',
-				description: `Allows to modify the name of the sub-account.<br>You must have at least one of these scopes: 'subledger.manage, setup.manage'`,
-				action: 'Allows to modify the name of the sub-account.'
+				description: 'Allows to modify the name of the sub-account.You must have at least one of these scopes: \'subledger.manage, setup.manage\'',
+				action: 'Allows to modify the name of the sub account'
 			},{
-				name: 'Check if the sub-account exists.',
+				name: 'Check if the Sub-Account Exists.',
 				value: 'SettingsSub-accountsByIdHead',
-				description: `Check if the sub-account exists.<br>You must have at least one of these scopes: 'subledger.read, setup.read, setup.manage'`,
-				action: 'Check if the sub-account exists.'
+				description: 'Check if the sub-account exists.You must have at least one of these scopes: \'subledger.read, setup.read, setup.manage\'',
+				action: 'Check if the sub account exists'
 			},{
-				name: 'Create a sub-account.',
+				name: 'Create a Sub-Account.',
 				value: 'SettingsSub-accountsPost',
-				description: `Create a sub-account.<br>You must have at least one of these scopes: 'subledger.manage, setup.manage'`,
-				action: 'Create a sub-account.'
+				description: 'Create a sub-account.You must have at least one of these scopes: \'subledger.manage, setup.manage\'',
+				action: 'Create a sub account'
 			},{
-				name: 'Returns a list of all sub-accounts.',
+				name: 'Returns a List of All Sub-Accounts.',
 				value: 'SettingsSub-accountsGet',
-				description: `Returns a list of all sub-accounts.<br>You must have at least one of these scopes: 'subledger.read, setup.read, setup.manage'`,
-				action: 'Returns a list of all sub-accounts.'
+				description: 'Returns a list of all sub-accounts.You must have at least one of these scopes: \'subledger.read, setup.read, setup.manage\'',
+				action: 'Returns a list of all sub accounts'
 			},{
-				name: 'Returns number of sub-accounts.',
+				name: 'Returns Number of Sub-Accounts.',
 				value: 'SettingsSub-accounts$countGet',
-				description: `Returns number of sub-account.<br>You must have at least one of these scopes: 'subledger.read, setup.read, setup.manage'`,
-				action: 'Returns number of sub-accounts.'
+				description: 'Returns number of sub-account.You must have at least one of these scopes: \'subledger.read, setup.read, setup.manage\'',
+				action: 'Returns number of sub accounts'
 			},{
-				name: 'Returns one sub-account.',
+				name: 'Returns One Sub-Account.',
 				value: 'SettingsSub-accountsByIdGet',
-				description: `Get a sub-account by ID.<br>You must have at least one of these scopes: 'subledger.read, setup.read, setup.manage'`,
-				action: 'Returns one sub-account.'
+				description: 'Get a sub-account by ID.You must have at least one of these scopes: \'subledger.read, setup.read, setup.manage\'',
+				action: 'Returns one sub account'
 			}
 		],
 		default: 'SettingsSub-accountsByIdPatch',
@@ -3890,14 +3890,14 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get feature settings for a property.',
+				name: 'Get Feature Settings for a Property.',
 				value: 'SettingsFeaturesByPropertyIdGet',
-				description: `Get feature settings for a property.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
-				action: 'Get feature settings for a property.'
+				description: 'Get feature settings for a property.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
+				action: 'Get feature settings for a property'
 			},{
-				name: 'Allows to modify feature settings',
+				name: 'Allows to Modify Feature Settings',
 				value: 'SettingsFeaturesByPropertyIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace areCustomRevenueSubAccountsEnabled flag - Replace performAccountingForOpenInvoiceActions flag - Replace showRecipientForEachLineItemOnTheInvoice flag - Replace addCityTaxOnReservationCreation flag - Replace maxAmountForMinimalInvoices value - Replace invoiceNumberPattern value - Replace advanceInvoiceNumberPattern value<br>You must have at least one of these scopes: 'features.toggle, setup.manage'`,
+				description: 'Here is the list of operations that are currently allowed: - Replace areCustomRevenueSubAccountsEnabled flag - Replace performAccountingForOpenInvoiceActions flag - Replace showRecipientForEachLineItemOnTheInvoice flag - Replace addCityTaxOnReservationCreation flag - Replace maxAmountForMinimalInvoices value - Replace invoiceNumberPattern value - Replace advanceInvoiceNumberPattern valueYou must have at least one of these scopes: \'features.toggle, setup.manage\'',
 				action: 'Allows to modify feature settings'
 			}
 		],
@@ -3915,20 +3915,20 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get invoice addresses',
+				name: 'Get Invoice Addresses',
 				value: 'SettingsInvoice-addressGet',
-				description: `Get the list of all invoice addresses.<br>You must have at least one of these scopes: 'setup.read, setup.manage, settings.read, settings.manage'`,
+				description: 'Get the list of all invoice addresses.You must have at least one of these scopes: \'setup.read, setup.manage, settings.read, settings.manage\'',
 				action: 'Get invoice addresses'
 			},{
-				name: 'Create or update invoice addresses for one or more properties.',
+				name: 'Create or Update Invoice Addresses for One or More Properties.',
 				value: 'SettingsInvoice-addressPut',
-				description: `If the address does not exist for one of the specified properties, it is created. If it exists, it is completely replaced.<br>You must have at least one of these scopes: 'setup.manage, settings.manage'`,
-				action: 'Create or update invoice addresses for one or more properties.'
+				description: 'If the address does not exist for one of the specified properties, it is created. If it exists, it is completely replaced.You must have at least one of these scopes: \'setup.manage, settings.manage\'.',
+				action: 'Create or update invoice addresses for one or more properties'
 			},{
-				name: 'Change fields in the invoice address of one or more properties.',
+				name: 'Change Fields in the Invoice Address of One or More Properties.',
 				value: 'SettingsInvoice-addressPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace AddressLine1 - Add, replace or delete AddressLine2 - Replace PostalCode - Replace City - Replace CountryCode<br>You must have at least one of these scopes: 'setup.manage, settings.manage'`,
-				action: 'Change fields in the invoice address of one or more properties.'
+				description: 'Here is the list of operations that are currently allowed: - Replace AddressLine1 - Add, replace or delete AddressLine2 - Replace PostalCode - Replace City - Replace CountryCodeYou must have at least one of these scopes: \'setup.manage, settings.manage\'',
+				action: 'Change fields in the invoice address of one or more properties'
 			}
 		],
 		default: 'SettingsInvoice-addressGet',
@@ -3945,14 +3945,14 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get the language settings for the account',
+				name: 'Get the Language Settings for the Account',
 				value: 'SettingsLanguagesGet',
-				description: `Get the language settings<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
+				description: 'Get the language settingsYou must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
 				action: 'Get the language settings for the account'
 			},{
-				name: 'Replaces the language settings for the account',
+				name: 'Replaces the Language Settings for the Account',
 				value: 'SettingsLanguagesPut',
-				description: `Use this call to modify the language settings of the account.<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'Use this call to modify the language settings of the account.You must have at least one of these scopes: \'settings.manage, setup.manage\'',
 				action: 'Replaces the language settings for the account'
 			}
 		],
@@ -3970,35 +3970,35 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Allows to modify market segment.',
+				name: 'Allows to Modify Market Segment.',
 				value: 'SettingsMarket-segmentsByIdPatch',
-				description: `Here is the list of operations that are currently allowed: - Replace name - Add, replace and remove description - Add, replace and remove propertyIds<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
-				action: 'Allows to modify market segment.'
+				description: 'Here is the list of operations that are currently allowed: - Replace name - Add, replace and remove description - Add, replace and remove propertyIdsYou must have at least one of these scopes: \'settings.manage, setup.manage\'',
+				action: 'Allows to modify market segment'
 			},{
-				name: 'Check if a market segment exists.',
+				name: 'Check if a Market Segment Exists.',
 				value: 'SettingsMarket-segmentsByIdHead',
-				description: `Check if a market segment exists by ID.<br>You must have at least one of these scopes: 'setup.read, setup.manage'`,
-				action: 'Check if a market segment exists.'
+				description: 'Check if a market segment exists by ID.You must have at least one of these scopes: \'setup.read, setup.manage\'',
+				action: 'Check if a market segment exists'
 			},{
-				name: 'Create a market segment',
+				name: 'Create a Market Segment',
 				value: 'SettingsMarket-segmentsPost',
-				description: `<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'You must have at least one of these scopes: \'settings.manage, setup.manage\'',
 				action: 'Create a market segment'
 			},{
-				name: 'Get a market segment.',
+				name: 'Get a Market Segment.',
 				value: 'SettingsMarket-segmentsByIdGet',
-				description: `Get a market segment by ID.<br>You must have at least one of these scopes: 'setup.read, setup.manage'`,
-				action: 'Get a market segment.'
+				description: 'Get a market segment by ID.You must have at least one of these scopes: \'setup.read, setup.manage\'',
+				action: 'Get a market segment'
 			},{
-				name: 'Returns a list of all market segments, filtered by the specified parameters.',
+				name: 'Returns a List of All Market Segments, Filtered by the Specified Parameters.',
 				value: 'SettingsMarket-segmentsGet',
-				description: `<br>You must have at least one of these scopes: 'setup.read, setup.manage'`,
-				action: 'Returns a list of all market segments, filtered by the specified parameters.'
+				description: 'You must have at least one of these scopes: \'setup.read, setup.manage\'',
+				action: 'Returns a list of all market segments filtered by the specified parameters'
 			},{
-				name: 'Returns number of market segments.',
+				name: 'Returns Number of Market Segments.',
 				value: 'SettingsMarket-segments$countGet',
-				description: `Returns number of market segments.<br>You must have at least one of these scopes: 'setup.read, setup.manage'`,
-				action: 'Returns number of market segments.'
+				description: 'Returns number of market segments.You must have at least one of these scopes: \'setup.read, setup.manage\'',
+				action: 'Returns number of market segments'
 			}
 		],
 		default: 'SettingsMarket-segmentsByIdPatch',
@@ -4015,9 +4015,9 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get property settings',
+				name: 'Get Property Settings',
 				value: 'SettingsPropertiesByIdGet',
-				description: `Get base settings for a property.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
+				description: 'Get base settings for a property.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
 				action: 'Get property settings'
 			}
 		],
@@ -4035,24 +4035,24 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Get a specific time slice definition',
+				name: 'Get a Specific Time Slice Definition',
 				value: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet',
-				description: `Get a specific time slice definition for a property. A time slice definition specifies the pattern for recurring time slots. The time slots define when reservations in the property can start or end. It is used in the rate plans when managing prices for renting out the units.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
+				description: 'Get a specific time slice definition for a property. A time slice definition specifies the pattern for recurring time slots. The time slots define when reservations in the property can start or end. It is used in the rate plans when managing prices for renting out the units.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
 				action: 'Get a specific time slice definition'
 			},{
-				name: 'Modifies a specific time slice definition for the property',
+				name: 'Modifies a Specific Time Slice Definition for the Property',
 				value: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch',
-				description: `Use this call to modify a time slice definition of the property. Here is the list of operations that are currently allowed: - Replace Name - Replace CheckInTime (only possible if the time slice definition is not in-use) - Replace CheckOutTime (only possible if the time slice definition is not in-use)<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'Use this call to modify a time slice definition of the property. Here is the list of operations that are currently allowed: - Replace Name - Replace CheckInTime (only possible if the time slice definition is not in-use) - Replace CheckOutTime (only possible if the time slice definition is not in-use)You must have at least one of these scopes: \'settings.manage, setup.manage\'.',
 				action: 'Modifies a specific time slice definition for the property'
 			},{
-				name: 'Get time slice definitions',
+				name: 'Get Time Slice Definitions',
 				value: 'SettingsPropertiesByPropertyIdTime-slice-definitionsGet',
-				description: `Get all time slice definitions for a property. A time slice definition specifies the pattern for recurring time slots. The time slots define when reservations in the property can start or end. They are used in the rate plans when managing prices for renting out the units.<br>You must have at least one of these scopes: 'settings.read, setup.read, setup.manage'`,
+				description: 'Get all time slice definitions for a property. A time slice definition specifies the pattern for recurring time slots. The time slots define when reservations in the property can start or end. They are used in the rate plans when managing prices for renting out the units.You must have at least one of these scopes: \'settings.read, setup.read, setup.manage\'',
 				action: 'Get time slice definitions'
 			},{
-				name: 'Creates a time slice definition',
+				name: 'Creates a Time Slice Definition',
 				value: 'SettingsPropertiesByPropertyIdTime-slice-definitionsPost',
-				description: `Use this call to create a time slice definition.<br>You must have at least one of these scopes: 'settings.manage, setup.manage'`,
+				description: 'Use this call to create a time slice definition.You must have at least one of these scopes: \'settings.manage, setup.manage\'',
 				action: 'Creates a time slice definition'
 			}
 		],
@@ -4072,8 +4072,8 @@ export const operationOptions: INodeProperties[] = [
 		options: [{
 				name: 'PingerPost',
 				value: 'PingerPost',
-				description: `<br>You need to be authorized (no particular scope required)`,
-				action: 'PingerPost'
+				description: 'You need to be authorized (no particular scope required)',
+				action: 'Pinger post'
 			}
 		],
 		default: 'PingerPost',
@@ -4090,29 +4090,29 @@ export const operationOptions: INodeProperties[] = [
 			},
 		},
 		options: [{
-				name: 'Creates subscription',
+				name: 'Creates Subscription',
 				value: 'SubscriptionsPost',
-				description: `Creating webhook subscriptions through swagger is disabled. In order to create a subscription you must do it directly from your application. To learn more visit: https://apaleo.dev/guides/start/webhook/              After creating the subscription, apaleo sends a ping to the endpoint. If the response is not OK, the subscription will not be enabled and error returned`,
+				description: 'Creating webhook subscriptions through swagger is disabled. In order to create a subscription you must do it directly from your application. To learn more visit: https://apaleo.dev/guides/start/webhook/ After creating the subscription, apaleo sends a ping to the endpoint. If the response is not OK, the subscription will not be enabled and error returned',
 				action: 'Creates subscription'
 			},{
-				name: 'Deletes subscription.',
+				name: 'Deletes Subscription.',
 				value: 'SubscriptionsByIdDelete',
-				description: `<br>You need to be authorized (no particular scope required)`,
-				action: 'Deletes subscription.'
+				description: 'You need to be authorized (no particular scope required)',
+				action: 'Deletes subscription'
 			},{
-				name: 'Get all subscriptions created for the current account and client',
+				name: 'Get All Subscriptions Created for the Current Account and Client',
 				value: 'SubscriptionsGet',
-				description: `<br>You need to be authorized (no particular scope required)`,
+				description: 'You need to be authorized (no particular scope required)',
 				action: 'Get all subscriptions created for the current account and client'
 			},{
 				name: 'SubscriptionsByIdGet',
 				value: 'SubscriptionsByIdGet',
-				description: `<br>You need to be authorized (no particular scope required)`,
-				action: 'SubscriptionsByIdGet'
+				description: 'You need to be authorized (no particular scope required)',
+				action: 'Subscriptions by id get'
 			},{
-				name: 'Updates subscription',
+				name: 'Updates Subscription',
 				value: 'SubscriptionsByIdPut',
-				description: `Update a subscription by subscription ID`,
+				description: 'Update a subscription by subscription ID',
 				action: 'Updates subscription'
 			}
 		],

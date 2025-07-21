@@ -248,7 +248,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'account',
 			},
 			{
-				name: 'AccountActions',
+				name: 'AccountAction',
 				value: 'accountactions',
 			}
 		],
@@ -292,7 +292,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'block',
 			},
 			{
-				name: 'BlockActions',
+				name: 'BlockAction',
 				value: 'blockactions',
 			},
 			{
@@ -312,11 +312,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'reservation',
 			},
 			{
-				name: 'ReservationActions',
+				name: 'ReservationAction',
 				value: 'reservationactions',
 			},
 			{
-				name: 'Types',
+				name: 'Type',
 				value: 'types',
 			}
 		],
@@ -338,11 +338,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'folio',
 			},
 			{
-				name: 'FolioActions',
+				name: 'FolioAction',
 				value: 'folioactions',
 			},
 			{
-				name: 'FolioPayments',
+				name: 'FolioPayment',
 				value: 'foliopayments',
 			},
 			{
@@ -358,7 +358,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'subledger',
 			},
 			{
-				name: 'Types',
+				name: 'Type',
 				value: 'types',
 			}
 		],
@@ -376,7 +376,7 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'UiIntegrations',
+				name: 'UiIntegration',
 				value: 'uiintegrations',
 			}
 		],
@@ -398,11 +398,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'property',
 			},
 			{
-				name: 'PropertyActions',
+				name: 'PropertyAction',
 				value: 'propertyactions',
 			},
 			{
-				name: 'Types',
+				name: 'Type',
 				value: 'types',
 			},
 			{
@@ -432,11 +432,11 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'BookingLogs',
+				name: 'BookingLog',
 				value: 'bookinglogs',
 			},
 			{
-				name: 'FinanceLogs',
+				name: 'FinanceLog',
 				value: 'financelogs',
 			}
 		],
@@ -458,7 +458,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'maintenance',
 			},
 			{
-				name: 'Operations',
+				name: 'Operation',
 				value: 'operations',
 			}
 		],
@@ -488,7 +488,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'company',
 			},
 			{
-				name: 'CorporateCodes',
+				name: 'CorporateCode',
 				value: 'corporatecodes',
 			},
 			{
@@ -496,7 +496,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'noshowpolicy',
 			},
 			{
-				name: 'PromoCodes',
+				name: 'PromoCode',
 				value: 'promocodes',
 			},
 			{
@@ -526,7 +526,7 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Reports',
+				name: 'Report',
 				value: 'reports',
 			}
 		],
@@ -544,7 +544,7 @@ export const resourceOptions: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'CapturePolicies',
+				name: 'CapturePolicy',
 				value: 'capturepolicies',
 			},
 			{
@@ -552,11 +552,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'citytax',
 			},
 			{
-				name: 'CustomSubAccounts',
+				name: 'CustomSubAccount',
 				value: 'customsubaccounts',
 			},
 			{
-				name: 'FeatureSettings',
+				name: 'FeatureSetting',
 				value: 'featuresettings',
 			},
 			{
@@ -564,7 +564,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'invoiceaddress',
 			},
 			{
-				name: 'Languages',
+				name: 'Language',
 				value: 'languages',
 			},
 			{
@@ -572,11 +572,11 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'marketsegment',
 			},
 			{
-				name: 'PropertySettings',
+				name: 'PropertySetting',
 				value: 'propertysettings',
 			},
 			{
-				name: 'TimeSliceDefinitions',
+				name: 'TimeSliceDefinition',
 				value: 'timeslicedefinitions',
 			}
 		],
@@ -598,7 +598,7 @@ export const resourceOptions: INodeProperties[] = [
 				value: 'healthcheck',
 			},
 			{
-				name: 'Subscriptions',
+				name: 'Subscription',
 				value: 'subscriptions',
 			}
 		],

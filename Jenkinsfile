@@ -34,9 +34,7 @@ pipeline {
             }
         }
         stage('Publish') {
-            when {
-                branch 'master'
-            }
+            
             steps {
                 withCredentials([[
                     $class: 'UsernamePasswordMultiBinding',
@@ -47,13 +45,13 @@ pipeline {
                     sh '''
                         echo "Current package.json version:"
                         cat package.json | grep version
-                        npm version patch
+                        npm version patch --no-git-tag-version
                         echo "New package.json version:"
                         PACKAGE_VERSION=$(node -p "require('./package.json').version")
                         echo "Version: $PACKAGE_VERSION"
                         
                         echo "Publishing package..."
-                        npm publish --registry=https://npm.pkg.github.com
+                        npm publish --registry=https://npm.pkg.github.com --access public
                         
                         echo "Package published successfully!"
                         echo "Packages URL: https://github.com/apaleo/n8n-nodes-apaleo/pkgs/npm/%40apaleo%2Fn8n-nodes-apaleo-official/versions"

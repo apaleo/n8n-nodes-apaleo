@@ -19,26 +19,21 @@ export const parameterFields: INodeProperties[] = [
     "countryCode": "GB"
   }
 }`,
-                description: 'The definition of the account.'
+                description: 'The definition of the account'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'AccountAccountsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["AccountAccountsGet"], resource: ["account"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountCodes',
                 name: 'accountCodes',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested codes',
                 options: [{
                     name: 'accountCodesValues',
@@ -76,26 +71,21 @@ export const parameterFields: INodeProperties[] = [
     "countryCode": "GB"
   }
 }`,
-                description: 'The definition of the account.'
+                description: 'The definition of the account'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'AccountAccountsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["AccountAccountsPost"], resource: ["account"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -109,37 +99,34 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The property ID'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'AvailabilityUnitsGet_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["AvailabilityUnitsGet"], resource: ["availability"] } },
                 default: '',
-                description: `The from date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'AvailabilityUnitsGet_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["AvailabilityUnitsGet"], resource: ["availability"] } },
                 default: '',
-                description: `The to date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'AvailabilityUnitsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["AvailabilityUnitsGet"], resource: ["availability"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'includeOutOfService',
                 name: 'includeOutOfService',
                 type: 'boolean',
-                required: false,
                 default: false,
                 description: 'Whether should units that are set OutOfService in the defined time period be returned as available'
             },
@@ -147,7 +134,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -155,19 +141,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'unitAttributeIds',
                 name: 'unitAttributeIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return units with the specific unit attributes',
                 options: [{
                     name: 'unitAttributeIdsValues',
@@ -187,7 +169,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitCondition',
                 name: 'unitCondition',
                 type: 'options',
-                required: false,
                 default: 'Clean',
                 description: 'The unit condition',
                 options: [{ name: 'Clean', value: 'Clean' }, { name: 'CleanToBeInspected', value: 'CleanToBeInspected' }, { name: 'Dirty', value: 'Dirty' }]
@@ -196,7 +177,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitGroupId',
                 name: 'unitGroupId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The unit group ID'
             }
@@ -212,37 +192,34 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The property ID'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'AvailabilityUnit_groupsGet_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["AvailabilityUnit-groupsGet"], resource: ["availability"] } },
                 default: '',
-                description: 'First day of the requested time period. The given day will be included in the response'
+                description: 'First day of the requested time period. The given day will be included in the response.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'AvailabilityUnit_groupsGet_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["AvailabilityUnit-groupsGet"], resource: ["availability"] } },
                 default: '',
-                description: 'Last day of the requested time period. The given day will be included in the response'
+                description: 'Last day of the requested time period. The given day will be included in the response.'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'AvailabilityUnit_groupsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["AvailabilityUnit-groupsGet"], resource: ["availability"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'adults',
+                displayName: 'Adults',
                 name: 'adults',
                 type: 'number',
-                required: false,
                 default: 0,
                 description: 'The number of adults you want availability for, defaults to 1'
             },
@@ -250,26 +227,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'childrenAges',
                 name: 'childrenAges',
                 type: 'collection',
-                required: false,
-                default: `
-[]
-`,
+                default: {},
                 description: 'The ages of the children you want availability for'
             },
                 {
                 displayName: 'onlySellable',
                 name: 'onlySellable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether when set to 'true', only the unit groups sold by the specified time slice template and time slice definition ids are returned,
-otherwise all unit groups are returned`
+                description: 'Whether when set to \'true\', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -277,20 +248,16 @@ otherwise all unit groups are returned`
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'The time slice definition ids',
+                default: {},
+                description: 'The time slice definition IDs',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
                     displayName: 'TimeSliceDefinitionIds',
@@ -300,7 +267,7 @@ otherwise all unit groups are returned`
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'The time slice definition ids'
+                    description: 'The time slice definition IDs'
                 }
                 ]
                 }]
@@ -309,21 +276,17 @@ otherwise all unit groups are returned`
                 displayName: 'timeSliceTemplate',
                 name: 'timeSliceTemplate',
                 type: 'options',
-                required: false,
                 default: 'DayUse',
-                description: `The time slice template, defaults to 'over night'`,
+                description: 'The time slice template, defaults to \'over night\'',
                 options: [{ name: 'DayUse', value: 'DayUse' }, { name: 'OverNight', value: 'OverNight' }]
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'The unit group ids',
+                default: {},
+                description: 'The unit group IDs',
                 options: [{
                     name: 'unitGroupIdsValues',
                     displayName: 'UnitGroupIds',
@@ -333,7 +296,7 @@ otherwise all unit groups are returned`
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'The unit group ids'
+                    description: 'The unit group IDs'
                 }
                 ]
                 }]
@@ -342,26 +305,23 @@ otherwise all unit groups are returned`
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by requested unit group types',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'AvailabilityUnit_groupsByIdPatch_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["AvailabilityUnit-groupsByIdPatch"], resource: ["availability"] } },
                 default: '',
-                description: 'Id of the unit group to be modified'
+                description: 'ID of the unit group to be modified'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'AvailabilityUnit_groupsByIdPatch_from',
                 type: 'string',
                 required: true,
@@ -370,7 +330,7 @@ otherwise all unit groups are returned`
                 description: 'First day of the time period from which availability will be modified'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'AvailabilityUnit_groupsByIdPatch_to',
                 type: 'string',
                 required: true,
@@ -409,40 +369,35 @@ otherwise all unit groups are returned`
                 description: 'The property ID'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'AvailabilityServicesGet_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["AvailabilityServicesGet"], resource: ["availability"] } },
                 default: '',
-                description: 'First day of the requested time period. The given day will be included in the response'
+                description: 'First day of the requested time period. The given day will be included in the response.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'AvailabilityServicesGet_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["AvailabilityServicesGet"], resource: ["availability"] } },
                 default: '',
-                description: 'Last day of the requested time period. The given day will be included in the response'
+                description: 'Last day of the requested time period. The given day will be included in the response.'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'AvailabilityServicesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["AvailabilityServicesGet"], resource: ["availability"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCodes',
                 name: 'channelCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The channel code used to filter the services',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
@@ -450,7 +405,6 @@ otherwise all unit groups are returned`
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -458,20 +412,16 @@ otherwise all unit groups are returned`
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'The time slice definition ids',
+                default: {},
+                description: 'The time slice definition IDs',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
                     displayName: 'TimeSliceDefinitionIds',
@@ -481,7 +431,7 @@ otherwise all unit groups are returned`
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'The time slice definition ids'
+                    description: 'The time slice definition IDs'
                 }
                 ]
                 }]
@@ -490,15 +440,14 @@ otherwise all unit groups are returned`
                 displayName: 'timeSliceTemplate',
                 name: 'timeSliceTemplate',
                 type: 'options',
-                required: false,
                 default: 'DayUse',
-                description: `The time slice template, defaults to 'over night'`,
+                description: 'The time slice template, defaults to \'over night\'',
                 options: [{ name: 'DayUse', value: 'DayUse' }, { name: 'OverNight', value: 'OverNight' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'AvailabilityReservationsByIdUnitsGet_id',
                 type: 'string',
                 required: true,
@@ -511,23 +460,19 @@ otherwise all unit groups are returned`
                 name: 'AvailabilityReservationsByIdUnitsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["AvailabilityReservationsByIdUnitsGet"], resource: ["reservationavailability"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The from date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
                 {
                 displayName: 'includeOutOfService',
                 name: 'includeOutOfService',
                 type: 'boolean',
-                required: false,
                 default: false,
                 description: 'Whether should units that are set OutOfService in the defined time period be returned as available'
             },
@@ -535,7 +480,6 @@ otherwise all unit groups are returned`
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -543,27 +487,22 @@ otherwise all unit groups are returned`
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The to date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
                 {
                 displayName: 'unitAttributeIds',
                 name: 'unitAttributeIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return units with the specific unit attributes',
                 options: [{
                     name: 'unitAttributeIdsValues',
@@ -583,7 +522,6 @@ otherwise all unit groups are returned`
                 displayName: 'unitCondition',
                 name: 'unitCondition',
                 type: 'options',
-                required: false,
                 default: 'Clean',
                 description: 'The unit condition',
                 options: [{ name: 'Clean', value: 'Clean' }, { name: 'CleanToBeInspected', value: 'CleanToBeInspected' }, { name: 'Dirty', value: 'Dirty' }]
@@ -592,7 +530,6 @@ otherwise all unit groups are returned`
                 displayName: 'unitGroupId',
                 name: 'unitGroupId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The unit group ID'
             }
@@ -625,26 +562,21 @@ otherwise all unit groups are returned`
     }
   ]
 }`,
-                description: 'The details for the block you want to create.'
+                description: 'The details for the block you want to create'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingBlocksPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBlocksPost"], resource: ["block"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -653,35 +585,27 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'BookingBlocksGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBlocksGet"], resource: ["block"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }, { name: 'timeSlices', value: 'timeSlices' }]
+                options: [{ name: 'Actions', value: 'actions' }, { name: 'timeSlices', value: 'timeSlices' }]
             },
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The start of the time range. All blocks that are overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'groupId',
                 name: 'groupId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return blocks for the specific group'
             },
@@ -689,7 +613,6 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -697,19 +620,15 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks filtered by properties',
                 options: [{
                     name: 'propertyIdsValues',
@@ -729,11 +648,8 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'ratePlanIds',
                 name: 'ratePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks with any of the specified rate plans',
                 options: [{
                     name: 'ratePlanIdsValues',
@@ -750,13 +666,10 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 }]
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return blocks filtered by statuses',
                 options: [{ name: 'Canceled', value: 'Canceled' }, { name: 'Definite', value: 'Definite' }, { name: 'Tentative', value: 'Tentative' }]
             },
@@ -764,11 +677,8 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks with any of the specified time slice definitions',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
@@ -788,29 +698,23 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'timeSliceTemplate',
                 name: 'timeSliceTemplate',
                 type: 'options',
-                required: false,
                 default: 'DayUse',
-                description: `The time slice template, defaults to 'over night'`,
+                description: 'The time slice template, defaults to \'over night\'',
                 options: [{ name: 'DayUse', value: 'DayUse' }, { name: 'OverNight', value: 'OverNight' }]
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The end of the time range. All blocks that are overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks with any of the specified unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -830,10 +734,7 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return blocks with any of the specified unit group types',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
@@ -844,24 +745,19 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 name: 'BookingBlocks_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBlocks$countGet"], resource: ["block"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The start of the time range. All blocks that are overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'groupId',
                 name: 'groupId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return blocks for the specific group'
             },
@@ -869,11 +765,8 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks filtered by properties',
                 options: [{
                     name: 'propertyIdsValues',
@@ -893,11 +786,8 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'ratePlanIds',
                 name: 'ratePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks with any of the specified rate plans',
                 options: [{
                     name: 'ratePlanIdsValues',
@@ -914,13 +804,10 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 }]
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return blocks filtered by statuses',
                 options: [{ name: 'Canceled', value: 'Canceled' }, { name: 'Definite', value: 'Definite' }, { name: 'Tentative', value: 'Tentative' }]
             },
@@ -928,11 +815,8 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks with any of the specified time slice definitions',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
@@ -952,29 +836,23 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'timeSliceTemplate',
                 name: 'timeSliceTemplate',
                 type: 'options',
-                required: false,
                 default: 'DayUse',
-                description: `The time slice template, defaults to 'over night'`,
+                description: 'The time slice template, defaults to \'over night\'',
                 options: [{ name: 'DayUse', value: 'DayUse' }, { name: 'OverNight', value: 'OverNight' }]
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The end of the time range. All blocks that are overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return blocks with any of the specified unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -994,48 +872,40 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return blocks with any of the specified unit group types',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlocksByIdGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBlocksByIdGet"], resource: ["block"] } },
                 default: '',
-                description: 'Id of the block to be retrieved'
+                description: 'ID of the block to be retrieved'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingBlocksByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBlocksByIdGet"], resource: ["block"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }, { name: 'timeSlices', value: 'timeSlices' }]
+                options: [{ name: 'Actions', value: 'actions' }, { name: 'timeSlices', value: 'timeSlices' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlocksByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -1044,7 +914,7 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 description: 'The ID of the block'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlocksByIdHead_id',
                 type: 'string',
                 required: true,
@@ -1053,49 +923,49 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 description: 'The ID of the block'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlock_actionsByIdConfirmPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBlock-actionsByIdConfirmPut"], resource: ["blockactions"] } },
                 default: '',
-                description: 'Id of the block that should be processed'
+                description: 'ID of the block that should be processed'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlock_actionsByIdReleasePut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBlock-actionsByIdReleasePut"], resource: ["blockactions"] } },
                 default: '',
-                description: 'Id of the block that should be processed'
+                description: 'ID of the block that should be processed'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlock_actionsByIdCancelPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBlock-actionsByIdCancelPut"], resource: ["blockactions"] } },
                 default: '',
-                description: 'Id of the block that should be processed'
+                description: 'ID of the block that should be processed'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlock_actionsByIdWashPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBlock-actionsByIdWashPut"], resource: ["blockactions"] } },
                 default: '',
-                description: 'Id of the block that should be processed'
+                description: 'ID of the block that should be processed'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBlock_actionsByIdAmendPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBlock-actionsByIdAmendPut"], resource: ["blockactions"] } },
                 default: '',
-                description: 'Id of the block to be modified'
+                description: 'ID of the block to be modified'
             },
             {
                 displayName: 'Request Body',
@@ -1122,7 +992,7 @@ will be returned<br />A date and time (without fractional second part) in UTC or
     }
   ]
 }`,
-                description: 'The definition of the block.'
+                description: 'The definition of the block'
             },
             {
                 displayName: 'Request Body',
@@ -1276,26 +1146,21 @@ will be returned<br />A date and time (without fractional second part) in UTC or
   ],
   "transactionReference": "564578124534890J"
 }`,
-                description: 'The list of reservations you want to create.'
+                description: 'The list of reservations you want to create'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingBookingsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBookingsPost"], resource: ["booking"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -1304,53 +1169,42 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'BookingBookingsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBookingsGet"], resource: ["booking"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
-                description: 'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code',
+                default: [],
+                description: 'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations. All other values will be silently ignored',
-                options: [{ name: 'property', value: 'property' }, { name: 'ratePlan', value: 'ratePlan' }, { name: 'reservations', value: 'reservations' }, { name: 'services', value: 'services' }, { name: 'unitGroup', value: 'unitGroup' }]
+                options: [{ name: 'Property', value: 'property' }, { name: 'ratePlan', value: 'ratePlan' }, { name: 'Reservations', value: 'reservations' }, { name: 'Services', value: 'services' }, { name: 'unitGroup', value: 'unitGroup' }]
             },
                 {
                 displayName: 'externalCode',
                 name: 'externalCode',
                 type: 'string',
-                required: false,
                 default: '',
-                description: 'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value'
+                description: 'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value.'
             },
                 {
                 displayName: 'groupId',
                 name: 'groupId',
                 type: 'string',
-                required: false,
                 default: '',
-                description: 'Filter result by group ID. The result set will contain all bookings having groups with the specified ID'
+                description: 'Filter result by group ID. The result set will contain all bookings having groups with the specified ID.'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -1358,26 +1212,22 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'reservationId',
                 name: 'reservationId',
                 type: 'string',
-                required: false,
                 default: '',
-                description: 'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID'
+                description: 'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID.'
             },
                 {
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker
-contains one of the provided values`
+                description: 'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values.'
             }
             ]
             },
@@ -1533,37 +1383,32 @@ contains one of the provided values`
   ],
   "transactionReference": "564578124534890J"
 }`,
-                description: 'The list of reservations you want to create.'
+                description: 'The list of reservations you want to create'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingBookings_forcePost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBookings$forcePost"], resource: ["booking"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBookingsByIdReservationsPost_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBookingsByIdReservationsPost"], resource: ["booking"] } },
                 default: '',
-                description: 'Id of the booking the reservations should be attached to'
+                description: 'ID of the booking the reservations should be attached to'
             },
             {
                 displayName: 'Request Body',
@@ -1678,37 +1523,32 @@ and keys can't be reused with different request parameters. Keys expire after 24
   ],
   "transactionReference": "RFEUFHEW"
 }`,
-                description: 'The list of reservations you want to add.'
+                description: 'The list of reservations you want to add'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingBookingsByIdReservationsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBookingsByIdReservationsPost"], resource: ["booking"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBookingsByIdReservations_forcePost_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBookingsByIdReservations$forcePost"], resource: ["booking"] } },
                 default: '',
-                description: 'Id of the booking the reservations should be attached to'
+                description: 'ID of the booking the reservations should be attached to'
             },
             {
                 displayName: 'Request Body',
@@ -1823,68 +1663,58 @@ and keys can't be reused with different request parameters. Keys expire after 24
   ],
   "transactionReference": "RFEUFHEW"
 }`,
-                description: 'The list of reservations you want to add.'
+                description: 'The list of reservations you want to add'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingBookingsByIdReservations_forcePost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBookingsByIdReservations$forcePost"], resource: ["booking"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBookingsByIdGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBookingsByIdGet"], resource: ["booking"] } },
                 default: '',
-                description: 'Id of the booking to be retrieved'
+                description: 'ID of the booking to be retrieved'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingBookingsByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingBookingsByIdGet"], resource: ["booking"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations, propertyValues. All other values will be silently ignored',
-                options: [{ name: 'property', value: 'property' }, { name: 'propertyValues', value: 'propertyValues' }, { name: 'ratePlan', value: 'ratePlan' }, { name: 'reservations', value: 'reservations' }, { name: 'services', value: 'services' }, { name: 'unitGroup', value: 'unitGroup' }]
+                options: [{ name: 'Property', value: 'property' }, { name: 'propertyValues', value: 'propertyValues' }, { name: 'ratePlan', value: 'ratePlan' }, { name: 'Reservations', value: 'reservations' }, { name: 'Services', value: 'services' }, { name: 'unitGroup', value: 'unitGroup' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingBookingsByIdPatch_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingBookingsByIdPatch"], resource: ["booking"] } },
                 default: '',
-                description: 'Id of the booking to be modified'
+                description: 'ID of the booking to be modified'
             },
             {
                 displayName: 'Request Body',
@@ -1934,26 +1764,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     "MUC"
   ]
 }`,
-                description: 'The details of the group that should be created.'
+                description: 'The details of the group that should be created'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingGroupsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingGroupsPost"], resource: ["group"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -1962,35 +1787,27 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'BookingGroupsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingGroupsGet"], resource: ["group"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }, { name: 'blocks', value: 'blocks' }]
+                options: [{ name: 'Actions', value: 'actions' }, { name: 'Blocks', value: 'blocks' }]
             },
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The start of the time range. All groups that have blocks overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -1998,19 +1815,15 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested properties',
                 options: [{
                     name: 'propertyIdsValues',
@@ -2030,61 +1843,52 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname,
-firstname, email or company name of the booker contains one of the provided values`
+                description: 'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The end of the time range. All groups that have blocks overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingGroupsByIdGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingGroupsByIdGet"], resource: ["group"] } },
                 default: '',
-                description: 'Id of the group booking to be retrieved'
+                description: 'ID of the group booking to be retrieved'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingGroupsByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingGroupsByIdGet"], resource: ["group"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }, { name: 'blocks', value: 'blocks' }]
+                options: [{ name: 'Actions', value: 'actions' }, { name: 'Blocks', value: 'blocks' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingGroupsByIdPatch_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingGroupsByIdPatch"], resource: ["group"] } },
                 default: '',
-                description: 'Id of the group booking to be modified'
+                description: 'ID of the group booking to be modified'
             },
             {
                 displayName: 'Request Body',
@@ -2098,50 +1902,43 @@ will be returned<br />A date and time (without fractional second part) in UTC or
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingGroupsByIdDelete_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingGroupsByIdDelete"], resource: ["group"] } },
                 default: '',
-                description: 'Id of the group booking to be deleted'
+                description: 'ID of the group booking to be deleted'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingGroupsByIdHead_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingGroupsByIdHead"], resource: ["group"] } },
                 default: '',
-                description: 'Id of the group booking to be checked for existence'
+                description: 'ID of the group booking to be checked for existence'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingGroups_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingGroups_countGet"], resource: ["group"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname,
-firstname, email or company name of the booker contains one of the provided values`
+                description: 'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested properties',
                 options: [{
                     name: 'propertyIdsValues',
@@ -2158,33 +1955,29 @@ firstname, email or company name of the booker contains one of the provided valu
                 }]
             },
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The start of the time range. All groups that have blocks overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The end of the time range. All groups that have blocks overlapping with the interval specified by from and to
-will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingGroupsByIdReservationsPost_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingGroupsByIdReservationsPost"], resource: ["group"] } },
                 default: '',
-                description: 'Id of the group booking the reservations should be attached to'
+                description: 'ID of the group booking the reservations should be attached to'
             },
             {
                 displayName: 'Request Body',
@@ -2254,26 +2047,21 @@ will be returned<br />A date and time (without fractional second part) in UTC or
     }
   ]
 }`,
-                description: 'The list of reservations you want to create.'
+                description: 'The list of reservations you want to create'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingGroupsByIdReservationsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingGroupsByIdReservationsPost"], resource: ["group"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -2287,25 +2075,25 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The property ID'
             },
             {
-                displayName: 'arrival',
+                displayName: 'Arrival',
                 name: 'BookingOffersGet_arrival',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingOffersGet"], resource: ["offer"] } },
                 default: '',
-                description: `Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
             {
-                displayName: 'departure',
+                displayName: 'Departure',
                 name: 'BookingOffersGet_departure',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingOffersGet"], resource: ["offer"] } },
                 default: '',
-                description: `Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'adults',
+                displayName: 'Adults',
                 name: 'BookingOffersGet_adults',
                 type: 'number',
                 required: true,
@@ -2318,15 +2106,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'BookingOffersGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingOffersGet"], resource: ["offer"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'options',
-                required: false,
                 default: 'Direct',
                 description: 'Channel code, used to filter the rate plans',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
@@ -2335,17 +2120,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'childrenAges',
                 name: 'childrenAges',
                 type: 'collection',
-                required: false,
-                default: `
-[]
-`,
+                default: {},
                 description: 'The ages of the children you want offers for'
             },
                 {
                 displayName: 'corporateCode',
                 name: 'corporateCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The code associated with a corporate rate'
             },
@@ -2353,15 +2134,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'includeUnavailable',
                 name: 'includeUnavailable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned'
+                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.'
             },
                 {
                 displayName: 'promoCode',
                 name: 'promoCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The promo code associated with a certain special offer'
             },
@@ -2369,11 +2148,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Time slice definition IDs, used to filter rate plans',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
@@ -2393,20 +2169,16 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'timeSliceTemplate',
                 name: 'timeSliceTemplate',
                 type: 'options',
-                required: false,
                 default: 'DayUse',
-                description: `The time slice template used to filter the rate plans, defaults to 'over night'`,
+                description: 'The time slice template used to filter the rate plans, defaults to \'over night\'',
                 options: [{ name: 'DayUse', value: 'DayUse' }, { name: 'OverNight', value: 'OverNight' }]
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Unit group IDs, used to filter rate plans',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -2426,10 +2198,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Unit group types, used to filter rate plans',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
@@ -2445,25 +2214,25 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The rate plan ID'
             },
             {
-                displayName: 'arrival',
+                displayName: 'Arrival',
                 name: 'BookingRate_plan_offersGet_arrival',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingRate-plan-offersGet"], resource: ["offer"] } },
                 default: '',
-                description: `Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
             {
-                displayName: 'departure',
+                displayName: 'Departure',
                 name: 'BookingRate_plan_offersGet_departure',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingRate-plan-offersGet"], resource: ["offer"] } },
                 default: '',
-                description: `Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'adults',
+                displayName: 'Adults',
                 name: 'BookingRate_plan_offersGet_adults',
                 type: 'number',
                 required: true,
@@ -2476,15 +2245,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'BookingRate_plan_offersGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingRate-plan-offersGet"], resource: ["offer"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'options',
-                required: false,
                 default: 'Direct',
                 description: 'The channel code',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
@@ -2493,28 +2259,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'childrenAges',
                 name: 'childrenAges',
                 type: 'collection',
-                required: false,
-                default: `
-[]
-`,
+                default: {},
                 description: 'The ages of the children you want offers for'
             },
                 {
                 displayName: 'includeUnavailable',
                 name: 'includeUnavailable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned'
+                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.'
             },
                 {
                 displayName: 'overridePrices',
                 name: 'overridePrices',
                 type: 'collection',
-                required: false,
-                default: `
-[]
-`,
+                default: {},
                 description: 'Desired prices for each timeslice'
             }
             ]
@@ -2529,25 +2288,25 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The rate plan ID'
             },
             {
-                displayName: 'arrival',
+                displayName: 'Arrival',
                 name: 'BookingService_offersGet_arrival',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingService-offersGet"], resource: ["offer"] } },
                 default: '',
-                description: `Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
             {
-                displayName: 'departure',
+                displayName: 'Departure',
                 name: 'BookingService_offersGet_departure',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingService-offersGet"], resource: ["offer"] } },
                 default: '',
-                description: `Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'adults',
+                displayName: 'Adults',
                 name: 'BookingService_offersGet_adults',
                 type: 'number',
                 required: true,
@@ -2560,15 +2319,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'BookingService_offersGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingService-offersGet"], resource: ["offer"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'options',
-                required: false,
                 default: 'Direct',
                 description: 'The channel code used to filter the services',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
@@ -2577,31 +2333,22 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'childrenAges',
                 name: 'childrenAges',
                 type: 'collection',
-                required: false,
-                default: `
-[]
-`,
+                default: {},
                 description: 'The ages of the children you want offers for'
             },
                 {
                 displayName: 'onlyDefaultDates',
                 name: 'onlyDefaultDates',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether depending on the postNextDay setting of a service it will be posted before or after midnight.
-Breakfast is usually delivered on the next morning, having 'postNextDay' set to true. Its 'default dates' are from the day after
-arrival until the departure day. For services like dinner 'postNextDay' is false, and default dates are day of arrival until one
-day before departure.
-With this query parameter set to 'false', you can also ask for dates outside of those default dates. It defaults to true`
+                description: 'Whether depending on the postNextDay setting of a service it will be posted before or after midnight. Breakfast is usually delivered on the next morning, having \'postNextDay\' set to true. Its \'default dates\' are from the day after arrival until the departure day. For services like dinner \'postNextDay\' is false, and default dates are day of arrival until one day before departure. With this query parameter set to \'false\', you can also ask for dates outside of those default dates. It defaults to true'
             },
                 {
                 displayName: 'includeUnavailable',
                 name: 'includeUnavailable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned'
+                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.'
             }
             ]
             },
@@ -2612,25 +2359,24 @@ With this query parameter set to 'false', you can also ask for dates outside of 
                 required: true,
                 displayOptions: { show: { operation: ["BookingOffer-indexGet"], resource: ["offer"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'BookingOffer_indexGet_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingOffer-indexGet"], resource: ["offer"] } },
                 default: '',
-                description: `<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'BookingOffer_indexGet_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingOffer-indexGet"], resource: ["offer"] } },
                 default: '',
-                description: `<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
             {
                 displayName: 'channelCode',
@@ -2639,7 +2385,6 @@ With this query parameter set to 'false', you can also ask for dates outside of 
                 required: true,
                 displayOptions: { show: { operation: ["BookingOffer-indexGet"], resource: ["offer"] } },
                 default: 'Direct',
-                description: '',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
             {
@@ -2647,15 +2392,12 @@ With this query parameter set to 'false', you can also ask for dates outside of 
                 name: 'BookingOffer_indexGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingOffer-indexGet"], resource: ["offer"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -2663,9 +2405,8 @@ With this query parameter set to 'false', you can also ask for dates outside of 
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -2674,29 +2415,22 @@ With this query parameter set to 'false', you can also ask for dates outside of 
                 name: 'BookingReservationsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservationsGet"], resource: ["reservation"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'allFoliosHaveInvoice',
                 name: 'allFoliosHaveInvoice',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, returns only reservations, in which all folios are closed and have an invoice.
-If set to \`false\`, returns only reservations, in which some of the folios are open or don't have an invoice`
+                description: 'Whether if set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice.'
             },
                 {
                 displayName: 'balanceFilter',
                 name: 'balanceFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'balanceFilterValues',
                     displayName: 'BalanceFilter',
@@ -2706,7 +2440,7 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -2715,11 +2449,8 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'blockIds',
                 name: 'blockIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested blocks',
                 options: [{
                     name: 'blockIdsValues',
@@ -2739,7 +2470,6 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'bookingId',
                 name: 'bookingId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter result by booking ID'
             },
@@ -2747,10 +2477,7 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by the channel code',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
@@ -2758,11 +2485,8 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested companies',
                 options: [{
                     name: 'companyIdsValues',
@@ -2782,50 +2506,38 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'options',
-                required: false,
                 default: 'Arrival',
-                description: `Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes.
-All filters will check if the date specified by the filter type is between from (included) and to (excluded).
-The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to`,
+                description: 'Filter by date and time attributes of reservation. Use in combination with the \'To\' and \'From\' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for \'stay\', which will return all reservations that are overlapping with the interval specified by from and to',
                 options: [{ name: 'Arrival', value: 'Arrival' }, { name: 'ArrivalAndCheckIn', value: 'ArrivalAndCheckIn' }, { name: 'Cancellation', value: 'Cancellation' }, { name: 'Creation', value: 'Creation' }, { name: 'Departure', value: 'Departure' }, { name: 'DepartureAndCheckOut', value: 'DepartureAndCheckOut' }, { name: 'Modification', value: 'Modification' }, { name: 'Stay', value: 'Stay' }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: booker, actions, timeSlices, services, assignedUnits, company. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }, { name: 'assignedUnits', value: 'assignedUnits' }, { name: 'booker', value: 'booker' }, { name: 'company', value: 'company' }, { name: 'services', value: 'services' }, { name: 'timeSlices', value: 'timeSlices' }]
+                options: [{ name: 'Actions', value: 'actions' }, { name: 'assignedUnits', value: 'assignedUnits' }, { name: 'Booker', value: 'booker' }, { name: 'Company', value: 'company' }, { name: 'Services', value: 'services' }, { name: 'timeSlices', value: 'timeSlices' }]
             },
                 {
                 displayName: 'externalCode',
                 name: 'externalCode',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter result by the external code. The result set will contain all reservations that have an external code starting with the
-provided value`
+                description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.'
             },
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'marketSegmentIds',
                 name: 'marketSegmentIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested market segments',
                 options: [{
                     name: 'marketSegmentIdsValues',
@@ -2845,7 +2557,6 @@ provided value`
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -2853,19 +2564,15 @@ provided value`
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested properties',
                 options: [{
                     name: 'propertyIdsValues',
@@ -2885,11 +2592,8 @@ provided value`
                 displayName: 'ratePlanIds',
                 name: 'ratePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested rate plans',
                 options: [{
                     name: 'ratePlanIdsValues',
@@ -2906,25 +2610,19 @@ provided value`
                 }]
             },
                 {
-                displayName: 'sort',
+                displayName: 'Sort',
                 name: 'sort',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, ID:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored',
-                options: [{ name: 'arrival:asc', value: 'arrival:asc' }, { name: 'arrival:desc', value: 'arrival:desc' }, { name: 'balance:asc', value: 'balance:asc' }, { name: 'balance:desc', value: 'balance:desc' }, { name: 'created:asc', value: 'created:asc' }, { name: 'created:desc', value: 'created:desc' }, { name: 'departure:asc', value: 'departure:asc' }, { name: 'departure:desc', value: 'departure:desc' }, { name: 'firstname:asc', value: 'firstname:asc' }, { name: 'firstname:desc', value: 'firstname:desc' }, { name: 'id:asc', value: 'id:asc' }, { name: 'id:desc', value: 'id:desc' }, { name: 'lastname:asc', value: 'lastname:asc' }, { name: 'lastname:desc', value: 'lastname:desc' }, { name: 'unitname:asc', value: 'unitname:asc' }, { name: 'unitname:desc', value: 'unitname:desc' }, { name: 'updated:asc', value: 'updated:asc' }, { name: 'updated:desc', value: 'updated:desc' }]
+                options: [{ name: 'arrival:asc', value: 'arrival:asc' }, { name: 'arrival:desc', value: 'arrival:desc' }, { name: 'balance:asc', value: 'balance:asc' }, { name: 'balance:desc', value: 'balance:desc' }, { name: 'created:asc', value: 'created:asc' }, { name: 'created:desc', value: 'created:desc' }, { name: 'departure:asc', value: 'departure:asc' }, { name: 'departure:desc', value: 'departure:desc' }, { name: 'firstname:asc', value: 'firstname:asc' }, { name: 'firstname:desc', value: 'firstname:desc' }, { name: 'ID:asc', value: 'id:asc' }, { name: 'ID:desc', value: 'id:desc' }, { name: 'lastname:asc', value: 'lastname:asc' }, { name: 'lastname:desc', value: 'lastname:desc' }, { name: 'unitname:asc', value: 'unitname:asc' }, { name: 'unitname:desc', value: 'unitname:desc' }, { name: 'updated:asc', value: 'updated:asc' }, { name: 'updated:desc', value: 'updated:desc' }]
             },
                 {
-                displayName: 'sources',
+                displayName: 'Sources',
                 name: 'sources',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by source',
                 options: [{
                     name: 'sourcesValues',
@@ -2941,13 +2639,10 @@ provided value`
                 }]
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by reservation status',
                 options: [{ name: 'Canceled', value: 'Canceled' }, { name: 'CheckedOut', value: 'CheckedOut' }, { name: 'Confirmed', value: 'Confirmed' }, { name: 'InHouse', value: 'InHouse' }, { name: 'NoShow', value: 'NoShow' }]
             },
@@ -2955,28 +2650,22 @@ provided value`
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name,
-primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive`
+                description: 'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -2996,10 +2685,7 @@ primary guest first name or last name or email or company name, external code, r
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by requested unit group types',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             },
@@ -3007,11 +2693,8 @@ primary guest first name or last name or email or company name, external code, r
                 displayName: 'unitIds',
                 name: 'unitIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by assigned units',
                 options: [{
                     name: 'unitIdsValues',
@@ -3031,10 +2714,7 @@ primary guest first name or last name or email or company name, external code, r
                 displayName: 'validationMessageCategory',
                 name: 'validationMessageCategory',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by validation message category',
                 options: [{ name: 'AutoUnitAssignment', value: 'AutoUnitAssignment' }, { name: 'OfferNotAvailable', value: 'OfferNotAvailable' }]
             }
@@ -3045,29 +2725,22 @@ primary guest first name or last name or email or company name, external code, r
                 name: 'BookingReservations_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservations$countGet"], resource: ["reservation"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'allFoliosHaveInvoice',
                 name: 'allFoliosHaveInvoice',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, returns only reservations, in which all folios are closed and have an invoice.
-If set to \`false\`, returns only reservations, in which some of the folios are open or don't have an invoice`
+                description: 'Whether if set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice.'
             },
                 {
                 displayName: 'balanceFilter',
                 name: 'balanceFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'balanceFilterValues',
                     displayName: 'BalanceFilter',
@@ -3077,7 +2750,7 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -3086,11 +2759,8 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'blockIds',
                 name: 'blockIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested blocks',
                 options: [{
                     name: 'blockIdsValues',
@@ -3110,7 +2780,6 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'bookingId',
                 name: 'bookingId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter result by booking ID'
             },
@@ -3118,10 +2787,7 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by the channel code',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
@@ -3129,11 +2795,8 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested companies',
                 options: [{
                     name: 'companyIdsValues',
@@ -3153,39 +2816,30 @@ If set to \`false\`, returns only reservations, in which some of the folios are 
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'options',
-                required: false,
                 default: 'Arrival',
-                description: `Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes.
-All filters will check if the date specified by the filter type is between from (included) and to (excluded).
-The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to`,
+                description: 'Filter by date and time attributes of reservation. Use in combination with the \'To\' and \'From\' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for \'stay\', which will return all reservations that are overlapping with the interval specified by from and to',
                 options: [{ name: 'Arrival', value: 'Arrival' }, { name: 'ArrivalAndCheckIn', value: 'ArrivalAndCheckIn' }, { name: 'Cancellation', value: 'Cancellation' }, { name: 'Creation', value: 'Creation' }, { name: 'Departure', value: 'Departure' }, { name: 'DepartureAndCheckOut', value: 'DepartureAndCheckOut' }, { name: 'Modification', value: 'Modification' }, { name: 'Stay', value: 'Stay' }]
             },
                 {
                 displayName: 'externalCode',
                 name: 'externalCode',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter result by the external code. The result set will contain all reservations that have an external code starting with the
-provided value`
+                description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.'
             },
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'marketSegmentIds',
                 name: 'marketSegmentIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested market segments',
                 options: [{
                     name: 'marketSegmentIdsValues',
@@ -3205,11 +2859,8 @@ provided value`
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested properties',
                 options: [{
                     name: 'propertyIdsValues',
@@ -3229,11 +2880,8 @@ provided value`
                 displayName: 'ratePlanIds',
                 name: 'ratePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested rate plans',
                 options: [{
                     name: 'ratePlanIdsValues',
@@ -3250,14 +2898,11 @@ provided value`
                 }]
             },
                 {
-                displayName: 'sources',
+                displayName: 'Sources',
                 name: 'sources',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by source',
                 options: [{
                     name: 'sourcesValues',
@@ -3274,13 +2919,10 @@ provided value`
                 }]
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by reservation status',
                 options: [{ name: 'Canceled', value: 'Canceled' }, { name: 'CheckedOut', value: 'CheckedOut' }, { name: 'Confirmed', value: 'Confirmed' }, { name: 'InHouse', value: 'InHouse' }, { name: 'NoShow', value: 'NoShow' }]
             },
@@ -3288,28 +2930,22 @@ provided value`
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name,
-primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive`
+                description: 'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by requested unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -3329,10 +2965,7 @@ primary guest first name or last name or email or company name, external code, r
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by requested unit group types',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             },
@@ -3340,11 +2973,8 @@ primary guest first name or last name or email or company name, external code, r
                 displayName: 'unitIds',
                 name: 'unitIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by assigned units',
                 options: [{
                     name: 'unitIdsValues',
@@ -3364,54 +2994,46 @@ primary guest first name or last name or email or company name, external code, r
                 displayName: 'validationMessageCategory',
                 name: 'validationMessageCategory',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by validation message category',
                 options: [{ name: 'AutoUnitAssignment', value: 'AutoUnitAssignment' }, { name: 'OfferNotAvailable', value: 'OfferNotAvailable' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservationsByIdGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservationsByIdGet"], resource: ["reservation"] } },
                 default: '',
-                description: 'Id of the reservation to be retrieved'
+                description: 'ID of the reservation to be retrieved'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingReservationsByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservationsByIdGet"], resource: ["reservation"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: timeSlices, services, booker, actions, company, assignedUnits. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }, { name: 'assignedUnits', value: 'assignedUnits' }, { name: 'booker', value: 'booker' }, { name: 'company', value: 'company' }, { name: 'services', value: 'services' }, { name: 'timeSlices', value: 'timeSlices' }]
+                options: [{ name: 'Actions', value: 'actions' }, { name: 'assignedUnits', value: 'assignedUnits' }, { name: 'Booker', value: 'booker' }, { name: 'Company', value: 'company' }, { name: 'Services', value: 'services' }, { name: 'timeSlices', value: 'timeSlices' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservationsByIdPatch_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservationsByIdPatch"], resource: ["reservation"] } },
                 default: '',
-                description: 'Id of the reservation to be modified'
+                description: 'ID of the reservation to be modified'
             },
             {
                 displayName: 'Request Body',
@@ -3425,44 +3047,39 @@ primary guest first name or last name or email or company name, external code, r
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservationsByIdOffersGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservationsByIdOffersGet"], resource: ["reservation"] } },
                 default: '',
-                description: 'Id of the reservation to be amended'
+                description: 'ID of the reservation to be amended'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingReservationsByIdOffersGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservationsByIdOffersGet"], resource: ["reservation"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'adults',
+                displayName: 'Adults',
                 name: 'adults',
                 type: 'number',
-                required: false,
                 default: 0,
                 description: 'Number of adults'
             },
                 {
-                displayName: 'arrival',
+                displayName: 'Arrival',
                 name: 'arrival',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
                 {
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'options',
-                required: false,
                 default: 'Direct',
                 description: 'The channel code used to filter the rate plans',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
@@ -3471,54 +3088,43 @@ primary guest first name or last name or email or company name, external code, r
                 displayName: 'childrenAges',
                 name: 'childrenAges',
                 type: 'collection',
-                required: false,
-                default: `
-[]
-`,
+                default: {},
                 description: 'Ages of children'
             },
                 {
-                displayName: 'departure',
+                displayName: 'Departure',
                 name: 'departure',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'includeUnavailable',
                 name: 'includeUnavailable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned'
+                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.'
             },
                 {
                 displayName: 'promoCode',
                 name: 'promoCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The promo code associated with a certain special offer, like corporate rate'
             },
                 {
-                displayName: 'requote',
+                displayName: 'Requote',
                 name: 'requote',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated.
-Defaults to 'false'`
+                description: 'Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to \'false\'.'
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'The list of unit groups used to filter the offers',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -3529,7 +3135,7 @@ Defaults to 'false'`
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'The list of unit groups used to filter the offers.'
+                    description: 'The list of unit groups used to filter the offers'
                 }
                 ]
                 }]
@@ -3537,28 +3143,25 @@ Defaults to 'false'`
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservationsByIdService_offersGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservationsByIdService-offersGet"], resource: ["reservation"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingReservationsByIdService_offersGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservationsByIdService-offersGet"], resource: ["reservation"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCode',
                 name: 'channelCode',
                 type: 'options',
-                required: false,
                 default: 'Direct',
                 description: 'The channel code used to filter the services',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
@@ -3567,40 +3170,35 @@ Defaults to 'false'`
                 displayName: 'onlyDefaultDates',
                 name: 'onlyDefaultDates',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether depending on the postNextDay setting of a service it will by default be posted before or after midnight.
-Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day
-are default dates and will have this flag set to true. For services like a dinner it is the other way around.
-With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true`
+                description: 'Whether depending on the postNextDay setting of a service it will by default be posted before or after midnight. Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day are default dates and will have this flag set to true. For services like a dinner it is the other way around. With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true'
             },
                 {
                 displayName: 'includeUnavailable',
                 name: 'includeUnavailable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned'
+                description: 'Whether return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservationsByIdServicesGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservationsByIdServicesGet"], resource: ["reservation"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservationsByIdServicesDelete_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservationsByIdServicesDelete"], resource: ["reservation"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
                 displayName: 'serviceId',
@@ -3612,44 +3210,39 @@ With this query parameter, you can also ask for the dates, that usually the serv
                 description: 'The ID of the service to delete'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdAssign_unitPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdAssign-unitPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation a unit should be assigned to'
+                description: 'ID of the reservation a unit should be assigned to'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingReservation_actionsByIdAssign_unitPut_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdAssign-unitPut"], resource: ["reservationactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'unitConditions',
                 name: 'unitConditions',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The optional unit conditions for unit that you want to auto assign for',
                 options: [{ name: 'Clean', value: 'Clean' }, { name: 'CleanToBeInspected', value: 'CleanToBeInspected' }, { name: 'Dirty', value: 'Dirty' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdAssign_unitByUnitIdPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdAssign-unitByUnitIdPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation the unit should be assigned to'
+                description: 'ID of the reservation the unit should be assigned to'
             },
             {
                 displayName: 'unitId',
@@ -3665,67 +3258,60 @@ With this query parameter, you can also ask for the dates, that usually the serv
                 name: 'BookingReservation_actionsByIdAssign_unitByUnitIdPut_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdAssign-unitByUnitIdPut"], resource: ["reservationactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The start date and optional time for the unit assignment. If not specified, the reservation's arrival will be used.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The end date and optional time for the unit assignment. If not specified, the reservation's departure will be used.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdUnassign_unitsPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdUnassign-unitsPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation the unit should be unassigned for'
+                description: 'ID of the reservation the unit should be unassigned for'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdCheckinPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdCheckinPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation that should be processed'
+                description: 'ID of the reservation that should be processed'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'BookingReservation_actionsByIdCheckinPut_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdCheckinPut"], resource: ["reservationactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'withCityTax',
                 name: 'withCityTax',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether define if city tax should be added for this reservation or not. The default is "true"`
+                description: 'Whether define if city tax should be added for this reservation or not. The default is "true".'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdRevert_checkinPut_id',
                 type: 'string',
                 required: true,
@@ -3734,40 +3320,40 @@ With this query parameter, you can also ask for the dates, that usually the serv
                 description: 'The ID of the reservation to reverse the check-in for'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdCheckoutPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdCheckoutPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation that should be processed'
+                description: 'ID of the reservation that should be processed'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdCancelPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdCancelPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation that should be processed'
+                description: 'ID of the reservation that should be processed'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdNoshowPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdNoshowPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation that should be processed'
+                description: 'ID of the reservation that should be processed'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdAmendPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdAmendPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation that should be modified'
+                description: 'ID of the reservation that should be modified'
             },
             {
                 displayName: 'Request Body',
@@ -3800,16 +3386,16 @@ With this query parameter, you can also ask for the dates, that usually the serv
     }
   ]
 }`,
-                description: 'The new stay details that should be applied to the reservation.'
+                description: 'The new stay details that should be applied to the reservation'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdAmend_forcePut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdAmend$forcePut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation that should be modified'
+                description: 'ID of the reservation that should be modified'
             },
             {
                 displayName: 'Request Body',
@@ -3842,16 +3428,16 @@ With this query parameter, you can also ask for the dates, that usually the serv
     }
   ]
 }`,
-                description: 'The new stay details that should be applied to the reservation.'
+                description: 'The new stay details that should be applied to the reservation'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdBook_servicePut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdBook-servicePut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
                 displayName: 'Request Body',
@@ -3877,13 +3463,13 @@ With this query parameter, you can also ask for the dates, that usually the serv
                 description: 'The request body data'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdBook_service_forcePut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdBook-service$forcePut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
                 displayName: 'Request Body',
@@ -3909,43 +3495,43 @@ With this query parameter, you can also ask for the dates, that usually the serv
                 description: 'The request body data'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdRemove_city_taxPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdRemove-city-taxPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdAdd_city_taxPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation-actionsByIdAdd-city-taxPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdLock_unitPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation_actionsByIdLock_unitPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'BookingReservation_actionsByIdUnlock_unitPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["BookingReservation_actionsByIdUnlock_unitPut"], resource: ["reservationactions"] } },
                 default: '',
-                description: 'Id of the reservation'
+                description: 'ID of the reservation'
             },
             {
-                displayName: 'type',
+                displayName: 'Type',
                 name: 'BookingTypesByTypeAllowed_valuesGet_type',
                 type: 'options',
                 required: true,
@@ -3968,24 +3554,19 @@ With this query parameter, you can also ask for the dates, that usually the serv
                 name: 'BookingTypesByTypeAllowed_valuesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["BookingTypesByTypeAllowed-valuesGet"], resource: ["types"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter the result by the provided free text.
-If specified, only values that contain one of the provided values will be returned`
+                description: 'Filter the result by the provided free text. If specified, only values that contain one of the provided values will be returned.'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -3993,18 +3574,14 @@ If specified, only values that contain one of the provided values will be return
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
-                displayName: 'sort',
+                displayName: 'Sort',
                 name: 'sort',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all fields that can be used to sort the results. Possible values are: value:asc, value:desc. All other values will be silently ignored',
                 options: [{ name: 'value:asc', value: 'value:asc' }, { name: 'value:desc', value: 'value:desc' }]
             }
@@ -4015,20 +3592,15 @@ If specified, only values that contain one of the provided values will be return
                 name: 'FinanceFoliosGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosGet"], resource: ["folio"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'balanceFilter',
                 name: 'balanceFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'balanceFilterValues',
                     displayName: 'BalanceFilter',
@@ -4038,7 +3610,7 @@ If specified, only values that contain one of the provided values will be return
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -4047,11 +3619,8 @@ If specified, only values that contain one of the provided values will be return
                 displayName: 'bookingIds',
                 name: 'bookingIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by booking IDs',
                 options: [{
                     name: 'bookingIdsValues',
@@ -4071,20 +3640,15 @@ If specified, only values that contain one of the provided values will be return
                 displayName: 'checkedOutOnAccountsReceivable',
                 name: 'checkedOutOnAccountsReceivable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only return folios that have been checked out on accounts receivables
-Otherwise, returns all`
+                description: 'Whether if set to \`true\`, only return folios that have been checked out on accounts receivables Otherwise, returns all'
             },
                 {
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by company IDs',
                 options: [{
                     name: 'companyIdsValues',
@@ -4104,42 +3668,35 @@ Otherwise, returns all`
                 displayName: 'createdFrom',
                 name: 'createdFrom',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The inclusive start time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'createdTo',
                 name: 'createdTo',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The exclusive end time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'excludeClosed',
                 name: 'excludeClosed',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>`
+                description: 'Whether if set to \`true\`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.'
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: allowances, allowedActions, transitoryCharges, charges, company, payments, warnings. All other values will be silently ignored',
-                options: [{ name: 'allowances', value: 'allowances' }, { name: 'allowedActions', value: 'allowedActions' }, { name: 'charges', value: 'charges' }, { name: 'company', value: 'company' }, { name: 'payments', value: 'payments' }, { name: 'transitoryCharges', value: 'transitoryCharges' }, { name: 'warnings', value: 'warnings' }]
+                options: [{ name: 'Allowances', value: 'allowances' }, { name: 'allowedActions', value: 'allowedActions' }, { name: 'Charges', value: 'charges' }, { name: 'Company', value: 'company' }, { name: 'Payments', value: 'payments' }, { name: 'transitoryCharges', value: 'transitoryCharges' }, { name: 'Warnings', value: 'warnings' }]
             },
                 {
                 displayName: 'externalFolioCode',
                 name: 'externalFolioCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: `Allows filtering external folios by code.
 Useful when you use external folios with custom codes.
@@ -4149,32 +3706,27 @@ Specifying this parameter will ignore the <b>Type</b> parameter and treat as if 
                 displayName: 'hasInvoices',
                 name: 'hasInvoices',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only return folios that been invoices`
+                description: 'Whether if set to \`true\`, only return folios that been invoices'
             },
                 {
                 displayName: 'isEmpty',
                 name: 'isEmpty',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances).
-If set to \`false\`, only return non-empty folios`
+                description: 'Whether if set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.'
             },
                 {
                 displayName: 'onlyMain',
                 name: 'onlyMain',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only main folios are returned, otherwise all`
+                description: 'Whether if set to \`true\`, only main folios are returned, otherwise all'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -4182,19 +3734,15 @@ If set to \`false\`, only return non-empty folios`
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by property IDs',
                 options: [{
                     name: 'propertyIdsValues',
@@ -4214,11 +3762,8 @@ If set to \`false\`, only return non-empty folios`
                 displayName: 'reservationIds',
                 name: 'reservationIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by reservation IDs',
                 options: [{
                     name: 'reservationIdsValues',
@@ -4235,10 +3780,9 @@ If set to \`false\`, only return non-empty folios`
                 }]
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'options',
-                required: false,
                 default: 'Open',
                 description: 'The status of the folio',
                 options: [{ name: 'Closed', value: 'Closed' }, { name: 'Open', value: 'Open' }]
@@ -4247,16 +3791,13 @@ If set to \`false\`, only return non-empty folios`
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all folios where the provided text is contained in: debitor first name or last name or company name,
-folio ID. The search is case insensitive`
+                description: 'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.'
             },
                 {
-                displayName: 'type',
+                displayName: 'Type',
                 name: 'type',
                 type: 'options',
-                required: false,
                 default: 'House',
                 description: 'The type of the folio',
                 options: [{ name: 'Booking', value: 'Booking' }, { name: 'External', value: 'External' }, { name: 'Guest', value: 'Guest' }, { name: 'House', value: 'House' }]
@@ -4265,17 +3806,15 @@ folio ID. The search is case insensitive`
                 displayName: 'updatedFrom',
                 name: 'updatedFrom',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The inclusive start time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'updatedTo',
                 name: 'updatedTo',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The exclusive end time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             }
             ]
             },
@@ -4309,26 +3848,21 @@ folio ID. The search is case insensitive`
   },
   "type": "Guest"
 }`,
-                description: 'The definition of the folio.'
+                description: 'The definition of the folio'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosPost"], resource: ["folio"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -4337,20 +3871,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolios_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolios$countGet"], resource: ["folio"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'balanceFilter',
                 name: 'balanceFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'balanceFilterValues',
                     displayName: 'BalanceFilter',
@@ -4360,7 +3889,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -4369,11 +3898,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'bookingIds',
                 name: 'bookingIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by booking IDs',
                 options: [{
                     name: 'bookingIdsValues',
@@ -4393,20 +3919,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'checkedOutOnAccountsReceivable',
                 name: 'checkedOutOnAccountsReceivable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only return folios that have been checked out on accounts receivables
-Otherwise, returns all`
+                description: 'Whether if set to \`true\`, only return folios that have been checked out on accounts receivables Otherwise, returns all'
             },
                 {
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by company IDs',
                 options: [{
                     name: 'companyIdsValues',
@@ -4426,31 +3947,27 @@ Otherwise, returns all`
                 displayName: 'createdFrom',
                 name: 'createdFrom',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The inclusive start time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'createdTo',
                 name: 'createdTo',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The exclusive end time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'excludeClosed',
                 name: 'excludeClosed',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>`
+                description: 'Whether if set to \`true\`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.'
             },
                 {
                 displayName: 'externalFolioCode',
                 name: 'externalFolioCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: `Allows filtering external folios by code.
 Useful when you use external folios with custom codes.
@@ -4460,36 +3977,29 @@ Specifying this parameter will ignore the <b>Type</b> parameter and treat as if 
                 displayName: 'hasInvoices',
                 name: 'hasInvoices',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only return folios that been invoices`
+                description: 'Whether if set to \`true\`, only return folios that been invoices'
             },
                 {
                 displayName: 'isEmpty',
                 name: 'isEmpty',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances).
-If set to \`false\`, only return non-empty folios`
+                description: 'Whether if set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.'
             },
                 {
                 displayName: 'onlyMain',
                 name: 'onlyMain',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only main folios are returned, otherwise all`
+                description: 'Whether if set to \`true\`, only main folios are returned, otherwise all'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by property IDs',
                 options: [{
                     name: 'propertyIdsValues',
@@ -4509,11 +4019,8 @@ If set to \`false\`, only return non-empty folios`
                 displayName: 'reservationIds',
                 name: 'reservationIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter folio list by reservation IDs',
                 options: [{
                     name: 'reservationIdsValues',
@@ -4530,10 +4037,9 @@ If set to \`false\`, only return non-empty folios`
                 }]
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'options',
-                required: false,
                 default: 'Open',
                 description: 'The status of the folio',
                 options: [{ name: 'Closed', value: 'Closed' }, { name: 'Open', value: 'Open' }]
@@ -4542,16 +4048,13 @@ If set to \`false\`, only return non-empty folios`
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all folios where the provided text is contained in: debitor first name or last name or company name,
-folio ID. The search is case insensitive`
+                description: 'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.'
             },
                 {
-                displayName: 'type',
+                displayName: 'Type',
                 name: 'type',
                 type: 'options',
-                required: false,
                 default: 'House',
                 description: 'The type of the folio',
                 options: [{ name: 'Booking', value: 'Booking' }, { name: 'External', value: 'External' }, { name: 'Guest', value: 'Guest' }, { name: 'House', value: 'House' }]
@@ -4560,22 +4063,20 @@ folio ID. The search is case insensitive`
                 displayName: 'updatedFrom',
                 name: 'updatedFrom',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The inclusive start time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
                 {
                 displayName: 'updatedTo',
                 name: 'updatedTo',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The exclusive end time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceFoliosByIdGet_id',
                 type: 'string',
                 required: true,
@@ -4588,25 +4089,20 @@ folio ID. The search is case insensitive`
                 name: 'FinanceFoliosByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByIdGet"], resource: ["folio"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: folios. All other values will be silently ignored',
-                options: [{ name: 'folios', value: 'folios' }]
+                options: [{ name: 'Folios', value: 'folios' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceFoliosByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -4623,20 +4119,18 @@ folio ID. The search is case insensitive`
                 default: `
 {}
 `,
-                description: `Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.
-            See the FolioDebitorModel in GET for values that can be changed.`
+                description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/. See the FolioDebitorModel in GET for values that can be changed.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceFoliosByIdHead_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByIdHead"], resource: ["folio"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceFoliosByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -4677,19 +4171,14 @@ folio ID. The search is case insensitive`
                 name: 'FinanceFolio_actionsByFolioIdChargesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdChargesPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -4723,19 +4212,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdTransitory_chargesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdTransitory-chargesPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -4764,19 +4248,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdCancellation_feePost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdCancellation-feePost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -4805,19 +4284,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdNo_show_feePost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdNo-show-feePost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -4870,7 +4344,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
     "KFCSQUID-1-TC-2"
   ]
 }`,
-                description: 'See class.'
+                description: 'See class'
             },
             {
                 displayName: 'Request Body',
@@ -4899,7 +4373,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
   ],
   "reason": "Test"
 }`,
-                description: 'See class.'
+                description: 'See class'
             },
             {
                 displayName: 'folioId',
@@ -4920,7 +4394,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "targetFolioId": "KFCSQUID-1",
   "reason": "Test"
 }`,
-                description: 'See class.'
+                description: 'See class'
             },
             {
                 displayName: 'folioId',
@@ -4960,19 +4434,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdChargesByChargeIdAllowancesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5008,19 +4477,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdAllowancesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdAllowancesPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5065,19 +4529,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdBulk_allowancesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdBulk-allowancesPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5113,7 +4572,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
     "KFCSQUID-1-C-5"
   ]
 }`,
-                description: 'See class.'
+                description: 'See class'
             },
             {
                 displayName: 'folioId',
@@ -5152,19 +4611,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdCorrectPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdCorrectPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5203,19 +4657,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdChargesByChargeIdSplitPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5254,19 +4703,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFolio_actionsByFolioIdPaymentsByPaymentIdSplitPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost"], resource: ["folioactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5277,25 +4721,19 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsGet"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdPaymentsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsGet"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'statusCodes',
                 name: 'statusCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter payments by one or more status',
                 options: [{ name: 'Canceled', value: 'Canceled' }, { name: 'Failure', value: 'Failure' }, { name: 'Pending', value: 'Pending' }, { name: 'Success', value: 'Success' }]
             },
@@ -5303,7 +4741,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -5311,20 +4748,16 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }]
+                options: [{ name: 'Actions', value: 'actions' }]
             }
             ]
             },
@@ -5335,8 +4768,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Request Body',
                 name: 'body',
@@ -5357,26 +4789,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the payment.'
+                description: 'The definition of the payment'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdPaymentsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsPost"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5387,8 +4814,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsByPaymentIdGet"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'paymentId',
                 name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdGet_paymentId',
@@ -5403,20 +4829,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsByPaymentIdGet"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }]
+                options: [{ name: 'Actions', value: 'actions' }]
             }
             ]
             },
@@ -5427,8 +4848,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-terminalPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Request Body',
                 name: 'body',
@@ -5448,26 +4868,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the payment.'
+                description: 'The definition of the payment'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdPaymentsBy_terminalPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-terminalPost"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5478,8 +4893,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-authorizationPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Request Body',
                 name: 'body',
@@ -5500,26 +4914,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the payment.'
+                description: 'The definition of the payment'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdPaymentsBy_authorizationPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-authorizationPost"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5530,8 +4939,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-payment-accountPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Request Body',
                 name: 'body',
@@ -5550,26 +4958,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the payment.'
+                description: 'The definition of the payment'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdPaymentsBy_payment_accountPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-payment-accountPost"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5580,8 +4983,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-linkPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Request Body',
                 name: 'body',
@@ -5604,26 +5006,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the payment link.'
+                description: 'The definition of the payment link'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdPaymentsBy_linkPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsBy-linkPost"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5634,8 +5031,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'paymentId',
                 name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut_paymentId',
@@ -5652,25 +5048,19 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdRefundsGet"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdRefundsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdRefundsGet"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'statusCodes',
                 name: 'statusCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter refunds by one or more status',
                 options: [{ name: 'Canceled', value: 'Canceled' }, { name: 'Failure', value: 'Failure' }, { name: 'Pending', value: 'Pending' }, { name: 'Success', value: 'Success' }]
             },
@@ -5678,7 +5068,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -5686,9 +5075,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -5699,8 +5087,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdRefundsPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Request Body',
                 name: 'body',
@@ -5717,26 +5104,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "businessDate": "2025-07-14",
   "reason": "Refund for the cancelled service"
 }`,
-                description: 'The definition of the refund.'
+                description: 'The definition of the refund'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdRefundsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdRefundsPost"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5747,8 +5129,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdRefundsByRefundIdGet"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'refundId',
                 name: 'FinanceFoliosByFolioIdRefundsByRefundIdGet_refundId',
@@ -5765,8 +5146,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'paymentId',
                 name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_paymentId',
@@ -5774,7 +5154,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost"], resource: ["foliopayments"] } },
                 default: '',
-                description: 'The payment Id'
+                description: 'The payment ID'
             },
             {
                 displayName: 'Request Body',
@@ -5790,26 +5170,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "businessDate": "2025-07-14",
   "reason": "Refund for the cancelled service"
 }`,
-                description: 'The definition of the refund.'
+                description: 'The definition of the refund'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost"], resource: ["foliopayments"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -5845,20 +5220,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceInvoicesPreviewGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceInvoicesPreviewGet"], resource: ["invoice"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored',
-                options: [{ name: 'company', value: 'company' }]
+                options: [{ name: 'Company', value: 'company' }]
             }
             ]
             },
@@ -5867,19 +5237,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceInvoicesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceInvoicesGet"], resource: ["invoice"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'bookingIds',
                 name: 'bookingIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter by booking IDs',
                 options: [{
                     name: 'bookingIdsValues',
@@ -5899,20 +5264,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'checkedOutOnAccountsReceivable',
                 name: 'checkedOutOnAccountsReceivable',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether if set to \`true\`, only return invoices with an open balance (AR)
-Otherwise, returns all`
+                description: 'Whether if set to \`true\`, only return invoices with an open balance (AR) Otherwise, returns all'
             },
                 {
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter by company IDs',
                 options: [{
                     name: 'companyIdsValues',
@@ -5932,12 +5292,9 @@ Otherwise, returns all`
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `Filter by invoice date<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'dateFilterValues',
                     displayName: 'DateFilter',
@@ -5947,31 +5304,25 @@ Otherwise, returns all`
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `Filter by invoice date<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: allowedActions, company. All other values will be silently ignored',
-                options: [{ name: 'allowedActions', value: 'allowedActions' }, { name: 'company', value: 'company' }]
+                options: [{ name: 'allowedActions', value: 'allowedActions' }, { name: 'Company', value: 'company' }]
             },
                 {
                 displayName: 'folioIds',
                 name: 'folioIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter by folio IDs',
                 options: [{
                     name: 'folioIdsValues',
@@ -5991,15 +5342,13 @@ Otherwise, returns all`
                 displayName: 'nameSearch',
                 name: 'nameSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: 'Find invoices for a recipient name or company. Provide at least three characters'
+                description: 'Find invoices for a recipient name or company. Provide at least three characters.'
             },
                 {
-                displayName: 'number',
+                displayName: 'Number',
                 name: 'number',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The invoice number'
             },
@@ -6007,12 +5356,9 @@ Otherwise, returns all`
                 displayName: 'outstandingPaymentFilter',
                 name: 'outstandingPaymentFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `Filter for the outstanding balance for invoices<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'outstandingPaymentFilterValues',
                     displayName: 'OutstandingPaymentFilter',
@@ -6022,7 +5368,7 @@ Otherwise, returns all`
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `Filter for the outstanding balance for invoices<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -6031,7 +5377,6 @@ Otherwise, returns all`
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -6039,15 +5384,13 @@ Otherwise, returns all`
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'paymentSettled',
                 name: 'paymentSettled',
                 type: 'boolean',
-                required: false,
                 default: false,
                 description: `Whether if set to \`true\`, returns only invoices having no outstanding payments or marked as settled.
 If set to \`false\`, returns only invoices with outstanding payment and not marked as settled.
@@ -6057,11 +5400,8 @@ If not set, returns all invoices. - <b>DEPRECATED: This field will be removed at
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter by property IDs',
                 options: [{
                     name: 'propertyIdsValues',
@@ -6081,22 +5421,16 @@ If not set, returns all invoices. - <b>DEPRECATED: This field will be removed at
                 displayName: 'recipientType',
                 name: 'recipientType',
                 type: 'options',
-                required: false,
                 default: 'Person',
-                description: `If nothing is set, invoices addressed both companies and individuals will be returned.
-If set to \`Person\`, invoices that addressed to individuals will be returned.
-If set to \`Company\`, invoice that addressed to companies will be returned`,
+                description: 'If nothing is set, invoices addressed both companies and individuals will be returned. If set to \`Person\`, invoices that addressed to individuals will be returned. If set to \`Company\`, invoice that addressed to companies will be returned',
                 options: [{ name: 'Company', value: 'Company' }, { name: 'Person', value: 'Person' }]
             },
                 {
                 displayName: 'reservationIds',
                 name: 'reservationIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter by reservation IDs',
                 options: [{
                     name: 'reservationIdsValues',
@@ -6113,10 +5447,9 @@ If set to \`Company\`, invoice that addressed to companies will be returned`,
                 }]
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'options',
-                required: false,
                 default: 'FullyPaid',
                 description: 'Filter by invoice status',
                 options: [{ name: 'FullyPaid', value: 'FullyPaid' }, { name: 'Unpaid', value: 'Unpaid' }, { name: 'WrittenOff', value: 'WrittenOff' }]
@@ -6133,31 +5466,26 @@ If set to \`Company\`, invoice that addressed to companies will be returned`,
   "folioId": "HBCXQZ-1",
   "languageCode": "en"
 }`,
-                description: 'The folio ID to create the invoice for.'
+                description: 'The folio ID to create the invoice for'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceInvoicesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceInvoicesPost"], resource: ["invoice"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceInvoicesByIdPdfGet_id',
                 type: 'string',
                 required: true,
@@ -6166,7 +5494,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The invoice ID'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceInvoicesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -6179,25 +5507,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceInvoicesByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceInvoicesByIdGet"], resource: ["invoice"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored',
-                options: [{ name: 'company', value: 'company' }]
+                options: [{ name: 'Company', value: 'company' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceInvoice_actionsByIdPayPut_id',
                 type: 'string',
                 required: true,
@@ -6215,10 +5538,10 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "paymentMethod": "BankTransfer",
   "receipt": "BANK-123456"
 }`,
-                description: 'see class'
+                description: 'See class'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'FinanceInvoice_actionsByIdCancelPut_id',
                 type: 'string',
                 required: true,
@@ -6235,7 +5558,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 default: `{
   "reasonCode": "ChangeOfRecipientDetails"
 }`,
-                description: 'see class'
+                description: 'See class'
             },
             {
                 displayName: 'propertyId',
@@ -6247,7 +5570,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Specifies the property transactions will be aggregated for'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'FinanceAccountsAggregate_pairs_dailyPost_from',
                 type: 'string',
                 required: true,
@@ -6256,7 +5579,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The inclusive start date of the interval'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'FinanceAccountsAggregate_pairs_dailyPost_to',
                 type: 'string',
                 required: true,
@@ -6269,24 +5592,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceAccountsAggregate_pairs_dailyPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsAggregate-pairs-dailyPost"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'accountNumber',
                 name: 'accountNumber',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by account number'
             },
@@ -6294,7 +5613,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'accountType',
                 name: 'accountType',
                 type: 'options',
-                required: false,
                 default: 'Revenues',
                 description: 'Filter transactions by type',
                 options: [{ name: 'AccountsReceivable', value: 'AccountsReceivable' }, { name: 'CityTaxes', value: 'CityTaxes' }, { name: 'House', value: 'House' }, { name: 'Liabilities', value: 'Liabilities' }, { name: 'LossOfAccountsReceivable', value: 'LossOfAccountsReceivable' }, { name: 'Payments', value: 'Payments' }, { name: 'Receivables', value: 'Receivables' }, { name: 'Revenues', value: 'Revenues' }, { name: 'SecondCityTax', value: 'SecondCityTax' }, { name: 'TransitoryItems', value: 'TransitoryItems' }, { name: 'Vat', value: 'Vat' }, { name: 'VatOnLiabilities', value: 'VatOnLiabilities' }]
@@ -6303,25 +5621,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report (2-letter ISO code)'
             },
                 {
-                displayName: 'reference',
+                displayName: 'Reference',
                 name: 'reference',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)'
             }
@@ -6337,7 +5650,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Specifies the property transactions will be aggregated for'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'FinanceAccountsAggregate_dailyPost_from',
                 type: 'string',
                 required: true,
@@ -6346,7 +5659,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The inclusive start date of the interval'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'FinanceAccountsAggregate_dailyPost_to',
                 type: 'string',
                 required: true,
@@ -6359,24 +5672,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceAccountsAggregate_dailyPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsAggregate-dailyPost"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'accountNumber',
                 name: 'accountNumber',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by account number'
             },
@@ -6384,7 +5693,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'accountType',
                 name: 'accountType',
                 type: 'options',
-                required: false,
                 default: 'Revenues',
                 description: 'Filter transactions by type',
                 options: [{ name: 'AccountsReceivable', value: 'AccountsReceivable' }, { name: 'CityTaxes', value: 'CityTaxes' }, { name: 'House', value: 'House' }, { name: 'Liabilities', value: 'Liabilities' }, { name: 'LossOfAccountsReceivable', value: 'LossOfAccountsReceivable' }, { name: 'Payments', value: 'Payments' }, { name: 'Receivables', value: 'Receivables' }, { name: 'Revenues', value: 'Revenues' }, { name: 'SecondCityTax', value: 'SecondCityTax' }, { name: 'TransitoryItems', value: 'TransitoryItems' }, { name: 'Vat', value: 'Vat' }, { name: 'VatOnLiabilities', value: 'VatOnLiabilities' }]
@@ -6393,25 +5701,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report (2-letter ISO code)'
             },
                 {
-                displayName: 'reference',
+                displayName: 'Reference',
                 name: 'reference',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)'
             }
@@ -6427,48 +5730,42 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Specifies the property for which transactions will be exported'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'FinanceAccountsAggregatePost_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["FinanceAccountsAggregatePost"], resource: ["subledger"] } },
                 default: '',
-                description: `The inclusive start time of the posting date.
-Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'FinanceAccountsAggregatePost_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["FinanceAccountsAggregatePost"], resource: ["subledger"] } },
                 default: '',
-                description: `The exclusive end time of the posting date.
-Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceAccountsAggregatePost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsAggregatePost"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'accountNumber',
                 name: 'accountNumber',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by account number'
             },
@@ -6476,7 +5773,6 @@ Either posting date or business date interval should be specified.<br />A date a
                 displayName: 'accountType',
                 name: 'accountType',
                 type: 'options',
-                required: false,
                 default: 'Revenues',
                 description: 'Filter transactions by type',
                 options: [{ name: 'AccountsReceivable', value: 'AccountsReceivable' }, { name: 'CityTaxes', value: 'CityTaxes' }, { name: 'House', value: 'House' }, { name: 'Liabilities', value: 'Liabilities' }, { name: 'LossOfAccountsReceivable', value: 'LossOfAccountsReceivable' }, { name: 'Payments', value: 'Payments' }, { name: 'Receivables', value: 'Receivables' }, { name: 'Revenues', value: 'Revenues' }, { name: 'SecondCityTax', value: 'SecondCityTax' }, { name: 'TransitoryItems', value: 'TransitoryItems' }, { name: 'Vat', value: 'Vat' }, { name: 'VatOnLiabilities', value: 'VatOnLiabilities' }]
@@ -6485,17 +5781,13 @@ Either posting date or business date interval should be specified.<br />A date a
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             }
@@ -6511,48 +5803,42 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Specifies the property for which transactions will be exported'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'FinanceAccountsExportPost_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["FinanceAccountsExportPost"], resource: ["subledger"] } },
                 default: '',
-                description: `The inclusive start time of the posting date.
-Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'FinanceAccountsExportPost_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["FinanceAccountsExportPost"], resource: ["subledger"] } },
                 default: '',
-                description: `The exclusive end time of the posting date.
-Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceAccountsExportPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsExportPost"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'accountNumber',
                 name: 'accountNumber',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by account number'
             },
@@ -6560,7 +5846,6 @@ Either posting date or business date interval should be specified.<br />A date a
                 displayName: 'accountType',
                 name: 'accountType',
                 type: 'options',
-                required: false,
                 default: 'Revenues',
                 description: 'Filter transactions by type',
                 options: [{ name: 'AccountsReceivable', value: 'AccountsReceivable' }, { name: 'CityTaxes', value: 'CityTaxes' }, { name: 'House', value: 'House' }, { name: 'Liabilities', value: 'Liabilities' }, { name: 'LossOfAccountsReceivable', value: 'LossOfAccountsReceivable' }, { name: 'Payments', value: 'Payments' }, { name: 'Receivables', value: 'Receivables' }, { name: 'Revenues', value: 'Revenues' }, { name: 'SecondCityTax', value: 'SecondCityTax' }, { name: 'TransitoryItems', value: 'TransitoryItems' }, { name: 'Vat', value: 'Vat' }, { name: 'VatOnLiabilities', value: 'VatOnLiabilities' }]
@@ -6569,17 +5854,13 @@ Either posting date or business date interval should be specified.<br />A date a
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             }
@@ -6595,7 +5876,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Specifies the property transactions will be aggregated for'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'FinanceAccountsExport_dailyPost_from',
                 type: 'string',
                 required: true,
@@ -6604,7 +5885,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The inclusive start date of the interval'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'FinanceAccountsExport_dailyPost_to',
                 type: 'string',
                 required: true,
@@ -6617,24 +5898,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceAccountsExport_dailyPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsExport-dailyPost"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'accountNumber',
                 name: 'accountNumber',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by account number'
             },
@@ -6642,7 +5919,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'accountType',
                 name: 'accountType',
                 type: 'options',
-                required: false,
                 default: 'Revenues',
                 description: 'Filter transactions by type',
                 options: [{ name: 'AccountsReceivable', value: 'AccountsReceivable' }, { name: 'CityTaxes', value: 'CityTaxes' }, { name: 'House', value: 'House' }, { name: 'Liabilities', value: 'Liabilities' }, { name: 'LossOfAccountsReceivable', value: 'LossOfAccountsReceivable' }, { name: 'Payments', value: 'Payments' }, { name: 'Receivables', value: 'Receivables' }, { name: 'Revenues', value: 'Revenues' }, { name: 'SecondCityTax', value: 'SecondCityTax' }, { name: 'TransitoryItems', value: 'TransitoryItems' }, { name: 'Vat', value: 'Vat' }, { name: 'VatOnLiabilities', value: 'VatOnLiabilities' }]
@@ -6651,25 +5927,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report (2-letter ISO code)'
             },
                 {
-                displayName: 'reference',
+                displayName: 'Reference',
                 name: 'reference',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)'
             }
@@ -6685,7 +5956,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Specifies the property transactions will be aggregated for'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'FinanceAccountsExport_gross_dailyPost_from',
                 type: 'string',
                 required: true,
@@ -6694,7 +5965,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The inclusive start date of the interval'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'FinanceAccountsExport_gross_dailyPost_to',
                 type: 'string',
                 required: true,
@@ -6707,15 +5978,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceAccountsExport_gross_dailyPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsExport-gross-dailyPost"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'reference',
+                displayName: 'Reference',
                 name: 'reference',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)'
             },
@@ -6723,20 +5991,16 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -6754,15 +6018,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceAccountsSchemaGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsSchemaGet"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'depth',
+                displayName: 'Depth',
                 name: 'depth',
                 type: 'number',
-                required: false,
                 default: 0,
                 description: 'How many hierarchy levels to include (between 1 and 4, default is 1)'
             },
@@ -6770,26 +6031,23 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'includeArchived',
                 name: 'includeArchived',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts'
+                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.'
             },
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `The language for the the report. If not specified, language code from "Accept-Language" will be used`
+                description: 'The language for the the report. If not specified, language code from "Accept-Language" will be used.'
             }
             ]
             },
@@ -6803,28 +6061,25 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Filter account list by property ID'
             },
             {
-                displayName: 'parent',
+                displayName: 'Parent',
                 name: 'FinanceGlobal_accountsGet_parent',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["FinanceGlobal-accountsGet"], resource: ["subledger"] } },
                 default: '',
-                description: `Filter account list by the parent account's number`
+                description: 'Filter account list by the parent account\'s number'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceGlobal_accountsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceGlobal-accountsGet"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
                 description: 'Allows to override the default accounting schema',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
@@ -6833,15 +6088,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'includeArchived',
                 name: 'includeArchived',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts'
+                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             },
@@ -6849,7 +6102,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -6857,9 +6109,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -6886,23 +6137,19 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceGuest_accountsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceGuest-accountsGet"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'parent',
+                displayName: 'Parent',
                 name: 'parent',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter account list by the parent account's number`
+                description: 'Filter account list by the parent account\'s number'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             },
@@ -6910,7 +6157,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -6918,9 +6164,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -6947,23 +6192,19 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceExternal_accountsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceExternal-accountsGet"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'parent',
+                displayName: 'Parent',
                 name: 'parent',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter account list by the parent account's number`
+                description: 'Filter account list by the parent account\'s number'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             },
@@ -6971,7 +6212,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -6979,14 +6219,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
             {
-                displayName: 'number',
+                displayName: 'Number',
                 name: 'FinanceAccountsByNumberGet_number',
                 type: 'string',
                 required: true,
@@ -7008,15 +6247,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceAccountsByNumberGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsByNumberGet"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'transactionLimit',
                 name: 'transactionLimit',
                 type: 'number',
-                required: false,
                 default: 0,
                 description: 'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)'
             },
@@ -7024,24 +6260,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'includeArchived',
                 name: 'includeArchived',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts'
+                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.'
             },
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
-                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing',
+                description: 'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             }
@@ -7057,28 +6290,25 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Filter account list by property ID'
             },
             {
-                displayName: 'parent',
+                displayName: 'Parent',
                 name: 'FinanceAccountsChild_accountsGet_parent',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["FinanceAccountsChild-accountsGet"], resource: ["subledger"] } },
                 default: '',
-                description: `Filter account list by the parent account's number`
+                description: 'Filter account list by the parent account\'s number'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'FinanceAccountsChild_accountsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceAccountsChild-accountsGet"], resource: ["subledger"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'accountingSchema',
                 name: 'accountingSchema',
                 type: 'options',
-                required: false,
                 default: 'Simple',
                 description: 'Allows to override the default accounting schema',
                 options: [{ name: 'Extended', value: 'Extended' }, { name: 'Simple', value: 'Simple' }]
@@ -7087,15 +6317,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'includeArchived',
                 name: 'includeArchived',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts'
+                description: 'Whether if set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.'
             },
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             },
@@ -7103,7 +6331,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -7111,9 +6338,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -7131,59 +6357,51 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'FinanceTypesVatGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["FinanceTypesVatGet"], resource: ["types"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'atDate',
                 name: 'atDate',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `If specified, returns the VAT types that are effective for this specific date.
-If nothing specified, returns the VAT types that are effective for the current date in UTC timezone`
+                description: 'If specified, returns the VAT types that are effective for this specific date. If nothing specified, returns the VAT types that are effective for the current date in UTC timezone.'
             }
             ]
             },
             {
-                displayName: 'target',
+                displayName: 'Target',
                 name: 'IntegrationUi_integrationsByTargetByIdGet_target',
                 type: 'options',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetByIdGet"], resource: ["uiintegrations"] } },
                 default: 'DashboardPropertyContext',
-                description: '',
                 options: [{ name: 'AccountMenuApps', value: 'AccountMenuApps' }, { name: 'BookingDetailsTab', value: 'BookingDetailsTab' }, { name: 'CompanyDetailsTab', value: 'CompanyDetailsTab' }, { name: 'DashboardAccountContext', value: 'DashboardAccountContext' }, { name: 'DashboardPropertyContext', value: 'DashboardPropertyContext' }, { name: 'GuestDetailsDialog', value: 'GuestDetailsDialog' }, { name: 'PropertyMenuApps', value: 'PropertyMenuApps' }, { name: 'PropertyMenuReports', value: 'PropertyMenuReports' }, { name: 'ReservationDetailsTab', value: 'ReservationDetailsTab' }]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'IntegrationUi_integrationsByTargetByIdGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetByIdGet"], resource: ["uiintegrations"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
-                displayName: 'target',
+                displayName: 'Target',
                 name: 'IntegrationUi_integrationsByTargetByIdPut_target',
                 type: 'options',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetByIdPut"], resource: ["uiintegrations"] } },
                 default: 'DashboardPropertyContext',
-                description: '',
                 options: [{ name: 'AccountMenuApps', value: 'AccountMenuApps' }, { name: 'BookingDetailsTab', value: 'BookingDetailsTab' }, { name: 'CompanyDetailsTab', value: 'CompanyDetailsTab' }, { name: 'DashboardAccountContext', value: 'DashboardAccountContext' }, { name: 'DashboardPropertyContext', value: 'DashboardPropertyContext' }, { name: 'GuestDetailsDialog', value: 'GuestDetailsDialog' }, { name: 'PropertyMenuApps', value: 'PropertyMenuApps' }, { name: 'PropertyMenuReports', value: 'PropertyMenuReports' }, { name: 'ReservationDetailsTab', value: 'ReservationDetailsTab' }]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'IntegrationUi_integrationsByTargetByIdPut_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetByIdPut"], resource: ["uiintegrations"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
                 displayName: 'Request Body',
                 name: 'body',
@@ -7211,42 +6429,38 @@ If nothing specified, returns the VAT types that are effective for the current d
                 description: 'The request body data'
             },
             {
-                displayName: 'target',
+                displayName: 'Target',
                 name: 'IntegrationUi_integrationsByTargetByIdDelete_target',
                 type: 'options',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetByIdDelete"], resource: ["uiintegrations"] } },
                 default: 'DashboardPropertyContext',
-                description: '',
                 options: [{ name: 'AccountMenuApps', value: 'AccountMenuApps' }, { name: 'BookingDetailsTab', value: 'BookingDetailsTab' }, { name: 'CompanyDetailsTab', value: 'CompanyDetailsTab' }, { name: 'DashboardAccountContext', value: 'DashboardAccountContext' }, { name: 'DashboardPropertyContext', value: 'DashboardPropertyContext' }, { name: 'GuestDetailsDialog', value: 'GuestDetailsDialog' }, { name: 'PropertyMenuApps', value: 'PropertyMenuApps' }, { name: 'PropertyMenuReports', value: 'PropertyMenuReports' }, { name: 'ReservationDetailsTab', value: 'ReservationDetailsTab' }]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'IntegrationUi_integrationsByTargetByIdDelete_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetByIdDelete"], resource: ["uiintegrations"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
-                displayName: 'target',
+                displayName: 'Target',
                 name: 'IntegrationUi_integrationsByTargetGet_target',
                 type: 'options',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetGet"], resource: ["uiintegrations"] } },
                 default: 'DashboardPropertyContext',
-                description: '',
                 options: [{ name: 'AccountMenuApps', value: 'AccountMenuApps' }, { name: 'BookingDetailsTab', value: 'BookingDetailsTab' }, { name: 'CompanyDetailsTab', value: 'CompanyDetailsTab' }, { name: 'DashboardAccountContext', value: 'DashboardAccountContext' }, { name: 'DashboardPropertyContext', value: 'DashboardPropertyContext' }, { name: 'GuestDetailsDialog', value: 'GuestDetailsDialog' }, { name: 'PropertyMenuApps', value: 'PropertyMenuApps' }, { name: 'PropertyMenuReports', value: 'PropertyMenuReports' }, { name: 'ReservationDetailsTab', value: 'ReservationDetailsTab' }]
             },
             {
-                displayName: 'target',
+                displayName: 'Target',
                 name: 'IntegrationUi_integrationsByTargetPost_target',
                 type: 'options',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetPost"], resource: ["uiintegrations"] } },
                 default: 'DashboardPropertyContext',
-                description: '',
                 options: [{ name: 'AccountMenuApps', value: 'AccountMenuApps' }, { name: 'BookingDetailsTab', value: 'BookingDetailsTab' }, { name: 'CompanyDetailsTab', value: 'CompanyDetailsTab' }, { name: 'DashboardAccountContext', value: 'DashboardAccountContext' }, { name: 'DashboardPropertyContext', value: 'DashboardPropertyContext' }, { name: 'GuestDetailsDialog', value: 'GuestDetailsDialog' }, { name: 'PropertyMenuApps', value: 'PropertyMenuApps' }, { name: 'PropertyMenuReports', value: 'PropertyMenuReports' }, { name: 'ReservationDetailsTab', value: 'ReservationDetailsTab' }]
             },
             {
@@ -7277,7 +6491,7 @@ If nothing specified, returns the VAT types that are effective for the current d
                 description: 'The request body data'
             },
             {
-                displayName: 'target',
+                displayName: 'Target',
                 name: 'IntegrationUi_integrationsByTargetById_testGet_target',
                 type: 'options',
                 required: true,
@@ -7287,32 +6501,27 @@ If nothing specified, returns the VAT types that are effective for the current d
                 options: [{ name: 'AccountMenuApps', value: 'AccountMenuApps' }, { name: 'BookingDetailsTab', value: 'BookingDetailsTab' }, { name: 'CompanyDetailsTab', value: 'CompanyDetailsTab' }, { name: 'DashboardAccountContext', value: 'DashboardAccountContext' }, { name: 'DashboardPropertyContext', value: 'DashboardPropertyContext' }, { name: 'GuestDetailsDialog', value: 'GuestDetailsDialog' }, { name: 'PropertyMenuApps', value: 'PropertyMenuApps' }, { name: 'PropertyMenuReports', value: 'PropertyMenuReports' }, { name: 'ReservationDetailsTab', value: 'ReservationDetailsTab' }]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'IntegrationUi_integrationsByTargetById_testGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["IntegrationUi_integrationsByTargetById_testGet"], resource: ["uiintegrations"] } },
                 default: '',
-                description: 'Id of the integration to be tested'
+                description: 'ID of the integration to be tested'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'InventoryPropertiesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryPropertiesGet"], resource: ["property"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'countryCode',
                 name: 'countryCode',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter result by country code',
                 options: [{
                     name: 'countryCodeValues',
@@ -7329,29 +6538,24 @@ If nothing specified, returns the VAT types that are effective for the current d
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }]
+                options: [{ name: 'Actions', value: 'actions' }]
             },
                 {
                 displayName: 'includeArchived',
                 name: 'includeArchived',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether include archived properties in the result. If not set, or set to false, it only returns non-archived properties'
+                description: 'Whether include archived properties in the result. If not set, or set to false, it only returns non-archived properties.'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -7359,18 +6563,14 @@ If nothing specified, returns the VAT types that are effective for the current d
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
-                displayName: 'status',
+                displayName: 'Status',
                 name: 'status',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by property status',
                 options: [{ name: 'Live', value: 'Live' }, { name: 'Test', value: 'Test' }]
             }
@@ -7416,31 +6616,26 @@ If nothing specified, returns the VAT types that are effective for the current d
   "defaultCheckOutTime": "11:00:00",
   "currencyCode": "EUR"
 }`,
-                description: 'The definition of the property.'
+                description: 'The definition of the property'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'InventoryPropertiesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryPropertiesPost"], resource: ["property"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryPropertiesByIdHead_id',
                 type: 'string',
                 required: true,
@@ -7449,7 +6644,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryPropertiesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -7462,20 +6657,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryPropertiesByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryPropertiesByIdGet"], resource: ["property"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -7485,26 +6675,23 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }]
+                options: [{ name: 'Actions', value: 'actions' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryPropertiesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -7524,7 +6711,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryProperty_actionsByIdClonePost_id',
                 type: 'string',
                 required: true,
@@ -7572,31 +6759,26 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "defaultCheckOutTime": "11:00:00",
   "currencyCode": "EUR"
 }`,
-                description: 'The definition of the property.'
+                description: 'The definition of the property'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'InventoryProperty_actionsByIdClonePost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryProperty_actionsByIdClonePost"], resource: ["propertyactions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryProperty_actionsByIdArchivePut_id',
                 type: 'string',
                 required: true,
@@ -7605,7 +6787,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryProperty_actionsByIdSet_livePut_id',
                 type: 'string',
                 required: true,
@@ -7614,7 +6796,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryProperty_actionsByIdResetPut_id',
                 type: 'string',
                 required: true,
@@ -7623,7 +6805,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnitsByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -7643,7 +6825,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnitsByIdGet_id',
                 type: 'string',
                 required: true,
@@ -7656,20 +6838,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryUnitsByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnitsByIdGet"], resource: ["unit"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -7679,26 +6856,23 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored',
-                options: [{ name: 'connectedUnits', value: 'connectedUnits' }, { name: 'property', value: 'property' }, { name: 'unitGroup', value: 'unitGroup' }]
+                options: [{ name: 'connectedUnits', value: 'connectedUnits' }, { name: 'Property', value: 'property' }, { name: 'unitGroup', value: 'unitGroup' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnitsByIdHead_id',
                 type: 'string',
                 required: true,
@@ -7707,7 +6881,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the unit'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnitsByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -7722,10 +6896,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["InventoryUnitsPatch"], resource: ["unit"] } },
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: '',
+                default: {},
                 options: [{
                     name: 'unitIdsValues',
                     displayName: 'UnitIds',
@@ -7756,35 +6927,28 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryUnitsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnitsGet"], resource: ["unit"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'condition',
+                displayName: 'Condition',
                 name: 'condition',
                 type: 'options',
-                required: false,
                 default: 'Clean',
                 description: 'Return units with a specific condition',
                 options: [{ name: 'Clean', value: 'Clean' }, { name: 'CleanToBeInspected', value: 'CleanToBeInspected' }, { name: 'Dirty', value: 'Dirty' }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored',
-                options: [{ name: 'connectedUnits', value: 'connectedUnits' }, { name: 'property', value: 'property' }, { name: 'unitGroup', value: 'unitGroup' }]
+                options: [{ name: 'connectedUnits', value: 'connectedUnits' }, { name: 'Property', value: 'property' }, { name: 'unitGroup', value: 'unitGroup' }]
             },
                 {
                 displayName: 'isOccupied',
                 name: 'isOccupied',
                 type: 'boolean',
-                required: false,
                 default: false,
                 description: 'Whether return only occupied or vacant units'
             },
@@ -7792,7 +6956,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'maintenanceType',
                 name: 'maintenanceType',
                 type: 'options',
-                required: false,
                 default: 'OutOfService',
                 description: 'Return units with the specific maintenance type',
                 options: [{ name: 'OutOfInventory', value: 'OutOfInventory' }, { name: 'OutOfOrder', value: 'OutOfOrder' }, { name: 'OutOfService', value: 'OutOfService' }]
@@ -7801,7 +6964,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -7809,15 +6971,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return units for specific property'
             },
@@ -7825,19 +6985,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: 'This will filter all units where the provided text is contained in the unit name. The search is case insensitive'
+                description: 'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.'
             },
                 {
                 displayName: 'unitAttributeIds',
                 name: 'unitAttributeIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return units with the specific unit attributes',
                 options: [{
                     name: 'unitAttributeIdsValues',
@@ -7857,19 +7013,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitGroupId',
                 name: 'unitGroupId',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use \`UnitGroupIds\` instead</b>`
+                description: 'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use \`UnitGroupIds\` instead</b>.'
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return units with the specific unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -7913,26 +7065,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the unit.'
+                description: 'The definition of the unit'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'InventoryUnitsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnitsPost"], resource: ["unit"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -7941,15 +7088,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryUnits_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnits$countGet"], resource: ["unit"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'condition',
+                displayName: 'Condition',
                 name: 'condition',
                 type: 'options',
-                required: false,
                 default: 'Clean',
                 description: 'Return units with a specific condition',
                 options: [{ name: 'Clean', value: 'Clean' }, { name: 'CleanToBeInspected', value: 'CleanToBeInspected' }, { name: 'Dirty', value: 'Dirty' }]
@@ -7958,7 +7102,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'isOccupied',
                 name: 'isOccupied',
                 type: 'boolean',
-                required: false,
                 default: false,
                 description: 'Whether return only occupied or vacant units'
             },
@@ -7966,7 +7109,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'maintenanceType',
                 name: 'maintenanceType',
                 type: 'options',
-                required: false,
                 default: 'OutOfService',
                 description: 'Return units with the specific maintenance type',
                 options: [{ name: 'OutOfInventory', value: 'OutOfInventory' }, { name: 'OutOfOrder', value: 'OutOfOrder' }, { name: 'OutOfService', value: 'OutOfService' }]
@@ -7975,7 +7117,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return units for specific property'
             },
@@ -7983,19 +7124,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: 'This will filter all units where the provided text is contained in the unit name. The search is case insensitive'
+                description: 'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.'
             },
                 {
                 displayName: 'unitAttributeIds',
                 name: 'unitAttributeIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return units with the specific unit attributes',
                 options: [{
                     name: 'unitAttributeIdsValues',
@@ -8015,19 +7152,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitGroupId',
                 name: 'unitGroupId',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use \`UnitGroupIds\` instead</b>`
+                description: 'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use \`UnitGroupIds\` instead</b>.'
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return units with the specific unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -8101,31 +7234,26 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the units.'
+                description: 'The definition of the units'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'InventoryUnitsBulkPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnitsBulkPost"], resource: ["unit"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_attributesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -8134,13 +7262,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the unit attribute'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_attributesByIdPatch_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["InventoryUnit-attributesByIdPatch"], resource: ["unitattribute"] } },
                 default: '',
-                description: 'Id of unit attribute'
+                description: 'ID of unit attribute'
             },
             {
                 displayName: 'Request Body',
@@ -8154,16 +7282,16 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_attributesByIdDelete_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["InventoryUnit_attributesByIdDelete"], resource: ["unitattribute"] } },
                 default: '',
-                description: 'Id of unit attribute'
+                description: 'ID of unit attribute'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_attributesByIdHead_id',
                 type: 'string',
                 required: true,
@@ -8176,15 +7304,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryUnit_attributesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnit-attributesGet"], resource: ["unitattribute"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -8192,9 +7317,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -8208,26 +7332,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "name": "Floor 1",
   "description": "Floor number"
 }`,
-                description: 'The unit attribute.'
+                description: 'The unit attribute'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'InventoryUnit_attributesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnit-attributesPost"], resource: ["unitattribute"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -8252,26 +7371,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "rank": 1,
   "type": "BedRoom"
 }`,
-                description: 'The definition of the unit group.'
+                description: 'The definition of the unit group'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'InventoryUnit_groupsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnit-groupsPost"], resource: ["unitgroup"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -8280,26 +7394,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryUnit_groupsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnit-groupsGet"], resource: ["unitgroup"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored',
-                options: [{ name: 'connectedUnitGroups', value: 'connectedUnitGroups' }, { name: 'property', value: 'property' }]
+                options: [{ name: 'connectedUnitGroups', value: 'connectedUnitGroups' }, { name: 'Property', value: 'property' }]
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -8307,15 +7415,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return unit groups for specific property'
             },
@@ -8323,11 +7429,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
-                description: '',
+                default: [],
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
             ]
@@ -8337,15 +7439,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryUnit_groups_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnit-groups$countGet"], resource: ["unitgroup"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return unit groups for specific property'
             },
@@ -8353,17 +7452,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
-                description: '',
+                default: [],
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_groupsByIdHead_id',
                 type: 'string',
                 required: true,
@@ -8372,7 +7467,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the unit group'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_groupsByIdGet_id',
                 type: 'string',
                 required: true,
@@ -8385,20 +7480,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'InventoryUnit_groupsByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["InventoryUnit-groupsByIdGet"], resource: ["unitgroup"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -8408,26 +7498,23 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored',
-                options: [{ name: 'connectedUnitGroups', value: 'connectedUnitGroups' }, { name: 'property', value: 'property' }]
+                options: [{ name: 'connectedUnitGroups', value: 'connectedUnitGroups' }, { name: 'Property', value: 'property' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_groupsByIdPut_id',
                 type: 'string',
                 required: true,
@@ -8453,10 +7540,10 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "maxPersons": 4,
   "rank": 2
 }`,
-                description: 'The definition of the unit group.'
+                description: 'The definition of the unit group'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'InventoryUnit_groupsByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -8469,19 +7556,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'LogsBookingReservationGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["LogsBookingReservationGet"], resource: ["bookinglogs"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'clientIds',
                 name: 'clientIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by client IDs (which application triggered this event)',
                 options: [{
                     name: 'clientIdsValues',
@@ -8501,12 +7583,9 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'dateFilterValues',
                     displayName: 'DateFilter',
@@ -8516,7 +7595,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -8525,29 +7604,22 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'eventTypes',
                 name: 'eventTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter the log entries by event types',
                 options: [{ name: 'Amended', value: 'Amended' }, { name: 'Canceled', value: 'Canceled' }, { name: 'Changed', value: 'Changed' }, { name: 'CheckedIn', value: 'CheckedIn' }, { name: 'CheckedOut', value: 'CheckedOut' }, { name: 'CheckInReverted', value: 'CheckInReverted' }, { name: 'CityTaxAdded', value: 'CityTaxAdded' }, { name: 'CityTaxRemoved', value: 'CityTaxRemoved' }, { name: 'Created', value: 'Created' }, { name: 'InvoiceStatusChanged', value: 'InvoiceStatusChanged' }, { name: 'PaymentAccountRemoved', value: 'PaymentAccountRemoved' }, { name: 'PaymentAccountSet', value: 'PaymentAccountSet' }, { name: 'PickedUpFromBlock', value: 'PickedUpFromBlock' }, { name: 'SetToNoShow', value: 'SetToNoShow' }, { name: 'UnitAssigned', value: 'UnitAssigned' }, { name: 'UnitLocked', value: 'UnitLocked' }, { name: 'UnitUnassigned', value: 'UnitUnassigned' }, { name: 'UnitUnlocked', value: 'UnitUnlocked' }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: changes. All other values will be silently ignored',
-                options: [{ name: 'changes', value: 'changes' }]
+                options: [{ name: 'Changes', value: 'changes' }]
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -8555,19 +7627,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by property IDs',
                 options: [{
                     name: 'propertyIdsValues',
@@ -8587,11 +7655,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'reservationIds',
                 name: 'reservationIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by reservation IDs',
                 options: [{
                     name: 'reservationIdsValues',
@@ -8611,11 +7676,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'subjectIds',
                 name: 'subjectIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by subject IDs (which user triggered this event)',
                 options: [{
                     name: 'subjectIdsValues',
@@ -8638,19 +7700,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'LogsFinanceFolioGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["LogsFinanceFolioGet"], resource: ["financelogs"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'clientIds',
                 name: 'clientIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by client IDs (which application triggered this event)',
                 options: [{
                     name: 'clientIdsValues',
@@ -8670,12 +7727,9 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'dateFilterValues',
                     displayName: 'DateFilter',
@@ -8685,7 +7739,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -8694,10 +7748,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'eventTypes',
                 name: 'eventTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter the log entries by event types',
                 options: [{ name: 'AllowanceMovedFromFolio', value: 'AllowanceMovedFromFolio' }, { name: 'AllowanceMovedToFolio', value: 'AllowanceMovedToFolio' }, { name: 'AllowancePosted', value: 'AllowancePosted' }, { name: 'ChargeMovedFromFolio', value: 'ChargeMovedFromFolio' }, { name: 'ChargeMovedToFolio', value: 'ChargeMovedToFolio' }, { name: 'ChargePosted', value: 'ChargePosted' }, { name: 'ChargesChanged', value: 'ChargesChanged' }, { name: 'Closed', value: 'Closed' }, { name: 'Created', value: 'Created' }, { name: 'DebitorChanged', value: 'DebitorChanged' }, { name: 'Deleted', value: 'Deleted' }, { name: 'DepositItemAdded', value: 'DepositItemAdded' }, { name: 'DepositItemChanged', value: 'DepositItemChanged' }, { name: 'DepositItemDeleted', value: 'DepositItemDeleted' }, { name: 'InvoiceCanceled', value: 'InvoiceCanceled' }, { name: 'InvoiceCreated', value: 'InvoiceCreated' }, { name: 'InvoicePaid', value: 'InvoicePaid' }, { name: 'InvoiceWrittenOff', value: 'InvoiceWrittenOff' }, { name: 'PaymentAdded', value: 'PaymentAdded' }, { name: 'PaymentCanceled', value: 'PaymentCanceled' }, { name: 'PaymentFailed', value: 'PaymentFailed' }, { name: 'PaymentMovedFromFolio', value: 'PaymentMovedFromFolio' }, { name: 'PaymentMovedToFolio', value: 'PaymentMovedToFolio' }, { name: 'PaymentPosted', value: 'PaymentPosted' }, { name: 'RefundAdded', value: 'RefundAdded' }, { name: 'RefundFailed', value: 'RefundFailed' }, { name: 'RefundMovedFromFolio', value: 'RefundMovedFromFolio' }, { name: 'RefundMovedToFolio', value: 'RefundMovedToFolio' }, { name: 'RefundPosted', value: 'RefundPosted' }, { name: 'Reopened', value: 'Reopened' }, { name: 'TransitoryChargeMovedFromFolio', value: 'TransitoryChargeMovedFromFolio' }, { name: 'TransitoryChargeMovedToFolio', value: 'TransitoryChargeMovedToFolio' }, { name: 'TransitoryChargePosted', value: 'TransitoryChargePosted' }]
             },
@@ -8705,11 +7756,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'folioIds',
                 name: 'folioIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by folio IDs',
                 options: [{
                     name: 'folioIdsValues',
@@ -8729,7 +7777,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -8737,19 +7784,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by property IDs',
                 options: [{
                     name: 'propertyIdsValues',
@@ -8769,11 +7812,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'subjectIds',
                 name: 'subjectIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by subject IDs (which user triggered this event)',
                 options: [{
                     name: 'subjectIdsValues',
@@ -8796,20 +7836,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'LogsFinanceNight_auditGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["LogsFinanceNight-auditGet"], resource: ["financelogs"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'dateFilterValues',
                     displayName: 'DateFilter',
@@ -8819,7 +7854,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -8828,7 +7863,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -8836,19 +7870,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by property IDs',
                 options: [{
                     name: 'propertyIdsValues',
@@ -8865,13 +7895,10 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 }]
             },
                 {
-                displayName: 'statuses',
+                displayName: 'Statuses',
                 name: 'statuses',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter the log entries by status',
                 options: [{ name: 'Failure', value: 'Failure' }, { name: 'InProgress', value: 'InProgress' }, { name: 'Success', value: 'Success' }]
             },
@@ -8879,11 +7906,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'subjectIds',
                 name: 'subjectIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by subject IDs (which user triggered this event)',
                 options: [{
                     name: 'subjectIdsValues',
@@ -8906,20 +7930,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'LogsFinanceTransactions_exportGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["LogsFinanceTransactions-exportGet"], resource: ["financelogs"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'dateFilterValues',
                     displayName: 'DateFilter',
@@ -8929,7 +7948,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -8938,7 +7957,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -8946,19 +7964,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by property IDs',
                 options: [{
                     name: 'propertyIdsValues',
@@ -8978,11 +7992,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'subjectIds',
                 name: 'subjectIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Filter the log entries by subject IDs (which user triggered this event)',
                 options: [{
                     name: 'subjectIdsValues',
@@ -8999,13 +8010,10 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 }]
             },
                 {
-                displayName: 'types',
+                displayName: 'Types',
                 name: 'types',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter the log entries by export log types',
                 options: [{ name: 'Aggregate', value: 'Aggregate' }, { name: 'AggregatePairs', value: 'AggregatePairs' }, { name: 'Raw', value: 'Raw' }]
             }
@@ -9016,34 +8024,27 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'OperationsMaintenancesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["OperationsMaintenancesGet"], resource: ["maintenance"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored',
-                options: [{ name: 'unit', value: 'unit' }]
+                options: [{ name: 'Unit', value: 'unit' }]
             },
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter all maintenance windows that end after the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -9051,34 +8052,28 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter result by property ID'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter all maintenance windows that start before the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
                 {
-                displayName: 'types',
+                displayName: 'Types',
                 name: 'types',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by maintenance types',
                 options: [{ name: 'OutOfInventory', value: 'OutOfInventory' }, { name: 'OutOfOrder', value: 'OutOfOrder' }, { name: 'OutOfService', value: 'OutOfService' }]
             },
@@ -9086,7 +8081,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitId',
                 name: 'unitId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter result by unit ID'
             }
@@ -9105,26 +8099,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "type": "OutOfService",
   "description": "The remote control for the TV needs to be replaced."
 }`,
-                description: 'The definition of the maintenance.'
+                description: 'The definition of the maintenance'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'OperationsMaintenancesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["OperationsMaintenancesPost"], resource: ["maintenance"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -9133,42 +8122,34 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'OperationsMaintenances_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["OperationsMaintenances$countGet"], resource: ["maintenance"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'from',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter all maintenance windows that end after the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter result by property ID'
             },
                 {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'to',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Filter all maintenance windows that start before the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>'
             },
                 {
-                displayName: 'types',
+                displayName: 'Types',
                 name: 'types',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Filter result by maintenance types',
                 options: [{ name: 'OutOfInventory', value: 'OutOfInventory' }, { name: 'OutOfOrder', value: 'OutOfOrder' }, { name: 'OutOfService', value: 'OutOfService' }]
             },
@@ -9176,7 +8157,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitId',
                 name: 'unitId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter result by unit ID'
             }
@@ -9206,31 +8186,26 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the maintenances.'
+                description: 'The definition of the maintenances'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'OperationsMaintenancesBulkPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["OperationsMaintenancesBulkPost"], resource: ["maintenance"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'OperationsMaintenancesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -9250,7 +8225,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'OperationsMaintenancesByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -9259,7 +8234,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the maintenance'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'OperationsMaintenancesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -9272,25 +8247,20 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'OperationsMaintenancesByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["OperationsMaintenancesByIdGet"], resource: ["maintenance"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored',
-                options: [{ name: 'unit', value: 'unit' }]
+                options: [{ name: 'Unit', value: 'unit' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'OperationsMaintenancesByIdHead_id',
                 type: 'string',
                 required: true,
@@ -9312,20 +8282,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'OperationsNight_auditPut_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["OperationsNight-auditPut"], resource: ["operations"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'setReservationsToNoShow',
                 name: 'setReservationsToNoShow',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: `Whether flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show.
-            
-The default value is true and we strongly advise against setting it to false,
-because different reports rely on setting reservations which were not checked in correctly to no show`
+                description: 'Whether flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show. The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.'
             }
             ]
             },
@@ -9347,10 +8311,10 @@ because different reports rely on setting reservations which were not checked in
     }
   ]
 }`,
-                description: 'Array of unit Ids with their respective new condition'
+                description: 'Array of unit IDs with their respective new condition'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsAge_categoriesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -9363,20 +8327,15 @@ because different reports rely on setting reservations which were not checked in
                 name: 'SettingsAge_categoriesByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsAge-categoriesByIdGet"], resource: ["agecategory"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -9386,7 +8345,7 @@ because different reports rely on setting reservations which were not checked in
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
@@ -9394,7 +8353,7 @@ because different reports rely on setting reservations which were not checked in
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsAge_categoriesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -9414,7 +8373,7 @@ because different reports rely on setting reservations which were not checked in
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsAge_categoriesByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -9438,26 +8397,21 @@ because different reports rely on setting reservations which were not checked in
   "minAge": 0,
   "maxAge": 2
 }`,
-                description: 'The definition of the age category.'
+                description: 'The definition of the age category'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'SettingsAge_categoriesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsAge-categoriesPost"], resource: ["agecategory"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -9503,26 +8457,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   }
 }`,
-                description: 'The definition of the cancellation policy.'
+                description: 'The definition of the cancellation policy'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'RateplanCancellation_policiesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanCancellation-policiesPost"], resource: ["cancellationpolicy"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -9531,15 +8480,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanCancellation_policiesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanCancellation-policiesGet"], resource: ["cancellationpolicy"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter cancellation policies by the specified property'
             },
@@ -9547,7 +8493,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -9555,14 +8500,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanCancellation_policiesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -9575,20 +8519,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanCancellation_policiesByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanCancellation-policiesByIdGet"], resource: ["cancellationpolicy"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -9598,7 +8537,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
@@ -9606,7 +8545,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanCancellation_policiesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -9626,7 +8565,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanCancellation_policiesByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -9661,26 +8600,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the company.'
+                description: 'The definition of the company'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'RateplanCompaniesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanCompaniesPost"], resource: ["company"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -9689,19 +8623,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanCompaniesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanCompaniesGet"], resource: ["company"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'corporateCodes',
                 name: 'corporateCodes',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return companies that have any of the requested corporate codes',
                 options: [{
                     name: 'corporateCodesValues',
@@ -9721,7 +8650,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -9729,15 +8657,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter by the specified property'
             },
@@ -9745,11 +8671,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'ratePlanIds',
                 name: 'ratePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return companies with any of the specified rate plans',
                 options: [{
                     name: 'ratePlanIdsValues',
@@ -9769,15 +8692,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all companies for the provided free text.
-Currently it only looks up if the company name contains one of the provided values`
+                description: 'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanCompaniesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -9786,7 +8707,7 @@ Currently it only looks up if the company name contains one of the provided valu
                 description: 'The ID of the company'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanCompaniesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -9806,7 +8727,7 @@ Currently it only looks up if the company name contains one of the provided valu
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanCompaniesByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -9819,15 +8740,12 @@ Currently it only looks up if the company name contains one of the provided valu
                 name: 'RateplanCorporate_codesCodesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanCorporate-codesCodesGet"], resource: ["corporatecodes"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return codes for a specific property'
             },
@@ -9835,7 +8753,6 @@ Currently it only looks up if the company name contains one of the provided valu
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -9843,9 +8760,8 @@ Currently it only looks up if the company name contains one of the provided valu
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -9874,26 +8790,21 @@ Currently it only looks up if the company name contains one of the provided valu
     }
   }
 }`,
-                description: 'The definition of the no-show policy.'
+                description: 'The definition of the no-show policy'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'RateplanNo_show_policiesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanNo-show-policiesPost"], resource: ["noshowpolicy"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -9902,15 +8813,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanNo_show_policiesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanNo-show-policiesGet"], resource: ["noshowpolicy"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter no-show policies by the specified property'
             },
@@ -9918,7 +8826,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -9926,14 +8833,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanNo_show_policiesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -9946,20 +8852,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanNo_show_policiesByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanNo-show-policiesByIdGet"], resource: ["noshowpolicy"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -9969,7 +8870,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
@@ -9977,7 +8878,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanNo_show_policiesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -9997,7 +8898,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanNo_show_policiesByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -10010,15 +8911,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanPromo_codesCodesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanPromo-codesCodesGet"], resource: ["promocodes"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return codes for a specific property'
             },
@@ -10026,7 +8924,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -10034,14 +8931,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdRatesGet_id',
                 type: 'string',
                 required: true,
@@ -10050,39 +8946,34 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the rate plan'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'RateplanRate_plansByIdRatesGet_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate-plansByIdRatesGet"], resource: ["rate"] } },
                 default: '',
-                description: `The start of the time range to filter the rates by. All rates where the from date and time is equal or later than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'RateplanRate_plansByIdRatesGet_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate-plansByIdRatesGet"], resource: ["rate"] } },
                 default: '',
-                description: `The end of the time range to filter the rates by. All rates where the from date and time is earlier than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'RateplanRate_plansByIdRatesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanRate-plansByIdRatesGet"], resource: ["rate"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -10090,14 +8981,13 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdRatesPut_id',
                 type: 'string',
                 required: true,
@@ -10130,10 +9020,10 @@ the specified date and optional time will be affected<br />Specify either a pure
     }
   ]
 }`,
-                description: 'The definition of the rates.'
+                description: 'The definition of the rates'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdRatesPatch_id',
                 type: 'string',
                 required: true,
@@ -10177,7 +9067,7 @@ the specified date and optional time will be affected<br />Specify either a pure
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdRatesDelete_id',
                 type: 'string',
                 required: true,
@@ -10186,27 +9076,25 @@ the specified date and optional time will be affected<br />Specify either a pure
                 description: 'The ID of the rate plan'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'RateplanRate_plansByIdRatesDelete_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate_plansByIdRatesDelete"], resource: ["rate"] } },
                 default: '',
-                description: `The start of the time range to filter the rates by. All rates where the from date and time is equal or later than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'RateplanRate_plansByIdRatesDelete_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate_plansByIdRatesDelete"], resource: ["rate"] } },
                 default: '',
-                description: `The end of the time range to filter the rates by. All rates where the from date and time is earlier than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdRates_countGet_id',
                 type: 'string',
                 required: true,
@@ -10215,24 +9103,22 @@ the specified date and optional time will be affected<br />Specify either a pure
                 description: 'The ID of the rate plan'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'RateplanRate_plansByIdRates_countGet_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate_plansByIdRates_countGet"], resource: ["rate"] } },
                 default: '',
-                description: `The start of the time range to filter the rates by. All rates where the from date and time is equal or later than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'RateplanRate_plansByIdRates_countGet_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate_plansByIdRates_countGet"], resource: ["rate"] } },
                 default: '',
-                description: `The end of the time range to filter the rates by. All rates where the from date and time is earlier than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
                 displayName: 'ratePlanIds',
@@ -10241,10 +9127,8 @@ the specified date and optional time will be affected<br />Specify either a pure
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRatesPatch"], resource: ["rate"] } },
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'Filter rates for patching by rate plan ids',
+                default: {},
+                description: 'Filter rates for patching by rate plan IDs',
                 options: [{
                     name: 'ratePlanIdsValues',
                     displayName: 'RatePlanIds',
@@ -10254,30 +9138,28 @@ the specified date and optional time will be affected<br />Specify either a pure
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'Filter rates for patching by rate plan ids'
+                    description: 'Filter rates for patching by rate plan IDs'
                 }
                 ]
                 }]
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'RateplanRatesPatch_from',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRatesPatch"], resource: ["rate"] } },
                 default: '',
-                description: `The start of the time range to filter the rates by. All rates where the from date and time is equal or later than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'RateplanRatesPatch_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRatesPatch"], resource: ["rate"] } },
                 default: '',
-                description: `The end of the time range to filter the rates by. All rates where the from date and time is earlier than
-the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>`
+                description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.'
             },
             {
                 displayName: 'Request Body',
@@ -10295,19 +9177,14 @@ the specified date and optional time will be affected<br />Specify either a pure
                 name: 'RateplanRatesPatch_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanRatesPatch"], resource: ["rate"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'weekDays',
                 name: 'weekDays',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
-                description: 'The weekdays that will be patched. If not specified, all weekdays will be patched',
+                default: [],
+                description: 'The weekdays that will be patched. If not specified, all weekdays will be patched.',
                 options: [{ name: 'Friday', value: 'Friday' }, { name: 'Monday', value: 'Monday' }, { name: 'Saturday', value: 'Saturday' }, { name: 'Sunday', value: 'Sunday' }, { name: 'Thursday', value: 'Thursday' }, { name: 'Tuesday', value: 'Tuesday' }, { name: 'Wednesday', value: 'Wednesday' }]
             }
             ]
@@ -10317,19 +9194,14 @@ the specified date and optional time will be affected<br />Specify either a pure
                 name: 'RateplanRate_plansGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanRate-plansGet"], resource: ["rateplan"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'baseRatePlanIds',
                 name: 'baseRatePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans derived from any of the specified rate plans',
                 options: [{
                     name: 'baseRatePlanIdsValues',
@@ -10349,11 +9221,8 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'cancellationPolicyIds',
                 name: 'cancellationPolicyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified cancellation policies',
                 options: [{
                     name: 'cancellationPolicyIdsValues',
@@ -10373,10 +9242,7 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'channelCodes',
                 name: 'channelCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return rate plans that are sold though any of the specified channels',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
@@ -10384,11 +9250,8 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans filtered by requested companies',
                 options: [{
                     name: 'companyIdsValues',
@@ -10408,12 +9271,9 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'derivationLevelFilter',
                 name: 'derivationLevelFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `This will filter rate plans based on their derivation level.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'derivationLevelFilterValues',
                     displayName: 'DerivationLevelFilter',
@@ -10423,31 +9283,25 @@ the specified date and optional time will be affected<br />Specify either a pure
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `This will filter rate plans based on their derivation level.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, cancellationPolicy, services, bookingPeriods, surcharges, ageCategories. All other values will be silently ignored',
-                options: [{ name: 'ageCategories', value: 'ageCategories' }, { name: 'bookingPeriods', value: 'bookingPeriods' }, { name: 'cancellationPolicy', value: 'cancellationPolicy' }, { name: 'property', value: 'property' }, { name: 'services', value: 'services' }, { name: 'surcharges', value: 'surcharges' }, { name: 'unitGroup', value: 'unitGroup' }]
+                options: [{ name: 'ageCategories', value: 'ageCategories' }, { name: 'bookingPeriods', value: 'bookingPeriods' }, { name: 'cancellationPolicy', value: 'cancellationPolicy' }, { name: 'Property', value: 'property' }, { name: 'Services', value: 'services' }, { name: 'Surcharges', value: 'surcharges' }, { name: 'unitGroup', value: 'unitGroup' }]
             },
                 {
                 displayName: 'includedServiceIds',
                 name: 'includedServiceIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans that have any of the requested included services',
                 options: [{
                     name: 'includedServiceIdsValues',
@@ -10467,7 +9321,6 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'isDerived',
                 name: 'isDerived',
                 type: 'boolean',
-                required: false,
                 default: false,
                 description: 'Whether return only derived or base rate plans'
             },
@@ -10475,10 +9328,7 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'minGuaranteeTypes',
                 name: 'minGuaranteeTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return rate plans with any of the specified min guarantee types',
                 options: [{ name: 'Company', value: 'Company' }, { name: 'CreditCard', value: 'CreditCard' }, { name: 'PM6Hold', value: 'PM6Hold' }, { name: 'Prepayment', value: 'Prepayment' }]
             },
@@ -10486,11 +9336,8 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'noShowPolicyIds',
                 name: 'noShowPolicyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified no-show policies',
                 options: [{
                     name: 'noShowPolicyIdsValues',
@@ -10510,7 +9357,6 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -10518,19 +9364,15 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'promoCodes',
                 name: 'promoCodes',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans that have any of the requested promo codes',
                 options: [{
                     name: 'promoCodesValues',
@@ -10550,7 +9392,6 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return rate plans for the specific property'
             },
@@ -10558,11 +9399,8 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'ratePlanCodes',
                 name: 'ratePlanCodes',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans filtered by requested codes',
                 options: [{
                     name: 'ratePlanCodesValues',
@@ -10582,11 +9420,8 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified time slice definitions',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
@@ -10606,20 +9441,16 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'timeSliceTemplate',
                 name: 'timeSliceTemplate',
                 type: 'options',
-                required: false,
                 default: 'DayUse',
-                description: `The time slice template, defaults to 'over night'`,
+                description: 'The time slice template, defaults to \'over night\'',
                 options: [{ name: 'DayUse', value: 'DayUse' }, { name: 'OverNight', value: 'OverNight' }]
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -10639,10 +9470,7 @@ the specified date and optional time will be affected<br />Specify either a pure
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return rate plans with any of the specified unit group types',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
@@ -10747,26 +9575,21 @@ the specified date and optional time will be affected<br />Specify either a pure
     }
   ]
 }`,
-                description: 'The definition of the rate plan.'
+                description: 'The definition of the rate plan'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'RateplanRate_plansPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanRate-plansPost"], resource: ["rateplan"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -10777,10 +9600,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate-plansPatch"], resource: ["rateplan"] } },
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'Comma separated list of rate plan IDs, at least one',
+                default: {},
+                description: 'Comma-separated list of rate plan IDs, at least one',
                 options: [{
                     name: 'ratePlanIdsValues',
                     displayName: 'RatePlanIds',
@@ -10790,7 +9611,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'Comma separated list of rate plan IDs, at least one.'
+                    description: 'Comma-separated list of rate plan IDs, at least one'
                 }
                 ]
                 }]
@@ -10813,10 +9634,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["RateplanRate_plansDelete"], resource: ["rateplan"] } },
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'Comma separated list of rate plan IDs, at least one',
+                default: {},
+                description: 'Comma-separated list of rate plan IDs, at least one',
                 options: [{
                     name: 'ratePlanIdsValues',
                     displayName: 'RatePlanIds',
@@ -10826,7 +9645,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'Comma separated list of rate plan IDs, at least one.'
+                    description: 'Comma-separated list of rate plan IDs, at least one'
                 }
                 ]
                 }]
@@ -10836,19 +9655,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanRate_plans_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanRate_plans_countGet"], resource: ["rateplan"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'baseRatePlanIds',
                 name: 'baseRatePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans derived from any of the specified rate plans',
                 options: [{
                     name: 'baseRatePlanIdsValues',
@@ -10868,11 +9682,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'cancellationPolicyIds',
                 name: 'cancellationPolicyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified cancellation policies',
                 options: [{
                     name: 'cancellationPolicyIdsValues',
@@ -10892,10 +9703,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'channelCodes',
                 name: 'channelCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return rate plans that are sold though any of the specified channels',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
@@ -10903,11 +9711,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans filtered by requested companies',
                 options: [{
                     name: 'companyIdsValues',
@@ -10927,12 +9732,9 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'derivationLevelFilter',
                 name: 'derivationLevelFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `This will filter rate plans based on their derivation level.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
                 options: [{
                     name: 'derivationLevelFilterValues',
                     displayName: 'DerivationLevelFilter',
@@ -10942,7 +9744,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `This will filter rate plans based on their derivation level.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7'
                 }
                 ]
                 }]
@@ -10951,11 +9753,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'includedServiceIds',
                 name: 'includedServiceIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans that have any of the requested included services',
                 options: [{
                     name: 'includedServiceIdsValues',
@@ -10975,7 +9774,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'isDerived',
                 name: 'isDerived',
                 type: 'boolean',
-                required: false,
                 default: false,
                 description: 'Whether return only derived or base rate plans'
             },
@@ -10983,10 +9781,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'minGuaranteeTypes',
                 name: 'minGuaranteeTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return rate plans with any of the specified min guarantee types',
                 options: [{ name: 'Company', value: 'Company' }, { name: 'CreditCard', value: 'CreditCard' }, { name: 'PM6Hold', value: 'PM6Hold' }, { name: 'Prepayment', value: 'Prepayment' }]
             },
@@ -10994,11 +9789,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'noShowPolicyIds',
                 name: 'noShowPolicyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified no-show policies',
                 options: [{
                     name: 'noShowPolicyIdsValues',
@@ -11018,11 +9810,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'promoCodes',
                 name: 'promoCodes',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans that have any of the requested promo codes',
                 options: [{
                     name: 'promoCodesValues',
@@ -11042,7 +9831,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Return rate plans for the specific property'
             },
@@ -11050,11 +9838,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'ratePlanCodes',
                 name: 'ratePlanCodes',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans filtered by requested codes',
                 options: [{
                     name: 'ratePlanCodesValues',
@@ -11074,11 +9859,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified time slice definitions',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
@@ -11098,20 +9880,16 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'timeSliceTemplate',
                 name: 'timeSliceTemplate',
                 type: 'options',
-                required: false,
                 default: 'DayUse',
-                description: `The time slice template, defaults to 'over night'`,
+                description: 'The time slice template, defaults to \'over night\'',
                 options: [{ name: 'DayUse', value: 'DayUse' }, { name: 'OverNight', value: 'OverNight' }]
             },
                 {
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Return rate plans with any of the specified unit groups',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -11131,17 +9909,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'Return rate plans with any of the specified unit group types',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdHead_id',
                 type: 'string',
                 required: true,
@@ -11150,7 +9925,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the rate plan'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdGet_id',
                 type: 'string',
                 required: true,
@@ -11163,20 +9938,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanRate_plansByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanRate-plansByIdGet"], resource: ["rateplan"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -11186,26 +9956,23 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property, cancellationPolicy. All other values will be silently ignored',
-                options: [{ name: 'cancellationPolicy', value: 'cancellationPolicy' }, { name: 'property', value: 'property' }]
+                options: [{ name: 'cancellationPolicy', value: 'cancellationPolicy' }, { name: 'Property', value: 'property' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdPut_id',
                 type: 'string',
                 required: true,
@@ -11310,10 +10077,10 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the rate plan.'
+                description: 'The definition of the rate plan'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanRate_plansByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -11374,26 +10141,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   ],
   "ageCategoryId": "MUC-BABY"
 }`,
-                description: 'The definition of the service.'
+                description: 'The definition of the service'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'RateplanServicesPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanServicesPost"], resource: ["service"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -11402,45 +10164,35 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'RateplanServicesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanServicesGet"], resource: ["service"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCodes',
                 name: 'channelCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The channel codes the service is sold through',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored',
-                options: [{ name: 'property', value: 'property' }]
+                options: [{ name: 'Property', value: 'property' }]
             },
                 {
                 displayName: 'onlySoldAsExtras',
                 name: 'onlySoldAsExtras',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether if set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only'
+                description: 'Whether if set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only.'
             },
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -11448,15 +10200,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             },
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter services by the specified property'
             },
@@ -11464,10 +10214,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'serviceTypes',
                 name: 'serviceTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The service types offered',
                 options: [{ name: 'Accommodation', value: 'Accommodation' }, { name: 'FoodAndBeverages', value: 'FoodAndBeverages' }, { name: 'Other', value: 'Other' }]
             },
@@ -11475,15 +10222,13 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all services for the provided free text.
-Currently it only looks up if the service name contains one of the provided values`
+                description: 'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanServicesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -11503,7 +10248,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanServicesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -11516,20 +10261,15 @@ Currently it only looks up if the service name contains one of the provided valu
                 name: 'RateplanServicesByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanServicesByIdGet"], resource: ["service"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -11539,26 +10279,23 @@ Currently it only looks up if the service name contains one of the provided valu
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored',
-                options: [{ name: 'property', value: 'property' }]
+                options: [{ name: 'Property', value: 'property' }]
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanServicesByIdHead_id',
                 type: 'string',
                 required: true,
@@ -11567,7 +10304,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'The ID of the service'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'RateplanServicesByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -11580,18 +10317,13 @@ Currently it only looks up if the service name contains one of the provided valu
                 name: 'RateplanServices_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["RateplanServices_countGet"], resource: ["service"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCodes',
                 name: 'channelCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The channel codes the service is sold through',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
@@ -11599,15 +10331,13 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'onlySoldAsExtras',
                 name: 'onlySoldAsExtras',
                 type: 'boolean',
-                required: false,
                 default: false,
-                description: 'Whether if set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only'
+                description: 'Whether if set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only.'
             },
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter services by the specified property'
             },
@@ -11615,10 +10345,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'serviceTypes',
                 name: 'serviceTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The service types offered',
                 options: [{ name: 'Accommodation', value: 'Accommodation' }, { name: 'FoodAndBeverages', value: 'FoodAndBeverages' }, { name: 'Other', value: 'Other' }]
             },
@@ -11626,10 +10353,8 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'textSearch',
                 name: 'textSearch',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `This will filter all services for the provided free text.
-Currently it only looks up if the service name contains one of the provided values`
+                description: 'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.'
             }
             ]
             },
@@ -11640,7 +10365,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 required: true,
                 displayOptions: { show: { operation: ["ReportsReportsOrdered-servicesGet"], resource: ["reports"] } },
                 default: '',
-                description: 'Property Id'
+                description: 'Property ID'
             },
             {
                 displayName: 'serviceIds',
@@ -11649,10 +10374,8 @@ Currently it only looks up if the service name contains one of the provided valu
                 required: true,
                 displayOptions: { show: { operation: ["ReportsReportsOrdered-servicesGet"], resource: ["reports"] } },
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'Service ids the report should be generated for',
+                default: {},
+                description: 'Service IDs the report should be generated for',
                 options: [{
                     name: 'serviceIdsValues',
                     displayName: 'ServiceIds',
@@ -11662,13 +10385,13 @@ Currently it only looks up if the service name contains one of the provided valu
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'Service ids the report should be generated for'
+                    description: 'Service IDs the report should be generated for'
                 }
                 ]
                 }]
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'ReportsReportsOrdered_servicesGet_from',
                 type: 'string',
                 required: true,
@@ -11677,7 +10400,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'The inclusive start date of the interval'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'ReportsReportsOrdered_servicesGet_to',
                 type: 'string',
                 required: true,
@@ -11695,7 +10418,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'Requested property'
             },
             {
-                displayName: 'month',
+                displayName: 'Month',
                 name: 'ReportsReportsArrivalsGet_month',
                 type: 'number',
                 required: true,
@@ -11704,7 +10427,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'Requested month for the report'
             },
             {
-                displayName: 'year',
+                displayName: 'Year',
                 name: 'ReportsReportsArrivalsGet_year',
                 type: 'number',
                 required: true,
@@ -11722,7 +10445,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'The ID of the property'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'ReportsReportsProperty_performanceGet_from',
                 type: 'string',
                 required: true,
@@ -11731,7 +10454,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'The inclusive start date of the interval'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'ReportsReportsProperty_performanceGet_to',
                 type: 'string',
                 required: true,
@@ -11744,18 +10467,13 @@ Currently it only looks up if the service name contains one of the provided valu
                 name: 'ReportsReportsProperty_performanceGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["ReportsReportsProperty-performanceGet"], resource: ["reports"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'channelCodes',
                 name: 'channelCodes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The channel codes used to filter the retrieved data',
                 options: [{ name: 'AltoVita', value: 'AltoVita' }, { name: 'BookingCom', value: 'BookingCom' }, { name: 'ChannelManager', value: 'ChannelManager' }, { name: 'DesVu', value: 'DesVu' }, { name: 'Direct', value: 'Direct' }, { name: 'Expedia', value: 'Expedia' }, { name: 'Homelike', value: 'Homelike' }, { name: 'Hrs', value: 'Hrs' }, { name: 'Ibe', value: 'Ibe' }]
             },
@@ -11763,11 +10481,8 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'The company IDs used to filter the retrieved data',
                 options: [{
                     name: 'companyIdsValues',
@@ -11784,13 +10499,10 @@ Currently it only looks up if the service name contains one of the provided valu
                 }]
             },
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: businessDays. All other values will be silently ignored',
                 options: [{ name: 'businessDays', value: 'businessDays' }]
             },
@@ -11798,11 +10510,8 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'marketSegmentIds',
                 name: 'marketSegmentIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'The market segment IDs used to filter the retrieved data',
                 options: [{
                     name: 'marketSegmentIdsValues',
@@ -11822,11 +10531,8 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'ratePlanIds',
                 name: 'ratePlanIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'The rate plan IDs used to filter the retrieved data',
                 options: [{
                     name: 'ratePlanIdsValues',
@@ -11846,11 +10552,8 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'timeSliceDefinitionIds',
                 name: 'timeSliceDefinitionIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'The time slice definition IDs used to filter the retrieved data',
                 options: [{
                     name: 'timeSliceDefinitionIdsValues',
@@ -11870,7 +10573,6 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'travelPurpose',
                 name: 'travelPurpose',
                 type: 'options',
-                required: false,
                 default: 'Business',
                 description: 'The travel purpose to filter the retrieved data',
                 options: [{ name: 'Business', value: 'Business' }, { name: 'Leisure', value: 'Leisure' }]
@@ -11879,11 +10581,8 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'unitGroupIds',
                 name: 'unitGroupIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'The unit group IDs used to filter the retrieved data',
                 options: [{
                     name: 'unitGroupIdsValues',
@@ -11903,10 +10602,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'unitGroupTypes',
                 name: 'unitGroupTypes',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'The unit group types used to filter the retrieved data',
                 options: [{ name: 'BedRoom', value: 'BedRoom' }, { name: 'EventSpace', value: 'EventSpace' }, { name: 'MeetingRoom', value: 'MeetingRoom' }, { name: 'Other', value: 'Other' }, { name: 'ParkingLot', value: 'ParkingLot' }]
             }
@@ -11926,19 +10622,14 @@ Currently it only looks up if the service name contains one of the provided valu
                 name: 'ReportsReportsCompany_invoices_vatGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["ReportsReportsCompany-invoices-vatGet"], resource: ["reports"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'companyIds',
                 name: 'companyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
+                default: {},
                 description: 'Company IDs the report should be generated for',
                 options: [{
                     name: 'companyIdsValues',
@@ -11958,12 +10649,9 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'dateFilter',
                 name: 'dateFilter',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `Set a date interval to get the report for. Cannot be more than 1 month.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`,
+                default: {},
+                description: 'Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7.',
                 options: [{
                     name: 'dateFilterValues',
                     displayName: 'DateFilter',
@@ -11973,7 +10661,7 @@ Currently it only looks up if the service name contains one of the provided valu
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `Set a date interval to get the report for. Cannot be more than 1 month.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7`
+                    description: 'Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7.'
                 }
                 ]
                 }]
@@ -11990,7 +10678,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'Property ID'
             },
             {
-                displayName: 'from',
+                displayName: 'From',
                 name: 'ReportsReportsRevenuesGet_from',
                 type: 'string',
                 required: true,
@@ -11999,28 +10687,25 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'The inclusive start date of the interval'
             },
             {
-                displayName: 'to',
+                displayName: 'To',
                 name: 'ReportsReportsRevenuesGet_to',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["ReportsReportsRevenuesGet"], resource: ["reports"] } },
                 default: '',
-                description: 'The exclusive end date of the interval. The interval is limited to one year'
+                description: 'The exclusive end date of the interval. The interval is limited to one year.'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'ReportsReportsRevenuesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["ReportsReportsRevenuesGet"], resource: ["reports"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'languageCode',
                 name: 'languageCode',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'The language for the the report'
             }
@@ -12031,15 +10716,12 @@ Currently it only looks up if the service name contains one of the provided valu
                 name: 'SettingsCapture_policiesGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsCapture-policiesGet"], resource: ["capturepolicies"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter capture policies by the specified property'
             },
@@ -12047,7 +10729,6 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -12055,14 +10736,13 @@ Currently it only looks up if the service name contains one of the provided valu
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsCapture_policiesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -12071,7 +10751,7 @@ Currently it only looks up if the service name contains one of the provided valu
                 description: 'The ID of the capture policy'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsCapture_policiesByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -12137,26 +10817,21 @@ Currently it only looks up if the service name contains one of the provided valu
     }
   ]
 }`,
-                description: 'The definition of the city tax.'
+                description: 'The definition of the city tax'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'SettingsCity_taxPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsCity-taxPost"], resource: ["citytax"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -12165,22 +10840,19 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsCity_taxGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsCity-taxGet"], resource: ["citytax"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyId',
                 name: 'propertyId',
                 type: 'string',
-                required: false,
                 default: '',
                 description: 'Filter by the specified property'
             }
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsCity_taxByIdGet_id',
                 type: 'string',
                 required: true,
@@ -12193,20 +10865,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsCity_taxByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsCity-taxByIdGet"], resource: ["citytax"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'languages',
+                displayName: 'Languages',
                 name: 'languages',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`,
+                default: {},
+                description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
                 options: [{
                     name: 'languagesValues',
                     displayName: 'Languages',
@@ -12216,7 +10883,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: `'all' or comma separated list of two-letter language codes (ISO Alpha-2)`
+                    description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)'
                 }
                 ]
                 }]
@@ -12224,7 +10891,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsCity_taxByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -12244,7 +10911,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsCity_taxByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -12266,15 +10933,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsSub_accountsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsSub-accountsGet"], resource: ["customsubaccounts"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -12282,9 +10946,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -12300,26 +10963,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "name": "Finest green tea",
   "type": "FoodAndBeverages"
 }`,
-                description: 'The definition of the sub-account.'
+                description: 'The definition of the sub-account'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'SettingsSub_accountsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsSub-accountsPost"], resource: ["customsubaccounts"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -12333,7 +10991,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsSub_accountsByIdGet_id',
                 type: 'string',
                 required: true,
@@ -12342,7 +11000,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the sub-account'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsSub_accountsByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -12362,7 +11020,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsSub_accountsByIdHead_id',
                 type: 'string',
                 required: true,
@@ -12371,7 +11029,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the sub-account'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsSub_accountsByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -12413,20 +11071,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsInvoice_addressGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsInvoice-addressGet"], resource: ["invoiceaddress"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: '',
+                default: {},
                 options: [{
                     name: 'propertyIdsValues',
                     displayName: 'PropertyIds',
@@ -12450,10 +11102,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["SettingsInvoice-addressPut"], resource: ["invoiceaddress"] } },
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: '',
+                default: {},
                 options: [{
                     name: 'propertyIdsValues',
                     displayName: 'PropertyIds',
@@ -12481,7 +11130,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "regionCode": "DE-BY",
   "countryCode": "DE"
 }`,
-                description: 'Address displayed on invoices.'
+                description: 'Address displayed on invoices'
             },
             {
                 displayName: 'propertyIds',
@@ -12490,10 +11139,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 required: true,
                 displayOptions: { show: { operation: ["SettingsInvoice-addressPatch"], resource: ["invoiceaddress"] } },
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: '',
+                default: {},
                 options: [{
                     name: 'propertyIdsValues',
                     displayName: 'PropertyIds',
@@ -12537,10 +11183,10 @@ and keys can't be reused with different request parameters. Keys expire after 24
     }
   ]
 }`,
-                description: 'The definition of the language settings.'
+                description: 'The definition of the language settings'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsMarket_segmentsByIdGet_id',
                 type: 'string',
                 required: true,
@@ -12549,7 +11195,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the market segment'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsMarket_segmentsByIdHead_id',
                 type: 'string',
                 required: true,
@@ -12558,7 +11204,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the market segment'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsMarket_segmentsByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -12578,7 +11224,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsMarket_segmentsByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -12591,20 +11237,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsMarket_segmentsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsMarket-segmentsGet"], resource: ["marketsegment"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'Return market segments with any of the specified property ids',
+                default: {},
+                description: 'Return market segments with any of the specified property IDs',
                 options: [{
                     name: 'propertyIdsValues',
                     displayName: 'PropertyIds',
@@ -12614,7 +11255,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'Return market segments with any of the specified property ids'
+                    description: 'Return market segments with any of the specified property IDs'
                 }
                 ]
                 }]
@@ -12623,7 +11264,6 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageNumber',
                 name: 'pageNumber',
                 type: 'number',
-                required: false,
                 default: 1,
                 description: 'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page'
             },
@@ -12631,9 +11271,8 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 displayName: 'pageSize',
                 name: 'pageSize',
                 type: 'number',
-                required: false,
                 default: 0,
-                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned'
+                description: 'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.'
             }
             ]
             },
@@ -12652,26 +11291,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
     "BER"
   ]
 }`,
-                description: 'The definition of the market segment.'
+                description: 'The definition of the market segment'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'SettingsMarket_segmentsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsMarket-segmentsPost"], resource: ["marketsegment"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -12680,20 +11314,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsMarket_segments_countGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsMarket-segments$countGet"], resource: ["marketsegment"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'propertyIds',
                 name: 'propertyIds',
                 type: 'fixedCollection',
-                required: false,
                 typeOptions: {"multipleValues":true},
-                default: `
-{}
-`,
-                description: 'Return market segments with any of the specified property ids',
+                default: {},
+                description: 'Return market segments with any of the specified property IDs',
                 options: [{
                     name: 'propertyIdsValues',
                     displayName: 'PropertyIds',
@@ -12703,7 +11332,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                     name: 'value',
                     type: 'string',
                     default: '',
-                    description: 'Return market segments with any of the specified property ids'
+                    description: 'Return market segments with any of the specified property IDs'
                 }
                 ]
                 }]
@@ -12711,7 +11340,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
             ]
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsPropertiesByIdGet_id',
                 type: 'string',
                 required: true,
@@ -12729,7 +11358,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsPropertiesByPropertyIdTime_slice_definitionsByIdGet_id',
                 type: 'string',
                 required: true,
@@ -12742,20 +11371,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsPropertiesByPropertyIdTime_slice_definitionsByIdGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet"], resource: ["timeslicedefinitions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }]
+                options: [{ name: 'Actions', value: 'actions' }]
             }
             ]
             },
@@ -12769,7 +11393,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsPropertiesByPropertyIdTime_slice_definitionsByIdPatch_id',
                 type: 'string',
                 required: true,
@@ -12798,7 +11422,7 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'The ID of the property'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SettingsPropertiesByPropertyIdTime_slice_definitionsByIdDelete_id',
                 type: 'string',
                 required: true,
@@ -12820,20 +11444,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'SettingsPropertiesByPropertyIdTime_slice_definitionsGet_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsPropertiesByPropertyIdTime-slice-definitionsGet"], resource: ["timeslicedefinitions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'expand',
+                displayName: 'Expand',
                 name: 'expand',
                 type: 'multiOptions',
-                required: false,
-                default: `
-[]
-`,
+                default: [],
                 description: 'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored',
-                options: [{ name: 'actions', value: 'actions' }]
+                options: [{ name: 'Actions', value: 'actions' }]
             }
             ]
             },
@@ -12858,26 +11477,21 @@ and keys can't be reused with different request parameters. Keys expire after 24
   "checkInTime": "17:00:00",
   "checkOutTime": "11:00:00"
 }`,
-                description: 'The payload of the time slice definition.'
+                description: 'The payload of the time slice definition'
             },
             {
                 displayName: 'Additional Fields',
                 name: 'SettingsPropertiesByPropertyIdTime_slice_definitionsPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["SettingsPropertiesByPropertyIdTime-slice-definitionsPost"], resource: ["timeslicedefinitions"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
                 displayName: 'Idempotency-Key',
                 name: 'Idempotency_Key',
                 type: 'string',
-                required: false,
                 default: '',
-                description: `Unique key for safely retrying requests without accidentally performing the same operation twice. 
-We'll always send back the same response for requests made with the same key, 
-and keys can't be reused with different request parameters. Keys expire after 24 hours`
+                description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours'
             }
             ]
             },
@@ -12886,18 +11500,14 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 name: 'PingerPost_additionalFields',
                 type: 'collection',
                 displayOptions: { show: { operation: ["PingerPost"], resource: ["healthcheck"] } },
-                default: `
-{}
-`,
+                default: {},
                 options: [
                 {
-                displayName: 'url',
+                displayName: 'Url',
                 name: 'url',
                 type: 'string',
-                required: false,
                 default: '',
-                description: ''
-            }
+           }
             ]
             },
             {
@@ -12921,16 +11531,15 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Subscription details'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SubscriptionsByIdGet_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["SubscriptionsByIdGet"], resource: ["subscriptions"] } },
                 default: '',
-                description: ''
-            },
+           },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SubscriptionsByIdPut_id',
                 type: 'string',
                 required: true,
@@ -12959,12 +11568,12 @@ and keys can't be reused with different request parameters. Keys expire after 24
                 description: 'Subscription details'
             },
             {
-                displayName: 'id',
+                displayName: 'ID',
                 name: 'SubscriptionsByIdDelete_id',
                 type: 'string',
                 required: true,
                 displayOptions: { show: { operation: ["SubscriptionsByIdDelete"], resource: ["subscriptions"] } },
                 default: '',
-                description: `Subscription's ID`
+                description: 'Subscription\'s ID'
             }
 ];
