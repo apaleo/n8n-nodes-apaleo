@@ -16,9 +16,12 @@
     "name": "Apaleo Official",
     "email": "support@apaleo.com"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apaleo/n8n-nodes-apaleo.git"
+    "url": "git+https://github.com/apaleo/n8n-nodes-apaleo.git"
   },
   "engines": {
     "node": ">=20.15"
