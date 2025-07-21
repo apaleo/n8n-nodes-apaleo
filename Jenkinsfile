@@ -34,25 +34,20 @@ pipeline {
             }
         }
         stage('Publish') {
-            
             steps {
-                withCredentials([[
-                    $class: 'UsernamePasswordMultiBinding',
-                    credentialsId: 'apabot-github',
-                    usernameVariable: 'GIT_USERNAME',
-                    passwordVariable: 'GITHUB_TOKEN'
-                ]]) {
+                withCredentials([[$class: 'StringBinding', credentialsId: 'npmjs-token', variable: 'NPM_TOKEN']]) {
                     sh '''
+                        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
                         echo "Current package.json version:"
                         cat package.json | grep version
                         npm version patch --no-git-tag-version
                         echo "New package.json version:"
                         PACKAGE_VERSION=$(node -p "require('./package.json').version")
                         echo "Version: $PACKAGE_VERSION"
-                        echo "Publishing package..."
+                        echo "Publishing package to npmjs.org..."
                         npm publish
                         echo "Package published successfully!"
-                        echo "Packages URL: https://github.com/apaleo/n8n-nodes-apaleo/pkgs/npm/%40apaleo%2Fn8n-nodes-apaleo-official/versions"
+                        echo "Package URL: https://www.npmjs.com/package/@apaleo/n8n-nodes-apaleo-official"
                     '''
                 }
             }
