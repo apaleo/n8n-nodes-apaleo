@@ -917,14 +917,10 @@ export class ApaleoTrigger implements INodeType {
 				try {
 					const responseData = await apaleoApiRequest.call(this, 'POST', '/subscriptions', body);
 
-					if (responseData?.id === undefined) {
-						return false;
-					}
-
 					webhookData.webhookId = responseData.id as string;
 					return true;
 				} catch (error) {
-					return false;
+					throw new NodeOperationError(this.getNode(), error as Error);
 				}
 			},
 
@@ -932,14 +928,8 @@ export class ApaleoTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 
 				if (webhookData.webhookId !== undefined) {
-					try {
-						await apaleoApiRequest.call(this, 'DELETE', `/subscriptions/${webhookData.webhookId}`);
-					} catch (error) {
-						return false;
-					}
+					await apaleoApiRequest.call(this, 'DELETE', `/subscriptions/${webhookData.webhookId}`);
 
-					// Remove from the static workflow data so that it is clear
-					// that no webhooks are registered anymore
 					delete webhookData.webhookId;
 				}
 
