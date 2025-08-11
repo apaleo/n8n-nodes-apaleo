@@ -193,4 +193,9 @@ export const ACCOUNT_LEVEL_EVENTS = [
 	{ topic: WEBHOOK_TOPICS.BOOKING, event: WEBHOOK_EVENTS[WEBHOOK_TOPICS.BOOKING].DELETED },
 ];
 
-export const WEBHOOK_BASE_URL = 'https://webhook.apaleo-staging.com/v1';
+/**
+ * Get webhook base URL - defaults to production
+ */
+export function getWebhookBaseUrl(): string {
+	return 'https://webhook.apaleo-staging.com/v1';
+}

@@ -7,7 +7,7 @@ export class ApaleoOAuth2Api implements ICredentialType {
 
 	displayName = 'Apaleo OAuth2 API';
 
-	documentationUrl = 'https://docs.apaleo.com/api/get-started/oauth';
+	documentationUrl = 'https://apaleo.dev';
 
 	properties: INodeProperties[] = [
 		{

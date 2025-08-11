@@ -1,23 +1,13 @@
 import { INodeProperties } from 'n8n-workflow';
 
 export const resourcesByGroup = {
-  "account-v1": [
-    {
-      "displayName": "Account",
-      "value": "account"
-    },
-    {
-      "displayName": "AccountActions",
-      "value": "accountactions"
-    }
-  ],
   "availability-v1": [
     {
       "displayName": "Availability",
       "value": "availability"
     },
     {
-      "displayName": "ReservationAvailability",
+      "displayName": "Reservationavailability",
       "value": "reservationavailability"
     }
   ],
@@ -27,7 +17,7 @@ export const resourcesByGroup = {
       "value": "block"
     },
     {
-      "displayName": "BlockActions",
+      "displayName": "Blockactions",
       "value": "blockactions"
     },
     {
@@ -47,7 +37,7 @@ export const resourcesByGroup = {
       "value": "reservation"
     },
     {
-      "displayName": "ReservationActions",
+      "displayName": "Reservationactions",
       "value": "reservationactions"
     },
     {
@@ -61,11 +51,11 @@ export const resourcesByGroup = {
       "value": "folio"
     },
     {
-      "displayName": "FolioActions",
+      "displayName": "Folioactions",
       "value": "folioactions"
     },
     {
-      "displayName": "FolioPayments",
+      "displayName": "Foliopayments",
       "value": "foliopayments"
     },
     {
@@ -73,22 +63,16 @@ export const resourcesByGroup = {
       "value": "invoice"
     },
     {
-      "displayName": "InvoiceAction",
+      "displayName": "Invoiceaction",
       "value": "invoiceaction"
     },
     {
-      "displayName": "SubLedger",
+      "displayName": "Subledger",
       "value": "subledger"
     },
     {
       "displayName": "Types",
       "value": "types"
-    }
-  ],
-  "integration-v1": [
-    {
-      "displayName": "UiIntegrations",
-      "value": "uiintegrations"
     }
   ],
   "inventory-v1": [
@@ -97,33 +81,25 @@ export const resourcesByGroup = {
       "value": "property"
     },
     {
-      "displayName": "PropertyActions",
-      "value": "propertyactions"
-    },
-    {
-      "displayName": "Types",
-      "value": "types"
-    },
-    {
       "displayName": "Unit",
       "value": "unit"
     },
     {
-      "displayName": "UnitAttribute",
+      "displayName": "Unitattribute",
       "value": "unitattribute"
     },
     {
-      "displayName": "UnitGroup",
+      "displayName": "Unitgroup",
       "value": "unitgroup"
     }
   ],
   "logs-v1": [
     {
-      "displayName": "BookingLogs",
+      "displayName": "Bookinglogs",
       "value": "bookinglogs"
     },
     {
-      "displayName": "FinanceLogs",
+      "displayName": "Financelogs",
       "value": "financelogs"
     }
   ],
@@ -139,11 +115,11 @@ export const resourcesByGroup = {
   ],
   "rateplan-v1": [
     {
-      "displayName": "AgeCategory",
+      "displayName": "Agecategory",
       "value": "agecategory"
     },
     {
-      "displayName": "CancellationPolicy",
+      "displayName": "Cancellationpolicy",
       "value": "cancellationpolicy"
     },
     {
@@ -151,15 +127,15 @@ export const resourcesByGroup = {
       "value": "company"
     },
     {
-      "displayName": "CorporateCodes",
+      "displayName": "Corporatecodes",
       "value": "corporatecodes"
     },
     {
-      "displayName": "NoShowPolicy",
+      "displayName": "Noshowpolicy",
       "value": "noshowpolicy"
     },
     {
-      "displayName": "PromoCodes",
+      "displayName": "Promocodes",
       "value": "promocodes"
     },
     {
@@ -167,7 +143,7 @@ export const resourcesByGroup = {
       "value": "rate"
     },
     {
-      "displayName": "RatePlan",
+      "displayName": "Rateplan",
       "value": "rateplan"
     },
     {
@@ -183,23 +159,23 @@ export const resourcesByGroup = {
   ],
   "settings-v1": [
     {
-      "displayName": "CapturePolicies",
+      "displayName": "Capturepolicies",
       "value": "capturepolicies"
     },
     {
-      "displayName": "CityTax",
+      "displayName": "Citytax",
       "value": "citytax"
     },
     {
-      "displayName": "CustomSubAccounts",
+      "displayName": "Customsubaccounts",
       "value": "customsubaccounts"
     },
     {
-      "displayName": "FeatureSettings",
+      "displayName": "Featuresettings",
       "value": "featuresettings"
     },
     {
-      "displayName": "InvoiceAddress",
+      "displayName": "Invoiceaddress",
       "value": "invoiceaddress"
     },
     {
@@ -207,21 +183,21 @@ export const resourcesByGroup = {
       "value": "languages"
     },
     {
-      "displayName": "MarketSegment",
+      "displayName": "Marketsegment",
       "value": "marketsegment"
     },
     {
-      "displayName": "PropertySettings",
+      "displayName": "Propertysettings",
       "value": "propertysettings"
     },
     {
-      "displayName": "TimeSliceDefinitions",
+      "displayName": "Timeslicedefinitions",
       "value": "timeslicedefinitions"
     }
   ],
   "webhook-v1": [
     {
-      "displayName": "HealthCheck",
+      "displayName": "Healthcheck",
       "value": "healthcheck"
     },
     {
@@ -237,42 +213,10 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['account-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['availability-v1'] } },
 		options: [
-			{
-				name: 'Account',
-				value: 'account',
-			},
-			{
-				name: 'AccountAction',
-				value: 'accountactions',
-			}
-		],
-		default: 'account',
-	},
-	{
-		displayName: 'Resource',
-		name: 'resource',
-		type: 'options',
-		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['availability-v1'],
-			},
-		},
-		options: [
-			{
-				name: 'Availability',
-				value: 'availability',
-			},
-			{
-				name: 'ReservationAvailability',
-				value: 'reservationavailability',
-			}
+			{ name: 'Availability', value: 'availability' },
+			{ name: 'Reservationavailability', value: 'reservationavailability' }
 		],
 		default: 'availability',
 	},
@@ -281,44 +225,16 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['booking-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['booking-v1'] } },
 		options: [
-			{
-				name: 'Block',
-				value: 'block',
-			},
-			{
-				name: 'BlockAction',
-				value: 'blockactions',
-			},
-			{
-				name: 'Booking',
-				value: 'booking',
-			},
-			{
-				name: 'Group',
-				value: 'group',
-			},
-			{
-				name: 'Offer',
-				value: 'offer',
-			},
-			{
-				name: 'Reservation',
-				value: 'reservation',
-			},
-			{
-				name: 'ReservationAction',
-				value: 'reservationactions',
-			},
-			{
-				name: 'Type',
-				value: 'types',
-			}
+			{ name: 'Block', value: 'block' },
+			{ name: 'Blockactions', value: 'blockactions' },
+			{ name: 'Booking', value: 'booking' },
+			{ name: 'Group', value: 'group' },
+			{ name: 'Offer', value: 'offer' },
+			{ name: 'Reservation', value: 'reservation' },
+			{ name: 'Reservationactions', value: 'reservationactions' },
+			{ name: 'Types', value: 'types' }
 		],
 		default: 'block',
 	},
@@ -327,40 +243,15 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['finance-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['finance-v1'] } },
 		options: [
-			{
-				name: 'Folio',
-				value: 'folio',
-			},
-			{
-				name: 'FolioAction',
-				value: 'folioactions',
-			},
-			{
-				name: 'FolioPayment',
-				value: 'foliopayments',
-			},
-			{
-				name: 'Invoice',
-				value: 'invoice',
-			},
-			{
-				name: 'InvoiceAction',
-				value: 'invoiceaction',
-			},
-			{
-				name: 'SubLedger',
-				value: 'subledger',
-			},
-			{
-				name: 'Type',
-				value: 'types',
-			}
+			{ name: 'Folio', value: 'folio' },
+			{ name: 'Folioactions', value: 'folioactions' },
+			{ name: 'Foliopayments', value: 'foliopayments' },
+			{ name: 'Invoice', value: 'invoice' },
+			{ name: 'Invoiceaction', value: 'invoiceaction' },
+			{ name: 'Subledger', value: 'subledger' },
+			{ name: 'Types', value: 'types' }
 		],
 		default: 'folio',
 	},
@@ -369,54 +260,12 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['integration-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['inventory-v1'] } },
 		options: [
-			{
-				name: 'UiIntegration',
-				value: 'uiintegrations',
-			}
-		],
-		default: 'uiintegrations',
-	},
-	{
-		displayName: 'Resource',
-		name: 'resource',
-		type: 'options',
-		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['inventory-v1'],
-			},
-		},
-		options: [
-			{
-				name: 'Property',
-				value: 'property',
-			},
-			{
-				name: 'PropertyAction',
-				value: 'propertyactions',
-			},
-			{
-				name: 'Type',
-				value: 'types',
-			},
-			{
-				name: 'Unit',
-				value: 'unit',
-			},
-			{
-				name: 'UnitAttribute',
-				value: 'unitattribute',
-			},
-			{
-				name: 'UnitGroup',
-				value: 'unitgroup',
-			}
+			{ name: 'Property', value: 'property' },
+			{ name: 'Unit', value: 'unit' },
+			{ name: 'Unitattribute', value: 'unitattribute' },
+			{ name: 'Unitgroup', value: 'unitgroup' }
 		],
 		default: 'property',
 	},
@@ -425,20 +274,10 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['logs-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['logs-v1'] } },
 		options: [
-			{
-				name: 'BookingLog',
-				value: 'bookinglogs',
-			},
-			{
-				name: 'FinanceLog',
-				value: 'financelogs',
-			}
+			{ name: 'Bookinglogs', value: 'bookinglogs' },
+			{ name: 'Financelogs', value: 'financelogs' }
 		],
 		default: 'bookinglogs',
 	},
@@ -447,20 +286,10 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['operations-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['operations-v1'] } },
 		options: [
-			{
-				name: 'Maintenance',
-				value: 'maintenance',
-			},
-			{
-				name: 'Operation',
-				value: 'operations',
-			}
+			{ name: 'Maintenance', value: 'maintenance' },
+			{ name: 'Operations', value: 'operations' }
 		],
 		default: 'maintenance',
 	},
@@ -469,48 +298,17 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['rateplan-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['rateplan-v1'] } },
 		options: [
-			{
-				name: 'AgeCategory',
-				value: 'agecategory',
-			},
-			{
-				name: 'CancellationPolicy',
-				value: 'cancellationpolicy',
-			},
-			{
-				name: 'Company',
-				value: 'company',
-			},
-			{
-				name: 'CorporateCode',
-				value: 'corporatecodes',
-			},
-			{
-				name: 'NoShowPolicy',
-				value: 'noshowpolicy',
-			},
-			{
-				name: 'PromoCode',
-				value: 'promocodes',
-			},
-			{
-				name: 'Rate',
-				value: 'rate',
-			},
-			{
-				name: 'RatePlan',
-				value: 'rateplan',
-			},
-			{
-				name: 'Service',
-				value: 'service',
-			}
+			{ name: 'Agecategory', value: 'agecategory' },
+			{ name: 'Cancellationpolicy', value: 'cancellationpolicy' },
+			{ name: 'Company', value: 'company' },
+			{ name: 'Corporatecodes', value: 'corporatecodes' },
+			{ name: 'Noshowpolicy', value: 'noshowpolicy' },
+			{ name: 'Promocodes', value: 'promocodes' },
+			{ name: 'Rate', value: 'rate' },
+			{ name: 'Rateplan', value: 'rateplan' },
+			{ name: 'Service', value: 'service' }
 		],
 		default: 'agecategory',
 	},
@@ -519,16 +317,9 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['reports-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['reports-v1'] } },
 		options: [
-			{
-				name: 'Report',
-				value: 'reports',
-			}
+			{ name: 'Reports', value: 'reports' }
 		],
 		default: 'reports',
 	},
@@ -537,48 +328,17 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['settings-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['settings-v1'] } },
 		options: [
-			{
-				name: 'CapturePolicy',
-				value: 'capturepolicies',
-			},
-			{
-				name: 'CityTax',
-				value: 'citytax',
-			},
-			{
-				name: 'CustomSubAccount',
-				value: 'customsubaccounts',
-			},
-			{
-				name: 'FeatureSetting',
-				value: 'featuresettings',
-			},
-			{
-				name: 'InvoiceAddress',
-				value: 'invoiceaddress',
-			},
-			{
-				name: 'Language',
-				value: 'languages',
-			},
-			{
-				name: 'MarketSegment',
-				value: 'marketsegment',
-			},
-			{
-				name: 'PropertySetting',
-				value: 'propertysettings',
-			},
-			{
-				name: 'TimeSliceDefinition',
-				value: 'timeslicedefinitions',
-			}
+			{ name: 'Capturepolicies', value: 'capturepolicies' },
+			{ name: 'Citytax', value: 'citytax' },
+			{ name: 'Customsubaccounts', value: 'customsubaccounts' },
+			{ name: 'Featuresettings', value: 'featuresettings' },
+			{ name: 'Invoiceaddress', value: 'invoiceaddress' },
+			{ name: 'Languages', value: 'languages' },
+			{ name: 'Marketsegment', value: 'marketsegment' },
+			{ name: 'Propertysettings', value: 'propertysettings' },
+			{ name: 'Timeslicedefinitions', value: 'timeslicedefinitions' }
 		],
 		default: 'capturepolicies',
 	},
@@ -587,20 +347,10 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: {
-			show: {
-				group: ['webhook-v1'],
-			},
-		},
+		displayOptions: { show: { group: ['webhook-v1'] } },
 		options: [
-			{
-				name: 'HealthCheck',
-				value: 'healthcheck',
-			},
-			{
-				name: 'Subscription',
-				value: 'subscriptions',
-			}
+			{ name: 'Healthcheck', value: 'healthcheck' },
+			{ name: 'Subscriptions', value: 'subscriptions' }
 		],
 		default: 'healthcheck',
 	}
