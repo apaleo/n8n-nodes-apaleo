@@ -19,13 +19,13 @@ export class ApaleoOAuth2Api implements ICredentialType {
 			displayName: 'Authorization URL',
 			name: 'authUrl',
 			type: 'hidden',
-			default: 'https://identity.apaleo-staging.com/connect/authorize',
+			default: 'https://identity.apaleo.com/connect/authorize',
 		},
 		{
 			displayName: 'Access Token URL',
 			name: 'accessTokenUrl',
 			type: 'hidden',
-			default: 'https://identity.apaleo-staging.com/connect/token',
+			default: 'https://identity.apaleo.com/connect/token',
 		},
 		{
 			displayName: 'Authentication',

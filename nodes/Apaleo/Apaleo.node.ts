@@ -25,7 +25,7 @@ This API documentation was filtered to include only the endpoints listed in expe
 			},
 		],
 		requestDefaults: {
-			baseURL: 'https://api.apaleo-staging.com',
+			baseURL: 'https://api.apaleo.com',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',

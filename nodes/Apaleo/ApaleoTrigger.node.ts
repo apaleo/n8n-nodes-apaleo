@@ -27,7 +27,7 @@ async function apaleoApiRequest(
 		method,
 		body,
 		qs,
-		url: uri || `https://webhook.apaleo-staging.com/v1${resource}`,
+		url: uri || `https://webhook.apaleo.com/v1${resource}`,
 		json: true,
 	};
 
