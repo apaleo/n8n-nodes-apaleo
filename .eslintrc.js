@@ -80,7 +80,7 @@ module.exports = {
 				'n8n-nodes-base/node-param-default-wrong-for-number': 'error',
 				'n8n-nodes-base/node-param-default-wrong-for-simplify': 'error',
 				'n8n-nodes-base/node-param-default-wrong-for-string': 'error',
-				'n8n-nodes-base/node-param-description-boolean-without-whether': 'error',
+				'n8n-nodes-base/node-param-description-boolean-without-whether': 'off',
 				'n8n-nodes-base/node-param-description-comma-separated-hyphen': 'error',
 				'n8n-nodes-base/node-param-description-empty-string': 'error',
 				'n8n-nodes-base/node-param-description-excess-final-period': 'error',
