@@ -27,7 +27,7 @@ async function apaleoApiRequest(
 		method,
 		body,
 		qs,
-		url: uri || `https://webhook.apaleo.com/v1${resource}`,
+		url: uri || `https://webhook.apaleo.com/v1/${resource}`,
 		json: true,
 	};
 
@@ -917,10 +917,14 @@ export class ApaleoTrigger implements INodeType {
 				try {
 					const responseData = await apaleoApiRequest.call(this, 'POST', '/subscriptions', body);
 
+					if (responseData?.id === undefined) {
+						return false;
+					}
+
 					webhookData.webhookId = responseData.id as string;
 					return true;
 				} catch (error) {
-					throw new NodeOperationError(this.getNode(), error as Error);
+					return false;
 				}
 			},
 
@@ -928,8 +932,14 @@ export class ApaleoTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 
 				if (webhookData.webhookId !== undefined) {
-					await apaleoApiRequest.call(this, 'DELETE', `/subscriptions/${webhookData.webhookId}`);
+					try {
+						await apaleoApiRequest.call(this, 'DELETE', `/subscriptions/${webhookData.webhookId}`);
+					} catch (error) {
+						return false;
+					}
 
+					// Remove from the static workflow data so that it is clear
+					// that no webhooks are registered anymore
 					delete webhookData.webhookId;
 				}
 
