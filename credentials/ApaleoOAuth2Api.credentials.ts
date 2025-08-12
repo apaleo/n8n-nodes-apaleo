@@ -1,5 +1,4 @@
 import type { ICredentialType, INodeProperties } from 'n8n-workflow';
-
 export class ApaleoOAuth2Api implements ICredentialType {
 	name = 'apaleoOAuth2Api';
 
@@ -7,7 +6,7 @@ export class ApaleoOAuth2Api implements ICredentialType {
 
 	displayName = 'Apaleo OAuth2 API';
 
-	documentationUrl = 'https://docs.apaleo.com/api/get-started/oauth';
+	documentationUrl = 'https://apaleo.dev';
 
 	properties: INodeProperties[] = [
 		{
@@ -20,13 +19,13 @@ export class ApaleoOAuth2Api implements ICredentialType {
 			displayName: 'Authorization URL',
 			name: 'authUrl',
 			type: 'hidden',
-			default: 'https://identity.apaleo-staging.com/connect/authorize',
+			default: 'https://identity.apaleo.com/connect/authorize',
 		},
 		{
 			displayName: 'Access Token URL',
 			name: 'accessTokenUrl',
 			type: 'hidden',
-			default: 'https://identity.apaleo-staging.com/connect/token',
+			default: 'https://identity.apaleo.com/connect/token',
 		},
 		{
 			displayName: 'Authentication',

@@ -193,4 +193,81 @@ export const ACCOUNT_LEVEL_EVENTS = [
 	{ topic: WEBHOOK_TOPICS.BOOKING, event: WEBHOOK_EVENTS[WEBHOOK_TOPICS.BOOKING].DELETED },
 ];
 
-export const WEBHOOK_BASE_URL = 'https://webhook.apaleo-staging.com/v1';
+/**
+ * Get webhook base URL - defaults to production
+ */
+export function getWebhookBaseUrl(): string {
+	return 'https://webhook.apaleo-staging.com/v1';
+}
+
+/**
+ * Environment configuration for Apaleo API URLs
+ */
+
+interface EnvironmentUrls {
+	apiBaseUrl: string;
+	webhookBaseUrl: string;
+	integrationBaseUrl: string;
+	swaggerBaseUrl: string;
+	identityBaseUrl: string;
+	getIdentityUrl(): string;
+}
+
+/**
+ * Environment configurations for different environments
+ */
+const ENVIRONMENT_CONFIGS = {
+	dev: {
+		apiBaseUrl: 'https://api.apaleo-staging.com',
+		webhookBaseUrl: 'https://webhook.apaleo-staging.com',
+		integrationBaseUrl: 'https://integration.apaleo-staging.com',
+		swaggerBaseUrl: 'https://api.apaleo-staging.com/swagger',
+		identityBaseUrl: 'https://identity.apaleo-staging.com',
+	},
+	staging: {
+		apiBaseUrl: 'https://api.apaleo-staging.com',
+		webhookBaseUrl: 'https://webhook.apaleo-staging.com',
+		integrationBaseUrl: 'https://integration.apaleo-staging.com',
+		swaggerBaseUrl: 'https://api.apaleo-staging.com/swagger',
+		identityBaseUrl: 'https://identity.apaleo-staging.com',
+	},
+	prod: {
+		apiBaseUrl: 'https://api.apaleo.com',
+		webhookBaseUrl: 'https://webhook.apaleo.com',
+		integrationBaseUrl: 'https://integration.apaleo.com',
+		swaggerBaseUrl: 'https://api.apaleo.com/swagger',
+		identityBaseUrl: 'https://identity.apaleo.com',
+	},
+};
+
+/**
+ * Get environment URLs based on the specified environment
+ */
+export function getEnvironmentUrls(environment?: string): EnvironmentUrls {
+	// Get current environment, default to development
+	const currentEnv = environment || getCurrentEnvironment();
+
+	// Get configuration for the current environment
+	const config =
+		ENVIRONMENT_CONFIGS[currentEnv as keyof typeof ENVIRONMENT_CONFIGS] || ENVIRONMENT_CONFIGS.dev;
+
+	const urls = {
+		apiBaseUrl: config.apiBaseUrl,
+		webhookBaseUrl: config.webhookBaseUrl,
+		integrationBaseUrl: config.integrationBaseUrl,
+		swaggerBaseUrl: config.swaggerBaseUrl,
+		identityBaseUrl: config.identityBaseUrl,
+		getIdentityUrl(): string {
+			return `${this.identityBaseUrl}/connect/token`;
+		},
+	};
+
+	return urls;
+}
+
+/**
+ * Get the current environment name
+ */
+export function getCurrentEnvironment(): string {
+	return 'dev'; // Default to development - you can change this as needed
+}

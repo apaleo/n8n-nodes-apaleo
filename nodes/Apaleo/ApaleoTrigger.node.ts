@@ -10,7 +10,7 @@ import type {
 } from 'n8n-workflow';
 import { NodeConnectionType, NodeOperationError } from 'n8n-workflow';
 
-import { ACCOUNT_LEVEL_EVENTS, WEBHOOK_BASE_URL } from '../../constants';
+import { ACCOUNT_LEVEL_EVENTS } from '../../constants';
 
 /**
  * Make an API request to Apaleo
@@ -27,7 +27,7 @@ async function apaleoApiRequest(
 		method,
 		body,
 		qs,
-		url: uri || `${WEBHOOK_BASE_URL}${resource}`,
+		url: uri || `https://webhook.apaleo.com/v1${resource}`,
 		json: true,
 	};
 
@@ -45,7 +45,7 @@ export class ApaleoTrigger implements INodeType {
 		icon: 'file:apaleo.svg',
 		group: ['trigger'],
 		version: 1,
-		description: 'Starts the workflow when Apaleo events occur',
+		description: 'Apaleo Official Trigger Node',
 		defaults: {
 			name: 'Apaleo Official Trigger',
 		},
@@ -876,7 +876,6 @@ export class ApaleoTrigger implements INodeType {
 						}
 					}
 				} catch (error) {
-					console.error('Error checking existing webhook:', error);
 					return false;
 				}
 
@@ -918,15 +917,10 @@ export class ApaleoTrigger implements INodeType {
 				try {
 					const responseData = await apaleoApiRequest.call(this, 'POST', '/subscriptions', body);
 
-					if (responseData?.id === undefined) {
-						return false;
-					}
-
 					webhookData.webhookId = responseData.id as string;
 					return true;
 				} catch (error) {
-					console.error('Error creating webhook:', error);
-					return false;
+					throw new NodeOperationError(this.getNode(), error as Error);
 				}
 			},
 
@@ -934,15 +928,8 @@ export class ApaleoTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 
 				if (webhookData.webhookId !== undefined) {
-					try {
-						await apaleoApiRequest.call(this, 'DELETE', `/subscriptions/${webhookData.webhookId}`);
-					} catch (error) {
-						console.error('Error deleting webhook:', error);
-						return false;
-					}
+					await apaleoApiRequest.call(this, 'DELETE', `/subscriptions/${webhookData.webhookId}`);
 
-					// Remove from the static workflow data so that it is clear
-					// that no webhooks are registered anymore
 					delete webhookData.webhookId;
 				}
 
@@ -952,21 +939,13 @@ export class ApaleoTrigger implements INodeType {
 	};
 
 	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
-		console.log('🔔 Apaleo webhook request received');
-
 		try {
 			const bodyData = this.getBodyData();
 			const headers = this.getHeaderData();
 			const query = this.getQueryData();
 
-			// Debug logging
-			console.log('📨 Headers:', JSON.stringify(headers, null, 2));
-			console.log('🔍 Query params:', JSON.stringify(query, null, 2));
-			console.log('📦 Body data:', JSON.stringify(bodyData, null, 2));
-
 			// Ensure we have data to work with
 			if (!bodyData) {
-				console.log('⚠️ No body data received');
 				return {
 					workflowData: [
 						this.helpers.returnJsonArray({
@@ -988,15 +967,11 @@ export class ApaleoTrigger implements INodeType {
 				},
 			};
 
-			console.log('✅ Webhook processed successfully - trigger will continue listening');
-
 			// Return the data in the correct format for n8n
 			return {
 				workflowData: [this.helpers.returnJsonArray(enrichedData)],
 			};
 		} catch (error) {
-			console.error('❌ Error processing webhook:', error);
-
 			// Even if there's an error, return a response so the trigger doesn't stop
 			return {
 				workflowData: [
