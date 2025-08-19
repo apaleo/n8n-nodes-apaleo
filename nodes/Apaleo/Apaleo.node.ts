@@ -10,9 +10,7 @@ export class Apaleo implements INodeType {
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: `Interact with Apaleo API
-
-This API documentation was filtered to include only the endpoints listed in expected_endpoints.csv.`,
+		description: `Interact with Apaleo API`,
 		defaults: {
 			name: 'Apaleo Official',
 		},

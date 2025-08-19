@@ -3,17 +3,19 @@ import { INodeProperties } from 'n8n-workflow';
 // This will contain all parameter fields for operations
 export const parameterFields: INodeProperties[] = [
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'AvailabilityUnitsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
+		description: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -31,13 +33,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
-		description:
-			'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -55,13 +57,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
-		description:
-			'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -73,58 +75,71 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Unit Group ID',
+		displayName: 'UnitGroupId',
 		name: 'AvailabilityUnitsGet_unitGroupId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
+		description: 'The unit group ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupId',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/units',
+				qs: {
+					unitGroupId: '={{$parameter["AvailabilityUnitsGet_unitGroupId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Include Out Of Service',
+		displayName: 'IncludeOutOfService',
 		name: 'AvailabilityUnitsGet_includeOutOfService',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: false,
-		description:
-			'Should units that are set OutOfService in the defined time period be returned as available',
+		description: 'Should units that are set OutOfService in the defined time period be returned as available',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeOutOfService',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/units',
+				qs: {
+					includeOutOfService: '={{$parameter["AvailabilityUnitsGet_includeOutOfService"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Condition',
+		displayName: 'UnitCondition',
 		name: 'AvailabilityUnitsGet_unitCondition',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: 'Clean',
+		description: 'The unit condition',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitCondition',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/units',
+				qs: {
+					unitCondition: '={{$parameter["AvailabilityUnitsGet_unitCondition"]}}',
+				},
 			},
 		},
 		options: [
@@ -143,21 +158,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Attribute IDs',
+		displayName: 'UnitAttributeIds',
 		name: 'AvailabilityUnitsGet_unitAttributeIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: {},
 		description: 'Return units with the specific unit attributes',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitAttributeIds',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/units',
+				qs: {
+					unitAttributeIds: '={{$parameter["AvailabilityUnitsGet_unitAttributeIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -166,7 +185,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitAttributeIdsValues',
-				displayName: 'Unit Attribute Ids',
+				displayName: 'UnitAttributeIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -180,57 +199,67 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'AvailabilityUnitsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/units',
+				qs: {
+					pageNumber: '={{$parameter["AvailabilityUnitsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'AvailabilityUnitsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnitsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/units',
+				qs: {
+					pageSize: '={{$parameter["AvailabilityUnitsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'AvailabilityUnit-groupsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
+		description: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -248,8 +277,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -272,8 +302,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -290,21 +321,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Time Slice Template',
+		displayName: 'TimeSliceTemplate',
 		name: 'AvailabilityUnit-groupsGet_timeSliceTemplate',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: 'DayUse',
 		description: "The time slice template, defaults to 'over night'",
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceTemplate',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					timeSliceTemplate: '={{$parameter["AvailabilityUnit-groupsGet_timeSliceTemplate"]}}',
+				},
 			},
 		},
 		options: [
@@ -319,21 +354,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'AvailabilityUnit-groupsGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested unit group types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					unitGroupTypes: '={{$parameter["AvailabilityUnit-groupsGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -342,7 +381,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -356,20 +395,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Definition IDs',
+		displayName: 'TimeSliceDefinitionIds',
 		name: 'AvailabilityUnit-groupsGet_timeSliceDefinitionIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: {},
+		description: 'The time slice definition IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceDefinitionIds',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					timeSliceDefinitionIds:
+						'={{$parameter["AvailabilityUnit-groupsGet_timeSliceDefinitionIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -378,7 +423,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'timeSliceDefinitionIdsValues',
-				displayName: 'Time Slice Definition Ids',
+				displayName: 'TimeSliceDefinitionIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -392,20 +437,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'AvailabilityUnit-groupsGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: {},
+		description: 'The unit group IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					unitGroupIds: '={{$parameter["AvailabilityUnit-groupsGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -414,7 +464,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -433,35 +483,43 @@ export const parameterFields: INodeProperties[] = [
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
 		description: 'The number of adults you want availability for, defaults to 1',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'adults',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					adults: '={{$parameter["AvailabilityUnit-groupsGet_adults"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Children Ages',
+		displayName: 'ChildrenAges',
 		name: 'AvailabilityUnit-groupsGet_childrenAges',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: {},
 		description: 'The ages of the children you want availability for',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'childrenAges',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					childrenAges: '={{$parameter["AvailabilityUnit-groupsGet_childrenAges"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -470,7 +528,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'childrenAgesValues',
-				displayName: 'Children Ages',
+				displayName: 'ChildrenAges',
 				values: [
 					{
 						displayName: 'Value',
@@ -484,62 +542,73 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Only Sellable',
+		displayName: 'OnlySellable',
 		name: 'AvailabilityUnit-groupsGet_onlySellable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: false,
-		description:
-			"When set to 'true', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned",
+		description: 'When set to \'true\', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'onlySellable',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					onlySellable: '={{$parameter["AvailabilityUnit-groupsGet_onlySellable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'AvailabilityUnit-groupsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					pageNumber: '={{$parameter["AvailabilityUnit-groupsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'AvailabilityUnit-groupsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/unit-groups',
+				qs: {
+					pageSize: '={{$parameter["AvailabilityUnit-groupsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -550,8 +619,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsByIdPatch'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -570,8 +640,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsByIdPatch'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -593,8 +664,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsByIdPatch'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -610,17 +682,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Time Slice Template',
+		displayName: 'TimeSliceTemplate',
 		name: 'AvailabilityUnit-groupsByIdPatch_timeSliceTemplate',
 		type: 'options',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsByIdPatch'],
-				resource: ['availability'],
 			},
 		},
 		default: 'DayUse',
+		description: 'The time slice template',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -649,8 +723,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityUnit-groupsByIdPatch'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -668,17 +743,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'AvailabilityServicesGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
+		description: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -696,8 +773,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -720,8 +798,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
@@ -738,21 +817,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Time Slice Template',
+		displayName: 'TimeSliceTemplate',
 		name: 'AvailabilityServicesGet_timeSliceTemplate',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: 'DayUse',
 		description: "The time slice template, defaults to 'over night'",
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceTemplate',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/services',
+				qs: {
+					timeSliceTemplate: '={{$parameter["AvailabilityServicesGet_timeSliceTemplate"]}}',
+				},
 			},
 		},
 		options: [
@@ -767,20 +850,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Definition IDs',
+		displayName: 'TimeSliceDefinitionIds',
 		name: 'AvailabilityServicesGet_timeSliceDefinitionIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: {},
+		description: 'The time slice definition IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceDefinitionIds',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/services',
+				qs: {
+					timeSliceDefinitionIds:
+						'={{$parameter["AvailabilityServicesGet_timeSliceDefinitionIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -789,7 +878,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'timeSliceDefinitionIdsValues',
-				displayName: 'Time Slice Definition Ids',
+				displayName: 'TimeSliceDefinitionIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -803,21 +892,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Channel Codes',
+		displayName: 'ChannelCodes',
 		name: 'AvailabilityServicesGet_channelCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: {},
 		description: 'The channel code used to filter the services',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCodes',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/services',
+				qs: {
+					channelCodes: '={{$parameter["AvailabilityServicesGet_channelCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -826,7 +919,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'channelCodesValues',
-				displayName: 'Channel Codes',
+				displayName: 'ChannelCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -840,42 +933,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'AvailabilityServicesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/services',
+				qs: {
+					pageNumber: '={{$parameter["AvailabilityServicesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'AvailabilityServicesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
 				operation: ['AvailabilityServicesGet'],
-				resource: ['availability'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/services',
+				qs: {
+					pageSize: '={{$parameter["AvailabilityServicesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -886,8 +987,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: '',
@@ -900,20 +1002,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Unit Group ID',
+		displayName: 'UnitGroupId',
 		name: 'AvailabilityReservationsByIdUnitsGet_unitGroupId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: '',
+		description: 'The unit group ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupId',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					unitGroupId: '={{$parameter["AvailabilityReservationsByIdUnitsGet_unitGroupId"]}}',
+				},
 			},
 		},
 	},
@@ -923,17 +1030,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: '',
-		description:
-			'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					from: '={{$parameter["AvailabilityReservationsByIdUnitsGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -943,55 +1053,67 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: '',
-		description:
-			'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					to: '={{$parameter["AvailabilityReservationsByIdUnitsGet_to"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Include Out Of Service',
+		displayName: 'IncludeOutOfService',
 		name: 'AvailabilityReservationsByIdUnitsGet_includeOutOfService',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: false,
-		description:
-			'Should units that are set OutOfService in the defined time period be returned as available',
+		description: 'Should units that are set OutOfService in the defined time period be returned as available',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeOutOfService',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					includeOutOfService:
+						'={{$parameter["AvailabilityReservationsByIdUnitsGet_includeOutOfService"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Condition',
+		displayName: 'UnitCondition',
 		name: 'AvailabilityReservationsByIdUnitsGet_unitCondition',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: 'Clean',
+		description: 'The unit condition',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitCondition',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					unitCondition: '={{$parameter["AvailabilityReservationsByIdUnitsGet_unitCondition"]}}',
+				},
 			},
 		},
 		options: [
@@ -1010,21 +1132,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Attribute IDs',
+		displayName: 'UnitAttributeIds',
 		name: 'AvailabilityReservationsByIdUnitsGet_unitAttributeIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: {},
 		description: 'Return units with the specific unit attributes',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitAttributeIds',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					unitAttributeIds:
+						'={{$parameter["AvailabilityReservationsByIdUnitsGet_unitAttributeIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1033,7 +1160,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitAttributeIdsValues',
-				displayName: 'Unit Attribute Ids',
+				displayName: 'UnitAttributeIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1047,42 +1174,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'AvailabilityReservationsByIdUnitsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					pageNumber: '={{$parameter["AvailabilityReservationsByIdUnitsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'AvailabilityReservationsByIdUnitsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['availability-v1'],
+				resource: ['ReservationAvailability'],
 				operation: ['AvailabilityReservationsByIdUnitsGet'],
-				resource: ['reservationavailability'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/availability/v1/reservations/{id}/units',
+				qs: {
+					pageSize: '={{$parameter["AvailabilityReservationsByIdUnitsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -1093,12 +1228,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksPost'],
-				resource: ['block'],
 			},
 		},
 		default:
-			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2025-08-17",\n  "to": "2025-08-20",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
+			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2025-08-24",\n  "to": "2025-08-27",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
 		description: 'The details for the block you want to create',
 		routing: {
 			request: {
@@ -1112,60 +1248,71 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'BookingBlocksPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksPost'],
-				resource: ['block'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/booking/v1/blocks',
+				headers: {
+					'Idempotency-Key': '={{$parameter["BookingBlocksPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Group ID',
+		displayName: 'GroupId',
 		name: 'BookingBlocksGet_groupId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
 		description: 'Return blocks for the specific group',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'groupId',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					groupId: '={{$parameter["BookingBlocksGet_groupId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'BookingBlocksGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks filtered by properties',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					propertyIds: '={{$parameter["BookingBlocksGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1174,7 +1321,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1193,16 +1340,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks filtered by statuses',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					status: '={{$parameter["BookingBlocksGet_status"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1225,21 +1376,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'BookingBlocksGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified unit groups',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					unitGroupIds: '={{$parameter["BookingBlocksGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1248,7 +1403,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1262,21 +1417,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'BookingBlocksGet_ratePlanIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'ratePlanIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					ratePlanIds: '={{$parameter["BookingBlocksGet_ratePlanIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1285,7 +1444,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1299,21 +1458,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Definition IDs',
+		displayName: 'TimeSliceDefinitionIds',
 		name: 'BookingBlocksGet_timeSliceDefinitionIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified time slice definitions',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceDefinitionIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					timeSliceDefinitionIds: '={{$parameter["BookingBlocksGet_timeSliceDefinitionIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1322,7 +1485,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'timeSliceDefinitionIdsValues',
-				displayName: 'Time Slice Definition Ids',
+				displayName: 'TimeSliceDefinitionIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1336,21 +1499,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'BookingBlocksGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified unit group types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					unitGroupTypes: '={{$parameter["BookingBlocksGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1359,7 +1526,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -1373,21 +1540,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Template',
+		displayName: 'TimeSliceTemplate',
 		name: 'BookingBlocksGet_timeSliceTemplate',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: 'DayUse',
 		description: "The time slice template, defaults to 'over night'",
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceTemplate',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					timeSliceTemplate: '={{$parameter["BookingBlocksGet_timeSliceTemplate"]}}',
+				},
 			},
 		},
 		options: [
@@ -1407,17 +1578,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					from: '={{$parameter["BookingBlocksGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -1427,57 +1601,68 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					to: '={{$parameter["BookingBlocksGet_to"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'BookingBlocksGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					pageNumber: '={{$parameter["BookingBlocksGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'BookingBlocksGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					pageSize: '={{$parameter["BookingBlocksGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -1487,17 +1672,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks',
+				qs: {
+					expand: '={{$parameter["BookingBlocksGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1521,40 +1710,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Group ID',
+		displayName: 'GroupId',
 		name: 'BookingBlocks$countGet_groupId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
 		description: 'Return blocks for the specific group',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'groupId',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					groupId: '={{$parameter["BookingBlocks$countGet_groupId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'BookingBlocks$countGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks filtered by properties',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					propertyIds: '={{$parameter["BookingBlocks$countGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1563,7 +1760,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1582,16 +1779,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks filtered by statuses',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					status: '={{$parameter["BookingBlocks$countGet_status"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1614,21 +1815,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'BookingBlocks$countGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified unit groups',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					unitGroupIds: '={{$parameter["BookingBlocks$countGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1637,7 +1842,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1651,21 +1856,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'BookingBlocks$countGet_ratePlanIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'ratePlanIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					ratePlanIds: '={{$parameter["BookingBlocks$countGet_ratePlanIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1674,7 +1883,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1688,21 +1897,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Definition IDs',
+		displayName: 'TimeSliceDefinitionIds',
 		name: 'BookingBlocks$countGet_timeSliceDefinitionIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified time slice definitions',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceDefinitionIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					timeSliceDefinitionIds:
+						'={{$parameter["BookingBlocks$countGet_timeSliceDefinitionIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1711,7 +1925,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'timeSliceDefinitionIdsValues',
-				displayName: 'Time Slice Definition Ids',
+				displayName: 'TimeSliceDefinitionIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -1725,21 +1939,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'BookingBlocks$countGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description: 'Return blocks with any of the specified unit group types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					unitGroupTypes: '={{$parameter["BookingBlocks$countGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1748,7 +1966,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -1762,21 +1980,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Template',
+		displayName: 'TimeSliceTemplate',
 		name: 'BookingBlocks$countGet_timeSliceTemplate',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: 'DayUse',
 		description: "The time slice template, defaults to 'over night'",
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceTemplate',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					timeSliceTemplate: '={{$parameter["BookingBlocks$countGet_timeSliceTemplate"]}}',
+				},
 			},
 		},
 		options: [
@@ -1796,17 +2018,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					from: '={{$parameter["BookingBlocks$countGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -1816,17 +2041,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocks$countGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/$count',
+				qs: {
+					to: '={{$parameter["BookingBlocks$countGet_to"]}}',
+				},
 			},
 		},
 	},
@@ -1837,8 +2065,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksByIdGet'],
-				resource: ['block'],
 			},
 		},
 		default: '',
@@ -1856,17 +2085,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
 				operation: ['BookingBlocksByIdGet'],
-				resource: ['block'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/blocks/{id}',
+				qs: {
+					expand: '={{$parameter["BookingBlocksByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -1896,8 +2129,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['BlockActions'],
 				operation: ['BookingBlock-actionsByIdConfirmPut'],
-				resource: ['blockactions'],
 			},
 		},
 		default: '',
@@ -1916,8 +2150,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['BlockActions'],
 				operation: ['BookingBlock-actionsByIdReleasePut'],
-				resource: ['blockactions'],
 			},
 		},
 		default: '',
@@ -1936,8 +2171,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['BlockActions'],
 				operation: ['BookingBlock-actionsByIdCancelPut'],
-				resource: ['blockactions'],
 			},
 		},
 		default: '',
@@ -1956,8 +2192,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['BlockActions'],
 				operation: ['BookingBlock-actionsByIdWashPut'],
-				resource: ['blockactions'],
 			},
 		},
 		default: '',
@@ -1976,8 +2213,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['BlockActions'],
 				operation: ['BookingBlock-actionsByIdAmendPut'],
-				resource: ['blockactions'],
 			},
 		},
 		default: '',
@@ -1996,12 +2234,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['BlockActions'],
 				operation: ['BookingBlock-actionsByIdAmendPut'],
-				resource: ['blockactions'],
 			},
 		},
 		default:
-			'{\n  "from": "2025-08-17",\n  "to": "2025-08-20",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
+			'{\n  "from": "2025-08-24",\n  "to": "2025-08-27",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
 		description: 'The definition of the block',
 		routing: {
 			request: {
@@ -2021,12 +2260,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsPost'],
-				resource: ['booking'],
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-08-14",\n      "departure": "2025-08-16",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      }\n    },\n    {\n      "arrival": "2025-08-15",\n      "departure": "2025-08-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-08-21",\n      "departure": "2025-08-23",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-22",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      }\n    },\n    {\n      "arrival": "2025-08-22",\n      "departure": "2025-08-24",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
 		description: 'The list of reservations you want to create',
 		routing: {
 			request: {
@@ -2040,82 +2280,94 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'BookingBookingsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsPost'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/booking/v1/bookings',
+				headers: {
+					'Idempotency-Key': '={{$parameter["BookingBookingsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Reservation ID',
+		displayName: 'ReservationId',
 		name: 'BookingBookingsGet_reservationId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID.',
+		description: 'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reservationId',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					reservationId: '={{$parameter["BookingBookingsGet_reservationId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Group ID',
+		displayName: 'GroupId',
 		name: 'BookingBookingsGet_groupId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			'Filter result by group ID. The result set will contain all bookings having groups with the specified ID.',
+		description: 'Filter result by group ID. The result set will contain all bookings having groups with the specified ID.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'groupId',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					groupId: '={{$parameter["BookingBookingsGet_groupId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingBookingsGet_channelCode',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: {},
-		description:
-			'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
+		description: 'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					channelCode: '={{$parameter["BookingBookingsGet_channelCode"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -2124,97 +2376,110 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'channelCodeValues',
-				displayName: 'Channel Code',
+				displayName: 'ChannelCode',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
+						description: 'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'External Code',
+		displayName: 'ExternalCode',
 		name: 'BookingBookingsGet_externalCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value.',
+		description: 'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'externalCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					externalCode: '={{$parameter["BookingBookingsGet_externalCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'BookingBookingsGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values.',
+		description: 'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					textSearch: '={{$parameter["BookingBookingsGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'BookingBookingsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					pageNumber: '={{$parameter["BookingBookingsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'BookingBookingsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					pageSize: '={{$parameter["BookingBookingsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -2224,17 +2489,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsGet'],
-				resource: ['booking'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings',
+				qs: {
+					expand: '={{$parameter["BookingBookingsGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -2264,12 +2533,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookings$forcePost'],
-				resource: ['booking'],
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-08-14",\n      "departure": "2025-08-16",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      }\n    },\n    {\n      "arrival": "2025-08-15",\n      "departure": "2025-08-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-08-21",\n      "departure": "2025-08-23",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-22",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      }\n    },\n    {\n      "arrival": "2025-08-22",\n      "departure": "2025-08-24",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
 		description: 'The list of reservations you want to create',
 		routing: {
 			request: {
@@ -2283,22 +2553,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'BookingBookings$forcePost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookings$forcePost'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/booking/v1/bookings/$force',
+				headers: {
+					'Idempotency-Key': '={{$parameter["BookingBookings$forcePost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -2309,8 +2582,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdReservationsPost'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
@@ -2329,12 +2603,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdReservationsPost'],
-				resource: ['booking'],
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2025-08-14",\n      "departure": "2025-08-16",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-08-15",\n      "departure": "2025-08-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+			'{\n  "reservations": [\n    {\n      "arrival": "2025-08-21",\n      "departure": "2025-08-23",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-22",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-08-22",\n      "departure": "2025-08-24",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
 		description: 'The list of reservations you want to add',
 		routing: {
 			request: {
@@ -2348,22 +2623,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'BookingBookingsByIdReservationsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdReservationsPost'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/booking/v1/bookings/{id}/reservations',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["BookingBookingsByIdReservationsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -2374,8 +2653,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdReservations$forcePost'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
@@ -2394,12 +2674,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdReservations$forcePost'],
-				resource: ['booking'],
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2025-08-14",\n      "departure": "2025-08-16",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-08-15",\n      "departure": "2025-08-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+			'{\n  "reservations": [\n    {\n      "arrival": "2025-08-21",\n      "departure": "2025-08-23",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-08-22",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-08-22",\n      "departure": "2025-08-24",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
 		description: 'The list of reservations you want to add',
 		routing: {
 			request: {
@@ -2413,22 +2694,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'BookingBookingsByIdReservations$forcePost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdReservations$forcePost'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/booking/v1/bookings/{id}/reservations/$force',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["BookingBookingsByIdReservations$forcePost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -2439,8 +2724,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdGet'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
@@ -2458,17 +2744,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdGet'],
-				resource: ['booking'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations, propertyValues. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/bookings/{id}',
+				qs: {
+					expand: '={{$parameter["BookingBookingsByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -2498,8 +2788,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdPatch'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
@@ -2518,8 +2809,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Booking'],
 				operation: ['BookingBookingsByIdPatch'],
-				resource: ['booking'],
 			},
 		},
 		default: '',
@@ -2543,8 +2835,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsPost'],
-				resource: ['group'],
 			},
 		},
 		default:
@@ -2562,61 +2855,71 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'BookingGroupsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsPost'],
-				resource: ['group'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/booking/v1/groups',
+				headers: {
+					'Idempotency-Key': '={{$parameter["BookingGroupsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'BookingGroupsGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsGet'],
-				resource: ['group'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.',
+		description: 'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups',
+				qs: {
+					textSearch: '={{$parameter["BookingGroupsGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'BookingGroupsGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsGet'],
-				resource: ['group'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested properties',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups',
+				qs: {
+					propertyIds: '={{$parameter["BookingGroupsGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -2625,7 +2928,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -2644,17 +2947,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsGet'],
-				resource: ['group'],
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups',
+				qs: {
+					from: '={{$parameter["BookingGroupsGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -2664,57 +2970,68 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsGet'],
-				resource: ['group'],
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups',
+				qs: {
+					to: '={{$parameter["BookingGroupsGet_to"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'BookingGroupsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsGet'],
-				resource: ['group'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups',
+				qs: {
+					pageNumber: '={{$parameter["BookingGroupsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'BookingGroupsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsGet'],
-				resource: ['group'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups',
+				qs: {
+					pageSize: '={{$parameter["BookingGroupsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -2724,17 +3041,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsGet'],
-				resource: ['group'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups',
+				qs: {
+					expand: '={{$parameter["BookingGroupsGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -2764,8 +3085,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsByIdGet'],
-				resource: ['group'],
 			},
 		},
 		default: '',
@@ -2783,17 +3105,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsByIdGet'],
-				resource: ['group'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups/{id}',
+				qs: {
+					expand: '={{$parameter["BookingGroupsByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -2823,8 +3149,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsByIdPatch'],
-				resource: ['group'],
 			},
 		},
 		default: '',
@@ -2843,8 +3170,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsByIdPatch'],
-				resource: ['group'],
 			},
 		},
 		default: '',
@@ -2868,8 +3196,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsByIdReservationsPost'],
-				resource: ['group'],
 			},
 		},
 		default: '',
@@ -2888,12 +3217,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsByIdReservationsPost'],
-				resource: ['group'],
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2025-08-14",\n      "departure": "2025-08-16",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2025-08-15",\n      "departure": "2025-08-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
+			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2025-08-21",\n      "departure": "2025-08-23",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2025-08-22",\n      "departure": "2025-08-24",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
 		description: 'The list of reservations you want to create',
 		routing: {
 			request: {
@@ -2907,37 +3237,42 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'BookingGroupsByIdReservationsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
 				operation: ['BookingGroupsByIdReservationsPost'],
-				resource: ['group'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/booking/v1/groups/{id}/reservations',
+				headers: {
+					'Idempotency-Key': '={{$parameter["BookingGroupsByIdReservationsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'BookingOffersGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
+		description: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2955,13 +3290,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2979,13 +3314,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3003,8 +3338,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
@@ -3020,21 +3356,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Time Slice Template',
+		displayName: 'TimeSliceTemplate',
 		name: 'BookingOffersGet_timeSliceTemplate',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: 'DayUse',
 		description: "The time slice template used to filter the rate plans, defaults to 'over night'",
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceTemplate',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					timeSliceTemplate: '={{$parameter["BookingOffersGet_timeSliceTemplate"]}}',
+				},
 			},
 		},
 		options: [
@@ -3049,21 +3389,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Definition IDs',
+		displayName: 'TimeSliceDefinitionIds',
 		name: 'BookingOffersGet_timeSliceDefinitionIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: {},
 		description: 'Time slice definition IDs, used to filter rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceDefinitionIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					timeSliceDefinitionIds: '={{$parameter["BookingOffersGet_timeSliceDefinitionIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3072,7 +3416,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'timeSliceDefinitionIdsValues',
-				displayName: 'Time Slice Definition Ids',
+				displayName: 'TimeSliceDefinitionIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -3086,21 +3430,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'BookingOffersGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: {},
 		description: 'Unit group IDs, used to filter rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					unitGroupIds: '={{$parameter["BookingOffersGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3109,7 +3457,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -3123,21 +3471,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'BookingOffersGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: {},
 		description: 'Unit group types, used to filter rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					unitGroupTypes: '={{$parameter["BookingOffersGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3146,7 +3498,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -3160,21 +3512,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingOffersGet_channelCode',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: 'AltoVita',
 		description: 'Channel code, used to filter the rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					channelCode: '={{$parameter["BookingOffersGet_channelCode"]}}',
+				},
 			},
 		},
 		options: [
@@ -3217,59 +3573,71 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Promo Code',
+		displayName: 'PromoCode',
 		name: 'BookingOffersGet_promoCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
 		description: 'The promo code associated with a certain special offer',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'promoCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					promoCode: '={{$parameter["BookingOffersGet_promoCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Corporate Code',
+		displayName: 'CorporateCode',
 		name: 'BookingOffersGet_corporateCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
 		description: 'The code associated with a corporate rate',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'corporateCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					corporateCode: '={{$parameter["BookingOffersGet_corporateCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Children Ages',
+		displayName: 'ChildrenAges',
 		name: 'BookingOffersGet_childrenAges',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: {},
 		description: 'The ages of the children you want offers for',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'childrenAges',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					childrenAges: '={{$parameter["BookingOffersGet_childrenAges"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3278,7 +3646,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'childrenAgesValues',
-				displayName: 'Children Ages',
+				displayName: 'ChildrenAges',
 				values: [
 					{
 						displayName: 'Value',
@@ -3292,37 +3660,42 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Include Unavailable',
+		displayName: 'IncludeUnavailable',
 		name: 'BookingOffersGet_includeUnavailable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: false,
-		description:
-			'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+		description: 'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeUnavailable',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offers',
+				qs: {
+					includeUnavailable: '={{$parameter["BookingOffersGet_includeUnavailable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Rate Plan ID',
+		displayName: 'RatePlanId',
 		name: 'BookingRate-plan-offersGet_ratePlanId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
+		description: 'The rate plan ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3340,13 +3713,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3364,13 +3737,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3388,8 +3761,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
@@ -3405,20 +3779,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingRate-plan-offersGet_channelCode',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: 'AltoVita',
+		description: 'The channel code',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/rate-plan-offers',
+				qs: {
+					channelCode: '={{$parameter["BookingRate-plan-offersGet_channelCode"]}}',
+				},
 			},
 		},
 		options: [
@@ -3461,21 +3840,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Children Ages',
+		displayName: 'ChildrenAges',
 		name: 'BookingRate-plan-offersGet_childrenAges',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: {},
 		description: 'The ages of the children you want offers for',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'childrenAges',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/rate-plan-offers',
+				qs: {
+					childrenAges: '={{$parameter["BookingRate-plan-offersGet_childrenAges"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3484,7 +3867,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'childrenAgesValues',
-				displayName: 'Children Ages',
+				displayName: 'ChildrenAges',
 				values: [
 					{
 						displayName: 'Value',
@@ -3498,41 +3881,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Include Unavailable',
+		displayName: 'IncludeUnavailable',
 		name: 'BookingRate-plan-offersGet_includeUnavailable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: false,
-		description:
-			'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+		description: 'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeUnavailable',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/rate-plan-offers',
+				qs: {
+					includeUnavailable: '={{$parameter["BookingRate-plan-offersGet_includeUnavailable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Override Prices',
+		displayName: 'OverridePrices',
 		name: 'BookingRate-plan-offersGet_overridePrices',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingRate-plan-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: {},
 		description: 'Desired prices for each timeslice',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'overridePrices',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/rate-plan-offers',
+				qs: {
+					overridePrices: '={{$parameter["BookingRate-plan-offersGet_overridePrices"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3541,7 +3931,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'overridePricesValues',
-				displayName: 'Override Prices',
+				displayName: 'OverridePrices',
 				values: [
 					{
 						displayName: 'Value',
@@ -3555,17 +3945,19 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Rate Plan ID',
+		displayName: 'RatePlanId',
 		name: 'BookingService-offersGet_ratePlanId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
+		description: 'The rate plan ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3583,13 +3975,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3607,13 +3999,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3631,8 +4023,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
@@ -3648,21 +4041,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingService-offersGet_channelCode',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: 'AltoVita',
 		description: 'The channel code used to filter the services',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/service-offers',
+				qs: {
+					channelCode: '={{$parameter["BookingService-offersGet_channelCode"]}}',
+				},
 			},
 		},
 		options: [
@@ -3705,21 +4102,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Children Ages',
+		displayName: 'ChildrenAges',
 		name: 'BookingService-offersGet_childrenAges',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: {},
 		description: 'The ages of the children you want offers for',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'childrenAges',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/service-offers',
+				qs: {
+					childrenAges: '={{$parameter["BookingService-offersGet_childrenAges"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3728,7 +4129,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'childrenAgesValues',
-				displayName: 'Children Ages',
+				displayName: 'ChildrenAges',
 				values: [
 					{
 						displayName: 'Value',
@@ -3742,54 +4143,61 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Only Default Dates',
+		displayName: 'OnlyDefaultDates',
 		name: 'BookingService-offersGet_onlyDefaultDates',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: false,
-		description:
-			"Depending on the postNextDay setting of a service it will be posted before or after midnight. Breakfast is usually delivered on the next morning, having 'postNextDay' set to true. Its 'default dates' are from the day after arrival until the departure day. For services like dinner 'postNextDay' is false, and default dates are day of arrival until one day before departure. With this query parameter set to 'false', you can also ask for dates outside of those default dates. It defaults to true.",
+		description: 'Depending on the postNextDay setting of a service it will be posted before or after midnight. Breakfast is usually delivered on the next morning, having \'postNextDay\' set to true. Its \'default dates\' are from the day after arrival until the departure day. For services like dinner \'postNextDay\' is false, and default dates are day of arrival until one day before departure. With this query parameter set to \'false\', you can also ask for dates outside of those default dates. It defaults to true.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'onlyDefaultDates',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/service-offers',
+				qs: {
+					onlyDefaultDates: '={{$parameter["BookingService-offersGet_onlyDefaultDates"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Include Unavailable',
+		displayName: 'IncludeUnavailable',
 		name: 'BookingService-offersGet_includeUnavailable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingService-offersGet'],
-				resource: ['offer'],
 			},
 		},
 		default: false,
-		description:
-			'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+		description: 'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeUnavailable',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/service-offers',
+				qs: {
+					includeUnavailable: '={{$parameter["BookingService-offersGet_includeUnavailable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Rate Plan ID',
+		displayName: 'RatePlanId',
 		name: 'BookingOffer-indexGet_ratePlanId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffer-indexGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
@@ -3811,13 +4219,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffer-indexGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3835,13 +4243,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffer-indexGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
-		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3853,14 +4261,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingOffer-indexGet_channelCode',
 		type: 'options',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffer-indexGet'],
-				resource: ['offer'],
 			},
 		},
 		default: 'AltoVita',
@@ -3914,80 +4323,96 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'BookingOffer-indexGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffer-indexGet'],
-				resource: ['offer'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offer-index',
+				qs: {
+					pageNumber: '={{$parameter["BookingOffer-indexGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'BookingOffer-indexGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Offer'],
 				operation: ['BookingOffer-indexGet'],
-				resource: ['offer'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/offer-index',
+				qs: {
+					pageSize: '={{$parameter["BookingOffer-indexGet_pageSize"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Booking ID',
+		displayName: 'BookingId',
 		name: 'BookingReservationsGet_bookingId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
 		description: 'Filter result by booking ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'bookingId',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					bookingId: '={{$parameter["BookingReservationsGet_bookingId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'BookingReservationsGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested properties',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					propertyIds: '={{$parameter["BookingReservationsGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -3996,7 +4421,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4010,21 +4435,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'BookingReservationsGet_ratePlanIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'ratePlanIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					ratePlanIds: '={{$parameter["BookingReservationsGet_ratePlanIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4033,7 +4462,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4047,21 +4476,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'BookingReservationsGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested companies',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					companyIds: '={{$parameter["BookingReservationsGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4070,7 +4503,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4084,21 +4517,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit IDs',
+		displayName: 'UnitIds',
 		name: 'BookingReservationsGet_unitIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by assigned units',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					unitIds: '={{$parameter["BookingReservationsGet_unitIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4107,7 +4544,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitIdsValues',
-				displayName: 'Unit Ids',
+				displayName: 'UnitIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4121,21 +4558,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'BookingReservationsGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested unit groups',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					unitGroupIds: '={{$parameter["BookingReservationsGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4144,7 +4585,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4158,21 +4599,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'BookingReservationsGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested unit group types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					unitGroupTypes: '={{$parameter["BookingReservationsGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4181,7 +4626,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -4195,21 +4640,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Block IDs',
+		displayName: 'BlockIds',
 		name: 'BookingReservationsGet_blockIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested blocks',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'blockIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					blockIds: '={{$parameter["BookingReservationsGet_blockIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4218,7 +4667,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'blockIdsValues',
-				displayName: 'Block Ids',
+				displayName: 'BlockIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4232,21 +4681,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Market Segment IDs',
+		displayName: 'MarketSegmentIds',
 		name: 'BookingReservationsGet_marketSegmentIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested market segments',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'marketSegmentIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					marketSegmentIds: '={{$parameter["BookingReservationsGet_marketSegmentIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4255,7 +4708,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'marketSegmentIdsValues',
-				displayName: 'Market Segment Ids',
+				displayName: 'MarketSegmentIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4274,16 +4727,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by reservation status',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					status: '={{$parameter["BookingReservationsGet_status"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4306,22 +4763,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'BookingReservationsGet_dateFilter',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: 'Arrival',
-		description:
-			"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
+		description: 'Filter by date and time attributes of reservation. Use in combination with the \'To\' and \'From\' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for \'stay\', which will return all reservations that are overlapping with the interval specified by from and to.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					dateFilter: '={{$parameter["BookingReservationsGet_dateFilter"]}}',
+				},
 			},
 		},
 		options: [
@@ -4365,17 +4825,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+		description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					from: '={{$parameter["BookingReservationsGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -4385,36 +4848,43 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+		description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					to: '={{$parameter["BookingReservationsGet_to"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingReservationsGet_channelCode',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by the channel code',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					channelCode: '={{$parameter["BookingReservationsGet_channelCode"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4423,7 +4893,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'channelCodeValues',
-				displayName: 'Channel Code',
+				displayName: 'ChannelCode',
 				values: [
 					{
 						displayName: 'Value',
@@ -4442,16 +4912,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by source',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'sources',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					sources: '={{$parameter["BookingReservationsGet_sources"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4474,21 +4948,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Validation Message Category',
+		displayName: 'ValidationMessageCategory',
 		name: 'BookingReservationsGet_validationMessageCategory',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by validation message category',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'validationMessageCategory',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					validationMessageCategory:
+						'={{$parameter["BookingReservationsGet_validationMessageCategory"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4497,7 +4976,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'validationMessageCategoryValues',
-				displayName: 'Validation Message Category',
+				displayName: 'ValidationMessageCategory',
 				values: [
 					{
 						displayName: 'Value',
@@ -4511,62 +4990,71 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'External Code',
+		displayName: 'ExternalCode',
 		name: 'BookingReservationsGet_externalCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+		description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'externalCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					externalCode: '={{$parameter["BookingReservationsGet_externalCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'BookingReservationsGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
+		description: 'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					textSearch: '={{$parameter["BookingReservationsGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Balance Filter',
+		displayName: 'BalanceFilter',
 		name: 'BookingReservationsGet_balanceFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
-		description:
-			"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'balanceFilter',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					balanceFilter: '={{$parameter["BookingReservationsGet_balanceFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4575,77 +5063,110 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'balanceFilterValues',
-				displayName: 'Balance Filter',
+				displayName: 'BalanceFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'All Folios Have Invoice',
+		displayName: 'AllFoliosHaveInvoice',
 		name: 'BookingReservationsGet_allFoliosHaveInvoice',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: false,
-		description:
-			"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+		description: 'If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'allFoliosHaveInvoice',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					allFoliosHaveInvoice: '={{$parameter["BookingReservationsGet_allFoliosHaveInvoice"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'IsPreCheckedIn',
+		name: 'BookingReservationsGet_isPreCheckedIn',
+		type: 'boolean',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
+				operation: ['BookingReservationsGet'],
+			},
+		},
+		default: false,
+		description: 'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					isPreCheckedIn: '={{$parameter["BookingReservationsGet_isPreCheckedIn"]}}',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'PageNumber',
 		name: 'BookingReservationsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					pageNumber: '={{$parameter["BookingReservationsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'BookingReservationsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					pageSize: '={{$parameter["BookingReservationsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -4655,17 +5176,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description:
 			'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, ID:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'sort',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					sort: '={{$parameter["BookingReservationsGet_sort"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4694,17 +5219,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: booker, actions, timeSlices, services, assignedUnits, company. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations',
+				qs: {
+					expand: '={{$parameter["BookingReservationsGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4728,40 +5257,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Booking ID',
+		displayName: 'BookingId',
 		name: 'BookingReservations$countGet_bookingId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
 		description: 'Filter result by booking ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'bookingId',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					bookingId: '={{$parameter["BookingReservations$countGet_bookingId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'BookingReservations$countGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested properties',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					propertyIds: '={{$parameter["BookingReservations$countGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4770,7 +5307,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4784,21 +5321,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'BookingReservations$countGet_ratePlanIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'ratePlanIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					ratePlanIds: '={{$parameter["BookingReservations$countGet_ratePlanIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4807,7 +5348,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4821,21 +5362,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'BookingReservations$countGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested companies',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					companyIds: '={{$parameter["BookingReservations$countGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4844,7 +5389,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4858,21 +5403,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit IDs',
+		displayName: 'UnitIds',
 		name: 'BookingReservations$countGet_unitIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by assigned units',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					unitIds: '={{$parameter["BookingReservations$countGet_unitIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4881,7 +5430,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitIdsValues',
-				displayName: 'Unit Ids',
+				displayName: 'UnitIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4895,21 +5444,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'BookingReservations$countGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested unit groups',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					unitGroupIds: '={{$parameter["BookingReservations$countGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4918,7 +5471,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -4932,21 +5485,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'BookingReservations$countGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested unit group types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					unitGroupTypes: '={{$parameter["BookingReservations$countGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4955,7 +5512,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -4969,21 +5526,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Block IDs',
+		displayName: 'BlockIds',
 		name: 'BookingReservations$countGet_blockIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested blocks',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'blockIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					blockIds: '={{$parameter["BookingReservations$countGet_blockIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -4992,7 +5553,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'blockIdsValues',
-				displayName: 'Block Ids',
+				displayName: 'BlockIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -5006,21 +5567,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Market Segment IDs',
+		displayName: 'MarketSegmentIds',
 		name: 'BookingReservations$countGet_marketSegmentIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by requested market segments',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'marketSegmentIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					marketSegmentIds: '={{$parameter["BookingReservations$countGet_marketSegmentIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5029,7 +5594,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'marketSegmentIdsValues',
-				displayName: 'Market Segment Ids',
+				displayName: 'MarketSegmentIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -5048,16 +5613,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by reservation status',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					status: '={{$parameter["BookingReservations$countGet_status"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5080,22 +5649,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'BookingReservations$countGet_dateFilter',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: 'Arrival',
-		description:
-			"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
+		description: 'Filter by date and time attributes of reservation. Use in combination with the \'To\' and \'From\' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for \'stay\', which will return all reservations that are overlapping with the interval specified by from and to.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					dateFilter: '={{$parameter["BookingReservations$countGet_dateFilter"]}}',
+				},
 			},
 		},
 		options: [
@@ -5139,17 +5711,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+		description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					from: '={{$parameter["BookingReservations$countGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -5159,36 +5734,43 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+		description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					to: '={{$parameter["BookingReservations$countGet_to"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingReservations$countGet_channelCode',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by the channel code',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					channelCode: '={{$parameter["BookingReservations$countGet_channelCode"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5197,7 +5779,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'channelCodeValues',
-				displayName: 'Channel Code',
+				displayName: 'ChannelCode',
 				values: [
 					{
 						displayName: 'Value',
@@ -5216,16 +5798,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by source',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'sources',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					sources: '={{$parameter["BookingReservations$countGet_sources"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5248,21 +5834,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Validation Message Category',
+		displayName: 'ValidationMessageCategory',
 		name: 'BookingReservations$countGet_validationMessageCategory',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Filter result by validation message category',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'validationMessageCategory',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					validationMessageCategory:
+						'={{$parameter["BookingReservations$countGet_validationMessageCategory"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5271,7 +5862,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'validationMessageCategoryValues',
-				displayName: 'Validation Message Category',
+				displayName: 'ValidationMessageCategory',
 				values: [
 					{
 						displayName: 'Value',
@@ -5285,62 +5876,71 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'External Code',
+		displayName: 'ExternalCode',
 		name: 'BookingReservations$countGet_externalCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+		description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'externalCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					externalCode: '={{$parameter["BookingReservations$countGet_externalCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'BookingReservations$countGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
+		description: 'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					textSearch: '={{$parameter["BookingReservations$countGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Balance Filter',
+		displayName: 'BalanceFilter',
 		name: 'BookingReservations$countGet_balanceFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
-		description:
-			"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'balanceFilter',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					balanceFilter: '={{$parameter["BookingReservations$countGet_balanceFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5349,37 +5949,63 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'balanceFilterValues',
-				displayName: 'Balance Filter',
+				displayName: 'BalanceFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'All Folios Have Invoice',
+		displayName: 'AllFoliosHaveInvoice',
 		name: 'BookingReservations$countGet_allFoliosHaveInvoice',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservations$countGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: false,
-		description:
-			"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+		description: 'If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'allFoliosHaveInvoice',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					allFoliosHaveInvoice:
+						'={{$parameter["BookingReservations$countGet_allFoliosHaveInvoice"]}}',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'IsPreCheckedIn',
+		name: 'BookingReservations$countGet_isPreCheckedIn',
+		type: 'boolean',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
+				operation: ['BookingReservations$countGet'],
+			},
+		},
+		default: false,
+		description: 'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/$count',
+				qs: {
+					isPreCheckedIn: '={{$parameter["BookingReservations$countGet_isPreCheckedIn"]}}',
+				},
 			},
 		},
 	},
@@ -5390,8 +6016,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5409,17 +6036,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: timeSlices, services, booker, actions, company, assignedUnits. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}',
+				qs: {
+					expand: '={{$parameter["BookingReservationsByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5449,8 +6080,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdPatch'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5469,8 +6101,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdPatch'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5494,8 +6127,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5513,17 +6147,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'arrival',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					arrival: '={{$parameter["BookingReservationsByIdOffersGet_arrival"]}}',
+				},
 			},
 		},
 	},
@@ -5533,17 +6170,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'departure',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					departure: '={{$parameter["BookingReservationsByIdOffersGet_departure"]}}',
+				},
 			},
 		},
 	},
@@ -5553,35 +6193,43 @@ export const parameterFields: INodeProperties[] = [
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
 		description: 'Number of adults',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'adults',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					adults: '={{$parameter["BookingReservationsByIdOffersGet_adults"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Children Ages',
+		displayName: 'ChildrenAges',
 		name: 'BookingReservationsByIdOffersGet_childrenAges',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'Ages of children',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'childrenAges',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					childrenAges: '={{$parameter["BookingReservationsByIdOffersGet_childrenAges"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5590,7 +6238,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'childrenAgesValues',
-				displayName: 'Children Ages',
+				displayName: 'ChildrenAges',
 				values: [
 					{
 						displayName: 'Value',
@@ -5604,21 +6252,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingReservationsByIdOffersGet_channelCode',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: 'AltoVita',
 		description: 'The channel code used to filter the rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					channelCode: '={{$parameter["BookingReservationsByIdOffersGet_channelCode"]}}',
+				},
 			},
 		},
 		options: [
@@ -5661,21 +6313,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Promo Code',
+		displayName: 'PromoCode',
 		name: 'BookingReservationsByIdOffersGet_promoCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
 		description: 'The promo code associated with a certain special offer, like corporate rate',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'promoCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					promoCode: '={{$parameter["BookingReservationsByIdOffersGet_promoCode"]}}',
+				},
 			},
 		},
 	},
@@ -5685,56 +6341,67 @@ export const parameterFields: INodeProperties[] = [
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: false,
-		description:
-			"Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to 'false'.",
+		description: 'Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to \'false\'.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'requote',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					requote: '={{$parameter["BookingReservationsByIdOffersGet_requote"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Include Unavailable',
+		displayName: 'IncludeUnavailable',
 		name: 'BookingReservationsByIdOffersGet_includeUnavailable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: false,
-		description:
-			'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+		description: 'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeUnavailable',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					includeUnavailable:
+						'={{$parameter["BookingReservationsByIdOffersGet_includeUnavailable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'BookingReservationsByIdOffersGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdOffersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: {},
 		description: 'The list of unit groups used to filter the offers',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/offers',
+				qs: {
+					unitGroupIds: '={{$parameter["BookingReservationsByIdOffersGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5743,7 +6410,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -5763,8 +6430,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdService-offersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5777,21 +6445,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Channel Code',
+		displayName: 'ChannelCode',
 		name: 'BookingReservationsByIdService-offersGet_channelCode',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdService-offersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: 'AltoVita',
 		description: 'The channel code used to filter the services',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCode',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/service-offers',
+				qs: {
+					channelCode: '={{$parameter["BookingReservationsByIdService-offersGet_channelCode"]}}',
+				},
 			},
 		},
 		options: [
@@ -5834,42 +6506,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Only Default Dates',
+		displayName: 'OnlyDefaultDates',
 		name: 'BookingReservationsByIdService-offersGet_onlyDefaultDates',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdService-offersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: false,
-		description:
-			'Depending on the postNextDay setting of a service it will by default be posted before or after midnight. Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day are default dates and will have this flag set to true. For services like a dinner it is the other way around. With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true.',
+		description: 'Depending on the postNextDay setting of a service it will by default be posted before or after midnight. Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day are default dates and will have this flag set to true. For services like a dinner it is the other way around. With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'onlyDefaultDates',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/service-offers',
+				qs: {
+					onlyDefaultDates:
+						'={{$parameter["BookingReservationsByIdService-offersGet_onlyDefaultDates"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Include Unavailable',
+		displayName: 'IncludeUnavailable',
 		name: 'BookingReservationsByIdService-offersGet_includeUnavailable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdService-offersGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: false,
-		description:
-			'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+		description: 'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeUnavailable',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/reservations/{id}/service-offers',
+				qs: {
+					includeUnavailable:
+						'={{$parameter["BookingReservationsByIdService-offersGet_includeUnavailable"]}}',
+				},
 			},
 		},
 	},
@@ -5880,8 +6560,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdServicesGet'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5900,8 +6581,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdServicesDelete'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5914,14 +6596,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Service ID',
+		displayName: 'ServiceId',
 		name: 'BookingReservationsByIdServicesDelete_serviceId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Reservation'],
 				operation: ['BookingReservationsByIdServicesDelete'],
-				resource: ['reservation'],
 			},
 		},
 		default: '',
@@ -5943,8 +6626,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAssign-unitPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -5957,21 +6641,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Unit Conditions',
+		displayName: 'UnitConditions',
 		name: 'BookingReservation-actionsByIdAssign-unitPut_unitConditions',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAssign-unitPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: {},
 		description: 'The optional unit conditions for unit that you want to auto assign for',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitConditions',
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/reservation-actions/{id}/assign-unit',
+				qs: {
+					unitConditions:
+						'={{$parameter["BookingReservation-actionsByIdAssign-unitPut_unitConditions"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -5980,7 +6669,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitConditionsValues',
-				displayName: 'Unit Conditions',
+				displayName: 'UnitConditions',
 				values: [
 					{
 						displayName: 'Value',
@@ -6000,8 +6689,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAssign-unitByUnitIdPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6014,14 +6704,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Unit ID',
+		displayName: 'UnitId',
 		name: 'BookingReservation-actionsByIdAssign-unitByUnitIdPut_unitId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAssign-unitByUnitIdPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6039,17 +6730,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAssign-unitByUnitIdPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
-		description:
-			'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/reservation-actions/{id}/assign-unit/{unitId}',
+				qs: {
+					from: '={{$parameter["BookingReservation-actionsByIdAssign-unitByUnitIdPut_from"]}}',
+				},
 			},
 		},
 	},
@@ -6059,17 +6753,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAssign-unitByUnitIdPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
-		description:
-			'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/reservation-actions/{id}/assign-unit/{unitId}',
+				qs: {
+					to: '={{$parameter["BookingReservation-actionsByIdAssign-unitByUnitIdPut_to"]}}',
+				},
 			},
 		},
 	},
@@ -6080,8 +6777,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdUnassign-unitsPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6100,8 +6798,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdCheckinPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6114,22 +6813,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'With City Tax',
+		displayName: 'WithCityTax',
 		name: 'BookingReservation-actionsByIdCheckinPut_withCityTax',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdCheckinPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: false,
 		description:
 			'Define if city tax should be added for this reservation or not. The default is "true".',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'withCityTax',
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/reservation-actions/{id}/checkin',
+				qs: {
+					withCityTax: '={{$parameter["BookingReservation-actionsByIdCheckinPut_withCityTax"]}}',
+				},
 			},
 		},
 	},
@@ -6140,8 +6843,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdRevert-checkinPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6160,8 +6864,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdCheckoutPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6180,8 +6885,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdCancelPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6200,8 +6906,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdNoshowPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6220,8 +6927,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAmendPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6240,12 +6948,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAmendPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default:
-			'{\n  "arrival": "2025-08-14T17:00:00+02:00",\n  "departure": "2025-08-16T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+			'{\n  "arrival": "2025-08-21T17:00:00+02:00",\n  "departure": "2025-08-23T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
 		description: 'The new stay details that should be applied to the reservation',
 		routing: {
 			request: {
@@ -6265,8 +6974,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAmend$forcePut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6285,12 +6995,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAmend$forcePut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default:
-			'{\n  "arrival": "2025-08-14T17:00:00+02:00",\n  "departure": "2025-08-16T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+			'{\n  "arrival": "2025-08-21T17:00:00+02:00",\n  "departure": "2025-08-23T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
 		description: 'The new stay details that should be applied to the reservation',
 		routing: {
 			request: {
@@ -6310,8 +7021,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdBook-servicePut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6330,12 +7042,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdBook-servicePut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-08-12",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-08-13"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-08-19",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-08-20"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
@@ -6355,8 +7068,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdBook-service$forcePut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6375,12 +7089,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdBook-service$forcePut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-08-12",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-08-13"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-08-19",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-08-20"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
@@ -6400,8 +7115,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdRemove-city-taxPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6420,8 +7136,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
 				operation: ['BookingReservation-actionsByIdAdd-city-taxPut'],
-				resource: ['reservationactions'],
 			},
 		},
 		default: '',
@@ -6440,8 +7157,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Types'],
 				operation: ['BookingTypesByTypeAllowed-valuesGet'],
-				resource: ['types'],
 			},
 		},
 		default: 'Gender',
@@ -6464,19 +7182,19 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Country Code',
+		displayName: 'CountryCode',
 		name: 'BookingTypesByTypeAllowed-valuesGet_countryCode',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Types'],
 				operation: ['BookingTypesByTypeAllowed-valuesGet'],
-				resource: ['types'],
 			},
 		},
 		default: '',
-		description:
-			'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
+		description: 'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
 		routing: {
 			request: {
 				method: 'GET',
@@ -6488,62 +7206,73 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'BookingTypesByTypeAllowed-valuesGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Types'],
 				operation: ['BookingTypesByTypeAllowed-valuesGet'],
-				resource: ['types'],
 			},
 		},
 		default: '',
-		description:
-			'Filter the result by the provided free text. If specified, only values that contain one of the provided values will be returned.',
+		description: 'Filter the result by the provided free text. If specified, only values that contain one of the provided values will be returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/types/{type}/allowed-values',
+				qs: {
+					textSearch: '={{$parameter["BookingTypesByTypeAllowed-valuesGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'BookingTypesByTypeAllowed-valuesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Types'],
 				operation: ['BookingTypesByTypeAllowed-valuesGet'],
-				resource: ['types'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/types/{type}/allowed-values',
+				qs: {
+					pageNumber: '={{$parameter["BookingTypesByTypeAllowed-valuesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'BookingTypesByTypeAllowed-valuesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Types'],
 				operation: ['BookingTypesByTypeAllowed-valuesGet'],
-				resource: ['types'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/types/{type}/allowed-values',
+				qs: {
+					pageSize: '={{$parameter["BookingTypesByTypeAllowed-valuesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -6553,17 +7282,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['booking-v1'],
+				resource: ['Types'],
 				operation: ['BookingTypesByTypeAllowed-valuesGet'],
-				resource: ['types'],
 			},
 		},
 		default: {},
 		description:
 			'List of all fields that can be used to sort the results. Possible values are: value:asc, value:desc. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'sort',
+			request: {
+				method: 'GET',
+				url: '/booking/v1/types/{type}/allowed-values',
+				qs: {
+					sort: '={{$parameter["BookingTypesByTypeAllowed-valuesGet_sort"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -6587,21 +7320,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'FinanceFoliosGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					propertyIds: '={{$parameter["FinanceFoliosGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -6610,7 +7347,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -6624,21 +7361,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'FinanceFoliosGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by company IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					companyIds: '={{$parameter["FinanceFoliosGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -6647,7 +7388,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -6661,21 +7402,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Reservation IDs',
+		displayName: 'ReservationIds',
 		name: 'FinanceFoliosGet_reservationIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by reservation IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reservationIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					reservationIds: '={{$parameter["FinanceFoliosGet_reservationIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -6684,7 +7429,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'reservationIdsValues',
-				displayName: 'Reservation Ids',
+				displayName: 'ReservationIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -6698,21 +7443,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Booking IDs',
+		displayName: 'BookingIds',
 		name: 'FinanceFoliosGet_bookingIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by booking IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'bookingIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					bookingIds: '={{$parameter["FinanceFoliosGet_bookingIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -6721,7 +7470,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'bookingIdsValues',
-				displayName: 'Booking Ids',
+				displayName: 'BookingIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -6735,180 +7484,210 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Is Empty',
+		displayName: 'IsEmpty',
 		name: 'FinanceFoliosGet_isEmpty',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
-		description:
-			'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+		description: 'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'isEmpty',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					isEmpty: '={{$parameter["FinanceFoliosGet_isEmpty"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Checked Out On Accounts Receivable',
+		displayName: 'CheckedOutOnAccountsReceivable',
 		name: 'FinanceFoliosGet_checkedOutOnAccountsReceivable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
-		description:
-			'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+		description: 'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'checkedOutOnAccountsReceivable',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					checkedOutOnAccountsReceivable:
+						'={{$parameter["FinanceFoliosGet_checkedOutOnAccountsReceivable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Exclude Closed',
+		displayName: 'ExcludeClosed',
 		name: 'FinanceFoliosGet_excludeClosed',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
-		description:
-			'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
+		description: 'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'excludeClosed',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					excludeClosed: '={{$parameter["FinanceFoliosGet_excludeClosed"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Has Invoices',
+		displayName: 'HasInvoices',
 		name: 'FinanceFoliosGet_hasInvoices',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
 		description: 'If set to `true`, only return folios that been invoices',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'hasInvoices',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					hasInvoices: '={{$parameter["FinanceFoliosGet_hasInvoices"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Created From',
+		displayName: 'CreatedFrom',
 		name: 'FinanceFoliosGet_createdFrom',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'createdFrom',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					createdFrom: '={{$parameter["FinanceFoliosGet_createdFrom"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Created To',
+		displayName: 'CreatedTo',
 		name: 'FinanceFoliosGet_createdTo',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'createdTo',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					createdTo: '={{$parameter["FinanceFoliosGet_createdTo"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Updated From',
+		displayName: 'UpdatedFrom',
 		name: 'FinanceFoliosGet_updatedFrom',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'updatedFrom',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					updatedFrom: '={{$parameter["FinanceFoliosGet_updatedFrom"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Updated To',
+		displayName: 'UpdatedTo',
 		name: 'FinanceFoliosGet_updatedTo',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'updatedTo',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					updatedTo: '={{$parameter["FinanceFoliosGet_updatedTo"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Only Main',
+		displayName: 'OnlyMain',
 		name: 'FinanceFoliosGet_onlyMain',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
 		description: 'If set to `true`, only main folios are returned, otherwise all',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'onlyMain',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					onlyMain: '={{$parameter["FinanceFoliosGet_onlyMain"]}}',
+				},
 			},
 		},
 	},
@@ -6918,16 +7697,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: 'Booking',
 		description: 'The type of the folio',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'type',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					type: '={{$parameter["FinanceFoliosGet_type"]}}',
+				},
 			},
 		},
 		options: [
@@ -6955,16 +7738,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: 'Closed',
 		description: 'The status of the folio',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					status: '={{$parameter["FinanceFoliosGet_status"]}}',
+				},
 			},
 		},
 		options: [
@@ -6979,62 +7766,72 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'External Folio Code',
+		displayName: 'ExternalFolioCode',
 		name: 'FinanceFoliosGet_externalFolioCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
 		description:
 			'Allows filtering external folios by code.\r\nUseful when you use external folios with custom codes.\r\nSpecifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'externalFolioCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					externalFolioCode: '={{$parameter["FinanceFoliosGet_externalFolioCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'FinanceFoliosGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
+		description: 'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					textSearch: '={{$parameter["FinanceFoliosGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Balance Filter',
+		displayName: 'BalanceFilter',
 		name: 'FinanceFoliosGet_balanceFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
-		description:
-			"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'balanceFilter',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					balanceFilter: '={{$parameter["FinanceFoliosGet_balanceFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7043,57 +7840,64 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'balanceFilterValues',
-				displayName: 'Balance Filter',
+				displayName: 'BalanceFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceFoliosGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					pageNumber: '={{$parameter["FinanceFoliosGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceFoliosGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					pageSize: '={{$parameter["FinanceFoliosGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -7103,17 +7907,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: allowances, allowedActions, transitoryCharges, charges, company, payments, warnings. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios',
+				qs: {
+					expand: '={{$parameter["FinanceFoliosGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7143,8 +7951,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosPost'],
-				resource: ['folio'],
 			},
 		},
 		default:
@@ -7162,41 +7971,48 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosPost'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios',
+				headers: {
+					'Idempotency-Key': '={{$parameter["FinanceFoliosPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'FinanceFolios$countGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					propertyIds: '={{$parameter["FinanceFolios$countGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7205,7 +8021,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -7219,21 +8035,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'FinanceFolios$countGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by company IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					companyIds: '={{$parameter["FinanceFolios$countGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7242,7 +8062,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -7256,21 +8076,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Reservation IDs',
+		displayName: 'ReservationIds',
 		name: 'FinanceFolios$countGet_reservationIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by reservation IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reservationIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					reservationIds: '={{$parameter["FinanceFolios$countGet_reservationIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7279,7 +8103,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'reservationIdsValues',
-				displayName: 'Reservation Ids',
+				displayName: 'ReservationIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -7293,21 +8117,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Booking IDs',
+		displayName: 'BookingIds',
 		name: 'FinanceFolios$countGet_bookingIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description: 'Filter folio list by booking IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'bookingIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					bookingIds: '={{$parameter["FinanceFolios$countGet_bookingIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7316,7 +8144,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'bookingIdsValues',
-				displayName: 'Booking Ids',
+				displayName: 'BookingIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -7330,180 +8158,210 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Is Empty',
+		displayName: 'IsEmpty',
 		name: 'FinanceFolios$countGet_isEmpty',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
-		description:
-			'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+		description: 'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'isEmpty',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					isEmpty: '={{$parameter["FinanceFolios$countGet_isEmpty"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Checked Out On Accounts Receivable',
+		displayName: 'CheckedOutOnAccountsReceivable',
 		name: 'FinanceFolios$countGet_checkedOutOnAccountsReceivable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
-		description:
-			'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+		description: 'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'checkedOutOnAccountsReceivable',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					checkedOutOnAccountsReceivable:
+						'={{$parameter["FinanceFolios$countGet_checkedOutOnAccountsReceivable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Exclude Closed',
+		displayName: 'ExcludeClosed',
 		name: 'FinanceFolios$countGet_excludeClosed',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
-		description:
-			'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
+		description: 'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'excludeClosed',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					excludeClosed: '={{$parameter["FinanceFolios$countGet_excludeClosed"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Has Invoices',
+		displayName: 'HasInvoices',
 		name: 'FinanceFolios$countGet_hasInvoices',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
 		description: 'If set to `true`, only return folios that been invoices',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'hasInvoices',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					hasInvoices: '={{$parameter["FinanceFolios$countGet_hasInvoices"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Created From',
+		displayName: 'CreatedFrom',
 		name: 'FinanceFolios$countGet_createdFrom',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'createdFrom',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					createdFrom: '={{$parameter["FinanceFolios$countGet_createdFrom"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Created To',
+		displayName: 'CreatedTo',
 		name: 'FinanceFolios$countGet_createdTo',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'createdTo',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					createdTo: '={{$parameter["FinanceFolios$countGet_createdTo"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Updated From',
+		displayName: 'UpdatedFrom',
 		name: 'FinanceFolios$countGet_updatedFrom',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'updatedFrom',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					updatedFrom: '={{$parameter["FinanceFolios$countGet_updatedFrom"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Updated To',
+		displayName: 'UpdatedTo',
 		name: 'FinanceFolios$countGet_updatedTo',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'updatedTo',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					updatedTo: '={{$parameter["FinanceFolios$countGet_updatedTo"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Only Main',
+		displayName: 'OnlyMain',
 		name: 'FinanceFolios$countGet_onlyMain',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: false,
 		description: 'If set to `true`, only main folios are returned, otherwise all',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'onlyMain',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					onlyMain: '={{$parameter["FinanceFolios$countGet_onlyMain"]}}',
+				},
 			},
 		},
 	},
@@ -7513,16 +8371,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: 'Booking',
 		description: 'The type of the folio',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'type',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					type: '={{$parameter["FinanceFolios$countGet_type"]}}',
+				},
 			},
 		},
 		options: [
@@ -7550,16 +8412,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: 'Closed',
 		description: 'The status of the folio',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					status: '={{$parameter["FinanceFolios$countGet_status"]}}',
+				},
 			},
 		},
 		options: [
@@ -7574,62 +8440,72 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'External Folio Code',
+		displayName: 'ExternalFolioCode',
 		name: 'FinanceFolios$countGet_externalFolioCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
 		description:
 			'Allows filtering external folios by code.\r\nUseful when you use external folios with custom codes.\r\nSpecifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'externalFolioCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					externalFolioCode: '={{$parameter["FinanceFolios$countGet_externalFolioCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'FinanceFolios$countGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
+		description: 'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					textSearch: '={{$parameter["FinanceFolios$countGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Balance Filter',
+		displayName: 'BalanceFilter',
 		name: 'FinanceFolios$countGet_balanceFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFolios$countGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
-		description:
-			"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'balanceFilter',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/$count',
+				qs: {
+					balanceFilter: '={{$parameter["FinanceFolios$countGet_balanceFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7638,15 +8514,14 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'balanceFilterValues',
-				displayName: 'Balance Filter',
+				displayName: 'BalanceFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
@@ -7659,8 +8534,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosByIdGet'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
@@ -7678,17 +8554,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosByIdGet'],
-				resource: ['folio'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: folios. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{id}',
+				qs: {
+					expand: '={{$parameter["FinanceFoliosByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -7718,8 +8598,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosByIdPatch'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
@@ -7738,13 +8619,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosByIdPatch'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/. See the FolioDebitorModel in GET for values that can be changed.',
+		description: 'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/. See the FolioDebitorModel in GET for values that can be changed.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -7763,8 +8644,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Folio'],
 				operation: ['FinanceFoliosByIdHead'],
-				resource: ['folio'],
 			},
 		},
 		default: '',
@@ -7777,17 +8659,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdChargesPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7802,8 +8686,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -7821,37 +8706,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdChargesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/charges',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdChargesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdTransitory-chargesPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdTransitory-chargesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7866,8 +8757,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdTransitory-chargesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -7885,37 +8777,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdTransitory-chargesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdTransitory-chargesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/transitory-charges',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdTransitory-chargesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdCancellation-feePost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdCancellation-feePost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7930,8 +8828,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdCancellation-feePost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -7948,37 +8847,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdCancellation-feePost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdCancellation-feePost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/cancellation-fee',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdCancellation-feePost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdNo-show-feePost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdNo-show-feePost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7993,8 +8898,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdNo-show-feePost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8011,37 +8917,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdNo-show-feePost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdNo-show-feePost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/no-show-fee',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdNo-show-feePost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdClosePut_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdClosePut'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -8050,17 +8962,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdReopenPut_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdReopenPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -8069,14 +8983,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdMove-chargesPut_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdMove-chargesPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8095,8 +9010,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdMove-chargesPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -8120,8 +9036,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsBulk-movePut'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -8139,14 +9056,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdMove-all-chargesPut_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdMove-all-chargesPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8165,8 +9083,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdMove-all-chargesPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '{\n  "targetFolioId": "KFCSQUID-1",\n  "reason": "Test"\n}',
@@ -8183,17 +9102,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8202,14 +9123,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Charge ID',
+		displayName: 'ChargeId',
 		name: 'FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_chargeId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8228,8 +9150,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -8247,37 +9170,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/charges/{chargeId}/allowances',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdAllowancesPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdAllowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8292,8 +9221,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdAllowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -8311,34 +9241,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdAllowancesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdAllowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/allowances',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdAllowancesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdBulk-allowancesPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdBulk-allowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8357,8 +9292,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdBulk-allowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -8376,37 +9312,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdBulk-allowancesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdBulk-allowancesPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/bulk-allowances',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdBulk-allowancesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdPost-chargesPut_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdPost-chargesPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -8415,14 +9357,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdMove-paymentsPut_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdMove-paymentsPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8441,8 +9384,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdMove-paymentsPut'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -8460,17 +9404,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdCorrectPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdCorrectPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8485,8 +9431,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdCorrectPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default:
@@ -8504,37 +9451,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdCorrectPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdCorrectPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/correct',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdCorrectPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8543,14 +9496,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Charge ID',
+		displayName: 'ChargeId',
 		name: 'FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_chargeId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8569,8 +9523,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '{\n  "percent": 51,\n  "type": "ByPercent"\n}',
@@ -8587,37 +9542,43 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/charges/{chargeId}/split',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
+		description: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8626,14 +9587,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Payment ID',
+		displayName: 'PaymentId',
 		name: 'FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_paymentId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
@@ -8652,8 +9614,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '{\n  "percent": 51,\n  "type": "ByPercent"\n}',
@@ -8670,34 +9633,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioActions'],
 				operation: ['FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost'],
-				resource: ['folioactions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folio-actions/{folioId}/payments/{paymentId}/split',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsGet_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -8710,21 +9678,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Status Codes',
+		displayName: 'StatusCodes',
 		name: 'FinanceFoliosByFolioIdPaymentsGet_statusCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: {},
 		description: 'Filter payments by one or more status',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'statusCodes',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/payments',
+				qs: {
+					statusCodes: '={{$parameter["FinanceFoliosByFolioIdPaymentsGet_statusCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -8733,7 +9705,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'statusCodesValues',
-				displayName: 'Status Codes',
+				displayName: 'StatusCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -8747,42 +9719,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceFoliosByFolioIdPaymentsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/payments',
+				qs: {
+					pageNumber: '={{$parameter["FinanceFoliosByFolioIdPaymentsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceFoliosByFolioIdPaymentsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/payments',
+				qs: {
+					pageSize: '={{$parameter["FinanceFoliosByFolioIdPaymentsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -8792,17 +9772,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/payments',
+				qs: {
+					expand: '={{$parameter["FinanceFoliosByFolioIdPaymentsGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -8826,14 +9810,15 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -8852,8 +9837,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default:
@@ -8871,34 +9857,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosByFolioIdPaymentsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios/{folioId}/payments',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFoliosByFolioIdPaymentsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdGet_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -8911,17 +9902,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Payment ID',
+		displayName: 'PaymentId',
 		name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdGet_paymentId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
+		description: 'The payment ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -8935,17 +9928,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/payments/{paymentId}',
+				qs: {
+					expand: '={{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -8969,14 +9966,15 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-terminalPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-terminalPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -8995,8 +9993,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-terminalPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default:
@@ -9014,34 +10013,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-terminalPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-terminalPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios/{folioId}/payments/by-terminal',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFoliosByFolioIdPaymentsBy-terminalPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-authorizationPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-authorizationPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9060,8 +10064,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-authorizationPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default:
@@ -9079,34 +10084,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-authorizationPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-authorizationPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios/{folioId}/payments/by-authorization',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFoliosByFolioIdPaymentsBy-authorizationPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-payment-accountPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-payment-accountPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9125,8 +10135,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-payment-accountPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default:
@@ -9144,34 +10155,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-payment-accountPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-payment-accountPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios/{folioId}/payments/by-payment-account',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFoliosByFolioIdPaymentsBy-payment-accountPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-linkPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-linkPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9190,12 +10206,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-linkPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default:
-			'{\n  "expiresAt": "2025-08-14T09:44:51.4531211Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
+			'{\n  "expiresAt": "2025-08-21T17:39:32.4971412Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
 		description: 'The definition of the payment link',
 		routing: {
 			request: {
@@ -9209,34 +10226,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosByFolioIdPaymentsBy-linkPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsBy-linkPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios/{folioId}/payments/by-link',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFoliosByFolioIdPaymentsBy-linkPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9249,14 +10271,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Payment ID',
+		displayName: 'PaymentId',
 		name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut_paymentId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9269,14 +10292,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdRefundsGet_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9289,21 +10313,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Status Codes',
+		displayName: 'StatusCodes',
 		name: 'FinanceFoliosByFolioIdRefundsGet_statusCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: {},
 		description: 'Filter refunds by one or more status',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'statusCodes',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/refunds',
+				qs: {
+					statusCodes: '={{$parameter["FinanceFoliosByFolioIdRefundsGet_statusCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9312,7 +10340,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'statusCodesValues',
-				displayName: 'Status Codes',
+				displayName: 'StatusCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -9326,54 +10354,63 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceFoliosByFolioIdRefundsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/refunds',
+				qs: {
+					pageNumber: '={{$parameter["FinanceFoliosByFolioIdRefundsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceFoliosByFolioIdRefundsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/folios/{folioId}/refunds',
+				qs: {
+					pageSize: '={{$parameter["FinanceFoliosByFolioIdRefundsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdRefundsPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9392,12 +10429,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default:
-			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2025-08-12",\n  "reason": "Refund for the cancelled service"\n}',
+			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2025-08-19",\n  "reason": "Refund for the cancelled service"\n}',
 		description: 'The definition of the refund',
 		routing: {
 			request: {
@@ -9411,34 +10449,38 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosByFolioIdRefundsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios/{folioId}/refunds',
+				headers: {
+					'Idempotency-Key': '={{$parameter["FinanceFoliosByFolioIdRefundsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdRefundsByRefundIdGet_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsByRefundIdGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9451,17 +10493,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Refund ID',
+		displayName: 'RefundId',
 		name: 'FinanceFoliosByFolioIdRefundsByRefundIdGet_refundId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdRefundsByRefundIdGet'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
+		description: 'The refund ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -9470,14 +10514,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
@@ -9490,17 +10535,19 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Payment ID',
+		displayName: 'PaymentId',
 		name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_paymentId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
+		description: 'The payment ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9515,12 +10562,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default:
-			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2025-08-12",\n  "reason": "Refund for the cancelled service"\n}',
+			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2025-08-19",\n  "reason": "Refund for the cancelled service"\n}',
 		description: 'The definition of the refund',
 		routing: {
 			request: {
@@ -9534,34 +10582,39 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['FolioPayments'],
 				operation: ['FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost'],
-				resource: ['foliopayments'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/folios/{folioId}/payments/{paymentId}/refunds',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceInvoicesPreview-pdfGet_languageCode',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesPreview-pdfGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
@@ -9577,14 +10630,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceInvoicesPreview-pdfGet_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesPreview-pdfGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
@@ -9600,14 +10654,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceInvoicesPreviewGet_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesPreviewGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
@@ -9628,17 +10683,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesPreviewGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices/preview',
+				qs: {
+					expand: '={{$parameter["FinanceInvoicesPreviewGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9667,16 +10726,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
 		description: 'The invoice number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'number',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					number: '={{$parameter["FinanceInvoicesGet_number"]}}',
+				},
 			},
 		},
 	},
@@ -9686,16 +10749,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: 'FullyPaid',
 		description: 'Filter by invoice status',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					status: '={{$parameter["FinanceInvoicesGet_status"]}}',
+				},
 			},
 		},
 		options: [
@@ -9714,42 +10781,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Checked Out On Accounts Receivable',
+		displayName: 'CheckedOutOnAccountsReceivable',
 		name: 'FinanceInvoicesGet_checkedOutOnAccountsReceivable',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: false,
-		description:
-			'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all',
+		description: 'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'checkedOutOnAccountsReceivable',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					checkedOutOnAccountsReceivable:
+						'={{$parameter["FinanceInvoicesGet_checkedOutOnAccountsReceivable"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Outstanding Payment Filter',
+		displayName: 'OutstandingPaymentFilter',
 		name: 'FinanceInvoicesGet_outstandingPaymentFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
-		description:
-			"Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'outstandingPaymentFilter',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					outstandingPaymentFilter:
+						'={{$parameter["FinanceInvoicesGet_outstandingPaymentFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9758,37 +10833,39 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'outstandingPaymentFilterValues',
-				displayName: 'Outstanding Payment Filter',
+				displayName: 'OutstandingPaymentFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'FinanceInvoicesGet_dateFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
-		description:
-			"Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					dateFilter: '={{$parameter["FinanceInvoicesGet_dateFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9797,36 +10874,39 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'dateFilterValues',
-				displayName: 'Date Filter',
+				displayName: 'DateFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'FinanceInvoicesGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description: 'Filter by property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					propertyIds: '={{$parameter["FinanceInvoicesGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9835,7 +10915,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -9849,21 +10929,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Reservation IDs',
+		displayName: 'ReservationIds',
 		name: 'FinanceInvoicesGet_reservationIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description: 'Filter by reservation IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reservationIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					reservationIds: '={{$parameter["FinanceInvoicesGet_reservationIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9872,7 +10956,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'reservationIdsValues',
-				displayName: 'Reservation Ids',
+				displayName: 'ReservationIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -9886,21 +10970,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Booking IDs',
+		displayName: 'BookingIds',
 		name: 'FinanceInvoicesGet_bookingIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description: 'Filter by booking IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'bookingIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					bookingIds: '={{$parameter["FinanceInvoicesGet_bookingIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9909,7 +10997,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'bookingIdsValues',
-				displayName: 'Booking Ids',
+				displayName: 'BookingIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -9923,21 +11011,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Folio IDs',
+		displayName: 'FolioIds',
 		name: 'FinanceInvoicesGet_folioIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description: 'Filter by folio IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'folioIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					folioIds: '={{$parameter["FinanceInvoicesGet_folioIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -9946,7 +11038,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'folioIdsValues',
-				displayName: 'Folio Ids',
+				displayName: 'FolioIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -9960,61 +11052,73 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Name Search',
+		displayName: 'NameSearch',
 		name: 'FinanceInvoicesGet_nameSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
 		description:
 			'Find invoices for a recipient name or company. Provide at least three characters.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'nameSearch',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					nameSearch: '={{$parameter["FinanceInvoicesGet_nameSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Payment Settled',
+		displayName: 'PaymentSettled',
 		name: 'FinanceInvoicesGet_paymentSettled',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: false,
 		description:
 			'If set to `true`, returns only invoices having no outstanding payments or marked as settled.\r\nIf set to `false`, returns only invoices with outstanding payment and not marked as settled.\r\nIf not set, returns all invoices. - <b>DEPRECATED: This field will be removed at 25.06.2022. Use filtering by `Status` instead</b>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'paymentSettled',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					paymentSettled: '={{$parameter["FinanceInvoicesGet_paymentSettled"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'FinanceInvoicesGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description: 'Filter by company IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					companyIds: '={{$parameter["FinanceInvoicesGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -10023,7 +11127,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -10037,22 +11141,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Recipient Type',
+		displayName: 'RecipientType',
 		name: 'FinanceInvoicesGet_recipientType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: 'Company',
-		description:
-			'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
+		description: 'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'recipientType',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					recipientType: '={{$parameter["FinanceInvoicesGet_recipientType"]}}',
+				},
 			},
 		},
 		options: [
@@ -10067,42 +11174,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceInvoicesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					pageNumber: '={{$parameter["FinanceInvoicesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceInvoicesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					pageSize: '={{$parameter["FinanceInvoicesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -10112,17 +11227,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: allowedActions, company. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices',
+				qs: {
+					expand: '={{$parameter["FinanceInvoicesGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -10152,8 +11271,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesPost'],
-				resource: ['invoice'],
 			},
 		},
 		default: '{\n  "folioId": "HBCXQZ-1",\n  "languageCode": "en"\n}',
@@ -10170,22 +11290,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceInvoicesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesPost'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/invoices',
+				headers: {
+					'Idempotency-Key': '={{$parameter["FinanceInvoicesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -10196,8 +11319,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesByIdPdfGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
@@ -10216,8 +11340,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesByIdGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: '',
@@ -10235,17 +11360,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Invoice'],
 				operation: ['FinanceInvoicesByIdGet'],
-				resource: ['invoice'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/invoices/{id}',
+				qs: {
+					expand: '={{$parameter["FinanceInvoicesByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -10275,8 +11404,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['InvoiceAction'],
 				operation: ['FinanceInvoice-actionsByIdPayPut'],
-				resource: ['invoiceaction'],
 			},
 		},
 		default: '',
@@ -10295,8 +11425,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['InvoiceAction'],
 				operation: ['FinanceInvoice-actionsByIdPayPut'],
-				resource: ['invoiceaction'],
 			},
 		},
 		default: '{\n  "paymentMethod": "BankTransfer",\n  "receipt": "BANK-123456"\n}',
@@ -10319,8 +11450,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['InvoiceAction'],
 				operation: ['FinanceInvoice-actionsByIdCancelPut'],
-				resource: ['invoiceaction'],
 			},
 		},
 		default: '',
@@ -10339,8 +11471,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['InvoiceAction'],
 				operation: ['FinanceInvoice-actionsByIdCancelPut'],
-				resource: ['invoiceaction'],
 			},
 		},
 		default: '{\n  "reasonCode": "ChangeOfRecipientDetails"\n}',
@@ -10357,14 +11490,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsAggregate-pairs-dailyPost_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -10386,8 +11520,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -10409,8 +11544,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -10431,55 +11567,67 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+		description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reference',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-pairs-daily',
+				qs: {
+					reference: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_reference"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Number',
+		displayName: 'AccountNumber',
 		name: 'FinanceAccountsAggregate-pairs-dailyPost_accountNumber',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'Filter transactions by account number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountNumber',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-pairs-daily',
+				qs: {
+					accountNumber:
+						'={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_accountNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Type',
+		displayName: 'AccountType',
 		name: 'FinanceAccountsAggregate-pairs-dailyPost_accountType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'AccountsReceivable',
 		description: 'Filter transactions by type',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountType',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-pairs-daily',
+				qs: {
+					accountType: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_accountType"]}}',
+				},
 			},
 		},
 		options: [
@@ -10534,22 +11682,27 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsAggregate-pairs-dailyPost_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-pairs-daily',
+				qs: {
+					accountingSchema:
+						'={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -10564,53 +11717,62 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsAggregate-pairs-dailyPost_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report (2-letter ISO code)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-pairs-daily',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceAccountsAggregate-pairs-dailyPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-pairs-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-pairs-daily',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsAggregate-dailyPost_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -10632,8 +11794,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -10655,8 +11818,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -10677,55 +11841,66 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+		description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reference',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-daily',
+				qs: {
+					reference: '={{$parameter["FinanceAccountsAggregate-dailyPost_reference"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Number',
+		displayName: 'AccountNumber',
 		name: 'FinanceAccountsAggregate-dailyPost_accountNumber',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'Filter transactions by account number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountNumber',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-daily',
+				qs: {
+					accountNumber: '={{$parameter["FinanceAccountsAggregate-dailyPost_accountNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Type',
+		displayName: 'AccountType',
 		name: 'FinanceAccountsAggregate-dailyPost_accountType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'AccountsReceivable',
 		description: 'Filter transactions by type',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountType',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-daily',
+				qs: {
+					accountType: '={{$parameter["FinanceAccountsAggregate-dailyPost_accountType"]}}',
+				},
 			},
 		},
 		options: [
@@ -10780,22 +11955,27 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsAggregate-dailyPost_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-daily',
+				qs: {
+					accountingSchema:
+						'={{$parameter["FinanceAccountsAggregate-dailyPost_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -10810,53 +11990,62 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsAggregate-dailyPost_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report (2-letter ISO code)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-daily',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsAggregate-dailyPost_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceAccountsAggregate-dailyPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregate-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate-daily',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceAccountsAggregate-dailyPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsAggregatePost_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -10878,13 +12067,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10902,13 +12091,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10920,40 +12109,48 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Account Number',
+		displayName: 'AccountNumber',
 		name: 'FinanceAccountsAggregatePost_accountNumber',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'Filter transactions by account number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountNumber',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate',
+				qs: {
+					accountNumber: '={{$parameter["FinanceAccountsAggregatePost_accountNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Type',
+		displayName: 'AccountType',
 		name: 'FinanceAccountsAggregatePost_accountType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'AccountsReceivable',
 		description: 'Filter transactions by type',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountType',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate',
+				qs: {
+					accountType: '={{$parameter["FinanceAccountsAggregatePost_accountType"]}}',
+				},
 			},
 		},
 		options: [
@@ -11008,22 +12205,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsAggregatePost_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate',
+				qs: {
+					accountingSchema: '={{$parameter["FinanceAccountsAggregatePost_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -11038,53 +12239,61 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsAggregatePost_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsAggregatePost_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceAccountsAggregatePost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsAggregatePost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/aggregate',
+				headers: {
+					'Idempotency-Key': '={{$parameter["FinanceAccountsAggregatePost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsExportPost_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11106,13 +12315,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11130,13 +12339,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11148,40 +12357,48 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Account Number',
+		displayName: 'AccountNumber',
 		name: 'FinanceAccountsExportPost_accountNumber',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'Filter transactions by account number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountNumber',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export',
+				qs: {
+					accountNumber: '={{$parameter["FinanceAccountsExportPost_accountNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Type',
+		displayName: 'AccountType',
 		name: 'FinanceAccountsExportPost_accountType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'AccountsReceivable',
 		description: 'Filter transactions by type',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountType',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export',
+				qs: {
+					accountType: '={{$parameter["FinanceAccountsExportPost_accountType"]}}',
+				},
 			},
 		},
 		options: [
@@ -11236,22 +12453,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsExportPost_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export',
+				qs: {
+					accountingSchema: '={{$parameter["FinanceAccountsExportPost_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -11266,53 +12487,61 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsExportPost_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsExportPost_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceAccountsExportPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExportPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export',
+				headers: {
+					'Idempotency-Key': '={{$parameter["FinanceAccountsExportPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsExport-dailyPost_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11334,8 +12563,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11357,8 +12587,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11379,55 +12610,66 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+		description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reference',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-daily',
+				qs: {
+					reference: '={{$parameter["FinanceAccountsExport-dailyPost_reference"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Number',
+		displayName: 'AccountNumber',
 		name: 'FinanceAccountsExport-dailyPost_accountNumber',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'Filter transactions by account number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountNumber',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-daily',
+				qs: {
+					accountNumber: '={{$parameter["FinanceAccountsExport-dailyPost_accountNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Account Type',
+		displayName: 'AccountType',
 		name: 'FinanceAccountsExport-dailyPost_accountType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'AccountsReceivable',
 		description: 'Filter transactions by type',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountType',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-daily',
+				qs: {
+					accountType: '={{$parameter["FinanceAccountsExport-dailyPost_accountType"]}}',
+				},
 			},
 		},
 		options: [
@@ -11482,22 +12724,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsExport-dailyPost_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-daily',
+				qs: {
+					accountingSchema: '={{$parameter["FinanceAccountsExport-dailyPost_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -11512,53 +12758,61 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsExport-dailyPost_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report (2-letter ISO code)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-daily',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsExport-dailyPost_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceAccountsExport-dailyPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-daily',
+				headers: {
+					'Idempotency-Key': '={{$parameter["FinanceAccountsExport-dailyPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsExport-gross-dailyPost_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-gross-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11580,8 +12834,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-gross-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11603,8 +12858,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-gross-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11625,37 +12881,45 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-gross-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+		description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reference',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-gross-daily',
+				qs: {
+					reference: '={{$parameter["FinanceAccountsExport-gross-dailyPost_reference"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsExport-gross-dailyPost_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-gross-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-gross-daily',
+				qs: {
+					accountingSchema:
+						'={{$parameter["FinanceAccountsExport-gross-dailyPost_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -11670,34 +12934,39 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'FinanceAccountsExport-gross-dailyPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsExport-gross-dailyPost'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/finance/v1/accounts/export-gross-daily',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["FinanceAccountsExport-gross-dailyPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsSchemaGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsSchemaGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11718,56 +12987,67 @@ export const parameterFields: INodeProperties[] = [
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsSchemaGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'How many hierarchy levels to include (between 1 and 4, default is 1)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'depth',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/schema',
+				qs: {
+					depth: '={{$parameter["FinanceAccountsSchemaGet_depth"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Include Archived',
+		displayName: 'IncludeArchived',
 		name: 'FinanceAccountsSchemaGet_includeArchived',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsSchemaGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: false,
-		description:
-			'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+		description: 'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeArchived',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/schema',
+				qs: {
+					includeArchived: '={{$parameter["FinanceAccountsSchemaGet_includeArchived"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsSchemaGet_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsSchemaGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/schema',
+				qs: {
+					accountingSchema: '={{$parameter["FinanceAccountsSchemaGet_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -11782,34 +13062,39 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsSchemaGet_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsSchemaGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description:
 			'The language for the the report. If not specified, language code from "Accept-Language" will be used.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/schema',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsSchemaGet_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceGlobal-accountsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGlobal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11831,12 +13116,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGlobal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
 		routing: {
 			request: {
 				method: 'GET',
@@ -11848,41 +13134,48 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Include Archived',
+		displayName: 'IncludeArchived',
 		name: 'FinanceGlobal-accountsGet_includeArchived',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGlobal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: false,
-		description:
-			'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+		description: 'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeArchived',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/global-accounts',
+				qs: {
+					includeArchived: '={{$parameter["FinanceGlobal-accountsGet_includeArchived"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceGlobal-accountsGet_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGlobal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description: 'Allows to override the default accounting schema',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/global-accounts',
+				qs: {
+					accountingSchema: '={{$parameter["FinanceGlobal-accountsGet_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -11897,73 +13190,86 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceGlobal-accountsGet_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGlobal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/global-accounts',
+				qs: {
+					languageCode: '={{$parameter["FinanceGlobal-accountsGet_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceGlobal-accountsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGlobal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/global-accounts',
+				qs: {
+					pageNumber: '={{$parameter["FinanceGlobal-accountsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceGlobal-accountsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGlobal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/global-accounts',
+				qs: {
+					pageSize: '={{$parameter["FinanceGlobal-accountsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceGuest-accountsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGuest-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -11979,14 +13285,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Reservation ID',
+		displayName: 'ReservationId',
 		name: 'FinanceGuest-accountsGet_reservationId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGuest-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -12007,87 +13314,104 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGuest-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'parent',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/guest-accounts',
+				qs: {
+					parent: '={{$parameter["FinanceGuest-accountsGet_parent"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceGuest-accountsGet_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGuest-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/guest-accounts',
+				qs: {
+					languageCode: '={{$parameter["FinanceGuest-accountsGet_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceGuest-accountsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGuest-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/guest-accounts',
+				qs: {
+					pageNumber: '={{$parameter["FinanceGuest-accountsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceGuest-accountsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceGuest-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/guest-accounts',
+				qs: {
+					pageSize: '={{$parameter["FinanceGuest-accountsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceExternal-accountsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceExternal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -12103,14 +13427,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Folio ID',
+		displayName: 'FolioId',
 		name: 'FinanceExternal-accountsGet_folioId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceExternal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -12131,75 +13456,91 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceExternal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'parent',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/external-accounts',
+				qs: {
+					parent: '={{$parameter["FinanceExternal-accountsGet_parent"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceExternal-accountsGet_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceExternal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/external-accounts',
+				qs: {
+					languageCode: '={{$parameter["FinanceExternal-accountsGet_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceExternal-accountsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceExternal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/external-accounts',
+				qs: {
+					pageNumber: '={{$parameter["FinanceExternal-accountsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceExternal-accountsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceExternal-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/external-accounts',
+				qs: {
+					pageSize: '={{$parameter["FinanceExternal-accountsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -12210,8 +13551,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsByNumberGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -12224,14 +13566,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsByNumberGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsByNumberGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -12247,62 +13590,72 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Transaction Limit',
+		displayName: 'TransactionLimit',
 		name: 'FinanceAccountsByNumberGet_transactionLimit',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsByNumberGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description:
-			'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
+		description: 'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'transactionLimit',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/{number}',
+				qs: {
+					transactionLimit: '={{$parameter["FinanceAccountsByNumberGet_transactionLimit"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Include Archived',
+		displayName: 'IncludeArchived',
 		name: 'FinanceAccountsByNumberGet_includeArchived',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsByNumberGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: false,
-		description:
-			'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+		description: 'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeArchived',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/{number}',
+				qs: {
+					includeArchived: '={{$parameter["FinanceAccountsByNumberGet_includeArchived"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsByNumberGet_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsByNumberGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description:
 			'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/{number}',
+				qs: {
+					accountingSchema: '={{$parameter["FinanceAccountsByNumberGet_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -12317,33 +13670,38 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsByNumberGet_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsByNumberGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/{number}',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsByNumberGet_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'FinanceAccountsChild-accountsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsChild-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
@@ -12365,12 +13723,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsChild-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12382,40 +13741,48 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'FinanceAccountsChild-accountsGet_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsChild-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/child-accounts',
+				qs: {
+					languageCode: '={{$parameter["FinanceAccountsChild-accountsGet_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Accounting Schema',
+		displayName: 'AccountingSchema',
 		name: 'FinanceAccountsChild-accountsGet_accountingSchema',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsChild-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 'Extended',
 		description: 'Allows to override the default accounting schema',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'accountingSchema',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/child-accounts',
+				qs: {
+					accountingSchema: '={{$parameter["FinanceAccountsChild-accountsGet_accountingSchema"]}}',
+				},
 			},
 		},
 		options: [
@@ -12430,74 +13797,86 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Include Archived',
+		displayName: 'IncludeArchived',
 		name: 'FinanceAccountsChild-accountsGet_includeArchived',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsChild-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: false,
-		description:
-			'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+		description: 'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeArchived',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/child-accounts',
+				qs: {
+					includeArchived: '={{$parameter["FinanceAccountsChild-accountsGet_includeArchived"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'FinanceAccountsChild-accountsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsChild-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/child-accounts',
+				qs: {
+					pageNumber: '={{$parameter["FinanceAccountsChild-accountsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'FinanceAccountsChild-accountsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['SubLedger'],
 				operation: ['FinanceAccountsChild-accountsGet'],
-				resource: ['subledger'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/accounts/child-accounts',
+				qs: {
+					pageSize: '={{$parameter["FinanceAccountsChild-accountsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Iso Country Code',
+		displayName: 'IsoCountryCode',
 		name: 'FinanceTypesVatGet_isoCountryCode',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Types'],
 				operation: ['FinanceTypesVatGet'],
-				resource: ['types'],
 			},
 		},
 		default: '',
@@ -12513,22 +13892,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'At Date',
+		displayName: 'AtDate',
 		name: 'FinanceTypesVatGet_atDate',
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['finance-v1'],
+				resource: ['Types'],
 				operation: ['FinanceTypesVatGet'],
-				resource: ['types'],
 			},
 		},
 		default: '',
-		description:
-			'If specified, returns the VAT types that are effective for this specific date. If nothing specified, returns the VAT types that are effective for the current date in UTC timezone.',
+		description: 'If specified, returns the VAT types that are effective for this specific date. If nothing specified, returns the VAT types that are effective for the current date in UTC timezone.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'atDate',
+			request: {
+				method: 'GET',
+				url: '/finance/v1/types/vat',
+				qs: {
+					atDate: '={{$parameter["FinanceTypesVatGet_atDate"]}}',
+				},
 			},
 		},
 	},
@@ -12538,16 +13920,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesGet'],
-				resource: ['property'],
 			},
 		},
 		default: {},
 		description: 'Filter result by property status',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'status',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties',
+				qs: {
+					status: '={{$parameter["InventoryPropertiesGet_status"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -12570,41 +13956,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Include Archived',
+		displayName: 'IncludeArchived',
 		name: 'InventoryPropertiesGet_includeArchived',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesGet'],
-				resource: ['property'],
 			},
 		},
 		default: false,
-		description:
-			'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties.',
+		description: 'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includeArchived',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties',
+				qs: {
+					includeArchived: '={{$parameter["InventoryPropertiesGet_includeArchived"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Country Code',
+		displayName: 'CountryCode',
 		name: 'InventoryPropertiesGet_countryCode',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesGet'],
-				resource: ['property'],
 			},
 		},
 		default: {},
 		description: 'Filter result by country code',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'countryCode',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties',
+				qs: {
+					countryCode: '={{$parameter["InventoryPropertiesGet_countryCode"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -12613,7 +14006,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'countryCodeValues',
-				displayName: 'Country Code',
+				displayName: 'CountryCode',
 				values: [
 					{
 						displayName: 'Value',
@@ -12627,42 +14020,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'InventoryPropertiesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesGet'],
-				resource: ['property'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties',
+				qs: {
+					pageNumber: '={{$parameter["InventoryPropertiesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'InventoryPropertiesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesGet'],
-				resource: ['property'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties',
+				qs: {
+					pageSize: '={{$parameter["InventoryPropertiesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -12672,17 +14073,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesGet'],
-				resource: ['property'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties',
+				qs: {
+					expand: '={{$parameter["InventoryPropertiesGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -12712,8 +14117,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesPost'],
-				resource: ['property'],
 			},
 		},
 		default:
@@ -12731,22 +14137,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'InventoryPropertiesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesPost'],
-				resource: ['property'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/inventory/v1/properties',
+				headers: {
+					'Idempotency-Key': '={{$parameter["InventoryPropertiesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -12757,8 +14166,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesByIdGet'],
-				resource: ['property'],
 			},
 		},
 		default: '',
@@ -12776,16 +14186,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesByIdGet'],
-				resource: ['property'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties/{id}',
+				qs: {
+					languages: '={{$parameter["InventoryPropertiesByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -12801,7 +14215,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -12813,17 +14227,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesByIdGet'],
-				resource: ['property'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties/{id}',
+				qs: {
+					expand: '={{$parameter["InventoryPropertiesByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -12853,8 +14271,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesByIdPatch'],
-				resource: ['property'],
 			},
 		},
 		default: '',
@@ -12873,8 +14292,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
 				operation: ['InventoryPropertiesByIdPatch'],
-				resource: ['property'],
 			},
 		},
 		default: '',
@@ -12898,8 +14318,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsByIdPatch'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
@@ -12918,8 +14339,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsByIdPatch'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
@@ -12943,8 +14365,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsByIdGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
@@ -12962,16 +14385,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsByIdGet'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/{id}',
+				qs: {
+					languages: '={{$parameter["InventoryUnitsByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -12987,7 +14414,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -12999,17 +14426,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsByIdGet'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/{id}',
+				qs: {
+					expand: '={{$parameter["InventoryUnitsByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -13039,8 +14470,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsByIdHead'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
@@ -13059,8 +14491,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsByIdDelete'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
@@ -13073,14 +14506,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Unit IDs',
+		displayName: 'UnitIds',
 		name: 'InventoryUnitsPatch_unitIds',
 		type: 'fixedCollection',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsPatch'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
@@ -13100,7 +14534,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitIdsValues',
-				displayName: 'Unit Ids',
+				displayName: 'UnitIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -13120,8 +14554,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsPatch'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
@@ -13139,60 +14574,71 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'InventoryUnitsGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
 		description: 'Return units for specific property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					propertyId: '={{$parameter["InventoryUnitsGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Group ID',
+		displayName: 'UnitGroupId',
 		name: 'InventoryUnitsGet_unitGroupId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
-		description:
-			'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
+		description: 'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupId',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					unitGroupId: '={{$parameter["InventoryUnitsGet_unitGroupId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'InventoryUnitsGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
 		description: 'Return units with the specific unit groups',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					unitGroupIds: '={{$parameter["InventoryUnitsGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -13201,7 +14647,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -13215,21 +14661,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Attribute IDs',
+		displayName: 'UnitAttributeIds',
 		name: 'InventoryUnitsGet_unitAttributeIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
 		description: 'Return units with the specific unit attributes',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitAttributeIds',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					unitAttributeIds: '={{$parameter["InventoryUnitsGet_unitAttributeIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -13238,7 +14688,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitAttributeIdsValues',
-				displayName: 'Unit Attribute Ids',
+				displayName: 'UnitAttributeIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -13252,40 +14702,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Is Occupied',
+		displayName: 'IsOccupied',
 		name: 'InventoryUnitsGet_isOccupied',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: false,
 		description: 'Return only occupied or vacant units',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'isOccupied',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					isOccupied: '={{$parameter["InventoryUnitsGet_isOccupied"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Maintenance Type',
+		displayName: 'MaintenanceType',
 		name: 'InventoryUnitsGet_maintenanceType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: 'OutOfInventory',
 		description: 'Return units with the specific maintenance type',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'maintenanceType',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					maintenanceType: '={{$parameter["InventoryUnitsGet_maintenanceType"]}}',
+				},
 			},
 		},
 		options: [
@@ -13309,16 +14767,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: 'Clean',
 		description: 'Return units with a specific condition',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'condition',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					condition: '={{$parameter["InventoryUnitsGet_condition"]}}',
+				},
 			},
 		},
 		options: [
@@ -13337,62 +14799,74 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'InventoryUnitsGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
 		description:
 			'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					textSearch: '={{$parameter["InventoryUnitsGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'InventoryUnitsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					pageNumber: '={{$parameter["InventoryUnitsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'InventoryUnitsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					pageSize: '={{$parameter["InventoryUnitsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -13402,17 +14876,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsGet'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units',
+				qs: {
+					expand: '={{$parameter["InventoryUnitsGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -13442,8 +14920,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsPost'],
-				resource: ['unit'],
 			},
 		},
 		default:
@@ -13461,80 +14940,94 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'InventoryUnitsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsPost'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/inventory/v1/units',
+				headers: {
+					'Idempotency-Key': '={{$parameter["InventoryUnitsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'InventoryUnits$countGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
 		description: 'Return units for specific property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					propertyId: '={{$parameter["InventoryUnits$countGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Group ID',
+		displayName: 'UnitGroupId',
 		name: 'InventoryUnits$countGet_unitGroupId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
-		description:
-			'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
+		description: 'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupId',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					unitGroupId: '={{$parameter["InventoryUnits$countGet_unitGroupId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'InventoryUnits$countGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
 		description: 'Return units with the specific unit groups',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					unitGroupIds: '={{$parameter["InventoryUnits$countGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -13543,7 +15036,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -13557,21 +15050,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Attribute IDs',
+		displayName: 'UnitAttributeIds',
 		name: 'InventoryUnits$countGet_unitAttributeIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: {},
 		description: 'Return units with the specific unit attributes',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitAttributeIds',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					unitAttributeIds: '={{$parameter["InventoryUnits$countGet_unitAttributeIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -13580,7 +15077,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitAttributeIdsValues',
-				displayName: 'Unit Attribute Ids',
+				displayName: 'UnitAttributeIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -13594,40 +15091,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Is Occupied',
+		displayName: 'IsOccupied',
 		name: 'InventoryUnits$countGet_isOccupied',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: false,
 		description: 'Return only occupied or vacant units',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'isOccupied',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					isOccupied: '={{$parameter["InventoryUnits$countGet_isOccupied"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Maintenance Type',
+		displayName: 'MaintenanceType',
 		name: 'InventoryUnits$countGet_maintenanceType',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: 'OutOfInventory',
 		description: 'Return units with the specific maintenance type',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'maintenanceType',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					maintenanceType: '={{$parameter["InventoryUnits$countGet_maintenanceType"]}}',
+				},
 			},
 		},
 		options: [
@@ -13651,16 +15156,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: 'Clean',
 		description: 'Return units with a specific condition',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'condition',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					condition: '={{$parameter["InventoryUnits$countGet_condition"]}}',
+				},
 			},
 		},
 		options: [
@@ -13679,22 +15188,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'InventoryUnits$countGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnits$countGet'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
 		description:
 			'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/units/$count',
+				qs: {
+					textSearch: '={{$parameter["InventoryUnits$countGet_textSearch"]}}',
+				},
 			},
 		},
 	},
@@ -13705,8 +15218,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsBulkPost'],
-				resource: ['unit'],
 			},
 		},
 		default:
@@ -13724,22 +15238,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'InventoryUnitsBulkPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['Unit'],
 				operation: ['InventoryUnitsBulkPost'],
-				resource: ['unit'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/inventory/v1/units/bulk',
+				headers: {
+					'Idempotency-Key': '={{$parameter["InventoryUnitsBulkPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -13750,8 +15267,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesByIdGet'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: '',
@@ -13770,8 +15288,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesByIdPatch'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: '',
@@ -13790,8 +15309,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesByIdPatch'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: '',
@@ -13815,8 +15335,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesByIdHead'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: '',
@@ -13829,42 +15350,50 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'InventoryUnit-attributesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesGet'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-attributes',
+				qs: {
+					pageNumber: '={{$parameter["InventoryUnit-attributesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'InventoryUnit-attributesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesGet'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-attributes',
+				qs: {
+					pageSize: '={{$parameter["InventoryUnit-attributesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -13875,8 +15404,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesPost'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: '{\n  "name": "Floor 1",\n  "description": "Floor number"\n}',
@@ -13893,22 +15423,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'InventoryUnit-attributesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitAttribute'],
 				operation: ['InventoryUnit-attributesPost'],
-				resource: ['unitattribute'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/inventory/v1/unit-attributes',
+				headers: {
+					'Idempotency-Key': '={{$parameter["InventoryUnit-attributesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -13919,8 +15452,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsPost'],
-				resource: ['unitgroup'],
 			},
 		},
 		default:
@@ -13938,60 +15472,71 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'InventoryUnit-groupsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsPost'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/inventory/v1/unit-groups',
+				headers: {
+					'Idempotency-Key': '={{$parameter["InventoryUnit-groupsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'InventoryUnit-groupsGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: '',
 		description: 'Return unit groups for specific property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups',
+				qs: {
+					propertyId: '={{$parameter["InventoryUnit-groupsGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'InventoryUnit-groupsGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: {},
 		description: 'The unitGroupTypes parameter',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups',
+				qs: {
+					unitGroupTypes: '={{$parameter["InventoryUnit-groupsGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14000,7 +15545,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -14014,42 +15559,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'InventoryUnit-groupsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups',
+				qs: {
+					pageNumber: '={{$parameter["InventoryUnit-groupsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'InventoryUnit-groupsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups',
+				qs: {
+					pageSize: '={{$parameter["InventoryUnit-groupsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -14059,17 +15612,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups',
+				qs: {
+					expand: '={{$parameter["InventoryUnit-groupsGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14093,40 +15650,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'InventoryUnit-groups$countGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groups$countGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: '',
 		description: 'Return unit groups for specific property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups/$count',
+				qs: {
+					propertyId: '={{$parameter["InventoryUnit-groups$countGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'InventoryUnit-groups$countGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groups$countGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: {},
 		description: 'The unitGroupTypes parameter',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups/$count',
+				qs: {
+					unitGroupTypes: '={{$parameter["InventoryUnit-groups$countGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14135,7 +15700,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -14155,8 +15720,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsByIdHead'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: '',
@@ -14175,8 +15741,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsByIdGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: '',
@@ -14194,16 +15761,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsByIdGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups/{id}',
+				qs: {
+					languages: '={{$parameter["InventoryUnit-groupsByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14219,7 +15790,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -14231,17 +15802,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsByIdGet'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/unit-groups/{id}',
+				qs: {
+					expand: '={{$parameter["InventoryUnit-groupsByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14271,8 +15846,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsByIdPut'],
-				resource: ['unitgroup'],
 			},
 		},
 		default: '',
@@ -14291,8 +15867,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['inventory-v1'],
+				resource: ['UnitGroup'],
 				operation: ['InventoryUnit-groupsByIdPut'],
-				resource: ['unitgroup'],
 			},
 		},
 		default:
@@ -14310,21 +15887,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Reservation IDs',
+		displayName: 'ReservationIds',
 		name: 'LogsBookingReservationGet_reservationIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by reservation IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'reservationIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					reservationIds: '={{$parameter["LogsBookingReservationGet_reservationIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14333,7 +15914,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'reservationIdsValues',
-				displayName: 'Reservation Ids',
+				displayName: 'ReservationIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14347,21 +15928,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Event Types',
+		displayName: 'EventTypes',
 		name: 'LogsBookingReservationGet_eventTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by event types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'eventTypes',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					eventTypes: '={{$parameter["LogsBookingReservationGet_eventTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14370,7 +15955,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'eventTypesValues',
-				displayName: 'Event Types',
+				displayName: 'EventTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -14384,21 +15969,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Client IDs',
+		displayName: 'ClientIds',
 		name: 'LogsBookingReservationGet_clientIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by client IDs (which application triggered this event)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'clientIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					clientIds: '={{$parameter["LogsBookingReservationGet_clientIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14407,7 +15996,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'clientIdsValues',
-				displayName: 'Client Ids',
+				displayName: 'ClientIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14422,21 +16011,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'LogsBookingReservationGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					propertyIds: '={{$parameter["LogsBookingReservationGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14445,7 +16038,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14459,21 +16052,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Subject IDs',
+		displayName: 'SubjectIds',
 		name: 'LogsBookingReservationGet_subjectIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by subject IDs (which user triggered this event)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'subjectIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					subjectIds: '={{$parameter["LogsBookingReservationGet_subjectIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14482,7 +16079,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'subjectIdsValues',
-				displayName: 'Subject Ids',
+				displayName: 'SubjectIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14496,22 +16093,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'LogsBookingReservationGet_dateFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: {},
-		description:
-			"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					dateFilter: '={{$parameter["LogsBookingReservationGet_dateFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14520,57 +16120,64 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'dateFilterValues',
-				displayName: 'Date Filter',
+				displayName: 'DateFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'LogsBookingReservationGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					pageNumber: '={{$parameter["LogsBookingReservationGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'LogsBookingReservationGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					pageSize: '={{$parameter["LogsBookingReservationGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -14580,17 +16187,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['BookingLogs'],
 				operation: ['LogsBookingReservationGet'],
-				resource: ['bookinglogs'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: changes. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/booking/reservation',
+				qs: {
+					expand: '={{$parameter["LogsBookingReservationGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14614,21 +16225,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Folio IDs',
+		displayName: 'FolioIds',
 		name: 'LogsFinanceFolioGet_folioIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by folio IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'folioIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					folioIds: '={{$parameter["LogsFinanceFolioGet_folioIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14637,7 +16252,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'folioIdsValues',
-				displayName: 'Folio Ids',
+				displayName: 'FolioIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14651,21 +16266,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Event Types',
+		displayName: 'EventTypes',
 		name: 'LogsFinanceFolioGet_eventTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by event types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'eventTypes',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					eventTypes: '={{$parameter["LogsFinanceFolioGet_eventTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14674,7 +16293,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'eventTypesValues',
-				displayName: 'Event Types',
+				displayName: 'EventTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -14688,21 +16307,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Client IDs',
+		displayName: 'ClientIds',
 		name: 'LogsFinanceFolioGet_clientIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by client IDs (which application triggered this event)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'clientIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					clientIds: '={{$parameter["LogsFinanceFolioGet_clientIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14711,7 +16334,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'clientIdsValues',
-				displayName: 'Client Ids',
+				displayName: 'ClientIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14726,21 +16349,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'LogsFinanceFolioGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					propertyIds: '={{$parameter["LogsFinanceFolioGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14749,7 +16376,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14763,21 +16390,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Subject IDs',
+		displayName: 'SubjectIds',
 		name: 'LogsFinanceFolioGet_subjectIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by subject IDs (which user triggered this event)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'subjectIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					subjectIds: '={{$parameter["LogsFinanceFolioGet_subjectIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14786,7 +16417,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'subjectIdsValues',
-				displayName: 'Subject Ids',
+				displayName: 'SubjectIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14800,22 +16431,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'LogsFinanceFolioGet_dateFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
-		description:
-			"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					dateFilter: '={{$parameter["LogsFinanceFolioGet_dateFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14824,57 +16458,64 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'dateFilterValues',
-				displayName: 'Date Filter',
+				displayName: 'DateFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'LogsFinanceFolioGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					pageNumber: '={{$parameter["LogsFinanceFolioGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'LogsFinanceFolioGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceFolioGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/folio',
+				qs: {
+					pageSize: '={{$parameter["LogsFinanceFolioGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -14884,16 +16525,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceNight-auditGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by status',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'statuses',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/night-audit',
+				qs: {
+					statuses: '={{$parameter["LogsFinanceNight-auditGet_statuses"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14916,21 +16561,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'LogsFinanceNight-auditGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceNight-auditGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/night-audit',
+				qs: {
+					propertyIds: '={{$parameter["LogsFinanceNight-auditGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14939,7 +16588,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14953,21 +16602,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Subject IDs',
+		displayName: 'SubjectIds',
 		name: 'LogsFinanceNight-auditGet_subjectIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceNight-auditGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by subject IDs (which user triggered this event)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'subjectIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/night-audit',
+				qs: {
+					subjectIds: '={{$parameter["LogsFinanceNight-auditGet_subjectIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -14976,7 +16629,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'subjectIdsValues',
-				displayName: 'Subject Ids',
+				displayName: 'SubjectIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -14990,22 +16643,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'LogsFinanceNight-auditGet_dateFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceNight-auditGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
-		description:
-			"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/night-audit',
+				qs: {
+					dateFilter: '={{$parameter["LogsFinanceNight-auditGet_dateFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15014,57 +16670,64 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'dateFilterValues',
-				displayName: 'Date Filter',
+				displayName: 'DateFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'LogsFinanceNight-auditGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceNight-auditGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/night-audit',
+				qs: {
+					pageNumber: '={{$parameter["LogsFinanceNight-auditGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'LogsFinanceNight-auditGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceNight-auditGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/night-audit',
+				qs: {
+					pageSize: '={{$parameter["LogsFinanceNight-auditGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -15074,16 +16737,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceTransactions-exportGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by export log types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'types',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/transactions-export',
+				qs: {
+					types: '={{$parameter["LogsFinanceTransactions-exportGet_types"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15106,21 +16773,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'LogsFinanceTransactions-exportGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceTransactions-exportGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/transactions-export',
+				qs: {
+					propertyIds: '={{$parameter["LogsFinanceTransactions-exportGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15129,7 +16800,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -15143,21 +16814,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Subject IDs',
+		displayName: 'SubjectIds',
 		name: 'LogsFinanceTransactions-exportGet_subjectIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceTransactions-exportGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
 		description: 'Filter the log entries by subject IDs (which user triggered this event)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'subjectIds',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/transactions-export',
+				qs: {
+					subjectIds: '={{$parameter["LogsFinanceTransactions-exportGet_subjectIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15166,7 +16841,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'subjectIdsValues',
-				displayName: 'Subject Ids',
+				displayName: 'SubjectIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -15180,22 +16855,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'LogsFinanceTransactions-exportGet_dateFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceTransactions-exportGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: {},
-		description:
-			"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/transactions-export',
+				qs: {
+					dateFilter: '={{$parameter["LogsFinanceTransactions-exportGet_dateFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15204,95 +16882,110 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'dateFilterValues',
-				displayName: 'Date Filter',
+				displayName: 'DateFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'LogsFinanceTransactions-exportGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceTransactions-exportGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/transactions-export',
+				qs: {
+					pageNumber: '={{$parameter["LogsFinanceTransactions-exportGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'LogsFinanceTransactions-exportGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['logs-v1'],
+				resource: ['FinanceLogs'],
 				operation: ['LogsFinanceTransactions-exportGet'],
-				resource: ['financelogs'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/logs/v1/finance/transactions-export',
+				qs: {
+					pageSize: '={{$parameter["LogsFinanceTransactions-exportGet_pageSize"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'OperationsMaintenancesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
 		description: 'Filter result by property ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					propertyId: '={{$parameter["OperationsMaintenancesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit ID',
+		displayName: 'UnitId',
 		name: 'OperationsMaintenancesGet_unitId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
 		description: 'Filter result by unit ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitId',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					unitId: '={{$parameter["OperationsMaintenancesGet_unitId"]}}',
+				},
 			},
 		},
 	},
@@ -15302,17 +16995,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
-		description:
-			'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					from: '={{$parameter["OperationsMaintenancesGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -15322,17 +17018,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
-		description:
-			'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					to: '={{$parameter["OperationsMaintenancesGet_to"]}}',
+				},
 			},
 		},
 	},
@@ -15342,16 +17041,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: {},
 		description: 'Filter result by maintenance types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'types',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					types: '={{$parameter["OperationsMaintenancesGet_types"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15374,42 +17077,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'OperationsMaintenancesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					pageNumber: '={{$parameter["OperationsMaintenancesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'OperationsMaintenancesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					pageSize: '={{$parameter["OperationsMaintenancesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -15419,17 +17130,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances',
+				qs: {
+					expand: '={{$parameter["OperationsMaintenancesGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15459,12 +17174,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesPost'],
-				resource: ['maintenance'],
 			},
 		},
 		default:
-			'{\n  "unitId": "MUC-JQI",\n  "from": "2025-08-12T11:44:52+02:00",\n  "to": "2025-08-14T11:44:52+02:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
+			'{\n  "unitId": "MUC-JQI",\n  "from": "2025-08-19T12:27:45+02:00",\n  "to": "2025-08-21T12:27:45+02:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
 		description: 'The definition of the maintenance',
 		routing: {
 			request: {
@@ -15478,60 +17194,71 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'OperationsMaintenancesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesPost'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/operations/v1/maintenances',
+				headers: {
+					'Idempotency-Key': '={{$parameter["OperationsMaintenancesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'OperationsMaintenances$countGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenances$countGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
 		description: 'Filter result by property ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances/$count',
+				qs: {
+					propertyId: '={{$parameter["OperationsMaintenances$countGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Unit ID',
+		displayName: 'UnitId',
 		name: 'OperationsMaintenances$countGet_unitId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenances$countGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
 		description: 'Filter result by unit ID',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitId',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances/$count',
+				qs: {
+					unitId: '={{$parameter["OperationsMaintenances$countGet_unitId"]}}',
+				},
 			},
 		},
 	},
@@ -15541,17 +17268,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenances$countGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
-		description:
-			'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'from',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances/$count',
+				qs: {
+					from: '={{$parameter["OperationsMaintenances$countGet_from"]}}',
+				},
 			},
 		},
 	},
@@ -15561,17 +17291,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'dateTime',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenances$countGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
-		description:
-			'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'to',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances/$count',
+				qs: {
+					to: '={{$parameter["OperationsMaintenances$countGet_to"]}}',
+				},
 			},
 		},
 	},
@@ -15581,16 +17314,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenances$countGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: {},
 		description: 'Filter result by maintenance types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'types',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances/$count',
+				qs: {
+					types: '={{$parameter["OperationsMaintenances$countGet_types"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15619,12 +17356,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesBulkPost'],
-				resource: ['maintenance'],
 			},
 		},
 		default:
-			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2025-08-12T11:44:52+02:00",\n      "to": "2025-08-14T11:44:52+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2025-08-12T11:44:52+02:00",\n      "to": "2025-08-14T11:44:52+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
+			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2025-08-19T12:27:45+02:00",\n      "to": "2025-08-21T12:27:45+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2025-08-19T12:27:45+02:00",\n      "to": "2025-08-21T12:27:45+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
 		description: 'The definition of the maintenances',
 		routing: {
 			request: {
@@ -15638,22 +17376,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'OperationsMaintenancesBulkPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesBulkPost'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/operations/v1/maintenances/bulk',
+				headers: {
+					'Idempotency-Key': '={{$parameter["OperationsMaintenancesBulkPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -15664,8 +17405,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesByIdPatch'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
@@ -15684,8 +17426,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesByIdPatch'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
@@ -15709,8 +17452,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesByIdDelete'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
@@ -15729,8 +17473,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesByIdGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
@@ -15748,17 +17493,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesByIdGet'],
-				resource: ['maintenance'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/operations/v1/maintenances/{id}',
+				qs: {
+					expand: '={{$parameter["OperationsMaintenancesByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15788,8 +17537,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Maintenance'],
 				operation: ['OperationsMaintenancesByIdHead'],
-				resource: ['maintenance'],
 			},
 		},
 		default: '',
@@ -15802,14 +17552,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'OperationsNight-auditPut_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Operations'],
 				operation: ['OperationsNight-auditPut'],
-				resource: ['operations'],
 			},
 		},
 		default: '',
@@ -15825,22 +17576,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Set Reservations To No Show',
+		displayName: 'SetReservationsToNoShow',
 		name: 'OperationsNight-auditPut_setReservationsToNoShow',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Operations'],
 				operation: ['OperationsNight-auditPut'],
-				resource: ['operations'],
 			},
 		},
 		default: false,
-		description:
-			'Flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show. The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.',
+		description: 'Flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show. The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'setReservationsToNoShow',
+			request: {
+				method: 'PUT',
+				url: '/operations/v1/night-audit',
+				qs: {
+					setReservationsToNoShow:
+						'={{$parameter["OperationsNight-auditPut_setReservationsToNoShow"]}}',
+				},
 			},
 		},
 	},
@@ -15851,8 +17606,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['operations-v1'],
+				resource: ['Operations'],
 				operation: ['OperationsUnits-conditionPut'],
-				resource: ['operations'],
 			},
 		},
 		default:
@@ -15876,8 +17632,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['AgeCategory'],
 				operation: ['SettingsAge-categoriesByIdGet'],
-				resource: ['agecategory'],
 			},
 		},
 		default: '',
@@ -15895,16 +17652,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['AgeCategory'],
 				operation: ['SettingsAge-categoriesByIdGet'],
-				resource: ['agecategory'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/age-categories/{id}',
+				qs: {
+					languages: '={{$parameter["SettingsAge-categoriesByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -15920,7 +17681,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -15933,8 +17694,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['AgeCategory'],
 				operation: ['SettingsAge-categoriesByIdPatch'],
-				resource: ['agecategory'],
 			},
 		},
 		default: '',
@@ -15953,8 +17715,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['AgeCategory'],
 				operation: ['SettingsAge-categoriesByIdPatch'],
-				resource: ['agecategory'],
 			},
 		},
 		default: '',
@@ -15978,8 +17741,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['AgeCategory'],
 				operation: ['SettingsAge-categoriesPost'],
-				resource: ['agecategory'],
 			},
 		},
 		default:
@@ -15997,34 +17761,38 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'SettingsAge-categoriesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['AgeCategory'],
 				operation: ['SettingsAge-categoriesPost'],
-				resource: ['agecategory'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/settings/v1/age-categories',
+				headers: {
+					'Idempotency-Key': '={{$parameter["SettingsAge-categoriesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsAge-categoriesGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['AgeCategory'],
 				operation: ['SettingsAge-categoriesGet'],
-				resource: ['agecategory'],
 			},
 		},
 		default: '',
@@ -16046,8 +17814,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesPost'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default:
@@ -16065,81 +17834,96 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'RateplanCancellation-policiesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesPost'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/rateplan/v1/cancellation-policies',
+				headers: {
+					'Idempotency-Key': '={{$parameter["RateplanCancellation-policiesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'RateplanCancellation-policiesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesGet'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: '',
 		description: 'Filter cancellation policies by the specified property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/cancellation-policies',
+				qs: {
+					propertyId: '={{$parameter["RateplanCancellation-policiesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanCancellation-policiesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesGet'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/cancellation-policies',
+				qs: {
+					pageNumber: '={{$parameter["RateplanCancellation-policiesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanCancellation-policiesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesGet'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/cancellation-policies',
+				qs: {
+					pageSize: '={{$parameter["RateplanCancellation-policiesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -16150,8 +17934,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesByIdGet'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: '',
@@ -16169,16 +17954,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesByIdGet'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/cancellation-policies/{id}',
+				qs: {
+					languages: '={{$parameter["RateplanCancellation-policiesByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -16194,7 +17983,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -16207,8 +17996,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesByIdPatch'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: '',
@@ -16227,8 +18017,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CancellationPolicy'],
 				operation: ['RateplanCancellation-policiesByIdPatch'],
-				resource: ['cancellationpolicy'],
 			},
 		},
 		default: '',
@@ -16252,8 +18043,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesPost'],
-				resource: ['company'],
 			},
 		},
 		default:
@@ -16271,60 +18063,71 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'RateplanCompaniesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesPost'],
-				resource: ['company'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/rateplan/v1/companies',
+				headers: {
+					'Idempotency-Key': '={{$parameter["RateplanCompaniesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'RateplanCompaniesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesGet'],
-				resource: ['company'],
 			},
 		},
 		default: '',
 		description: 'Filter by the specified property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/companies',
+				qs: {
+					propertyId: '={{$parameter["RateplanCompaniesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'RateplanCompaniesGet_ratePlanIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesGet'],
-				resource: ['company'],
 			},
 		},
 		default: {},
 		description: 'Return companies with any of the specified rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'ratePlanIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/companies',
+				qs: {
+					ratePlanIds: '={{$parameter["RateplanCompaniesGet_ratePlanIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -16333,7 +18136,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -16347,21 +18150,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Corporate Codes',
+		displayName: 'CorporateCodes',
 		name: 'RateplanCompaniesGet_corporateCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesGet'],
-				resource: ['company'],
 			},
 		},
 		default: {},
 		description: 'Return companies that have any of the requested corporate codes',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'corporateCodes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/companies',
+				qs: {
+					corporateCodes: '={{$parameter["RateplanCompaniesGet_corporateCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -16370,7 +18177,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'corporateCodesValues',
-				displayName: 'Corporate Codes',
+				displayName: 'CorporateCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -16384,62 +18191,73 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'RateplanCompaniesGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesGet'],
-				resource: ['company'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values.',
+		description: 'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/companies',
+				qs: {
+					textSearch: '={{$parameter["RateplanCompaniesGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanCompaniesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesGet'],
-				resource: ['company'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/companies',
+				qs: {
+					pageNumber: '={{$parameter["RateplanCompaniesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanCompaniesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesGet'],
-				resource: ['company'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/companies',
+				qs: {
+					pageSize: '={{$parameter["RateplanCompaniesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -16450,8 +18268,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesByIdGet'],
-				resource: ['company'],
 			},
 		},
 		default: '',
@@ -16470,8 +18289,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesByIdPatch'],
-				resource: ['company'],
 			},
 		},
 		default: '',
@@ -16490,8 +18310,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Company'],
 				operation: ['RateplanCompaniesByIdPatch'],
-				resource: ['company'],
 			},
 		},
 		default: '',
@@ -16509,61 +18330,73 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'RateplanCorporate-codesCodesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CorporateCodes'],
 				operation: ['RateplanCorporate-codesCodesGet'],
-				resource: ['corporatecodes'],
 			},
 		},
 		default: '',
 		description: 'Return codes for a specific property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/corporate-codes/codes',
+				qs: {
+					propertyId: '={{$parameter["RateplanCorporate-codesCodesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanCorporate-codesCodesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CorporateCodes'],
 				operation: ['RateplanCorporate-codesCodesGet'],
-				resource: ['corporatecodes'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/corporate-codes/codes',
+				qs: {
+					pageNumber: '={{$parameter["RateplanCorporate-codesCodesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanCorporate-codesCodesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['CorporateCodes'],
 				operation: ['RateplanCorporate-codesCodesGet'],
-				resource: ['corporatecodes'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/corporate-codes/codes',
+				qs: {
+					pageSize: '={{$parameter["RateplanCorporate-codesCodesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -16574,8 +18407,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesPost'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default:
@@ -16593,81 +18427,96 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'RateplanNo-show-policiesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesPost'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/rateplan/v1/no-show-policies',
+				headers: {
+					'Idempotency-Key': '={{$parameter["RateplanNo-show-policiesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'RateplanNo-show-policiesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesGet'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: '',
 		description: 'Filter no-show policies by the specified property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/no-show-policies',
+				qs: {
+					propertyId: '={{$parameter["RateplanNo-show-policiesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanNo-show-policiesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesGet'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/no-show-policies',
+				qs: {
+					pageNumber: '={{$parameter["RateplanNo-show-policiesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanNo-show-policiesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesGet'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/no-show-policies',
+				qs: {
+					pageSize: '={{$parameter["RateplanNo-show-policiesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -16678,8 +18527,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesByIdGet'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: '',
@@ -16697,16 +18547,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesByIdGet'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/no-show-policies/{id}',
+				qs: {
+					languages: '={{$parameter["RateplanNo-show-policiesByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -16722,7 +18576,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -16735,8 +18589,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesByIdPatch'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: '',
@@ -16755,8 +18610,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['NoShowPolicy'],
 				operation: ['RateplanNo-show-policiesByIdPatch'],
-				resource: ['noshowpolicy'],
 			},
 		},
 		default: '',
@@ -16774,61 +18630,73 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'RateplanPromo-codesCodesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['PromoCodes'],
 				operation: ['RateplanPromo-codesCodesGet'],
-				resource: ['promocodes'],
 			},
 		},
 		default: '',
 		description: 'Return codes for a specific property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/promo-codes/codes',
+				qs: {
+					propertyId: '={{$parameter["RateplanPromo-codesCodesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanPromo-codesCodesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['PromoCodes'],
 				operation: ['RateplanPromo-codesCodesGet'],
-				resource: ['promocodes'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/promo-codes/codes',
+				qs: {
+					pageNumber: '={{$parameter["RateplanPromo-codesCodesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanPromo-codesCodesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['PromoCodes'],
 				operation: ['RateplanPromo-codesCodesGet'],
-				resource: ['promocodes'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/promo-codes/codes',
+				qs: {
+					pageSize: '={{$parameter["RateplanPromo-codesCodesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -16839,8 +18707,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRate-plansByIdRatesGet'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
@@ -16859,13 +18728,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRate-plansByIdRatesGet'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -16883,13 +18752,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRate-plansByIdRatesGet'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -16901,42 +18770,50 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanRate-plansByIdRatesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRate-plansByIdRatesGet'],
-				resource: ['rate'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans/{id}/rates',
+				qs: {
+					pageNumber: '={{$parameter["RateplanRate-plansByIdRatesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanRate-plansByIdRatesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRate-plansByIdRatesGet'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans/{id}/rates',
+				qs: {
+					pageSize: '={{$parameter["RateplanRate-plansByIdRatesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -16947,8 +18824,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRate-plansByIdRatesPut'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
@@ -16967,12 +18845,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRate-plansByIdRatesPut'],
-				resource: ['rate'],
 			},
 		},
 		default:
-			'{\n  "rates": [\n    {\n      "from": "2025-08-08T17:00:00+02:00",\n      "to": "2025-08-09T11:00:00+02:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
+			'{\n  "rates": [\n    {\n      "from": "2025-08-19T17:00:00+02:00",\n      "to": "2025-08-20T11:00:00+02:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
 		description: 'The definition of the rates',
 		routing: {
 			request: {
@@ -16986,14 +18865,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'RateplanRatesPatch_ratePlanIds',
 		type: 'fixedCollection',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRatesPatch'],
-				resource: ['rate'],
 			},
 		},
 		default: {},
@@ -17013,7 +18893,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17033,13 +18913,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRatesPatch'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17057,13 +18937,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRatesPatch'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17081,8 +18961,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRatesPatch'],
-				resource: ['rate'],
 			},
 		},
 		default: '',
@@ -17100,22 +18981,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Week Days',
+		displayName: 'WeekDays',
 		name: 'RateplanRatesPatch_weekDays',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
 				operation: ['RateplanRatesPatch'],
-				resource: ['rate'],
 			},
 		},
 		default: {},
 		description:
 			'The weekdays that will be patched. If not specified, all weekdays will be patched.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'weekDays',
+			request: {
+				method: 'PATCH',
+				url: '/rateplan/v1/rates',
+				qs: {
+					weekDays: '={{$parameter["RateplanRatesPatch_weekDays"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17124,7 +19009,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'weekDaysValues',
-				displayName: 'Week Days',
+				displayName: 'WeekDays',
 				values: [
 					{
 						displayName: 'Value',
@@ -17139,40 +19024,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'RateplanRate-plansGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: '',
 		description: 'Return rate plans for the specific property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					propertyId: '={{$parameter["RateplanRate-plansGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Rate Plan Codes',
+		displayName: 'RatePlanCodes',
 		name: 'RateplanRate-plansGet_ratePlanCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans filtered by requested codes',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'ratePlanCodes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					ratePlanCodes: '={{$parameter["RateplanRate-plansGet_ratePlanCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17181,7 +19074,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanCodesValues',
-				displayName: 'Rate Plan Codes',
+				displayName: 'RatePlanCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -17195,21 +19088,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Included Service IDs',
+		displayName: 'IncludedServiceIds',
 		name: 'RateplanRate-plansGet_includedServiceIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans that have any of the requested included services',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'includedServiceIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					includedServiceIds: '={{$parameter["RateplanRate-plansGet_includedServiceIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17218,7 +19115,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'includedServiceIdsValues',
-				displayName: 'Included Service Ids',
+				displayName: 'IncludedServiceIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17232,21 +19129,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Channel Codes',
+		displayName: 'ChannelCodes',
 		name: 'RateplanRate-plansGet_channelCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans that are sold though any of the specified channels',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCodes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					channelCodes: '={{$parameter["RateplanRate-plansGet_channelCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17255,7 +19156,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'channelCodesValues',
-				displayName: 'Channel Codes',
+				displayName: 'ChannelCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -17269,21 +19170,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Promo Codes',
+		displayName: 'PromoCodes',
 		name: 'RateplanRate-plansGet_promoCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans that have any of the requested promo codes',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'promoCodes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					promoCodes: '={{$parameter["RateplanRate-plansGet_promoCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17292,7 +19197,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'promoCodesValues',
-				displayName: 'Promo Codes',
+				displayName: 'PromoCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -17306,21 +19211,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'RateplanRate-plansGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans filtered by requested companies',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					companyIds: '={{$parameter["RateplanRate-plansGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17329,7 +19238,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17343,21 +19252,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Base Rate Plan IDs',
+		displayName: 'BaseRatePlanIds',
 		name: 'RateplanRate-plansGet_baseRatePlanIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans derived from any of the specified rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'baseRatePlanIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					baseRatePlanIds: '={{$parameter["RateplanRate-plansGet_baseRatePlanIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17366,7 +19279,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'baseRatePlanIdsValues',
-				displayName: 'Base Rate Plan Ids',
+				displayName: 'BaseRatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17380,21 +19293,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'RateplanRate-plansGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans with any of the specified unit groups',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					unitGroupIds: '={{$parameter["RateplanRate-plansGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17403,7 +19320,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17417,21 +19334,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Definition IDs',
+		displayName: 'TimeSliceDefinitionIds',
 		name: 'RateplanRate-plansGet_timeSliceDefinitionIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans with any of the specified time slice definitions',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceDefinitionIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					timeSliceDefinitionIds: '={{$parameter["RateplanRate-plansGet_timeSliceDefinitionIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17440,7 +19361,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'timeSliceDefinitionIdsValues',
-				displayName: 'Time Slice Definition Ids',
+				displayName: 'TimeSliceDefinitionIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17454,21 +19375,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'RateplanRate-plansGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans with any of the specified unit group types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					unitGroupTypes: '={{$parameter["RateplanRate-plansGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17477,7 +19402,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -17491,21 +19416,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Template',
+		displayName: 'TimeSliceTemplate',
 		name: 'RateplanRate-plansGet_timeSliceTemplate',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: 'DayUse',
 		description: "The time slice template, defaults to 'over night'",
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceTemplate',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					timeSliceTemplate: '={{$parameter["RateplanRate-plansGet_timeSliceTemplate"]}}',
+				},
 			},
 		},
 		options: [
@@ -17520,21 +19449,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Min Guarantee Types',
+		displayName: 'MinGuaranteeTypes',
 		name: 'RateplanRate-plansGet_minGuaranteeTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans with any of the specified min guarantee types',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'minGuaranteeTypes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					minGuaranteeTypes: '={{$parameter["RateplanRate-plansGet_minGuaranteeTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17543,7 +19476,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'minGuaranteeTypesValues',
-				displayName: 'Min Guarantee Types',
+				displayName: 'MinGuaranteeTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -17557,21 +19490,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Cancellation Policy IDs',
+		displayName: 'CancellationPolicyIds',
 		name: 'RateplanRate-plansGet_cancellationPolicyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans with any of the specified cancellation policies',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'cancellationPolicyIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					cancellationPolicyIds: '={{$parameter["RateplanRate-plansGet_cancellationPolicyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17580,7 +19517,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'cancellationPolicyIdsValues',
-				displayName: 'Cancellation Policy Ids',
+				displayName: 'CancellationPolicyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17594,21 +19531,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'No Show Policy IDs',
+		displayName: 'NoShowPolicyIds',
 		name: 'RateplanRate-plansGet_noShowPolicyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description: 'Return rate plans with any of the specified no-show policies',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'noShowPolicyIds',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					noShowPolicyIds: '={{$parameter["RateplanRate-plansGet_noShowPolicyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17617,7 +19558,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'noShowPolicyIdsValues',
-				displayName: 'No Show Policy Ids',
+				displayName: 'NoShowPolicyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17631,41 +19572,48 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Is Derived',
+		displayName: 'IsDerived',
 		name: 'RateplanRate-plansGet_isDerived',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: false,
 		description: 'Return only derived or base rate plans',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'isDerived',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					isDerived: '={{$parameter["RateplanRate-plansGet_isDerived"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Derivation Level Filter',
+		displayName: 'DerivationLevelFilter',
 		name: 'RateplanRate-plansGet_derivationLevelFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
-		description:
-			"This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+		description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'derivationLevelFilter',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					derivationLevelFilter: '={{$parameter["RateplanRate-plansGet_derivationLevelFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17674,57 +19622,64 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'derivationLevelFilterValues',
-				displayName: 'Derivation Level Filter',
+				displayName: 'DerivationLevelFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+						description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanRate-plansGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					pageNumber: '={{$parameter["RateplanRate-plansGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanRate-plansGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					pageSize: '={{$parameter["RateplanRate-plansGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -17734,17 +19689,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, cancellationPolicy, services, bookingPeriods, surcharges, ageCategories. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans',
+				qs: {
+					expand: '={{$parameter["RateplanRate-plansGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17774,12 +19733,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansPost'],
-				resource: ['rateplan'],
 			},
 		},
 		default:
-			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2025-08-01T12:28:05.4314199+02:00",\n      "to": "2025-08-15T12:28:05.4314199+02:00"\n    },\n    {\n      "from": "2025-08-18T12:28:05.4314199+02:00",\n      "to": "2025-10-07T12:28:05.4314199+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ]\n}',
+			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2025-08-12T13:05:44.4865773+02:00",\n      "to": "2025-08-26T13:05:44.4865773+02:00"\n    },\n    {\n      "from": "2025-08-29T13:05:44.4865773+02:00",\n      "to": "2025-10-18T13:05:44.4865773+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ]\n}',
 		description: 'The definition of the rate plan',
 		routing: {
 			request: {
@@ -17793,34 +19753,38 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'RateplanRate-plansPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansPost'],
-				resource: ['rateplan'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/rateplan/v1/rate-plans',
+				headers: {
+					'Idempotency-Key': '={{$parameter["RateplanRate-plansPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'RateplanRate-plansPatch_ratePlanIds',
 		type: 'fixedCollection',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansPatch'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
@@ -17840,7 +19804,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -17860,8 +19824,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansPatch'],
-				resource: ['rateplan'],
 			},
 		},
 		default: '',
@@ -17885,8 +19850,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansByIdGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: '',
@@ -17904,16 +19870,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansByIdGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans/{id}',
+				qs: {
+					languages: '={{$parameter["RateplanRate-plansByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17929,7 +19899,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -17941,17 +19911,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansByIdGet'],
-				resource: ['rateplan'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property, cancellationPolicy. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans/{id}',
+				qs: {
+					expand: '={{$parameter["RateplanRate-plansByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -17981,8 +19955,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansByIdPut'],
-				resource: ['rateplan'],
 			},
 		},
 		default: '',
@@ -18001,12 +19976,13 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
 				operation: ['RateplanRate-plansByIdPut'],
-				resource: ['rateplan'],
 			},
 		},
 		default:
-			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2025-08-01T12:28:05.4314199+02:00",\n      "to": "2025-08-15T12:28:05.4314199+02:00"\n    },\n    {\n      "from": "2025-08-18T12:28:05.4314199+02:00",\n      "to": "2025-10-07T12:28:05.4314199+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ]\n}',
+			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2025-08-12T13:05:44.4865773+02:00",\n      "to": "2025-08-26T13:05:44.4865773+02:00"\n    },\n    {\n      "from": "2025-08-29T13:05:44.4865773+02:00",\n      "to": "2025-10-18T13:05:44.4865773+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ]\n}',
 		description: 'The definition of the rate plan',
 		routing: {
 			request: {
@@ -18026,8 +20002,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesPost'],
-				resource: ['service'],
 			},
 		},
 		default:
@@ -18045,100 +20022,118 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'RateplanServicesPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesPost'],
-				resource: ['service'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/rateplan/v1/services',
+				headers: {
+					'Idempotency-Key': '={{$parameter["RateplanServicesPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'RateplanServicesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: '',
 		description: 'Filter services by the specified property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					propertyId: '={{$parameter["RateplanServicesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Text Search',
+		displayName: 'TextSearch',
 		name: 'RateplanServicesGet_textSearch',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: '',
-		description:
-			'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
+		description: 'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'textSearch',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					textSearch: '={{$parameter["RateplanServicesGet_textSearch"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Only Sold As Extras',
+		displayName: 'OnlySoldAsExtras',
 		name: 'RateplanServicesGet_onlySoldAsExtras',
 		type: 'boolean',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: false,
 		description:
 			'If set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'onlySoldAsExtras',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					onlySoldAsExtras: '={{$parameter["RateplanServicesGet_onlySoldAsExtras"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Channel Codes',
+		displayName: 'ChannelCodes',
 		name: 'RateplanServicesGet_channelCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: {},
 		description: 'The channel codes the service is sold through',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCodes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					channelCodes: '={{$parameter["RateplanServicesGet_channelCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18147,7 +20142,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'channelCodesValues',
-				displayName: 'Channel Codes',
+				displayName: 'ChannelCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -18161,21 +20156,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Service Types',
+		displayName: 'ServiceTypes',
 		name: 'RateplanServicesGet_serviceTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: {},
 		description: 'The service types offered',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'serviceTypes',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					serviceTypes: '={{$parameter["RateplanServicesGet_serviceTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18184,7 +20183,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'serviceTypesValues',
-				displayName: 'Service Types',
+				displayName: 'ServiceTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -18198,42 +20197,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'RateplanServicesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					pageNumber: '={{$parameter["RateplanServicesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'RateplanServicesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					pageSize: '={{$parameter["RateplanServicesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -18243,17 +20250,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesGet'],
-				resource: ['service'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services',
+				qs: {
+					expand: '={{$parameter["RateplanServicesGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18283,8 +20294,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesByIdPatch'],
-				resource: ['service'],
 			},
 		},
 		default: '',
@@ -18303,8 +20315,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesByIdPatch'],
-				resource: ['service'],
 			},
 		},
 		default: '',
@@ -18328,8 +20341,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesByIdGet'],
-				resource: ['service'],
 			},
 		},
 		default: '',
@@ -18347,16 +20361,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesByIdGet'],
-				resource: ['service'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services/{id}',
+				qs: {
+					languages: '={{$parameter["RateplanServicesByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18372,7 +20390,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -18384,17 +20402,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
 				operation: ['RateplanServicesByIdGet'],
-				resource: ['service'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services/{id}',
+				qs: {
+					expand: '={{$parameter["RateplanServicesByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18418,17 +20440,19 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'ReportsReportsOrdered-servicesGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsOrdered-servicesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
+		description: 'Property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18440,14 +20464,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Service IDs',
+		displayName: 'ServiceIds',
 		name: 'ReportsReportsOrdered-servicesGet_serviceIds',
 		type: 'fixedCollection',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsOrdered-servicesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
@@ -18467,7 +20492,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'serviceIdsValues',
-				displayName: 'Service Ids',
+				displayName: 'ServiceIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -18487,8 +20512,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsOrdered-servicesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18510,8 +20536,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsOrdered-servicesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18527,14 +20554,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'ReportsReportsArrivalsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsArrivalsGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18556,8 +20584,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsArrivalsGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18579,8 +20608,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsArrivalsGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18596,14 +20626,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'ReportsReportsProperty-performanceGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18625,8 +20656,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18648,8 +20680,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -18665,21 +20698,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'ReportsReportsProperty-performanceGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'The company IDs used to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					companyIds: '={{$parameter["ReportsReportsProperty-performanceGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18688,7 +20725,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -18702,21 +20739,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Rate Plan IDs',
+		displayName: 'RatePlanIds',
 		name: 'ReportsReportsProperty-performanceGet_ratePlanIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'The rate plan IDs used to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'ratePlanIds',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					ratePlanIds: '={{$parameter["ReportsReportsProperty-performanceGet_ratePlanIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18725,7 +20766,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'ratePlanIdsValues',
-				displayName: 'Rate Plan Ids',
+				displayName: 'RatePlanIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -18739,21 +20780,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group Types',
+		displayName: 'UnitGroupTypes',
 		name: 'ReportsReportsProperty-performanceGet_unitGroupTypes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'The unit group types used to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupTypes',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					unitGroupTypes: '={{$parameter["ReportsReportsProperty-performanceGet_unitGroupTypes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18762,7 +20807,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupTypesValues',
-				displayName: 'Unit Group Types',
+				displayName: 'UnitGroupTypes',
 				values: [
 					{
 						displayName: 'Value',
@@ -18776,21 +20821,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Unit Group IDs',
+		displayName: 'UnitGroupIds',
 		name: 'ReportsReportsProperty-performanceGet_unitGroupIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'The unit group IDs used to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'unitGroupIds',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					unitGroupIds: '={{$parameter["ReportsReportsProperty-performanceGet_unitGroupIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18799,7 +20848,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'unitGroupIdsValues',
-				displayName: 'Unit Group Ids',
+				displayName: 'UnitGroupIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -18813,21 +20862,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Time Slice Definition IDs',
+		displayName: 'TimeSliceDefinitionIds',
 		name: 'ReportsReportsProperty-performanceGet_timeSliceDefinitionIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'The time slice definition IDs used to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'timeSliceDefinitionIds',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					timeSliceDefinitionIds:
+						'={{$parameter["ReportsReportsProperty-performanceGet_timeSliceDefinitionIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18836,7 +20890,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'timeSliceDefinitionIdsValues',
-				displayName: 'Time Slice Definition Ids',
+				displayName: 'TimeSliceDefinitionIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -18850,21 +20904,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Channel Codes',
+		displayName: 'ChannelCodes',
 		name: 'ReportsReportsProperty-performanceGet_channelCodes',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'The channel codes used to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'channelCodes',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					channelCodes: '={{$parameter["ReportsReportsProperty-performanceGet_channelCodes"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18873,7 +20931,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'channelCodesValues',
-				displayName: 'Channel Codes',
+				displayName: 'ChannelCodes',
 				values: [
 					{
 						displayName: 'Value',
@@ -18887,21 +20945,26 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Market Segment IDs',
+		displayName: 'MarketSegmentIds',
 		name: 'ReportsReportsProperty-performanceGet_marketSegmentIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'The market segment IDs used to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'marketSegmentIds',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					marketSegmentIds:
+						'={{$parameter["ReportsReportsProperty-performanceGet_marketSegmentIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18910,7 +20973,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'marketSegmentIdsValues',
-				displayName: 'Market Segment Ids',
+				displayName: 'MarketSegmentIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -18924,21 +20987,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Travel Purpose',
+		displayName: 'TravelPurpose',
 		name: 'ReportsReportsProperty-performanceGet_travelPurpose',
 		type: 'options',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: 'Business',
 		description: 'The travel purpose to filter the retrieved data',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'travelPurpose',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					travelPurpose: '={{$parameter["ReportsReportsProperty-performanceGet_travelPurpose"]}}',
+				},
 			},
 		},
 		options: [
@@ -18958,17 +21025,21 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsProperty-performanceGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: businessDays. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/property-performance',
+				qs: {
+					expand: '={{$parameter["ReportsReportsProperty-performanceGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -18992,17 +21063,19 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'ReportsReportsCompany-invoices-vatGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsCompany-invoices-vatGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
+		description: 'Property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19014,21 +21087,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Company IDs',
+		displayName: 'CompanyIds',
 		name: 'ReportsReportsCompany-invoices-vatGet_companyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsCompany-invoices-vatGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
 		description: 'Company IDs the report should be generated for',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'companyIds',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/company-invoices-vat',
+				qs: {
+					companyIds: '={{$parameter["ReportsReportsCompany-invoices-vatGet_companyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -19037,7 +21114,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'companyIdsValues',
-				displayName: 'Company Ids',
+				displayName: 'CompanyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -19051,22 +21128,25 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Date Filter',
+		displayName: 'DateFilter',
 		name: 'ReportsReportsCompany-invoices-vatGet_dateFilter',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsCompany-invoices-vatGet'],
-				resource: ['reports'],
 			},
 		},
 		default: {},
-		description:
-			"Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7.",
+		description: 'Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'dateFilter',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/company-invoices-vat',
+				qs: {
+					dateFilter: '={{$parameter["ReportsReportsCompany-invoices-vatGet_dateFilter"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -19075,32 +21155,33 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'dateFilterValues',
-				displayName: 'Date Filter',
+				displayName: 'DateFilter',
 				values: [
 					{
 						displayName: 'Value',
 						name: 'value',
 						type: 'string',
 						default: '',
-						description:
-							"Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7.",
+						description: 'Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7.',
 					},
 				],
 			},
 		],
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'ReportsReportsRevenuesGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsRevenuesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
+		description: 'Property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19118,8 +21199,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsRevenuesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -19141,8 +21223,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsRevenuesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
@@ -19158,80 +21241,96 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Language Code',
+		displayName: 'LanguageCode',
 		name: 'ReportsReportsRevenuesGet_languageCode',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['reports-v1'],
+				resource: ['Reports'],
 				operation: ['ReportsReportsRevenuesGet'],
-				resource: ['reports'],
 			},
 		},
 		default: '',
 		description: 'The language for the the report',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languageCode',
+			request: {
+				method: 'GET',
+				url: '/reports/v1/reports/revenues',
+				qs: {
+					languageCode: '={{$parameter["ReportsReportsRevenuesGet_languageCode"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsCapture-policiesGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CapturePolicies'],
 				operation: ['SettingsCapture-policiesGet'],
-				resource: ['capturepolicies'],
 			},
 		},
 		default: '',
 		description: 'Filter capture policies by the specified property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/capture-policies',
+				qs: {
+					propertyId: '={{$parameter["SettingsCapture-policiesGet_propertyId"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'SettingsCapture-policiesGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CapturePolicies'],
 				operation: ['SettingsCapture-policiesGet'],
-				resource: ['capturepolicies'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/capture-policies',
+				qs: {
+					pageNumber: '={{$parameter["SettingsCapture-policiesGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'SettingsCapture-policiesGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CapturePolicies'],
 				operation: ['SettingsCapture-policiesGet'],
-				resource: ['capturepolicies'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/capture-policies',
+				qs: {
+					pageSize: '={{$parameter["SettingsCapture-policiesGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -19242,8 +21341,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CapturePolicies'],
 				operation: ['SettingsCapture-policiesByIdGet'],
-				resource: ['capturepolicies'],
 			},
 		},
 		default: '',
@@ -19262,8 +21362,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CapturePolicies'],
 				operation: ['SettingsCapture-policiesByIdPatch'],
-				resource: ['capturepolicies'],
 			},
 		},
 		default: '',
@@ -19282,8 +21383,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CapturePolicies'],
 				operation: ['SettingsCapture-policiesByIdPatch'],
-				resource: ['capturepolicies'],
 			},
 		},
 		default: '',
@@ -19307,8 +21409,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CityTax'],
 				operation: ['SettingsCity-taxPost'],
-				resource: ['citytax'],
 			},
 		},
 		default:
@@ -19326,41 +21429,48 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'SettingsCity-taxPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CityTax'],
 				operation: ['SettingsCity-taxPost'],
-				resource: ['citytax'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/settings/v1/city-tax',
+				headers: {
+					'Idempotency-Key': '={{$parameter["SettingsCity-taxPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsCity-taxGet_propertyId',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CityTax'],
 				operation: ['SettingsCity-taxGet'],
-				resource: ['citytax'],
 			},
 		},
 		default: '',
 		description: 'Filter by the specified property',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyId',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/city-tax',
+				qs: {
+					propertyId: '={{$parameter["SettingsCity-taxGet_propertyId"]}}',
+				},
 			},
 		},
 	},
@@ -19371,8 +21481,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CityTax'],
 				operation: ['SettingsCity-taxByIdGet'],
-				resource: ['citytax'],
 			},
 		},
 		default: '',
@@ -19390,16 +21501,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CityTax'],
 				operation: ['SettingsCity-taxByIdGet'],
-				resource: ['citytax'],
 			},
 		},
 		default: {},
-		description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+		description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'languages',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/city-tax/{id}',
+				qs: {
+					languages: '={{$parameter["SettingsCity-taxByIdGet_languages"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -19415,7 +21530,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+						description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 					},
 				],
 			},
@@ -19428,8 +21543,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CityTax'],
 				operation: ['SettingsCity-taxByIdPatch'],
-				resource: ['citytax'],
 			},
 		},
 		default: '',
@@ -19448,8 +21564,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CityTax'],
 				operation: ['SettingsCity-taxByIdPatch'],
-				resource: ['citytax'],
 			},
 		},
 		default: '',
@@ -19467,14 +21584,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsSub-accountsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsGet'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
@@ -19490,42 +21608,50 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'SettingsSub-accountsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsGet'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/sub-accounts',
+				qs: {
+					pageNumber: '={{$parameter["SettingsSub-accountsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'SettingsSub-accountsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsGet'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/sub-accounts',
+				qs: {
+					pageSize: '={{$parameter["SettingsSub-accountsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -19536,8 +21662,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsPost'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default:
@@ -19555,34 +21682,38 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'SettingsSub-accountsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsPost'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/settings/v1/sub-accounts',
+				headers: {
+					'Idempotency-Key': '={{$parameter["SettingsSub-accountsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsSub-accounts$countGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accounts$countGet'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
@@ -19604,8 +21735,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsByIdGet'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
@@ -19624,8 +21756,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsByIdPatch'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
@@ -19644,8 +21777,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsByIdPatch'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
@@ -19669,8 +21803,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['CustomSubAccounts'],
 				operation: ['SettingsSub-accountsByIdHead'],
-				resource: ['customsubaccounts'],
 			},
 		},
 		default: '',
@@ -19683,14 +21818,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsFeaturesByPropertyIdGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['FeatureSettings'],
 				operation: ['SettingsFeaturesByPropertyIdGet'],
-				resource: ['featuresettings'],
 			},
 		},
 		default: '',
@@ -19703,14 +21839,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsFeaturesByPropertyIdPatch_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['FeatureSettings'],
 				operation: ['SettingsFeaturesByPropertyIdPatch'],
-				resource: ['featuresettings'],
 			},
 		},
 		default: '',
@@ -19729,8 +21866,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['FeatureSettings'],
 				operation: ['SettingsFeaturesByPropertyIdPatch'],
-				resource: ['featuresettings'],
 			},
 		},
 		default: '',
@@ -19748,21 +21886,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'SettingsInvoice-addressGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['InvoiceAddress'],
 				operation: ['SettingsInvoice-addressGet'],
-				resource: ['invoiceaddress'],
 			},
 		},
 		default: {},
 		description: 'The propertyIds parameter',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/invoice-address',
+				qs: {
+					propertyIds: '={{$parameter["SettingsInvoice-addressGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -19771,7 +21913,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -19785,14 +21927,15 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'SettingsInvoice-addressPut_propertyIds',
 		type: 'fixedCollection',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['InvoiceAddress'],
 				operation: ['SettingsInvoice-addressPut'],
-				resource: ['invoiceaddress'],
 			},
 		},
 		default: {},
@@ -19812,7 +21955,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -19832,8 +21975,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['InvoiceAddress'],
 				operation: ['SettingsInvoice-addressPut'],
-				resource: ['invoiceaddress'],
 			},
 		},
 		default:
@@ -19851,14 +21995,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'SettingsInvoice-addressPatch_propertyIds',
 		type: 'fixedCollection',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['InvoiceAddress'],
 				operation: ['SettingsInvoice-addressPatch'],
-				resource: ['invoiceaddress'],
 			},
 		},
 		default: {},
@@ -19878,7 +22023,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -19898,8 +22043,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['InvoiceAddress'],
 				operation: ['SettingsInvoice-addressPatch'],
-				resource: ['invoiceaddress'],
 			},
 		},
 		default: '',
@@ -19922,8 +22068,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['Languages'],
 				operation: ['SettingsLanguagesPut'],
-				resource: ['languages'],
 			},
 		},
 		default:
@@ -19947,8 +22094,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsByIdGet'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: '',
@@ -19967,8 +22115,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsByIdHead'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: '',
@@ -19987,8 +22136,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsByIdPatch'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: '',
@@ -20007,8 +22157,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsByIdPatch'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: '',
@@ -20026,21 +22177,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'SettingsMarket-segmentsGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsGet'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: {},
 		description: 'Return market segments with any of the specified property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/market-segments',
+				qs: {
+					propertyIds: '={{$parameter["SettingsMarket-segmentsGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -20049,7 +22204,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -20063,42 +22218,50 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Page Number',
+		displayName: 'PageNumber',
 		name: 'SettingsMarket-segmentsGet_pageNumber',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsGet'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: 1,
 		description:
 			'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageNumber',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/market-segments',
+				qs: {
+					pageNumber: '={{$parameter["SettingsMarket-segmentsGet_pageNumber"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Page Size',
+		displayName: 'PageSize',
 		name: 'SettingsMarket-segmentsGet_pageSize',
 		type: 'number',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsGet'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: '',
 		description:
 			'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'pageSize',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/market-segments',
+				qs: {
+					pageSize: '={{$parameter["SettingsMarket-segmentsGet_pageSize"]}}',
+				},
 			},
 		},
 	},
@@ -20109,8 +22272,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsPost'],
-				resource: ['marketsegment'],
 			},
 		},
 		default:
@@ -20128,41 +22292,48 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'SettingsMarket-segmentsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segmentsPost'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/settings/v1/market-segments',
+				headers: {
+					'Idempotency-Key': '={{$parameter["SettingsMarket-segmentsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
 	{
-		displayName: 'Property IDs',
+		displayName: 'PropertyIds',
 		name: 'SettingsMarket-segments$countGet_propertyIds',
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['MarketSegment'],
 				operation: ['SettingsMarket-segments$countGet'],
-				resource: ['marketsegment'],
 			},
 		},
 		default: {},
 		description: 'Return market segments with any of the specified property IDs',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'propertyIds',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/market-segments/$count',
+				qs: {
+					propertyIds: '={{$parameter["SettingsMarket-segments$countGet_propertyIds"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -20171,7 +22342,7 @@ export const parameterFields: INodeProperties[] = [
 		options: [
 			{
 				name: 'propertyIdsValues',
-				displayName: 'Property Ids',
+				displayName: 'PropertyIds',
 				values: [
 					{
 						displayName: 'Value',
@@ -20191,8 +22362,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['PropertySettings'],
 				operation: ['SettingsPropertiesByIdGet'],
-				resource: ['propertysettings'],
 			},
 		},
 		default: '',
@@ -20205,14 +22377,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
@@ -20231,8 +22404,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
@@ -20250,17 +22424,22 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/properties/{propertyId}/time-slice-definitions/{id}',
+				qs: {
+					expand:
+						'={{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -20284,14 +22463,15 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
@@ -20310,8 +22490,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
@@ -20330,8 +22511,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
@@ -20349,14 +22531,15 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsPropertiesByPropertyIdTime-slice-definitionsGet_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsGet'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
@@ -20374,17 +22557,22 @@ export const parameterFields: INodeProperties[] = [
 		type: 'fixedCollection',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsGet'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: {},
 		description:
 			'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'expand',
+			request: {
+				method: 'GET',
+				url: '/settings/v1/properties/{propertyId}/time-slice-definitions',
+				qs: {
+					expand:
+						'={{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsGet_expand"]}}',
+				},
 			},
 		},
 		typeOptions: {
@@ -20408,14 +22596,15 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
-		displayName: 'Property ID',
+		displayName: 'PropertyId',
 		name: 'SettingsPropertiesByPropertyIdTime-slice-definitionsPost_propertyId',
 		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsPost'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
@@ -20434,8 +22623,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsPost'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default:
@@ -20453,22 +22643,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Idempotency- Key',
+		displayName: 'IdempotencyKey',
 		name: 'SettingsPropertiesByPropertyIdTime-slice-definitionsPost_Idempotency-Key',
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['settings-v1'],
+				resource: ['TimeSliceDefinitions'],
 				operation: ['SettingsPropertiesByPropertyIdTime-slice-definitionsPost'],
-				resource: ['timeslicedefinitions'],
 			},
 		},
 		default: '',
-		description:
-			"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+		description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'Idempotency-Key',
+			request: {
+				method: 'POST',
+				url: '/settings/v1/properties/{propertyId}/time-slice-definitions',
+				headers: {
+					'Idempotency-Key':
+						'={{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsPost_Idempotency-Key"]}}',
+				},
 			},
 		},
 	},
@@ -20478,16 +22672,20 @@ export const parameterFields: INodeProperties[] = [
 		type: 'string',
 		displayOptions: {
 			show: {
+				group: ['webhook-v1'],
+				resource: ['HealthCheck'],
 				operation: ['PingerPost'],
-				resource: ['healthcheck'],
 			},
 		},
 		default: '',
 		description: 'The URL parameter',
 		routing: {
-			send: {
-				type: 'query',
-				property: 'url',
+			request: {
+				method: 'POST',
+				url: '/v1/pinger',
+				qs: {
+					url: '={{$parameter["PingerPost_url"]}}',
+				},
 			},
 		},
 	},
@@ -20498,8 +22696,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['webhook-v1'],
+				resource: ['Subscriptions'],
 				operation: ['SubscriptionsPost'],
-				resource: ['subscriptions'],
 			},
 		},
 		default:
@@ -20523,8 +22722,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['webhook-v1'],
+				resource: ['Subscriptions'],
 				operation: ['SubscriptionsByIdGet'],
-				resource: ['subscriptions'],
 			},
 		},
 		default: '',
@@ -20543,8 +22743,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['webhook-v1'],
+				resource: ['Subscriptions'],
 				operation: ['SubscriptionsByIdPut'],
-				resource: ['subscriptions'],
 			},
 		},
 		default: '',
@@ -20563,8 +22764,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['webhook-v1'],
+				resource: ['Subscriptions'],
 				operation: ['SubscriptionsByIdPut'],
-				resource: ['subscriptions'],
 			},
 		},
 		default:
@@ -20588,8 +22790,9 @@ export const parameterFields: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
+				group: ['webhook-v1'],
+				resource: ['Subscriptions'],
 				operation: ['SubscriptionsByIdDelete'],
-				resource: ['subscriptions'],
 			},
 		},
 		default: '',
