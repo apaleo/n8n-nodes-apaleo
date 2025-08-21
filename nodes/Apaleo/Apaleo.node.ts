@@ -14,6 +14,7 @@ export class Apaleo implements INodeType {
 		defaults: {
 			name: 'Apaleo Official',
 		},
+		usableAsTool: true,
 		inputs: [NodeConnectionType.Main],
 		outputs: [NodeConnectionType.Main],
 		credentials: [
