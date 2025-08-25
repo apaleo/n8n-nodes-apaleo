@@ -1,4 +1,5 @@
 import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+
 export class ApaleoOAuth2Api implements ICredentialType {
 	name = 'apaleoOAuth2Api';
 
@@ -6,7 +7,8 @@ export class ApaleoOAuth2Api implements ICredentialType {
 
 	displayName = 'Apaleo OAuth2 API';
 
-	documentationUrl = 'https://apaleo.dev';
+	documentationUrl =
+		'https://apaleo.dev/guides/oauth-connection/simple-client.html#example-curl-request';
 
 	properties: INodeProperties[] = [
 		{
@@ -34,11 +36,28 @@ export class ApaleoOAuth2Api implements ICredentialType {
 			default: 'body',
 		},
 		{
+			displayName: 'Enabled Scopes',
+			name: 'enabledScopes',
+			type: 'string',
+			required: true,
+			default: '',
+			placeholder: 'openid offline_access',
+			description: 'Space-separated list of scopes to request.',
+		},
+		{
+			displayName: 'Auth URI Query Parameters',
+			name: 'authQueryParameters',
+			type: 'hidden',
+			default: '',
+			description:
+				'For some services additional query parameters have to be set which can be defined here',
+			placeholder: '',
+		},
+		{
 			displayName: 'Scope',
 			name: 'scope',
-			type: 'string',
-			default:
-				'offline_access account.manage account.suspend accounting.read authorizations.manage authorizations.read availability.manage availability.read charges.delete companies.manage companies.read depositItems.manage deposits.manage deposits.read folios.manage folios.payment-with-charges folios.read identity:account-users.manage identity:account-users.read invoices.manage invoices.read logs.read maintenances.manage maintenances.read offer-index.read offers.read openid operations.change-room-state operations.trigger-night-audit payment-accounts.manage payment-accounts.read payments.manage payments.read prepayment-notices.read profile rateplans.read-corporate rateplans.read-negotiated rates.manage rates.read reports.read reservations.force-manage reservations.manage reservations.read routings.create routings.manage routings.read servicegroups.create servicegroups.manage servicegroups.read setup.manage setup.read transactional-data.delete',
+			type: 'hidden',
+			default: '={{ $self.enabledScopes }}',
 		},
 	];
 }

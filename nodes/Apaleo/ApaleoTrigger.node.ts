@@ -82,7 +82,7 @@ export class ApaleoTrigger implements INodeType {
 			{
 				displayName: 'Events',
 				name: 'events',
-				type: 'multiOptions',
+				type: 'options',
 				options: [
 					{
 						name: 'Account - All Events',
@@ -806,7 +806,7 @@ export class ApaleoTrigger implements INodeType {
 						description: 'Receive notifications when a unitgroup is deleted',
 					},
 				],
-				default: [],
+				default: 'account/*',
 				required: true,
 				description: 'Select the Apaleo events you want to trigger on',
 			},

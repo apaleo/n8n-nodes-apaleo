@@ -1,7 +1,7 @@
 import { INodeProperties } from 'n8n-workflow';
 
 export const operationsByResource = {
-	availability: [
+	Availability: [
 		{
 			displayName: 'Get a list of all available units in a property',
 			value: 'AvailabilityUnitsGet',
@@ -10,7 +10,7 @@ export const operationsByResource = {
 			action: 'Get a list of all available units in a property',
 			method: 'GET',
 			path: '/availability/v1/units',
-			resource: 'availability',
+			resource: 'Availability',
 			group: 'availability-v1',
 		},
 		{
@@ -21,7 +21,7 @@ export const operationsByResource = {
 			action: 'Get a list of all available unit groups in a property',
 			method: 'GET',
 			path: '/availability/v1/unit-groups',
-			resource: 'availability',
+			resource: 'Availability',
 			group: 'availability-v1',
 		},
 		{
@@ -32,7 +32,7 @@ export const operationsByResource = {
 			action: 'Allows to modify the unit group availability',
 			method: 'PATCH',
 			path: '/availability/v1/unit-groups/{id}',
-			resource: 'availability',
+			resource: 'Availability',
 			group: 'availability-v1',
 		},
 		{
@@ -43,11 +43,11 @@ export const operationsByResource = {
 			action: 'Get a list of all available services in a property',
 			method: 'GET',
 			path: '/availability/v1/services',
-			resource: 'availability',
+			resource: 'Availability',
 			group: 'availability-v1',
 		},
 	],
-	reservationavailability: [
+	ReservationAvailability: [
 		{
 			displayName: 'Get a list of all available units for a reservation',
 			value: 'AvailabilityReservationsByIdUnitsGet',
@@ -56,11 +56,11 @@ export const operationsByResource = {
 			action: 'Get a list of all available units for a reservation',
 			method: 'GET',
 			path: '/availability/v1/reservations/{id}/units',
-			resource: 'reservationavailability',
+			resource: 'ReservationAvailability',
 			group: 'availability-v1',
 		},
 	],
-	block: [
+	Block: [
 		{
 			displayName: 'Creates a block',
 			value: 'BookingBlocksPost',
@@ -69,7 +69,7 @@ export const operationsByResource = {
 			action: 'Creates a block',
 			method: 'POST',
 			path: '/booking/v1/blocks',
-			resource: 'block',
+			resource: 'Block',
 			group: 'booking-v1',
 		},
 		{
@@ -80,7 +80,7 @@ export const operationsByResource = {
 			action: 'Returns a list of blocks',
 			method: 'GET',
 			path: '/booking/v1/blocks',
-			resource: 'block',
+			resource: 'Block',
 			group: 'booking-v1',
 		},
 		{
@@ -91,7 +91,7 @@ export const operationsByResource = {
 			action: 'Returns number of blocks',
 			method: 'GET',
 			path: '/booking/v1/blocks/$count',
-			resource: 'block',
+			resource: 'Block',
 			group: 'booking-v1',
 		},
 		{
@@ -102,11 +102,11 @@ export const operationsByResource = {
 			action: 'Returns a specific block.',
 			method: 'GET',
 			path: '/booking/v1/blocks/{id}',
-			resource: 'block',
+			resource: 'Block',
 			group: 'booking-v1',
 		},
 	],
-	blockactions: [
+	BlockActions: [
 		{
 			displayName: 'Confirm a block.',
 			value: 'BookingBlock-actionsByIdConfirmPut',
@@ -115,7 +115,7 @@ export const operationsByResource = {
 			action: 'Confirm a block.',
 			method: 'PUT',
 			path: '/booking/v1/block-actions/{id}/confirm',
-			resource: 'blockactions',
+			resource: 'BlockActions',
 			group: 'booking-v1',
 		},
 		{
@@ -126,7 +126,7 @@ export const operationsByResource = {
 			action: 'Release a block.',
 			method: 'PUT',
 			path: '/booking/v1/block-actions/{id}/release',
-			resource: 'blockactions',
+			resource: 'BlockActions',
 			group: 'booking-v1',
 		},
 		{
@@ -137,7 +137,7 @@ export const operationsByResource = {
 			action: 'Cancel a block.',
 			method: 'PUT',
 			path: '/booking/v1/block-actions/{id}/cancel',
-			resource: 'blockactions',
+			resource: 'BlockActions',
 			group: 'booking-v1',
 		},
 		{
@@ -148,7 +148,7 @@ export const operationsByResource = {
 			action: 'Wash a block.',
 			method: 'PUT',
 			path: '/booking/v1/block-actions/{id}/wash',
-			resource: 'blockactions',
+			resource: 'BlockActions',
 			group: 'booking-v1',
 		},
 		{
@@ -159,11 +159,11 @@ export const operationsByResource = {
 			action: 'Allow to modify a block',
 			method: 'PUT',
 			path: '/booking/v1/block-actions/{id}/amend',
-			resource: 'blockactions',
+			resource: 'BlockActions',
 			group: 'booking-v1',
 		},
 	],
-	booking: [
+	Booking: [
 		{
 			displayName: 'Creates a booking for one or more reservations.',
 			value: 'BookingBookingsPost',
@@ -172,7 +172,7 @@ export const operationsByResource = {
 			action: 'Creates a booking for one or more reservations.',
 			method: 'POST',
 			path: '/booking/v1/bookings',
-			resource: 'booking',
+			resource: 'Booking',
 			group: 'booking-v1',
 		},
 		{
@@ -183,7 +183,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all bookings, filtered by the specified parameters.',
 			method: 'GET',
 			path: '/booking/v1/bookings',
-			resource: 'booking',
+			resource: 'Booking',
 			group: 'booking-v1',
 		},
 		{
@@ -196,7 +196,7 @@ export const operationsByResource = {
 				'Creates a booking for one or more reservations regardless of availability or restrictions.',
 			method: 'POST',
 			path: '/booking/v1/bookings/$force',
-			resource: 'booking',
+			resource: 'Booking',
 			group: 'booking-v1',
 		},
 		{
@@ -207,7 +207,7 @@ export const operationsByResource = {
 			action: 'Add one or multiple reservations to an existing booking.',
 			method: 'POST',
 			path: '/booking/v1/bookings/{id}/reservations',
-			resource: 'booking',
+			resource: 'Booking',
 			group: 'booking-v1',
 		},
 		{
@@ -220,7 +220,7 @@ export const operationsByResource = {
 				'Add one or multiple reservations to an existing booking regardless of availability or restrictions.',
 			method: 'POST',
 			path: '/booking/v1/bookings/{id}/reservations/$force',
-			resource: 'booking',
+			resource: 'Booking',
 			group: 'booking-v1',
 		},
 		{
@@ -231,7 +231,7 @@ export const operationsByResource = {
 			action: 'Returns a specific booking.',
 			method: 'GET',
 			path: '/booking/v1/bookings/{id}',
-			resource: 'booking',
+			resource: 'Booking',
 			group: 'booking-v1',
 		},
 		{
@@ -242,11 +242,11 @@ export const operationsByResource = {
 			action: 'Allows to modify certain booking properties',
 			method: 'PATCH',
 			path: '/booking/v1/bookings/{id}',
-			resource: 'booking',
+			resource: 'Booking',
 			group: 'booking-v1',
 		},
 	],
-	group: [
+	Group: [
 		{
 			displayName: 'Creates a group booking.',
 			value: 'BookingGroupsPost',
@@ -255,7 +255,7 @@ export const operationsByResource = {
 			action: 'Creates a group booking.',
 			method: 'POST',
 			path: '/booking/v1/groups',
-			resource: 'group',
+			resource: 'Group',
 			group: 'booking-v1',
 		},
 		{
@@ -266,7 +266,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all group bookings, filtered by the specified parameters.',
 			method: 'GET',
 			path: '/booking/v1/groups',
-			resource: 'group',
+			resource: 'Group',
 			group: 'booking-v1',
 		},
 		{
@@ -277,7 +277,7 @@ export const operationsByResource = {
 			action: 'Returns a specific group booking.',
 			method: 'GET',
 			path: '/booking/v1/groups/{id}',
-			resource: 'group',
+			resource: 'Group',
 			group: 'booking-v1',
 		},
 		{
@@ -288,7 +288,7 @@ export const operationsByResource = {
 			action: 'Allows to modify certain group booking properties',
 			method: 'PATCH',
 			path: '/booking/v1/groups/{id}',
-			resource: 'group',
+			resource: 'Group',
 			group: 'booking-v1',
 		},
 		{
@@ -301,11 +301,11 @@ export const operationsByResource = {
 				'Add one or multiple reservations to an existing group booking using blocked inventory.',
 			method: 'POST',
 			path: '/booking/v1/groups/{id}/reservations',
-			resource: 'group',
+			resource: 'Group',
 			group: 'booking-v1',
 		},
 	],
-	offer: [
+	Offer: [
 		{
 			displayName: 'Returns offers for one specific stay.',
 			value: 'BookingOffersGet',
@@ -314,7 +314,7 @@ export const operationsByResource = {
 			action: 'Returns offers for one specific stay.',
 			method: 'GET',
 			path: '/booking/v1/offers',
-			resource: 'offer',
+			resource: 'Offer',
 			group: 'booking-v1',
 		},
 		{
@@ -325,7 +325,7 @@ export const operationsByResource = {
 			action: 'Returns offers for a specific rate plan.',
 			method: 'GET',
 			path: '/booking/v1/rate-plan-offers',
-			resource: 'offer',
+			resource: 'Offer',
 			group: 'booking-v1',
 		},
 		{
@@ -336,7 +336,7 @@ export const operationsByResource = {
 			action: 'Returns service offers for one specific stay.',
 			method: 'GET',
 			path: '/booking/v1/service-offers',
-			resource: 'offer',
+			resource: 'Offer',
 			group: 'booking-v1',
 		},
 		{
@@ -347,11 +347,11 @@ export const operationsByResource = {
 			action: 'Returns offers with rates and availabilities for the specified range.',
 			method: 'GET',
 			path: '/booking/v1/offer-index',
-			resource: 'offer',
+			resource: 'Offer',
 			group: 'booking-v1',
 		},
 	],
-	reservation: [
+	Reservation: [
 		{
 			displayName: 'Returns a list of all reservations, filtered by the specified parameters.',
 			value: 'BookingReservationsGet',
@@ -360,7 +360,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all reservations, filtered by the specified parameters.',
 			method: 'GET',
 			path: '/booking/v1/reservations',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 		{
@@ -373,7 +373,7 @@ export const operationsByResource = {
 				'Returns the number of reservations fulfilling the criteria specified in the parameters.',
 			method: 'GET',
 			path: '/booking/v1/reservations/$count',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 		{
@@ -384,7 +384,7 @@ export const operationsByResource = {
 			action: 'Returns a specific reservation.',
 			method: 'GET',
 			path: '/booking/v1/reservations/{id}',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 		{
@@ -395,7 +395,7 @@ export const operationsByResource = {
 			action: 'Allows to modify certain reservation properties',
 			method: 'PATCH',
 			path: '/booking/v1/reservations/{id}',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 		{
@@ -406,7 +406,7 @@ export const operationsByResource = {
 			action: 'Returns offers for one specific reservation.',
 			method: 'GET',
 			path: '/booking/v1/reservations/{id}/offers',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 		{
@@ -417,7 +417,7 @@ export const operationsByResource = {
 			action: 'Returns service offers for one specific reservation.',
 			method: 'GET',
 			path: '/booking/v1/reservations/{id}/service-offers',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 		{
@@ -428,7 +428,7 @@ export const operationsByResource = {
 			action: 'Returns the services booked for a specific reservation.',
 			method: 'GET',
 			path: '/booking/v1/reservations/{id}/services',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 		{
@@ -439,11 +439,11 @@ export const operationsByResource = {
 			action: 'Removes a service from a reservation.',
 			method: 'DELETE',
 			path: '/booking/v1/reservations/{id}/services',
-			resource: 'reservation',
+			resource: 'Reservation',
 			group: 'booking-v1',
 		},
 	],
-	reservationactions: [
+	ReservationActions: [
 		{
 			displayName: 'Assign a unit to a reservation.',
 			value: 'BookingReservation-actionsByIdAssign-unitPut',
@@ -452,7 +452,7 @@ export const operationsByResource = {
 			action: 'Assign a unit to a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/assign-unit',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -463,7 +463,7 @@ export const operationsByResource = {
 			action: 'Assign a specific unit to a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/assign-unit/{unitId}',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -474,7 +474,7 @@ export const operationsByResource = {
 			action: 'Unassign units from a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/unassign-units',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -485,7 +485,7 @@ export const operationsByResource = {
 			action: 'Check-in of a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/checkin',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -495,7 +495,7 @@ export const operationsByResource = {
 			action: 'Reverses the check-in of a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/revert-checkin',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -506,7 +506,7 @@ export const operationsByResource = {
 			action: 'Check-out of a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/checkout',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -517,7 +517,7 @@ export const operationsByResource = {
 			action: 'Cancel a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/cancel',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -528,7 +528,7 @@ export const operationsByResource = {
 			action: 'Set a reservation to No-show.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/noshow',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -539,7 +539,7 @@ export const operationsByResource = {
 			action: 'Allows you to amend the stay details of a reservation',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/amend',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -552,7 +552,7 @@ export const operationsByResource = {
 				'Allows you to amend the stay details of a reservation regardless of availability or restrictions.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/amend/$force',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -563,7 +563,7 @@ export const operationsByResource = {
 			action: 'Book the service for a specific reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/book-service',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -574,7 +574,7 @@ export const operationsByResource = {
 			action: 'Book the service for a specific reservation regardless of availability.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/book-service/$force',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -585,7 +585,7 @@ export const operationsByResource = {
 			action: 'Removes the city tax from a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/remove-city-tax',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 		{
@@ -596,11 +596,11 @@ export const operationsByResource = {
 			action: 'Adds the city tax to a reservation.',
 			method: 'PUT',
 			path: '/booking/v1/reservation-actions/{id}/add-city-tax',
-			resource: 'reservationactions',
+			resource: 'ReservationActions',
 			group: 'booking-v1',
 		},
 	],
-	types: [
+	Types: [
 		{
 			displayName: 'Returns a list of supported sources.',
 			value: 'BookingTypesSourcesGet',
@@ -608,7 +608,7 @@ export const operationsByResource = {
 			action: 'Returns a list of supported sources.',
 			method: 'GET',
 			path: '/booking/v1/types/sources',
-			resource: 'types',
+			resource: 'Types',
 			group: 'booking-v1',
 		},
 		{
@@ -620,7 +620,7 @@ export const operationsByResource = {
 				'Returns a list of values that a field of the specified type can take in the specified country.',
 			method: 'GET',
 			path: '/booking/v1/types/{type}/allowed-values',
-			resource: 'types',
+			resource: 'Types',
 			group: 'booking-v1',
 		},
 		{
@@ -630,7 +630,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all currencies.',
 			method: 'GET',
 			path: '/finance/v1/types/currencies',
-			resource: 'types',
+			resource: 'Types',
 			group: 'finance-v1',
 		},
 		{
@@ -640,7 +640,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all supported payment methods.',
 			method: 'GET',
 			path: '/finance/v1/types/payment-methods',
-			resource: 'types',
+			resource: 'Types',
 			group: 'finance-v1',
 		},
 		{
@@ -650,7 +650,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all supported service types.',
 			method: 'GET',
 			path: '/finance/v1/types/service-types',
-			resource: 'types',
+			resource: 'Types',
 			group: 'finance-v1',
 		},
 		{
@@ -661,11 +661,11 @@ export const operationsByResource = {
 			action: 'Returns a list of all VAT types.',
 			method: 'GET',
 			path: '/finance/v1/types/vat',
-			resource: 'types',
+			resource: 'Types',
 			group: 'finance-v1',
 		},
 	],
-	folio: [
+	Folio: [
 		{
 			displayName: 'Returns a list of all folios.',
 			value: 'FinanceFoliosGet',
@@ -674,7 +674,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all folios.',
 			method: 'GET',
 			path: '/finance/v1/folios',
-			resource: 'folio',
+			resource: 'Folio',
 			group: 'finance-v1',
 		},
 		{
@@ -685,7 +685,7 @@ export const operationsByResource = {
 			action: 'Create additional folios for a reservation, or new external folios',
 			method: 'POST',
 			path: '/finance/v1/folios',
-			resource: 'folio',
+			resource: 'Folio',
 			group: 'finance-v1',
 		},
 		{
@@ -696,7 +696,7 @@ export const operationsByResource = {
 			action: 'Returns number of folios.',
 			method: 'GET',
 			path: '/finance/v1/folios/$count',
-			resource: 'folio',
+			resource: 'Folio',
 			group: 'finance-v1',
 		},
 		{
@@ -707,7 +707,7 @@ export const operationsByResource = {
 			action: 'Returns one folio.',
 			method: 'GET',
 			path: '/finance/v1/folios/{id}',
-			resource: 'folio',
+			resource: 'Folio',
 			group: 'finance-v1',
 		},
 		{
@@ -718,7 +718,7 @@ export const operationsByResource = {
 			action: 'Allows to modify certain properties of a folio',
 			method: 'PATCH',
 			path: '/finance/v1/folios/{id}',
-			resource: 'folio',
+			resource: 'Folio',
 			group: 'finance-v1',
 		},
 		{
@@ -729,11 +729,11 @@ export const operationsByResource = {
 			action: 'Check if the folio exists.',
 			method: 'HEAD',
 			path: '/finance/v1/folios/{id}',
-			resource: 'folio',
+			resource: 'Folio',
 			group: 'finance-v1',
 		},
 	],
-	folioactions: [
+	FolioActions: [
 		{
 			displayName:
 				'Adds and directly posts a charge to the folio.\r\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.',
@@ -744,7 +744,7 @@ export const operationsByResource = {
 				'Adds and directly posts a charge to the folio.\r\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/charges',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -757,7 +757,7 @@ export const operationsByResource = {
 				'Adds and directly posts a transitory charge to the folio.\r\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/transitory-charges',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -770,7 +770,7 @@ export const operationsByResource = {
 				'Adds and directly posts a cancellation fee to the folio.\r\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.\r\nIf a routing instruction is defined for the cancellation fee service type, the fee will be moved to the destination folio.',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/cancellation-fee',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -783,7 +783,7 @@ export const operationsByResource = {
 				'Adds and directly posts a no-show fee to the folio.\r\nIf there are any fees configured for the property, an additional charge for each configured fee will be added.\r\nIf a routing instruction is defined for the no-show fee service type, the fee will be moved to the destination folio.',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/no-show-fee',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -794,7 +794,7 @@ export const operationsByResource = {
 			action: 'Closes a folio.',
 			method: 'PUT',
 			path: '/finance/v1/folio-actions/{folioId}/close',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -805,7 +805,7 @@ export const operationsByResource = {
 			action: 'Reopens a folio.',
 			method: 'PUT',
 			path: '/finance/v1/folio-actions/{folioId}/reopen',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -817,7 +817,7 @@ export const operationsByResource = {
 			action: 'Move multiple charges, allowances and transitory charges from one folio to another.',
 			method: 'PUT',
 			path: '/finance/v1/folio-actions/{folioId}/move-charges',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -830,7 +830,7 @@ export const operationsByResource = {
 				'Move multiple charges from one folio to another. Multiple source folios and multiple target folios can be specified.',
 			method: 'PUT',
 			path: '/finance/v1/folio-actions/bulk-move',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -841,7 +841,7 @@ export const operationsByResource = {
 			action: 'Move all charges and transitory charges from one folio to another.',
 			method: 'PUT',
 			path: '/finance/v1/folio-actions/{folioId}/move-all-charges',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -852,7 +852,7 @@ export const operationsByResource = {
 			action: 'Posts an allowance for a charge',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/charges/{chargeId}/allowances',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -863,7 +863,7 @@ export const operationsByResource = {
 			action: 'Posts an allowance for a folio',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/allowances',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -874,7 +874,7 @@ export const operationsByResource = {
 			action: 'Posts allowances for a folio',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/bulk-allowances',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -885,7 +885,7 @@ export const operationsByResource = {
 			action: 'Posts all unposted charges for the whole length of stay.',
 			method: 'PUT',
 			path: '/finance/v1/folio-actions/{folioId}/post-charges',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -896,7 +896,7 @@ export const operationsByResource = {
 			action: 'Move multiple payments from one guest/booking folio to another.',
 			method: 'PUT',
 			path: '/finance/v1/folio-actions/{folioId}/move-payments',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -909,7 +909,7 @@ export const operationsByResource = {
 				'Corrects a folio by moving some charges.\r\nThis operation creates a new folio with the charges from the request.\r\nThe payment, equal to the sum of charges, is also split to this new folio so that both folios will have 0 balance.',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/correct',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -922,7 +922,7 @@ export const operationsByResource = {
 				'Splits a charge into two using the percent or amount provided\r\nCreates an allowance and two new charges.',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/charges/{chargeId}/split',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 		{
@@ -935,11 +935,11 @@ export const operationsByResource = {
 				'Splits a payment into two using the percent or amount provided\r\nCreates a refund and two new payments.',
 			method: 'POST',
 			path: '/finance/v1/folio-actions/{folioId}/payments/{paymentId}/split',
-			resource: 'folioactions',
+			resource: 'FolioActions',
 			group: 'finance-v1',
 		},
 	],
-	foliopayments: [
+	FolioPayments: [
 		{
 			displayName: 'Get a list of payments.',
 			value: 'FinanceFoliosByFolioIdPaymentsGet',
@@ -948,7 +948,7 @@ export const operationsByResource = {
 			action: 'Get a list of payments.',
 			method: 'GET',
 			path: '/finance/v1/folios/{folioId}/payments',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -959,7 +959,7 @@ export const operationsByResource = {
 			action: 'Trigger a custom payment for the folio.',
 			method: 'POST',
 			path: '/finance/v1/folios/{folioId}/payments',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -970,7 +970,7 @@ export const operationsByResource = {
 			action: 'Get a payment by ID.',
 			method: 'GET',
 			path: '/finance/v1/folios/{folioId}/payments/{paymentId}',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -981,7 +981,7 @@ export const operationsByResource = {
 			action: 'Trigger a payment on a card terminal for the folio.',
 			method: 'POST',
 			path: '/finance/v1/folios/{folioId}/payments/by-terminal',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -992,7 +992,7 @@ export const operationsByResource = {
 			action: 'Captures a specific amount from a pre-authorization and posts it to the folio.',
 			method: 'POST',
 			path: '/finance/v1/folios/{folioId}/payments/by-authorization',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -1003,7 +1003,7 @@ export const operationsByResource = {
 			action: 'Trigger a payment using the payment account stored on the reservation.',
 			method: 'POST',
 			path: '/finance/v1/folios/{folioId}/payments/by-payment-account',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -1014,7 +1014,7 @@ export const operationsByResource = {
 			action: 'Creates a link to a payment form where guests can pay.',
 			method: 'POST',
 			path: '/finance/v1/folios/{folioId}/payments/by-link',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -1025,7 +1025,7 @@ export const operationsByResource = {
 			action: 'Cancels a pending payment link.',
 			method: 'PUT',
 			path: '/finance/v1/folios/{folioId}/payments/{paymentId}/cancel',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -1036,7 +1036,7 @@ export const operationsByResource = {
 			action: 'Get a list of refunds.',
 			method: 'GET',
 			path: '/finance/v1/folios/{folioId}/refunds',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -1047,7 +1047,7 @@ export const operationsByResource = {
 			action: 'Trigger a refund for the folio.',
 			method: 'POST',
 			path: '/finance/v1/folios/{folioId}/refunds',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -1058,7 +1058,7 @@ export const operationsByResource = {
 			action: 'Get a refund by ID.',
 			method: 'GET',
 			path: '/finance/v1/folios/{folioId}/refunds/{refundId}',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 		{
@@ -1069,11 +1069,11 @@ export const operationsByResource = {
 			action: 'Trigger a refund for a specific payment.',
 			method: 'POST',
 			path: '/finance/v1/folios/{folioId}/payments/{paymentId}/refunds',
-			resource: 'foliopayments',
+			resource: 'FolioPayments',
 			group: 'finance-v1',
 		},
 	],
-	invoice: [
+	Invoice: [
 		{
 			displayName: 'Gets a preview invoice PDF for one specific folio.',
 			value: 'FinanceInvoicesPreview-pdfGet',
@@ -1082,7 +1082,7 @@ export const operationsByResource = {
 			action: 'Gets a preview invoice PDF for one specific folio.',
 			method: 'GET',
 			path: '/finance/v1/invoices/preview-pdf',
-			resource: 'invoice',
+			resource: 'Invoice',
 			group: 'finance-v1',
 		},
 		{
@@ -1093,7 +1093,7 @@ export const operationsByResource = {
 			action: 'Gets an invoice preview for one specific folio.',
 			method: 'GET',
 			path: '/finance/v1/invoices/preview',
-			resource: 'invoice',
+			resource: 'Invoice',
 			group: 'finance-v1',
 		},
 		{
@@ -1104,7 +1104,7 @@ export const operationsByResource = {
 			action: 'Gets the list of all invoices (the metadata only, not the files).',
 			method: 'GET',
 			path: '/finance/v1/invoices',
-			resource: 'invoice',
+			resource: 'Invoice',
 			group: 'finance-v1',
 		},
 		{
@@ -1115,7 +1115,7 @@ export const operationsByResource = {
 			action: 'Creates an invoice for one specific folio.',
 			method: 'POST',
 			path: '/finance/v1/invoices',
-			resource: 'invoice',
+			resource: 'Invoice',
 			group: 'finance-v1',
 		},
 		{
@@ -1126,7 +1126,7 @@ export const operationsByResource = {
 			action: 'Gets an invoice PDF file.',
 			method: 'GET',
 			path: '/finance/v1/invoices/{id}/pdf',
-			resource: 'invoice',
+			resource: 'Invoice',
 			group: 'finance-v1',
 		},
 		{
@@ -1137,11 +1137,11 @@ export const operationsByResource = {
 			action: 'Gets invoice data.',
 			method: 'GET',
 			path: '/finance/v1/invoices/{id}',
-			resource: 'invoice',
+			resource: 'Invoice',
 			group: 'finance-v1',
 		},
 	],
-	invoiceaction: [
+	InvoiceAction: [
 		{
 			displayName: 'Marks an invoice as paid.',
 			value: 'FinanceInvoice-actionsByIdPayPut',
@@ -1150,7 +1150,7 @@ export const operationsByResource = {
 			action: 'Marks an invoice as paid.',
 			method: 'PUT',
 			path: '/finance/v1/invoice-actions/{id}/pay',
-			resource: 'invoiceaction',
+			resource: 'InvoiceAction',
 			group: 'finance-v1',
 		},
 		{
@@ -1161,11 +1161,11 @@ export const operationsByResource = {
 			action: 'Cancels an invoice',
 			method: 'PUT',
 			path: '/finance/v1/invoice-actions/{id}/cancel',
-			resource: 'invoiceaction',
+			resource: 'InvoiceAction',
 			group: 'finance-v1',
 		},
 	],
-	subledger: [
+	SubLedger: [
 		{
 			displayName:
 				'Aggregates transactions pairs by date (business day) for all accounts and a given period.',
@@ -1176,7 +1176,7 @@ export const operationsByResource = {
 				'Aggregates transactions pairs by date (business day) for all accounts and a given period.',
 			method: 'POST',
 			path: '/finance/v1/accounts/aggregate-pairs-daily',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1188,7 +1188,7 @@ export const operationsByResource = {
 			action: 'Aggregates transactions by date (business day) for all accounts and a given period.',
 			method: 'POST',
 			path: '/finance/v1/accounts/aggregate-daily',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1199,7 +1199,7 @@ export const operationsByResource = {
 			action: 'Aggregates transactions by timestamp for all accounts and a given period.',
 			method: 'POST',
 			path: '/finance/v1/accounts/aggregate',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1210,7 +1210,7 @@ export const operationsByResource = {
 			action: 'Returns transactions filtered by timestamp for a property for a given period.',
 			method: 'POST',
 			path: '/finance/v1/accounts/export',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1223,7 +1223,7 @@ export const operationsByResource = {
 				'Returns transactions filtered by date (business day) for a property for a given period.',
 			method: 'POST',
 			path: '/finance/v1/accounts/export-daily',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1236,7 +1236,7 @@ export const operationsByResource = {
 				'Returns gross transactions filtered by date (business day) for a property for a given period.',
 			method: 'POST',
 			path: '/finance/v1/accounts/export-gross-daily',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1247,7 +1247,7 @@ export const operationsByResource = {
 			action: 'Returns the chart of accounts of the subledger.',
 			method: 'GET',
 			path: '/finance/v1/accounts/schema',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1258,7 +1258,7 @@ export const operationsByResource = {
 			action: 'Returns a list of global accounts.',
 			method: 'GET',
 			path: '/finance/v1/global-accounts',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1269,7 +1269,7 @@ export const operationsByResource = {
 			action: 'Returns a list of guest accounts.',
 			method: 'GET',
 			path: '/finance/v1/guest-accounts',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1280,7 +1280,7 @@ export const operationsByResource = {
 			action: 'Returns a list of external accounts.',
 			method: 'GET',
 			path: '/finance/v1/external-accounts',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1291,7 +1291,7 @@ export const operationsByResource = {
 			action: 'Returns one account.',
 			method: 'GET',
 			path: '/finance/v1/accounts/{number}',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 		{
@@ -1302,11 +1302,11 @@ export const operationsByResource = {
 			action: 'Returns a list of child accounts for a specified parent account.',
 			method: 'GET',
 			path: '/finance/v1/accounts/child-accounts',
-			resource: 'subledger',
+			resource: 'SubLedger',
 			group: 'finance-v1',
 		},
 	],
-	property: [
+	Property: [
 		{
 			displayName: 'Get a properties list',
 			value: 'InventoryPropertiesGet',
@@ -1315,7 +1315,7 @@ export const operationsByResource = {
 			action: 'Get a properties list',
 			method: 'GET',
 			path: '/inventory/v1/properties',
-			resource: 'property',
+			resource: 'Property',
 			group: 'inventory-v1',
 		},
 		{
@@ -1326,7 +1326,7 @@ export const operationsByResource = {
 			action: 'Creates a property',
 			method: 'POST',
 			path: '/inventory/v1/properties',
-			resource: 'property',
+			resource: 'Property',
 			group: 'inventory-v1',
 		},
 		{
@@ -1337,7 +1337,7 @@ export const operationsByResource = {
 			action: 'Get a property',
 			method: 'GET',
 			path: '/inventory/v1/properties/{id}',
-			resource: 'property',
+			resource: 'Property',
 			group: 'inventory-v1',
 		},
 		{
@@ -1348,11 +1348,11 @@ export const operationsByResource = {
 			action: 'Allows to modify property',
 			method: 'PATCH',
 			path: '/inventory/v1/properties/{id}',
-			resource: 'property',
+			resource: 'Property',
 			group: 'inventory-v1',
 		},
 	],
-	unit: [
+	Unit: [
 		{
 			displayName: 'Allows to patch unit',
 			value: 'InventoryUnitsByIdPatch',
@@ -1361,7 +1361,7 @@ export const operationsByResource = {
 			action: 'Allows to patch unit',
 			method: 'PATCH',
 			path: '/inventory/v1/units/{id}',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1372,7 +1372,7 @@ export const operationsByResource = {
 			action: 'Get a unit',
 			method: 'GET',
 			path: '/inventory/v1/units/{id}',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1383,7 +1383,7 @@ export const operationsByResource = {
 			action: 'Check if a unit exists',
 			method: 'HEAD',
 			path: '/inventory/v1/units/{id}',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1394,7 +1394,7 @@ export const operationsByResource = {
 			action: 'Delete a unit',
 			method: 'DELETE',
 			path: '/inventory/v1/units/{id}',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1405,7 +1405,7 @@ export const operationsByResource = {
 			action: 'Allows to patch one or more units',
 			method: 'PATCH',
 			path: '/inventory/v1/units',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1416,7 +1416,7 @@ export const operationsByResource = {
 			action: 'Get a units list',
 			method: 'GET',
 			path: '/inventory/v1/units',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1427,7 +1427,7 @@ export const operationsByResource = {
 			action: 'Create a unit',
 			method: 'POST',
 			path: '/inventory/v1/units',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1438,7 +1438,7 @@ export const operationsByResource = {
 			action: 'Returns number of units',
 			method: 'GET',
 			path: '/inventory/v1/units/$count',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 		{
@@ -1449,11 +1449,11 @@ export const operationsByResource = {
 			action: 'Create multiple units',
 			method: 'POST',
 			path: '/inventory/v1/units/bulk',
-			resource: 'unit',
+			resource: 'Unit',
 			group: 'inventory-v1',
 		},
 	],
-	unitattribute: [
+	UnitAttribute: [
 		{
 			displayName: 'Get unit attribute by id',
 			value: 'InventoryUnit-attributesByIdGet',
@@ -1462,7 +1462,7 @@ export const operationsByResource = {
 			action: 'Get unit attribute by id',
 			method: 'GET',
 			path: '/inventory/v1/unit-attributes/{id}',
-			resource: 'unitattribute',
+			resource: 'UnitAttribute',
 			group: 'inventory-v1',
 		},
 		{
@@ -1473,7 +1473,7 @@ export const operationsByResource = {
 			action: 'Allows to modify unit attribute',
 			method: 'PATCH',
 			path: '/inventory/v1/unit-attributes/{id}',
-			resource: 'unitattribute',
+			resource: 'UnitAttribute',
 			group: 'inventory-v1',
 		},
 		{
@@ -1484,7 +1484,7 @@ export const operationsByResource = {
 			action: 'Check if a unit attribute exists',
 			method: 'HEAD',
 			path: '/inventory/v1/unit-attributes/{id}',
-			resource: 'unitattribute',
+			resource: 'UnitAttribute',
 			group: 'inventory-v1',
 		},
 		{
@@ -1495,7 +1495,7 @@ export const operationsByResource = {
 			action: 'Get unit attribute list',
 			method: 'GET',
 			path: '/inventory/v1/unit-attributes',
-			resource: 'unitattribute',
+			resource: 'UnitAttribute',
 			group: 'inventory-v1',
 		},
 		{
@@ -1506,11 +1506,11 @@ export const operationsByResource = {
 			action: 'Create a unit attribute',
 			method: 'POST',
 			path: '/inventory/v1/unit-attributes',
-			resource: 'unitattribute',
+			resource: 'UnitAttribute',
 			group: 'inventory-v1',
 		},
 	],
-	unitgroup: [
+	UnitGroup: [
 		{
 			displayName: 'Create a unit group',
 			value: 'InventoryUnit-groupsPost',
@@ -1519,7 +1519,7 @@ export const operationsByResource = {
 			action: 'Create a unit group',
 			method: 'POST',
 			path: '/inventory/v1/unit-groups',
-			resource: 'unitgroup',
+			resource: 'UnitGroup',
 			group: 'inventory-v1',
 		},
 		{
@@ -1530,7 +1530,7 @@ export const operationsByResource = {
 			action: 'Get all unit groups, or all unit groups for a property',
 			method: 'GET',
 			path: '/inventory/v1/unit-groups',
-			resource: 'unitgroup',
+			resource: 'UnitGroup',
 			group: 'inventory-v1',
 		},
 		{
@@ -1541,7 +1541,7 @@ export const operationsByResource = {
 			action: 'Returns number of unit groups',
 			method: 'GET',
 			path: '/inventory/v1/unit-groups/$count',
-			resource: 'unitgroup',
+			resource: 'UnitGroup',
 			group: 'inventory-v1',
 		},
 		{
@@ -1552,7 +1552,7 @@ export const operationsByResource = {
 			action: 'Check if a unit group exists',
 			method: 'HEAD',
 			path: '/inventory/v1/unit-groups/{id}',
-			resource: 'unitgroup',
+			resource: 'UnitGroup',
 			group: 'inventory-v1',
 		},
 		{
@@ -1563,7 +1563,7 @@ export const operationsByResource = {
 			action: 'Get a unit group',
 			method: 'GET',
 			path: '/inventory/v1/unit-groups/{id}',
-			resource: 'unitgroup',
+			resource: 'UnitGroup',
 			group: 'inventory-v1',
 		},
 		{
@@ -1574,23 +1574,23 @@ export const operationsByResource = {
 			action: 'Replace a unit group',
 			method: 'PUT',
 			path: '/inventory/v1/unit-groups/{id}',
-			resource: 'unitgroup',
+			resource: 'UnitGroup',
 			group: 'inventory-v1',
 		},
 	],
-	bookinglogs: [
+	BookingLogs: [
 		{
-			displayName: 'Returns reservation change log entries sorted by the timestamp.',
+			displayName: 'Returns reservation change log entries sorted by the timestamp',
 			value: 'LogsBookingReservationGet',
 			description: "<br>You must have this scope: 'logs.read'.",
-			action: 'Returns reservation change log entries sorted by the timestamp.',
+			action: 'Returns reservation change log entries sorted by the timestamp',
 			method: 'GET',
 			path: '/logs/v1/booking/reservation',
-			resource: 'bookinglogs',
+			resource: 'BookingLogs',
 			group: 'logs-v1',
 		},
 	],
-	financelogs: [
+	FinanceLogs: [
 		{
 			displayName: 'Returns folio change log entries sorted by the timestamp.',
 			value: 'LogsFinanceFolioGet',
@@ -1598,7 +1598,7 @@ export const operationsByResource = {
 			action: 'Returns folio change log entries sorted by the timestamp.',
 			method: 'GET',
 			path: '/logs/v1/finance/folio',
-			resource: 'financelogs',
+			resource: 'FinanceLogs',
 			group: 'logs-v1',
 		},
 		{
@@ -1609,7 +1609,7 @@ export const operationsByResource = {
 			action: 'Returns the night audit logs.',
 			method: 'GET',
 			path: '/logs/v1/finance/night-audit',
-			resource: 'financelogs',
+			resource: 'FinanceLogs',
 			group: 'logs-v1',
 		},
 		{
@@ -1620,11 +1620,11 @@ export const operationsByResource = {
 			action: 'Returns the audit log for all accounting exports that have been done.',
 			method: 'GET',
 			path: '/logs/v1/finance/transactions-export',
-			resource: 'financelogs',
+			resource: 'FinanceLogs',
 			group: 'logs-v1',
 		},
 	],
-	maintenance: [
+	Maintenance: [
 		{
 			displayName: 'Get list of maintenances',
 			value: 'OperationsMaintenancesGet',
@@ -1633,7 +1633,7 @@ export const operationsByResource = {
 			action: 'Get list of maintenances',
 			method: 'GET',
 			path: '/operations/v1/maintenances',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 		{
@@ -1644,7 +1644,7 @@ export const operationsByResource = {
 			action: 'Create a new maintenance window',
 			method: 'POST',
 			path: '/operations/v1/maintenances',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 		{
@@ -1655,7 +1655,7 @@ export const operationsByResource = {
 			action: 'Returns number of maintenances',
 			method: 'GET',
 			path: '/operations/v1/maintenances/$count',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 		{
@@ -1666,7 +1666,7 @@ export const operationsByResource = {
 			action: 'Create multiple maintenances',
 			method: 'POST',
 			path: '/operations/v1/maintenances/bulk',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 		{
@@ -1677,7 +1677,7 @@ export const operationsByResource = {
 			action: 'Modify a maintenance',
 			method: 'PATCH',
 			path: '/operations/v1/maintenances/{id}',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 		{
@@ -1688,7 +1688,7 @@ export const operationsByResource = {
 			action: 'Delete a maintenance',
 			method: 'DELETE',
 			path: '/operations/v1/maintenances/{id}',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 		{
@@ -1699,7 +1699,7 @@ export const operationsByResource = {
 			action: 'Get a specific maintenance',
 			method: 'GET',
 			path: '/operations/v1/maintenances/{id}',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 		{
@@ -1710,11 +1710,11 @@ export const operationsByResource = {
 			action: 'Check if a maintenance exists',
 			method: 'HEAD',
 			path: '/operations/v1/maintenances/{id}',
-			resource: 'maintenance',
+			resource: 'Maintenance',
 			group: 'operations-v1',
 		},
 	],
-	operations: [
+	Operations: [
 		{
 			displayName: 'Performs the night audit for one property.',
 			value: 'OperationsNight-auditPut',
@@ -1723,7 +1723,7 @@ export const operationsByResource = {
 			action: 'Performs the night audit for one property.',
 			method: 'PUT',
 			path: '/operations/v1/night-audit',
-			resource: 'operations',
+			resource: 'Operations',
 			group: 'operations-v1',
 		},
 		{
@@ -1733,11 +1733,11 @@ export const operationsByResource = {
 			action: 'Change the condition of a unit',
 			method: 'PUT',
 			path: '/operations/v1/units-condition',
-			resource: 'operations',
+			resource: 'Operations',
 			group: 'operations-v1',
 		},
 	],
-	agecategory: [
+	AgeCategory: [
 		{
 			displayName: 'Get an age category',
 			value: 'SettingsAge-categoriesByIdGet',
@@ -1746,7 +1746,7 @@ export const operationsByResource = {
 			action: 'Get an age category',
 			method: 'GET',
 			path: '/settings/v1/age-categories/{id}',
-			resource: 'agecategory',
+			resource: 'AgeCategory',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1757,7 +1757,7 @@ export const operationsByResource = {
 			action: 'Allows to modify properties of an age category',
 			method: 'PATCH',
 			path: '/settings/v1/age-categories/{id}',
-			resource: 'agecategory',
+			resource: 'AgeCategory',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1768,7 +1768,7 @@ export const operationsByResource = {
 			action: 'Create an age category',
 			method: 'POST',
 			path: '/settings/v1/age-categories',
-			resource: 'agecategory',
+			resource: 'AgeCategory',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1779,11 +1779,11 @@ export const operationsByResource = {
 			action: 'Get an age category list',
 			method: 'GET',
 			path: '/settings/v1/age-categories',
-			resource: 'agecategory',
+			resource: 'AgeCategory',
 			group: 'rateplan-v1',
 		},
 	],
-	cancellationpolicy: [
+	CancellationPolicy: [
 		{
 			displayName: 'Create a cancellation policy.',
 			value: 'RateplanCancellation-policiesPost',
@@ -1792,7 +1792,7 @@ export const operationsByResource = {
 			action: 'Create a cancellation policy.',
 			method: 'POST',
 			path: '/rateplan/v1/cancellation-policies',
-			resource: 'cancellationpolicy',
+			resource: 'CancellationPolicy',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1803,7 +1803,7 @@ export const operationsByResource = {
 			action: 'Get all cancellation policies.',
 			method: 'GET',
 			path: '/rateplan/v1/cancellation-policies',
-			resource: 'cancellationpolicy',
+			resource: 'CancellationPolicy',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1814,7 +1814,7 @@ export const operationsByResource = {
 			action: 'Get a specific cancellation policy.',
 			method: 'GET',
 			path: '/rateplan/v1/cancellation-policies/{id}',
-			resource: 'cancellationpolicy',
+			resource: 'CancellationPolicy',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1825,11 +1825,11 @@ export const operationsByResource = {
 			action: 'Allows to modify properties of a cancellation policy',
 			method: 'PATCH',
 			path: '/rateplan/v1/cancellation-policies/{id}',
-			resource: 'cancellationpolicy',
+			resource: 'CancellationPolicy',
 			group: 'rateplan-v1',
 		},
 	],
-	company: [
+	Company: [
 		{
 			displayName: 'Create a company',
 			value: 'RateplanCompaniesPost',
@@ -1838,7 +1838,7 @@ export const operationsByResource = {
 			action: 'Create a company',
 			method: 'POST',
 			path: '/rateplan/v1/companies',
-			resource: 'company',
+			resource: 'Company',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1849,7 +1849,7 @@ export const operationsByResource = {
 			action: 'Get a list of companies',
 			method: 'GET',
 			path: '/rateplan/v1/companies',
-			resource: 'company',
+			resource: 'Company',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1860,7 +1860,7 @@ export const operationsByResource = {
 			action: 'Get a company',
 			method: 'GET',
 			path: '/rateplan/v1/companies/{id}',
-			resource: 'company',
+			resource: 'Company',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1871,11 +1871,11 @@ export const operationsByResource = {
 			action: 'Modify a company',
 			method: 'PATCH',
 			path: '/rateplan/v1/companies/{id}',
-			resource: 'company',
+			resource: 'Company',
 			group: 'rateplan-v1',
 		},
 	],
-	corporatecodes: [
+	CorporateCodes: [
 		{
 			displayName: 'Returns a list of corporate codes.',
 			value: 'RateplanCorporate-codesCodesGet',
@@ -1884,11 +1884,11 @@ export const operationsByResource = {
 			action: 'Returns a list of corporate codes.',
 			method: 'GET',
 			path: '/rateplan/v1/corporate-codes/codes',
-			resource: 'corporatecodes',
+			resource: 'CorporateCodes',
 			group: 'rateplan-v1',
 		},
 	],
-	noshowpolicy: [
+	NoShowPolicy: [
 		{
 			displayName: 'Create a no-show policy.',
 			value: 'RateplanNo-show-policiesPost',
@@ -1897,7 +1897,7 @@ export const operationsByResource = {
 			action: 'Create a no-show policy.',
 			method: 'POST',
 			path: '/rateplan/v1/no-show-policies',
-			resource: 'noshowpolicy',
+			resource: 'NoShowPolicy',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1908,7 +1908,7 @@ export const operationsByResource = {
 			action: 'Get all no-show policies.',
 			method: 'GET',
 			path: '/rateplan/v1/no-show-policies',
-			resource: 'noshowpolicy',
+			resource: 'NoShowPolicy',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1919,7 +1919,7 @@ export const operationsByResource = {
 			action: 'Get a specific no-show policy.',
 			method: 'GET',
 			path: '/rateplan/v1/no-show-policies/{id}',
-			resource: 'noshowpolicy',
+			resource: 'NoShowPolicy',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1930,11 +1930,11 @@ export const operationsByResource = {
 			action: 'Allows to modify properties of a no-show policy',
 			method: 'PATCH',
 			path: '/rateplan/v1/no-show-policies/{id}',
-			resource: 'noshowpolicy',
+			resource: 'NoShowPolicy',
 			group: 'rateplan-v1',
 		},
 	],
-	promocodes: [
+	PromoCodes: [
 		{
 			displayName: 'Returns a list of promo codes.',
 			value: 'RateplanPromo-codesCodesGet',
@@ -1943,11 +1943,11 @@ export const operationsByResource = {
 			action: 'Returns a list of promo codes.',
 			method: 'GET',
 			path: '/rateplan/v1/promo-codes/codes',
-			resource: 'promocodes',
+			resource: 'PromoCodes',
 			group: 'rateplan-v1',
 		},
 	],
-	rate: [
+	Rate: [
 		{
 			displayName: 'Returns a list of rates.',
 			value: 'RateplanRate-plansByIdRatesGet',
@@ -1956,7 +1956,7 @@ export const operationsByResource = {
 			action: 'Returns a list of rates.',
 			method: 'GET',
 			path: '/rateplan/v1/rate-plans/{id}/rates',
-			resource: 'rate',
+			resource: 'Rate',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1967,7 +1967,7 @@ export const operationsByResource = {
 			action: 'Initializes and changes the rates for the rate plan.',
 			method: 'PUT',
 			path: '/rateplan/v1/rate-plans/{id}/rates',
-			resource: 'rate',
+			resource: 'Rate',
 			group: 'rateplan-v1',
 		},
 		{
@@ -1978,11 +1978,11 @@ export const operationsByResource = {
 			action: 'Allows to patch the rates of multiple rate plans.',
 			method: 'PATCH',
 			path: '/rateplan/v1/rates',
-			resource: 'rate',
+			resource: 'Rate',
 			group: 'rateplan-v1',
 		},
 	],
-	rateplan: [
+	RatePlan: [
 		{
 			displayName: 'Get a rate plan list',
 			value: 'RateplanRate-plansGet',
@@ -1991,7 +1991,7 @@ export const operationsByResource = {
 			action: 'Get a rate plan list',
 			method: 'GET',
 			path: '/rateplan/v1/rate-plans',
-			resource: 'rateplan',
+			resource: 'RatePlan',
 			group: 'rateplan-v1',
 		},
 		{
@@ -2002,7 +2002,7 @@ export const operationsByResource = {
 			action: 'Create a rate plan',
 			method: 'POST',
 			path: '/rateplan/v1/rate-plans',
-			resource: 'rateplan',
+			resource: 'RatePlan',
 			group: 'rateplan-v1',
 		},
 		{
@@ -2013,7 +2013,7 @@ export const operationsByResource = {
 			action: 'Allows to patch one or more rate plans',
 			method: 'PATCH',
 			path: '/rateplan/v1/rate-plans',
-			resource: 'rateplan',
+			resource: 'RatePlan',
 			group: 'rateplan-v1',
 		},
 		{
@@ -2024,7 +2024,7 @@ export const operationsByResource = {
 			action: 'Get a rate plan',
 			method: 'GET',
 			path: '/rateplan/v1/rate-plans/{id}',
-			resource: 'rateplan',
+			resource: 'RatePlan',
 			group: 'rateplan-v1',
 		},
 		{
@@ -2035,11 +2035,11 @@ export const operationsByResource = {
 			action: 'Replace a rate plan',
 			method: 'PUT',
 			path: '/rateplan/v1/rate-plans/{id}',
-			resource: 'rateplan',
+			resource: 'RatePlan',
 			group: 'rateplan-v1',
 		},
 	],
-	service: [
+	Service: [
 		{
 			displayName: 'Create a service.',
 			value: 'RateplanServicesPost',
@@ -2048,7 +2048,7 @@ export const operationsByResource = {
 			action: 'Create a service.',
 			method: 'POST',
 			path: '/rateplan/v1/services',
-			resource: 'service',
+			resource: 'Service',
 			group: 'rateplan-v1',
 		},
 		{
@@ -2059,7 +2059,7 @@ export const operationsByResource = {
 			action: 'Get all services.',
 			method: 'GET',
 			path: '/rateplan/v1/services',
-			resource: 'service',
+			resource: 'Service',
 			group: 'rateplan-v1',
 		},
 		{
@@ -2070,7 +2070,7 @@ export const operationsByResource = {
 			action: 'Modify a service.',
 			method: 'PATCH',
 			path: '/rateplan/v1/services/{id}',
-			resource: 'service',
+			resource: 'Service',
 			group: 'rateplan-v1',
 		},
 		{
@@ -2081,11 +2081,11 @@ export const operationsByResource = {
 			action: 'Get a specific service.',
 			method: 'GET',
 			path: '/rateplan/v1/services/{id}',
-			resource: 'service',
+			resource: 'Service',
 			group: 'rateplan-v1',
 		},
 	],
-	reports: [
+	Reports: [
 		{
 			displayName: 'List of ordered services',
 			value: 'ReportsReportsOrdered-servicesGet',
@@ -2094,7 +2094,7 @@ export const operationsByResource = {
 			action: 'List of ordered services',
 			method: 'GET',
 			path: '/reports/v1/reports/ordered-services',
-			resource: 'reports',
+			resource: 'Reports',
 			group: 'reports-v1',
 		},
 		{
@@ -2105,7 +2105,7 @@ export const operationsByResource = {
 			action: 'Returns the number of arrivals in a month for a property',
 			method: 'GET',
 			path: '/reports/v1/reports/arrivals',
-			resource: 'reports',
+			resource: 'Reports',
 			group: 'reports-v1',
 		},
 		{
@@ -2118,7 +2118,7 @@ export const operationsByResource = {
 				'Returns the property performance report which includes the ADR and the RevPAR for each business day.',
 			method: 'GET',
 			path: '/reports/v1/reports/property-performance',
-			resource: 'reports',
+			resource: 'Reports',
 			group: 'reports-v1',
 		},
 		{
@@ -2130,7 +2130,7 @@ export const operationsByResource = {
 				'Returns the list of company invoices with information on the company and the VAT breakdown',
 			method: 'GET',
 			path: '/reports/v1/reports/company-invoices-vat',
-			resource: 'reports',
+			resource: 'Reports',
 			group: 'reports-v1',
 		},
 		{
@@ -2140,11 +2140,11 @@ export const operationsByResource = {
 			action: 'Returns the revenues report for a property',
 			method: 'GET',
 			path: '/reports/v1/reports/revenues',
-			resource: 'reports',
+			resource: 'Reports',
 			group: 'reports-v1',
 		},
 	],
-	capturepolicies: [
+	CapturePolicies: [
 		{
 			displayName: 'Get all capture policies.',
 			value: 'SettingsCapture-policiesGet',
@@ -2153,7 +2153,7 @@ export const operationsByResource = {
 			action: 'Get all capture policies.',
 			method: 'GET',
 			path: '/settings/v1/capture-policies',
-			resource: 'capturepolicies',
+			resource: 'CapturePolicies',
 			group: 'settings-v1',
 		},
 		{
@@ -2164,7 +2164,7 @@ export const operationsByResource = {
 			action: 'Get a specific capture policy.',
 			method: 'GET',
 			path: '/settings/v1/capture-policies/{id}',
-			resource: 'capturepolicies',
+			resource: 'CapturePolicies',
 			group: 'settings-v1',
 		},
 		{
@@ -2175,11 +2175,11 @@ export const operationsByResource = {
 			action: 'Allows to modify properties of a capture policy.',
 			method: 'PATCH',
 			path: '/settings/v1/capture-policies/{id}',
-			resource: 'capturepolicies',
+			resource: 'CapturePolicies',
 			group: 'settings-v1',
 		},
 	],
-	citytax: [
+	CityTax: [
 		{
 			displayName: 'Create a city tax.',
 			value: 'SettingsCity-taxPost',
@@ -2188,7 +2188,7 @@ export const operationsByResource = {
 			action: 'Create a city tax.',
 			method: 'POST',
 			path: '/settings/v1/city-tax',
-			resource: 'citytax',
+			resource: 'CityTax',
 			group: 'settings-v1',
 		},
 		{
@@ -2199,7 +2199,7 @@ export const operationsByResource = {
 			action: 'Get all city taxes.',
 			method: 'GET',
 			path: '/settings/v1/city-tax',
-			resource: 'citytax',
+			resource: 'CityTax',
 			group: 'settings-v1',
 		},
 		{
@@ -2210,7 +2210,7 @@ export const operationsByResource = {
 			action: 'Get a specific city tax.',
 			method: 'GET',
 			path: '/settings/v1/city-tax/{id}',
-			resource: 'citytax',
+			resource: 'CityTax',
 			group: 'settings-v1',
 		},
 		{
@@ -2221,11 +2221,11 @@ export const operationsByResource = {
 			action: 'Allows to modify city tax',
 			method: 'PATCH',
 			path: '/settings/v1/city-tax/{id}',
-			resource: 'citytax',
+			resource: 'CityTax',
 			group: 'settings-v1',
 		},
 	],
-	customsubaccounts: [
+	CustomSubAccounts: [
 		{
 			displayName: 'Returns a list of all sub-accounts.',
 			value: 'SettingsSub-accountsGet',
@@ -2234,7 +2234,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all sub-accounts.',
 			method: 'GET',
 			path: '/settings/v1/sub-accounts',
-			resource: 'customsubaccounts',
+			resource: 'CustomSubAccounts',
 			group: 'settings-v1',
 		},
 		{
@@ -2245,7 +2245,7 @@ export const operationsByResource = {
 			action: 'Create a sub-account.',
 			method: 'POST',
 			path: '/settings/v1/sub-accounts',
-			resource: 'customsubaccounts',
+			resource: 'CustomSubAccounts',
 			group: 'settings-v1',
 		},
 		{
@@ -2256,7 +2256,7 @@ export const operationsByResource = {
 			action: 'Returns number of sub-accounts.',
 			method: 'GET',
 			path: '/settings/v1/sub-accounts/$count',
-			resource: 'customsubaccounts',
+			resource: 'CustomSubAccounts',
 			group: 'settings-v1',
 		},
 		{
@@ -2267,7 +2267,7 @@ export const operationsByResource = {
 			action: 'Returns one sub-account.',
 			method: 'GET',
 			path: '/settings/v1/sub-accounts/{id}',
-			resource: 'customsubaccounts',
+			resource: 'CustomSubAccounts',
 			group: 'settings-v1',
 		},
 		{
@@ -2278,7 +2278,7 @@ export const operationsByResource = {
 			action: 'Allows to modify the name of the sub-account.',
 			method: 'PATCH',
 			path: '/settings/v1/sub-accounts/{id}',
-			resource: 'customsubaccounts',
+			resource: 'CustomSubAccounts',
 			group: 'settings-v1',
 		},
 		{
@@ -2289,11 +2289,11 @@ export const operationsByResource = {
 			action: 'Check if the sub-account exists.',
 			method: 'HEAD',
 			path: '/settings/v1/sub-accounts/{id}',
-			resource: 'customsubaccounts',
+			resource: 'CustomSubAccounts',
 			group: 'settings-v1',
 		},
 	],
-	featuresettings: [
+	FeatureSettings: [
 		{
 			displayName: 'Get feature settings for a property.',
 			value: 'SettingsFeaturesByPropertyIdGet',
@@ -2302,7 +2302,7 @@ export const operationsByResource = {
 			action: 'Get feature settings for a property.',
 			method: 'GET',
 			path: '/settings/v1/features/{propertyId}',
-			resource: 'featuresettings',
+			resource: 'FeatureSettings',
 			group: 'settings-v1',
 		},
 		{
@@ -2313,11 +2313,11 @@ export const operationsByResource = {
 			action: 'Allows to modify feature settings',
 			method: 'PATCH',
 			path: '/settings/v1/features/{propertyId}',
-			resource: 'featuresettings',
+			resource: 'FeatureSettings',
 			group: 'settings-v1',
 		},
 	],
-	invoiceaddress: [
+	InvoiceAddress: [
 		{
 			displayName: 'Get invoice addresses',
 			value: 'SettingsInvoice-addressGet',
@@ -2326,7 +2326,7 @@ export const operationsByResource = {
 			action: 'Get invoice addresses',
 			method: 'GET',
 			path: '/settings/v1/invoice-address',
-			resource: 'invoiceaddress',
+			resource: 'InvoiceAddress',
 			group: 'settings-v1',
 		},
 		{
@@ -2337,7 +2337,7 @@ export const operationsByResource = {
 			action: 'Create or update invoice addresses for one or more properties.',
 			method: 'PUT',
 			path: '/settings/v1/invoice-address',
-			resource: 'invoiceaddress',
+			resource: 'InvoiceAddress',
 			group: 'settings-v1',
 		},
 		{
@@ -2348,11 +2348,11 @@ export const operationsByResource = {
 			action: 'Change fields in the invoice address of one or more properties.',
 			method: 'PATCH',
 			path: '/settings/v1/invoice-address',
-			resource: 'invoiceaddress',
+			resource: 'InvoiceAddress',
 			group: 'settings-v1',
 		},
 	],
-	languages: [
+	Languages: [
 		{
 			displayName: 'Get the language settings for the account',
 			value: 'SettingsLanguagesGet',
@@ -2361,7 +2361,7 @@ export const operationsByResource = {
 			action: 'Get the language settings for the account',
 			method: 'GET',
 			path: '/settings/v1/languages',
-			resource: 'languages',
+			resource: 'Languages',
 			group: 'settings-v1',
 		},
 		{
@@ -2372,11 +2372,11 @@ export const operationsByResource = {
 			action: 'Replaces the language settings for the account',
 			method: 'PUT',
 			path: '/settings/v1/languages',
-			resource: 'languages',
+			resource: 'Languages',
 			group: 'settings-v1',
 		},
 	],
-	marketsegment: [
+	MarketSegment: [
 		{
 			displayName: 'Get a market segment.',
 			value: 'SettingsMarket-segmentsByIdGet',
@@ -2385,7 +2385,7 @@ export const operationsByResource = {
 			action: 'Get a market segment.',
 			method: 'GET',
 			path: '/settings/v1/market-segments/{id}',
-			resource: 'marketsegment',
+			resource: 'MarketSegment',
 			group: 'settings-v1',
 		},
 		{
@@ -2396,7 +2396,7 @@ export const operationsByResource = {
 			action: 'Check if a market segment exists.',
 			method: 'HEAD',
 			path: '/settings/v1/market-segments/{id}',
-			resource: 'marketsegment',
+			resource: 'MarketSegment',
 			group: 'settings-v1',
 		},
 		{
@@ -2407,7 +2407,7 @@ export const operationsByResource = {
 			action: 'Allows to modify market segment.',
 			method: 'PATCH',
 			path: '/settings/v1/market-segments/{id}',
-			resource: 'marketsegment',
+			resource: 'MarketSegment',
 			group: 'settings-v1',
 		},
 		{
@@ -2417,7 +2417,7 @@ export const operationsByResource = {
 			action: 'Returns a list of all market segments, filtered by the specified parameters.',
 			method: 'GET',
 			path: '/settings/v1/market-segments',
-			resource: 'marketsegment',
+			resource: 'MarketSegment',
 			group: 'settings-v1',
 		},
 		{
@@ -2428,7 +2428,7 @@ export const operationsByResource = {
 			action: 'Create a market segment',
 			method: 'POST',
 			path: '/settings/v1/market-segments',
-			resource: 'marketsegment',
+			resource: 'MarketSegment',
 			group: 'settings-v1',
 		},
 		{
@@ -2439,11 +2439,11 @@ export const operationsByResource = {
 			action: 'Returns number of market segments.',
 			method: 'GET',
 			path: '/settings/v1/market-segments/$count',
-			resource: 'marketsegment',
+			resource: 'MarketSegment',
 			group: 'settings-v1',
 		},
 	],
-	propertysettings: [
+	PropertySettings: [
 		{
 			displayName: 'Get property settings',
 			value: 'SettingsPropertiesByIdGet',
@@ -2452,11 +2452,11 @@ export const operationsByResource = {
 			action: 'Get property settings',
 			method: 'GET',
 			path: '/settings/v1/properties/{id}',
-			resource: 'propertysettings',
+			resource: 'PropertySettings',
 			group: 'settings-v1',
 		},
 	],
-	timeslicedefinitions: [
+	TimeSliceDefinitions: [
 		{
 			displayName: 'Get a specific time slice definition',
 			value: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet',
@@ -2465,7 +2465,7 @@ export const operationsByResource = {
 			action: 'Get a specific time slice definition',
 			method: 'GET',
 			path: '/settings/v1/properties/{propertyId}/time-slice-definitions/{id}',
-			resource: 'timeslicedefinitions',
+			resource: 'TimeSliceDefinitions',
 			group: 'settings-v1',
 		},
 		{
@@ -2476,7 +2476,7 @@ export const operationsByResource = {
 			action: 'Modifies a specific time slice definition for the property',
 			method: 'PATCH',
 			path: '/settings/v1/properties/{propertyId}/time-slice-definitions/{id}',
-			resource: 'timeslicedefinitions',
+			resource: 'TimeSliceDefinitions',
 			group: 'settings-v1',
 		},
 		{
@@ -2487,7 +2487,7 @@ export const operationsByResource = {
 			action: 'Get time slice definitions',
 			method: 'GET',
 			path: '/settings/v1/properties/{propertyId}/time-slice-definitions',
-			resource: 'timeslicedefinitions',
+			resource: 'TimeSliceDefinitions',
 			group: 'settings-v1',
 		},
 		{
@@ -2498,11 +2498,11 @@ export const operationsByResource = {
 			action: 'Creates a time slice definition',
 			method: 'POST',
 			path: '/settings/v1/properties/{propertyId}/time-slice-definitions',
-			resource: 'timeslicedefinitions',
+			resource: 'TimeSliceDefinitions',
 			group: 'settings-v1',
 		},
 	],
-	healthcheck: [
+	HealthCheck: [
 		{
 			displayName: 'PingerPost',
 			value: 'PingerPost',
@@ -2510,11 +2510,11 @@ export const operationsByResource = {
 			action: 'PingerPost',
 			method: 'POST',
 			path: '/v1/pinger',
-			resource: 'healthcheck',
+			resource: 'HealthCheck',
 			group: 'webhook-v1',
 		},
 	],
-	subscriptions: [
+	Subscriptions: [
 		{
 			displayName: 'Get all subscriptions created for the current account and client',
 			value: 'SubscriptionsGet',
@@ -2522,7 +2522,7 @@ export const operationsByResource = {
 			action: 'Get all subscriptions created for the current account and client',
 			method: 'GET',
 			path: '/v1/subscriptions',
-			resource: 'subscriptions',
+			resource: 'Subscriptions',
 			group: 'webhook-v1',
 		},
 		{
@@ -2533,7 +2533,7 @@ export const operationsByResource = {
 			action: 'Creates subscription',
 			method: 'POST',
 			path: '/v1/subscriptions',
-			resource: 'subscriptions',
+			resource: 'Subscriptions',
 			group: 'webhook-v1',
 		},
 		{
@@ -2543,7 +2543,7 @@ export const operationsByResource = {
 			action: 'SubscriptionsByIdGet',
 			method: 'GET',
 			path: '/v1/subscriptions/{id}',
-			resource: 'subscriptions',
+			resource: 'Subscriptions',
 			group: 'webhook-v1',
 		},
 		{
@@ -2553,7 +2553,7 @@ export const operationsByResource = {
 			action: 'Updates subscription',
 			method: 'PUT',
 			path: '/v1/subscriptions/{id}',
-			resource: 'subscriptions',
+			resource: 'Subscriptions',
 			group: 'webhook-v1',
 		},
 		{
@@ -2563,7 +2563,7 @@ export const operationsByResource = {
 			action: 'Deletes subscription.',
 			method: 'DELETE',
 			path: '/v1/subscriptions/{id}',
-			resource: 'subscriptions',
+			resource: 'Subscriptions',
 			group: 'webhook-v1',
 		},
 	],
@@ -2575,7 +2575,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['availability'] } },
+		displayOptions: { show: { group: ['availability-v1'], resource: ['Availability'] } },
 		options: [
 			{
 				name: 'Allows to Modify the Unit Group Availability',
@@ -2605,7 +2605,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['reservationavailability'] } },
+		displayOptions: { show: { group: ['availability-v1'], resource: ['ReservationAvailability'] } },
 		options: [
 			{
 				name: 'Get a List of All Available Units for a Reservation',
@@ -2620,7 +2620,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['block'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['Block'] } },
 		options: [
 			{ name: 'Creates a Block', value: 'BookingBlocksPost', action: 'Creates a block' },
 			{
@@ -2646,7 +2646,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['blockactions'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['BlockActions'] } },
 		options: [
 			{
 				name: 'Allow to Modify a Block',
@@ -2677,13 +2677,12 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['booking'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['Booking'] } },
 		options: [
 			{
 				name: 'Add One or Multiple Reservations to an Existing Booking Regardless of Availability or Restrictions.',
 				value: 'BookingBookingsByIdReservations$forcePost',
-				action:
-					'Add one or multiple reservations to an existing booking regardless of availability or restrictions',
+				action: 'Add one or multiple reservations to an existing booking regardless of availability or restrictions',
 			},
 			{
 				name: 'Add One or Multiple Reservations to an Existing Booking.',
@@ -2698,8 +2697,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Creates a Booking for One or More Reservations Regardless of Availability or Restrictions.',
 				value: 'BookingBookings$forcePost',
-				action:
-					'Creates a booking for one or more reservations regardless of availability or restrictions',
+				action: 'Creates a booking for one or more reservations regardless of availability or restrictions',
 			},
 			{
 				name: 'Creates a Booking for One or More Reservations.',
@@ -2724,13 +2722,12 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['group'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['Group'] } },
 		options: [
 			{
 				name: 'Add One or Multiple Reservations to an Existing Group Booking Using Blocked Inventory.',
 				value: 'BookingGroupsByIdReservationsPost',
-				action:
-					'Add one or multiple reservations to an existing group booking using blocked inventory',
+				action: 'Add one or multiple reservations to an existing group booking using blocked inventory',
 			},
 			{
 				name: 'Allows to Modify Certain Group Booking Properties',
@@ -2760,7 +2757,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['offer'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['Offer'] } },
 		options: [
 			{
 				name: 'Returns Offers for a Specific Rate Plan.',
@@ -2790,7 +2787,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['reservation'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['Reservation'] } },
 		options: [
 			{
 				name: 'Allows to Modify Certain Reservation Properties',
@@ -2825,8 +2822,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns the Number of Reservations Fulfilling the Criteria Specified in the Parameters.',
 				value: 'BookingReservations$countGet',
-				action:
-					'Returns the number of reservations fulfilling the criteria specified in the parameters',
+				action: 'Returns the number of reservations fulfilling the criteria specified in the parameters',
 			},
 			{
 				name: 'Returns the Services Booked for a Specific Reservation.',
@@ -2841,7 +2837,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['reservationactions'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['ReservationActions'] } },
 		options: [
 			{
 				name: 'Adds the City Tax to a Reservation.',
@@ -2856,8 +2852,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Allows You to Amend the Stay Details of a Reservation Regardless of Availability or Restrictions.',
 				value: 'BookingReservation-actionsByIdAmend$forcePut',
-				action:
-					'Allows you to amend the stay details of a reservation regardless of availability or restrictions',
+				action: 'Allows you to amend the stay details of a reservation regardless of availability or restrictions',
 			},
 			{
 				name: 'Assign a Specific Unit to a Reservation.',
@@ -2922,28 +2917,8 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['types'] } },
+		displayOptions: { show: { group: ['booking-v1'], resource: ['Types'] } },
 		options: [
-			{
-				name: 'Returns a List of All Currencies.',
-				value: 'FinanceTypesCurrenciesGet',
-				action: 'Returns a list of all currencies',
-			},
-			{
-				name: 'Returns a List of All Supported Payment Methods.',
-				value: 'FinanceTypesPayment-methodsGet',
-				action: 'Returns a list of all supported payment methods',
-			},
-			{
-				name: 'Returns a List of All Supported Service Types.',
-				value: 'FinanceTypesService-typesGet',
-				action: 'Returns a list of all supported service types',
-			},
-			{
-				name: 'Returns a List of All VAT Types.',
-				value: 'FinanceTypesVatGet',
-				action: 'Returns a list of all vat types',
-			},
 			{
 				name: 'Returns a List of Supported Sources.',
 				value: 'BookingTypesSourcesGet',
@@ -2952,18 +2927,17 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns a List of Values that a Field of the Specified Type Can Take in the Specified Country.',
 				value: 'BookingTypesByTypeAllowed-valuesGet',
-				action:
-					'Returns a list of values that a field of the specified type can take in the specified country',
+				action: 'Returns a list of values that a field of the specified type can take in the specified country',
 			},
 		],
-		default: 'FinanceTypesCurrenciesGet',
+		default: 'BookingTypesSourcesGet',
 	},
 	{
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['folio'] } },
+		displayOptions: { show: { group: ['finance-v1'], resource: ['Folio'] } },
 		options: [
 			{
 				name: 'Allows to Modify Certain Properties of a Folio',
@@ -2999,31 +2973,27 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['folioactions'] } },
+		displayOptions: { show: { group: ['finance-v1'], resource: ['FolioActions'] } },
 		options: [
 			{
 				name: 'Adds and Directly Posts a Cancellation Fee to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added. If a Routing Instruction Is Defined for the Cancellation Fee Service Type, the Fee Will Be Moved to the Destination Folio.',
 				value: 'FinanceFolio-actionsByFolioIdCancellation-feePost',
-				action:
-					'Adds and directly posts a cancellation fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the cancellation fee service type the fee will be moved to the destination folio',
+				action: 'Adds and directly posts a cancellation fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the cancellation fee service type the fee will be moved to the destination folio',
 			},
 			{
 				name: 'Adds and Directly Posts a Charge to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added.',
 				value: 'FinanceFolio-actionsByFolioIdChargesPost',
-				action:
-					'Adds and directly posts a charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
+				action: 'Adds and directly posts a charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
 			},
 			{
 				name: 'Adds and Directly Posts a No-Show Fee to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added. If a Routing Instruction Is Defined for the No-Show Fee Service Type, the Fee Will Be Moved to the Destination Folio.',
 				value: 'FinanceFolio-actionsByFolioIdNo-show-feePost',
-				action:
-					'Adds and directly posts a no show fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the no show fee service type the fee will be moved to the destination folio',
+				action: 'Adds and directly posts a no show fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the no show fee service type the fee will be moved to the destination folio',
 			},
 			{
 				name: 'Adds and Directly Posts a Transitory Charge to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added.',
 				value: 'FinanceFolio-actionsByFolioIdTransitory-chargesPost',
-				action:
-					'Adds and directly posts a transitory charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
+				action: 'Adds and directly posts a transitory charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
 			},
 			{
 				name: 'Closes a Folio.',
@@ -3033,8 +3003,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Corrects a Folio by Moving some Charges. This Operation Creates a New Folio with the Charges From the Request. The Payment, Equal to the Sum of Charges, Is Also Split to This New Folio so that Both Folios Will Have 0 Balance.',
 				value: 'FinanceFolio-actionsByFolioIdCorrectPost',
-				action:
-					'Corrects a folio by moving some charges this operation creates a new folio with the charges from the request the payment equal to the sum of charges is also split to this new folio so that both folios will have 0 balance',
+				action: 'Corrects a folio by moving some charges this operation creates a new folio with the charges from the request the payment equal to the sum of charges is also split to this new folio so that both folios will have 0 balance',
 			},
 			{
 				name: 'Move All Charges and Transitory Charges From One Folio to Another.',
@@ -3044,8 +3013,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Move Multiple Charges From One Folio to Another. Multiple Source Folios and Multiple Target Folios Can Be Specified.',
 				value: 'FinanceFolio-actionsBulk-movePut',
-				action:
-					'Move multiple charges from one folio to another multiple source folios and multiple target folios can be specified',
+				action: 'Move multiple charges from one folio to another multiple source folios and multiple target folios can be specified',
 			},
 			{
 				name: 'Move Multiple Charges, Allowances and Transitory Charges From One Folio to Another.',
@@ -3085,14 +3053,12 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Splits a Charge Into Two Using the Percent or Amount Provided Creates an Allowance and Two New Charges.',
 				value: 'FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost',
-				action:
-					'Splits a charge into two using the percent or amount provided creates an allowance and two new charges',
+				action: 'Splits a charge into two using the percent or amount provided creates an allowance and two new charges',
 			},
 			{
 				name: 'Splits a Payment Into Two Using the Percent or Amount Provided Creates a Refund and Two New Payments.',
 				value: 'FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost',
-				action:
-					'Splits a payment into two using the percent or amount provided creates a refund and two new payments',
+				action: 'Splits a payment into two using the percent or amount provided creates a refund and two new payments',
 			},
 		],
 		default: 'FinanceFolio-actionsByFolioIdCancellation-feePost',
@@ -3102,7 +3068,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['foliopayments'] } },
+		displayOptions: { show: { group: ['finance-v1'], resource: ['FolioPayments'] } },
 		options: [
 			{
 				name: 'Cancels a Pending Payment Link.',
@@ -3172,7 +3138,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['invoice'] } },
+		displayOptions: { show: { group: ['finance-v1'], resource: ['Invoice'] } },
 		options: [
 			{
 				name: 'Creates an Invoice for One Specific Folio.',
@@ -3208,7 +3174,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['invoiceaction'] } },
+		displayOptions: { show: { group: ['finance-v1'], resource: ['InvoiceAction'] } },
 		options: [
 			{
 				name: 'Cancels an Invoice',
@@ -3228,7 +3194,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['subledger'] } },
+		displayOptions: { show: { group: ['finance-v1'], resource: ['SubLedger'] } },
 		options: [
 			{
 				name: 'Aggregates Transactions by Date (Business Day) for All Accounts and a Given Period.',
@@ -3243,8 +3209,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Aggregates Transactions Pairs by Date (Business Day) for All Accounts and a Given Period.',
 				value: 'FinanceAccountsAggregate-pairs-dailyPost',
-				action:
-					'Aggregates transactions pairs by date business day for all accounts and a given period',
+				action: 'Aggregates transactions pairs by date business day for all accounts and a given period',
 			},
 			{
 				name: 'Returns a List of Child Accounts for a Specified Parent Account.',
@@ -3269,8 +3234,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns Gross Transactions Filtered by Date (Business Day) for a Property for a Given Period.',
 				value: 'FinanceAccountsExport-gross-dailyPost',
-				action:
-					'Returns gross transactions filtered by date business day for a property for a given period',
+				action: 'Returns gross transactions filtered by date business day for a property for a given period',
 			},
 			{
 				name: 'Returns One Account.',
@@ -3285,8 +3249,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns Transactions Filtered by Date (Business Day) for a Property for a Given Period.',
 				value: 'FinanceAccountsExport-dailyPost',
-				action:
-					'Returns transactions filtered by date business day for a property for a given period',
+				action: 'Returns transactions filtered by date business day for a property for a given period',
 			},
 			{
 				name: 'Returns Transactions Filtered by Timestamp for a Property for a Given Period.',
@@ -3301,7 +3264,37 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['property'] } },
+		displayOptions: { show: { group: ['finance-v1'], resource: ['Types'] } },
+		options: [
+			{
+				name: 'Returns a List of All Currencies.',
+				value: 'FinanceTypesCurrenciesGet',
+				action: 'Returns a list of all currencies',
+			},
+			{
+				name: 'Returns a List of All Supported Payment Methods.',
+				value: 'FinanceTypesPayment-methodsGet',
+				action: 'Returns a list of all supported payment methods',
+			},
+			{
+				name: 'Returns a List of All Supported Service Types.',
+				value: 'FinanceTypesService-typesGet',
+				action: 'Returns a list of all supported service types',
+			},
+			{
+				name: 'Returns a List of All VAT Types.',
+				value: 'FinanceTypesVatGet',
+				action: 'Returns a list of all vat types',
+			},
+		],
+		default: 'FinanceTypesCurrenciesGet',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['inventory-v1'], resource: ['Property'] } },
 		options: [
 			{
 				name: 'Allows to Modify Property',
@@ -3327,7 +3320,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['unit'] } },
+		displayOptions: { show: { group: ['inventory-v1'], resource: ['Unit'] } },
 		options: [
 			{
 				name: 'Allows to Patch One or More Units',
@@ -3366,7 +3359,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['unitattribute'] } },
+		displayOptions: { show: { group: ['inventory-v1'], resource: ['UnitAttribute'] } },
 		options: [
 			{
 				name: 'Allows to Modify Unit Attribute',
@@ -3401,7 +3394,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['unitgroup'] } },
+		displayOptions: { show: { group: ['inventory-v1'], resource: ['UnitGroup'] } },
 		options: [
 			{
 				name: 'Check if a Unit Group Exists',
@@ -3441,10 +3434,10 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['bookinglogs'] } },
+		displayOptions: { show: { group: ['logs-v1'], resource: ['BookingLogs'] } },
 		options: [
 			{
-				name: 'Returns Reservation Change Log Entries Sorted by the Timestamp.',
+				name: 'Returns Reservation Change Log Entries Sorted by the Timestamp',
 				value: 'LogsBookingReservationGet',
 				action: 'Returns reservation change log entries sorted by the timestamp',
 			},
@@ -3456,7 +3449,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['financelogs'] } },
+		displayOptions: { show: { group: ['logs-v1'], resource: ['FinanceLogs'] } },
 		options: [
 			{
 				name: 'Returns Folio Change Log Entries Sorted by the Timestamp.',
@@ -3481,7 +3474,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['maintenance'] } },
+		displayOptions: { show: { group: ['operations-v1'], resource: ['Maintenance'] } },
 		options: [
 			{
 				name: 'Check if a Maintenance Exists',
@@ -3531,7 +3524,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['operations'] } },
+		displayOptions: { show: { group: ['operations-v1'], resource: ['Operations'] } },
 		options: [
 			{
 				name: 'Change the Condition of a Unit',
@@ -3551,7 +3544,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['agecategory'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['AgeCategory'] } },
 		options: [
 			{
 				name: 'Allows to Modify Properties of an Age Category',
@@ -3581,7 +3574,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['cancellationpolicy'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['CancellationPolicy'] } },
 		options: [
 			{
 				name: 'Allows to Modify Properties of a Cancellation Policy',
@@ -3611,7 +3604,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['company'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['Company'] } },
 		options: [
 			{ name: 'Create a Company', value: 'RateplanCompaniesPost', action: 'Create a company' },
 			{ name: 'Get a Company', value: 'RateplanCompaniesByIdGet', action: 'Get a company' },
@@ -3629,7 +3622,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['corporatecodes'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['CorporateCodes'] } },
 		options: [
 			{
 				name: 'Returns a List of Corporate Codes.',
@@ -3644,7 +3637,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['noshowpolicy'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['NoShowPolicy'] } },
 		options: [
 			{
 				name: 'Allows to Modify Properties of a No-Show Policy',
@@ -3674,7 +3667,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['promocodes'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['PromoCodes'] } },
 		options: [
 			{
 				name: 'Returns a List of Promo Codes.',
@@ -3689,7 +3682,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['rate'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['Rate'] } },
 		options: [
 			{
 				name: 'Allows to Patch the Rates of Multiple Rate Plans.',
@@ -3714,7 +3707,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['rateplan'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['RatePlan'] } },
 		options: [
 			{
 				name: 'Allows to Patch One or More Rate Plans',
@@ -3741,7 +3734,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['service'] } },
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['Service'] } },
 		options: [
 			{ name: 'Create a Service.', value: 'RateplanServicesPost', action: 'Create a service' },
 			{
@@ -3763,7 +3756,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['reports'] } },
+		displayOptions: { show: { group: ['reports-v1'], resource: ['Reports'] } },
 		options: [
 			{
 				name: 'List of Ordered Services',
@@ -3784,8 +3777,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns the Property Performance Report Which Includes the ADR and the RevPAR for Each Business Day.',
 				value: 'ReportsReportsProperty-performanceGet',
-				action:
-					'Returns the property performance report which includes the adr and the rev par for each business day',
+				action: 'Returns the property performance report which includes the adr and the rev par for each business day',
 			},
 			{
 				name: 'Returns the Revenues Report for a Property',
@@ -3800,7 +3792,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['capturepolicies'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['CapturePolicies'] } },
 		options: [
 			{
 				name: 'Allows to Modify Properties of a Capture Policy.',
@@ -3825,7 +3817,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['citytax'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['CityTax'] } },
 		options: [
 			{
 				name: 'Allows to Modify City Tax',
@@ -3847,7 +3839,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['customsubaccounts'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['CustomSubAccounts'] } },
 		options: [
 			{
 				name: 'Allows to Modify the Name of the Sub-Account.',
@@ -3887,7 +3879,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['featuresettings'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['FeatureSettings'] } },
 		options: [
 			{
 				name: 'Allows to Modify Feature Settings',
@@ -3907,7 +3899,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['invoiceaddress'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['InvoiceAddress'] } },
 		options: [
 			{
 				name: 'Change Fields in the Invoice Address of One or More Properties.',
@@ -3932,7 +3924,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['languages'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['Languages'] } },
 		options: [
 			{
 				name: 'Get the Language Settings for the Account',
@@ -3952,7 +3944,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['marketsegment'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['MarketSegment'] } },
 		options: [
 			{
 				name: 'Allows to Modify Market Segment.',
@@ -3992,7 +3984,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['propertysettings'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['PropertySettings'] } },
 		options: [
 			{
 				name: 'Get Property Settings',
@@ -4007,7 +3999,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['timeslicedefinitions'] } },
+		displayOptions: { show: { group: ['settings-v1'], resource: ['TimeSliceDefinitions'] } },
 		options: [
 			{
 				name: 'Creates a Time Slice Definition',
@@ -4037,7 +4029,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['healthcheck'] } },
+		displayOptions: { show: { group: ['webhook-v1'], resource: ['HealthCheck'] } },
 		options: [{ name: 'PingerPost', value: 'PingerPost', action: 'Pinger post' }],
 		default: 'PingerPost',
 	},
@@ -4046,7 +4038,7 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-		displayOptions: { show: { resource: ['subscriptions'] } },
+		displayOptions: { show: { group: ['webhook-v1'], resource: ['Subscriptions'] } },
 		options: [
 			{ name: 'Creates Subscription', value: 'SubscriptionsPost', action: 'Creates subscription' },
 			{

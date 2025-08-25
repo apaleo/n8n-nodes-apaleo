@@ -1,16 +1,16 @@
 import { INodeProperties } from 'n8n-workflow';
 
 export const groups = {
-	'availability-v1': 'Availability-v1',
-	'booking-v1': 'Booking-v1',
-	'finance-v1': 'Finance-v1',
-	'inventory-v1': 'Inventory-v1',
-	'logs-v1': 'Logs-v1',
-	'operations-v1': 'Operations-v1',
-	'rateplan-v1': 'Rateplan-v1',
-	'reports-v1': 'Reports-v1',
-	'settings-v1': 'Settings-v1',
-	'webhook-v1': 'Webhook-v1',
+	'availability-v1': 'AvailabilityV1',
+	'booking-v1': 'BookingV1',
+	'finance-v1': 'FinanceV1',
+	'inventory-v1': 'InventoryV1',
+	'logs-v1': 'LogsV1',
+	'operations-v1': 'OperationsV1',
+	'rateplan-v1': 'RateplanV1',
+	'reports-v1': 'ReportsV1',
+	'settings-v1': 'SettingsV1',
+	'webhook-v1': 'WebhookV1',
 };
 
 export const groupOptions: INodeProperties = {
@@ -19,16 +19,16 @@ export const groupOptions: INodeProperties = {
 	type: 'options',
 	noDataExpression: true,
 	options: [
-		{ name: 'Availability-V1', value: 'availability-v1' },
-		{ name: 'Booking-V1', value: 'booking-v1' },
-		{ name: 'Finance-V1', value: 'finance-v1' },
-		{ name: 'Inventory-V1', value: 'inventory-v1' },
-		{ name: 'Logs-V1', value: 'logs-v1' },
-		{ name: 'Operations-V1', value: 'operations-v1' },
-		{ name: 'Rateplan-V1', value: 'rateplan-v1' },
-		{ name: 'Reports-V1', value: 'reports-v1' },
-		{ name: 'Settings-V1', value: 'settings-v1' },
-		{ name: 'Webhook-V1', value: 'webhook-v1' },
+		{ name: 'AvailabilityV1', value: 'availability-v1' },
+		{ name: 'BookingV1', value: 'booking-v1' },
+		{ name: 'FinanceV1', value: 'finance-v1' },
+		{ name: 'InventoryV1', value: 'inventory-v1' },
+		{ name: 'LogsV1', value: 'logs-v1' },
+		{ name: 'OperationsV1', value: 'operations-v1' },
+		{ name: 'RateplanV1', value: 'rateplan-v1' },
+		{ name: 'ReportsV1', value: 'reports-v1' },
+		{ name: 'SettingsV1', value: 'settings-v1' },
+		{ name: 'WebhookV1', value: 'webhook-v1' },
 	],
 	default: 'availability-v1',
 };

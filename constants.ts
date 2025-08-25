@@ -269,5 +269,5 @@ export function getEnvironmentUrls(environment?: string): EnvironmentUrls {
  * Get the current environment name
  */
 export function getCurrentEnvironment(): string {
-	return 'dev'; // Default to development - you can change this as needed
+	return 'prod'; // Default to development - you can change this as needed
 }
