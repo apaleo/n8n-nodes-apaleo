@@ -197,6 +197,10 @@ export const ACCOUNT_LEVEL_EVENTS = [
  * Get webhook base URL - defaults to production
  */
 export function getWebhookBaseUrl(): string {
+	const environment = getCurrentEnvironment();
+	if (environment === 'prod') {
+		return 'https://webhook.apaleo.com/v1';
+	}
 	return 'https://webhook.apaleo-staging.com/v1';
 }
 
