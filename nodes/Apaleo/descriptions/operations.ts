@@ -2184,7 +2184,7 @@ export const operationsByResource = {
 			displayName: 'Create a city tax.',
 			value: 'SettingsCity-taxPost',
 			description:
-				"You can only create one city tax per property. It can be changed and deleted any time.<br>You must have at least one of these scopes: 'settings.manage, setup.manage'.",
+				"<br>You must have at least one of these scopes: 'settings.manage, setup.manage'.",
 			action: 'Create a city tax.',
 			method: 'POST',
 			path: '/settings/v1/city-tax',
@@ -2217,7 +2217,7 @@ export const operationsByResource = {
 			displayName: 'Allows to modify city tax',
 			value: 'SettingsCity-taxByIdPatch',
 			description:
-				"Here is the list of operations that are currently allowed:\r\n- Replace name and description\r\n- Replace value and type\r\n- Replace or delete the VAT type\r\n- Replace priority<br>You must have at least one of these scopes: 'settings.manage, setup.manage'.",
+				"Here is the list of operations that are currently allowed:\r\n- Replace name and description\r\n- Replace type\r\n- Replace taxHandlingType\r\n- Replace value\r\n- Replace limit\r\n- Replace, add, or remove subcategories\r\n- Replace, add, or remove pricingRules\r\n- Replace vatType\r\n- Replace priority\r\n- Replace includeCityTaxInRateAmount\r\n- Replace, add, or remove ignoredFor<br>You must have at least one of these scopes: 'settings.manage, setup.manage'.",
 			action: 'Allows to modify city tax',
 			method: 'PATCH',
 			path: '/settings/v1/city-tax/{id}',

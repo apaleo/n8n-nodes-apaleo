@@ -847,13 +847,14 @@ export class ApaleoTrigger implements INodeType {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
 				const webhookUrl = this.getNodeWebhookUrl('default');
 				const webhookData = this.getWorkflowStaticData('node');
-				const events = this.getNodeParameter('events') as string[];
+				const eventsParam = this.getNodeParameter('events') as string | string[];
+				const events = Array.isArray(eventsParam) ? eventsParam : [eventsParam];
 				const propertyIds = this.getNodeParameter('propertyIds') as string;
 
 				const propertyIdsList = propertyIds ? propertyIds.split(',').map((id) => id.trim()) : [];
 
 				try {
-					const subscriptions = await apaleoApiRequest.call(this, 'GET', '/subscriptions');
+					const subscriptions = await apaleoApiRequest.call(this, 'GET', 'subscriptions');
 
 					for (const subscription of subscriptions) {
 						if (subscription.endpointUrl === webhookUrl) {
@@ -885,7 +886,8 @@ export class ApaleoTrigger implements INodeType {
 			async create(this: IHookFunctions): Promise<boolean> {
 				const webhookData = this.getWorkflowStaticData('node');
 				const webhookUrl = this.getNodeWebhookUrl('default');
-				const events = this.getNodeParameter('events') as string[];
+				const eventsParam = this.getNodeParameter('events') as string | string[];
+				const events = Array.isArray(eventsParam) ? eventsParam : [eventsParam];
 				const propertyIds = this.getNodeParameter('propertyIds') as string;
 				const options = this.getNodeParameter('options') as IDataObject;
 
@@ -915,16 +917,25 @@ export class ApaleoTrigger implements INodeType {
 				}
 
 				try {
-					const responseData = await apaleoApiRequest.call(this, 'POST', '/subscriptions', body);
+					const responseData = await apaleoApiRequest.call(this, 'POST', 'subscriptions', body);
 
 					if (responseData?.id === undefined) {
-						return false;
+						throw new NodeOperationError(
+							this.getNode(),
+							'Failed to create webhook subscription: No subscription ID returned from Apaleo API',
+						);
 					}
 
 					webhookData.webhookId = responseData.id as string;
 					return true;
 				} catch (error) {
-					return false;
+					if (error instanceof NodeOperationError) {
+						throw error;
+					}
+					throw new NodeOperationError(
+						this.getNode(),
+						`Failed to create webhook subscription: ${error instanceof Error ? error.message : 'Unknown error'}`,
+					);
 				}
 			},
 
@@ -933,9 +944,12 @@ export class ApaleoTrigger implements INodeType {
 
 				if (webhookData.webhookId !== undefined) {
 					try {
-						await apaleoApiRequest.call(this, 'DELETE', `/subscriptions/${webhookData.webhookId}`);
+						await apaleoApiRequest.call(this, 'DELETE', `subscriptions/${webhookData.webhookId}`);
 					} catch (error) {
-						return false;
+						throw new NodeOperationError(
+							this.getNode(),
+							`Failed to delete webhook subscription: ${error instanceof Error ? error.message : 'Unknown error'}`,
+						);
 					}
 
 					// Remove from the static workflow data so that it is clear
@@ -963,6 +977,14 @@ export class ApaleoTrigger implements INodeType {
 							timestamp: new Date().toISOString(),
 						}),
 					],
+				};
+			}
+
+			// Handle Apaleo health check events - these should be acknowledged but not processed as workflow data
+			if (bodyData.topic === 'system' && bodyData.type === 'healthcheck') {
+				// Return empty workflow data for health checks to acknowledge receipt
+				return {
+					workflowData: [this.helpers.returnJsonArray([])],
 				};
 			}
 
