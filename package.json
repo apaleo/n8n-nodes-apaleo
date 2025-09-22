@@ -1,6 +1,6 @@
 {
   "name": "@apaleo/n8n-nodes-apaleo-official",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Apaleo API Official Node for n8n",
   "keywords": [
     "n8n-community-node-package",
