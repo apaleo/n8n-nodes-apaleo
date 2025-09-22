@@ -36,6 +36,9 @@ export class ApaleoOAuth2Api implements ICredentialType {
 			displayName: 'Client Secret',
 			name: 'clientSecret',
 			type: 'string',
+			typeOptions: {
+				password: true,
+			},
 			default: '',
 			required: true,
 			description: 'Client Secret for the Apaleo API (Custom App)',
