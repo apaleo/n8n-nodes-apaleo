@@ -38,6 +38,7 @@ export class ApaleoOAuth2Api implements ICredentialType {
 			type: 'string',
 			typeOptions: {
 				password: true,
+				hideValue: true,
 			},
 			default: '',
 			required: true,
