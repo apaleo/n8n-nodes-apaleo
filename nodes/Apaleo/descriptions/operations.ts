@@ -657,7 +657,7 @@ export const operationsByResource = {
 			displayName: 'Returns a list of all VAT types.',
 			value: 'FinanceTypesVatGet',
 			description:
-				'Returns a list of all VAT types and percents for a country. Supported:\n\r\n- Albania (AL)\n\r\n- Austria (AT)\n\r\n- Azerbaijan (AZ)\n\r\n- Belgium (BE)\n\r\n- Bulgaria (BG)\n\r\n- Cape Verde (CV)\n\r\n- Croatia (HR)\n\r\n- Czech Republic (CZ)\n\r\n- Denmark (DK)\n\r\n- Finland (FI)\n\r\n- France (FR) - without the super-reduced 2.1% VAT\n\r\n- French Polynesia (PF)\n\r\n- Germany (DE)\n\r\n- Greece (GR)\n\r\n- Hungary (HU)\n\r\n- Indonesia (ID)\n\r\n- Ireland (IE)\n\r\n- Italy (IT)\n\r\n- Iceland (IS)\n\r\n- Japan (JP)\n\r\n- Liechtenstein (LI)\n\r\n- Madagascar (MG)\n\r\n- Malaysia (MY)\n\r\n- Malta (MT)\n\r\n- Mexico (MX)\n\r\n- Monaco (MC)\n\r\n- Morocco (MA)\n\r\n- Netherlands (NL)\n\r\n- New Zealand (NZ)\n\r\n- Norway (NO) - without the VAT for raw fish supplies\n\r\n- Portugal (PT)\n\r\n- Reunion (RE)\n\r\n- Saudi Arabia (SA)\n\r\n- Slovakia (SK)\n\r\n- Slovenia (SI)\n\r\n- South Africa (ZA)\n\r\n- Spain (ES)\n\r\n- Sweden (SE)\n\r\n- Switzerland (CH)\n\r\n- Taiwan (TW)\n\r\n- United Kingdom (GB)\n\r\n- United Arab Emirates (AE)',
+				'Returns a list of all VAT types and percents for a country. Supported:\n\r\n- Albania (AL)\n\r\n- Argentina (AR)\n\r\n- Austria (AT)\n\r\n- Azerbaijan (AZ)\n\r\n- Belgium (BE)\n\r\n- Bulgaria (BG)\n\r\n- Cape Verde (CV)\n\r\n- Croatia (HR)\n\r\n- Czech Republic (CZ)\n\r\n- Denmark (DK)\n\r\n- Finland (FI)\n\r\n- France (FR) - without the super-reduced 2.1% VAT\n\r\n- French Polynesia (PF)\n\r\n- Germany (DE)\n\r\n- Greece (GR)\n\r\n- Hungary (HU)\n\r\n- Indonesia (ID)\n\r\n- Ireland (IE)\n\r\n- Italy (IT)\n\r\n- Iceland (IS)\n\r\n- Japan (JP)\n\r\n- Liechtenstein (LI)\n\r\n- Madagascar (MG)\n\r\n- Malaysia (MY)\n\r\n- Malta (MT)\n\r\n- Mexico (MX)\n\r\n- Monaco (MC)\n\r\n- Morocco (MA)\n\r\n- Netherlands (NL)\n\r\n- New Zealand (NZ)\n\r\n- Norway (NO) - without the VAT for raw fish supplies\n\r\n- Portugal (PT)\n\r\n- Reunion (RE)\n\r\n- Saudi Arabia (SA)\n\r\n- Serbia (RS)\n\r\n- Slovakia (SK)\n\r\n- Slovenia (SI)\n\r\n- South Africa (ZA)\n\r\n- Spain (ES)\n\r\n- Sweden (SE)\n\r\n- Switzerland (CH)\n\r\n- Taiwan (TW)\n\r\n- United Kingdom (GB)\n\r\n- United Arab Emirates (AE)',
 			action: 'Returns a list of all VAT types.',
 			method: 'GET',
 			path: '/finance/v1/types/vat',
@@ -2682,8 +2682,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Add One or Multiple Reservations to an Existing Booking Regardless of Availability or Restrictions.',
 				value: 'BookingBookingsByIdReservations$forcePost',
-				action:
-					'Add one or multiple reservations to an existing booking regardless of availability or restrictions',
+				action: 'Add one or multiple reservations to an existing booking regardless of availability or restrictions',
 			},
 			{
 				name: 'Add One or Multiple Reservations to an Existing Booking.',
@@ -2698,8 +2697,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Creates a Booking for One or More Reservations Regardless of Availability or Restrictions.',
 				value: 'BookingBookings$forcePost',
-				action:
-					'Creates a booking for one or more reservations regardless of availability or restrictions',
+				action: 'Creates a booking for one or more reservations regardless of availability or restrictions',
 			},
 			{
 				name: 'Creates a Booking for One or More Reservations.',
@@ -2729,8 +2727,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Add One or Multiple Reservations to an Existing Group Booking Using Blocked Inventory.',
 				value: 'BookingGroupsByIdReservationsPost',
-				action:
-					'Add one or multiple reservations to an existing group booking using blocked inventory',
+				action: 'Add one or multiple reservations to an existing group booking using blocked inventory',
 			},
 			{
 				name: 'Allows to Modify Certain Group Booking Properties',
@@ -2825,8 +2822,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns the Number of Reservations Fulfilling the Criteria Specified in the Parameters.',
 				value: 'BookingReservations$countGet',
-				action:
-					'Returns the number of reservations fulfilling the criteria specified in the parameters',
+				action: 'Returns the number of reservations fulfilling the criteria specified in the parameters',
 			},
 			{
 				name: 'Returns the Services Booked for a Specific Reservation.',
@@ -2856,8 +2852,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Allows You to Amend the Stay Details of a Reservation Regardless of Availability or Restrictions.',
 				value: 'BookingReservation-actionsByIdAmend$forcePut',
-				action:
-					'Allows you to amend the stay details of a reservation regardless of availability or restrictions',
+				action: 'Allows you to amend the stay details of a reservation regardless of availability or restrictions',
 			},
 			{
 				name: 'Assign a Specific Unit to a Reservation.',
@@ -2932,8 +2927,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns a List of Values that a Field of the Specified Type Can Take in the Specified Country.',
 				value: 'BookingTypesByTypeAllowed-valuesGet',
-				action:
-					'Returns a list of values that a field of the specified type can take in the specified country',
+				action: 'Returns a list of values that a field of the specified type can take in the specified country',
 			},
 		],
 		default: 'BookingTypesSourcesGet',
@@ -2984,26 +2978,22 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Adds and Directly Posts a Cancellation Fee to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added. If a Routing Instruction Is Defined for the Cancellation Fee Service Type, the Fee Will Be Moved to the Destination Folio.',
 				value: 'FinanceFolio-actionsByFolioIdCancellation-feePost',
-				action:
-					'Adds and directly posts a cancellation fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the cancellation fee service type the fee will be moved to the destination folio',
+				action: 'Adds and directly posts a cancellation fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the cancellation fee service type the fee will be moved to the destination folio',
 			},
 			{
 				name: 'Adds and Directly Posts a Charge to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added.',
 				value: 'FinanceFolio-actionsByFolioIdChargesPost',
-				action:
-					'Adds and directly posts a charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
+				action: 'Adds and directly posts a charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
 			},
 			{
 				name: 'Adds and Directly Posts a No-Show Fee to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added. If a Routing Instruction Is Defined for the No-Show Fee Service Type, the Fee Will Be Moved to the Destination Folio.',
 				value: 'FinanceFolio-actionsByFolioIdNo-show-feePost',
-				action:
-					'Adds and directly posts a no show fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the no show fee service type the fee will be moved to the destination folio',
+				action: 'Adds and directly posts a no show fee to the folio if there are any fees configured for the property an additional charge for each configured fee will be added if a routing instruction is defined for the no show fee service type the fee will be moved to the destination folio',
 			},
 			{
 				name: 'Adds and Directly Posts a Transitory Charge to the Folio. If There Are Any Fees Configured for the Property, an Additional Charge for Each Configured Fee Will Be Added.',
 				value: 'FinanceFolio-actionsByFolioIdTransitory-chargesPost',
-				action:
-					'Adds and directly posts a transitory charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
+				action: 'Adds and directly posts a transitory charge to the folio if there are any fees configured for the property an additional charge for each configured fee will be added',
 			},
 			{
 				name: 'Closes a Folio.',
@@ -3013,8 +3003,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Corrects a Folio by Moving some Charges. This Operation Creates a New Folio with the Charges From the Request. The Payment, Equal to the Sum of Charges, Is Also Split to This New Folio so that Both Folios Will Have 0 Balance.',
 				value: 'FinanceFolio-actionsByFolioIdCorrectPost',
-				action:
-					'Corrects a folio by moving some charges this operation creates a new folio with the charges from the request the payment equal to the sum of charges is also split to this new folio so that both folios will have 0 balance',
+				action: 'Corrects a folio by moving some charges this operation creates a new folio with the charges from the request the payment equal to the sum of charges is also split to this new folio so that both folios will have 0 balance',
 			},
 			{
 				name: 'Move All Charges and Transitory Charges From One Folio to Another.',
@@ -3024,8 +3013,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Move Multiple Charges From One Folio to Another. Multiple Source Folios and Multiple Target Folios Can Be Specified.',
 				value: 'FinanceFolio-actionsBulk-movePut',
-				action:
-					'Move multiple charges from one folio to another multiple source folios and multiple target folios can be specified',
+				action: 'Move multiple charges from one folio to another multiple source folios and multiple target folios can be specified',
 			},
 			{
 				name: 'Move Multiple Charges, Allowances and Transitory Charges From One Folio to Another.',
@@ -3065,14 +3053,12 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Splits a Charge Into Two Using the Percent or Amount Provided Creates an Allowance and Two New Charges.',
 				value: 'FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost',
-				action:
-					'Splits a charge into two using the percent or amount provided creates an allowance and two new charges',
+				action: 'Splits a charge into two using the percent or amount provided creates an allowance and two new charges',
 			},
 			{
 				name: 'Splits a Payment Into Two Using the Percent or Amount Provided Creates a Refund and Two New Payments.',
 				value: 'FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost',
-				action:
-					'Splits a payment into two using the percent or amount provided creates a refund and two new payments',
+				action: 'Splits a payment into two using the percent or amount provided creates a refund and two new payments',
 			},
 		],
 		default: 'FinanceFolio-actionsByFolioIdCancellation-feePost',
@@ -3223,8 +3209,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Aggregates Transactions Pairs by Date (Business Day) for All Accounts and a Given Period.',
 				value: 'FinanceAccountsAggregate-pairs-dailyPost',
-				action:
-					'Aggregates transactions pairs by date business day for all accounts and a given period',
+				action: 'Aggregates transactions pairs by date business day for all accounts and a given period',
 			},
 			{
 				name: 'Returns a List of Child Accounts for a Specified Parent Account.',
@@ -3249,8 +3234,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns Gross Transactions Filtered by Date (Business Day) for a Property for a Given Period.',
 				value: 'FinanceAccountsExport-gross-dailyPost',
-				action:
-					'Returns gross transactions filtered by date business day for a property for a given period',
+				action: 'Returns gross transactions filtered by date business day for a property for a given period',
 			},
 			{
 				name: 'Returns One Account.',
@@ -3265,8 +3249,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns Transactions Filtered by Date (Business Day) for a Property for a Given Period.',
 				value: 'FinanceAccountsExport-dailyPost',
-				action:
-					'Returns transactions filtered by date business day for a property for a given period',
+				action: 'Returns transactions filtered by date business day for a property for a given period',
 			},
 			{
 				name: 'Returns Transactions Filtered by Timestamp for a Property for a Given Period.',
@@ -3794,8 +3777,7 @@ export const operationOptions: INodeProperties[] = [
 			{
 				name: 'Returns the Property Performance Report Which Includes the ADR and the RevPAR for Each Business Day.',
 				value: 'ReportsReportsProperty-performanceGet',
-				action:
-					'Returns the property performance report which includes the adr and the rev par for each business day',
+				action: 'Returns the property performance report which includes the adr and the rev par for each business day',
 			},
 			{
 				name: 'Returns the Revenues Report for a Property',
