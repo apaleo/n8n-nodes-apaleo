@@ -34,9 +34,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The property ID',
+		description: 'The property id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["AvailabilityUnitsGet_propertyId"]}}',
 				},
@@ -56,10 +57,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["AvailabilityUnitsGet_from"] ? new Date($parameter["AvailabilityUnitsGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -79,10 +80,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["AvailabilityUnitsGet_to"] ? new Date($parameter["AvailabilityUnitsGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -107,8 +108,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeOutOfService',
 				type: 'boolean',
 				default: false,
-				description:
-					'Should units that are set OutOfService in the defined time period be returned as available',
+				description: 'Should units that are set OutOfService in the defined time period be returned as available',
 				routing: {
 					request: {
 						qs: {
@@ -194,7 +194,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitGroupId',
 				type: 'string',
 				default: '',
-				description: 'The unit group ID',
+				description: 'The unit group id',
 				routing: {
 					request: {
 						qs: {
@@ -237,9 +237,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The property ID',
+		description: 'The property id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["AvailabilityUnit-groupsGet_propertyId"]}}',
 				},
@@ -263,6 +264,7 @@ export const parameterFields: INodeProperties[] = [
 			'First day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["AvailabilityUnit-groupsGet_from"] ? new Date($parameter["AvailabilityUnit-groupsGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -286,6 +288,7 @@ export const parameterFields: INodeProperties[] = [
 			'Last day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["AvailabilityUnit-groupsGet_to"] ? new Date($parameter["AvailabilityUnit-groupsGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -338,8 +341,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'onlySellable',
 				type: 'boolean',
 				default: false,
-				description:
-					"When set to 'true', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned",
+				description: 'When set to \'true\', only the unit groups sold by the specified time slice template and time slice definition ids are returned, otherwise all unit groups are returned',
 				routing: {
 					request: {
 						qs: {
@@ -383,7 +385,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
 				default: '',
-				description: 'The time slice definition IDs',
+				description: 'The time slice definition ids',
 				routing: {
 					request: {
 						qs: {
@@ -421,7 +423,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitGroupIds',
 				type: 'string',
 				default: '',
-				description: 'The unit group IDs',
+				description: 'The unit group ids',
 				routing: {
 					request: {
 						qs: {
@@ -478,10 +480,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the unit group to be modified',
+		description: 'Id of the unit group to be modified',
 		routing: {
 			request: {
-				url: '=/availability/v1/unit-groups/{{$value}}',
+				method: 'PATCH',
+				url: '=/availability/v1/unit-groups/{{$parameter["AvailabilityUnit-groupsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -501,6 +504,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'First day of the time period from which availability will be modified',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					from: '={{$parameter["AvailabilityUnit-groupsByIdPatch_from"] ? new Date($parameter["AvailabilityUnit-groupsByIdPatch_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -523,6 +527,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Last day of the time period until which availability will be modified',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					to: '={{$parameter["AvailabilityUnit-groupsByIdPatch_to"] ? new Date($parameter["AvailabilityUnit-groupsByIdPatch_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -545,6 +550,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The time slice template',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					timeSliceTemplate:
 						'={{$parameter["AvailabilityUnit-groupsByIdPatch_timeSliceTemplate"]}}',
@@ -575,10 +581,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["AvailabilityUnit-groupsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -618,9 +624,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The property ID',
+		description: 'The property id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["AvailabilityServicesGet_propertyId"]}}',
 				},
@@ -644,6 +651,7 @@ export const parameterFields: INodeProperties[] = [
 			'First day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["AvailabilityServicesGet_from"] ? new Date($parameter["AvailabilityServicesGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -667,6 +675,7 @@ export const parameterFields: INodeProperties[] = [
 			'Last day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["AvailabilityServicesGet_to"] ? new Date($parameter["AvailabilityServicesGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -735,7 +744,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
 				default: '',
-				description: 'The time slice definition IDs',
+				description: 'The time slice definition ids',
 				routing: {
 					request: {
 						qs: {
@@ -802,10 +811,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the reservation',
+		description: 'The id of the reservation',
 		routing: {
 			request: {
-				url: '=/availability/v1/reservations/{{$value}}/units',
+				method: 'GET',
+				url: '=/availability/v1/reservations/{{$parameter["AvailabilityReservationsByIdUnitsGet_id"]}}/units',
 			},
 		},
 	},
@@ -827,8 +837,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -842,8 +851,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeOutOfService',
 				type: 'boolean',
 				default: false,
-				description:
-					'Should units that are set OutOfService in the defined time period be returned as available',
+				description: 'Should units that are set OutOfService in the defined time period be returned as available',
 				routing: {
 					request: {
 						qs: {
@@ -887,8 +895,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -944,7 +951,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitGroupId',
 				type: 'string',
 				default: '',
-				description: 'The unit group ID',
+				description: 'The unit group id',
 				routing: {
 					request: {
 						qs: {
@@ -987,10 +994,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2025-09-17",\n  "to": "2025-09-20",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
-		description: 'The details for the block you want to create',
+			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2025-09-29",\n  "to": "2025-10-02",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["BookingBlocksPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -1016,8 +1024,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -1080,8 +1087,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1219,8 +1225,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1296,8 +1301,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1405,8 +1409,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1477,10 +1480,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the block to be retrieved',
+		description: 'Id of the block to be retrieved',
 		routing: {
 			request: {
-				url: '=/booking/v1/blocks/{{$value}}',
+				method: 'GET',
+				url: '=/booking/v1/blocks/{{$parameter["BookingBlocksByIdGet_id"]}}',
 			},
 		},
 	},
@@ -1546,10 +1550,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the block that should be processed',
+		description: 'Id of the block that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/block-actions/{{$value}}/confirm',
+				method: 'PUT',
+				url: '=/booking/v1/block-actions/{{$parameter["BookingBlock-actionsByIdConfirmPut_id"]}}/confirm',
 			},
 		},
 	},
@@ -1585,10 +1590,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the block that should be processed',
+		description: 'Id of the block that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/block-actions/{{$value}}/release',
+				method: 'PUT',
+				url: '=/booking/v1/block-actions/{{$parameter["BookingBlock-actionsByIdReleasePut_id"]}}/release',
 			},
 		},
 	},
@@ -1624,10 +1630,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the block that should be processed',
+		description: 'Id of the block that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/block-actions/{{$value}}/cancel',
+				method: 'PUT',
+				url: '=/booking/v1/block-actions/{{$parameter["BookingBlock-actionsByIdCancelPut_id"]}}/cancel',
 			},
 		},
 	},
@@ -1663,10 +1670,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the block that should be processed',
+		description: 'Id of the block that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/block-actions/{{$value}}/wash',
+				method: 'PUT',
+				url: '=/booking/v1/block-actions/{{$parameter["BookingBlock-actionsByIdWashPut_id"]}}/wash',
 			},
 		},
 	},
@@ -1702,10 +1710,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the block to be modified',
+		description: 'Id of the block to be modified',
 		routing: {
 			request: {
-				url: '=/booking/v1/block-actions/{{$value}}/amend',
+				method: 'PUT',
+				url: '=/booking/v1/block-actions/{{$parameter["BookingBlock-actionsByIdAmendPut_id"]}}/amend',
 			},
 		},
 	},
@@ -1722,10 +1731,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "from": "2025-09-17",\n  "to": "2025-09-20",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
-		description: 'The definition of the block',
+			'{\n  "from": "2025-09-29",\n  "to": "2025-10-02",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["BookingBlock-actionsByIdAmendPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -1765,10 +1775,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-09-14",\n      "departure": "2025-09-16",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2025-09-15",\n      "departure": "2025-09-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
-		description: 'The list of reservations you want to create',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["BookingBookingsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -1794,8 +1805,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -1844,7 +1854,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
+					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code',
 				routing: {
 					request: {
 						qs: {
@@ -1874,7 +1884,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value.',
+					'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value',
 				routing: {
 					request: {
 						qs: {
@@ -1889,7 +1899,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by group ID. The result set will contain all bookings having groups with the specified ID.',
+					'Filter result by group id. The result set will contain all bookings having groups with the specified id',
 				routing: {
 					request: {
 						qs: {
@@ -1934,7 +1944,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID.',
+					'Filter result by reservation id. The result set will contain all bookings having reservations with the specified id',
 				routing: {
 					request: {
 						qs: {
@@ -1948,8 +1958,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values.',
+				description: 'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values',
 				routing: {
 					request: {
 						qs: {
@@ -1992,10 +2001,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-09-14",\n      "departure": "2025-09-16",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2025-09-15",\n      "departure": "2025-09-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
-		description: 'The list of reservations you want to create',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["BookingBookings$forcePost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -2021,8 +2031,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -2065,10 +2074,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the booking the reservations should be attached to',
+		description: 'Id of the booking the reservations should be attached to',
 		routing: {
 			request: {
-				url: '=/booking/v1/bookings/{{$value}}/reservations',
+				method: 'POST',
+				url: '=/booking/v1/bookings/{{$parameter["BookingBookingsByIdReservationsPost_id"]}}/reservations',
 			},
 		},
 	},
@@ -2085,10 +2095,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2025-09-14",\n      "departure": "2025-09-16",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-09-15",\n      "departure": "2025-09-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
-		description: 'The list of reservations you want to add',
+			'{\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["BookingBookingsByIdReservationsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -2114,8 +2125,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -2158,10 +2168,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the booking the reservations should be attached to',
+		description: 'Id of the booking the reservations should be attached to',
 		routing: {
 			request: {
-				url: '=/booking/v1/bookings/{{$value}}/reservations/$force',
+				method: 'POST',
+				url: '=/booking/v1/bookings/{{$parameter["BookingBookingsByIdReservations$forcePost_id"]}}/reservations/$force',
 			},
 		},
 	},
@@ -2178,10 +2189,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2025-09-14",\n      "departure": "2025-09-16",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-15",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-09-15",\n      "departure": "2025-09-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
-		description: 'The list of reservations you want to add',
+			'{\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["BookingBookingsByIdReservations$forcePost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -2207,8 +2219,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -2251,10 +2262,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the booking to be retrieved',
+		description: 'Id of the booking to be retrieved',
 		routing: {
 			request: {
-				url: '=/booking/v1/bookings/{{$value}}',
+				method: 'GET',
+				url: '=/booking/v1/bookings/{{$parameter["BookingBookingsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -2320,10 +2332,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the booking to be modified',
+		description: 'Id of the booking to be modified',
 		routing: {
 			request: {
-				url: '=/booking/v1/bookings/{{$value}}',
+				method: 'PATCH',
+				url: '=/booking/v1/bookings/{{$parameter["BookingBookingsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -2340,10 +2353,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["BookingBookingsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -2384,9 +2397,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "name": "apaleo Summer Festival 2026",\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "propertyIds": [\n    "MUC"\n  ]\n}',
-		description: 'The details of the group that should be created',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["BookingGroupsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -2412,8 +2426,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -2476,8 +2489,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -2535,8 +2547,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.',
+				description: 'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values',
 				routing: {
 					request: {
 						qs: {
@@ -2550,8 +2561,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -2594,10 +2604,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the group booking to be retrieved',
+		description: 'Id of the group booking to be retrieved',
 		routing: {
 			request: {
-				url: '=/booking/v1/groups/{{$value}}',
+				method: 'GET',
+				url: '=/booking/v1/groups/{{$parameter["BookingGroupsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -2663,10 +2674,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the group booking to be modified',
+		description: 'Id of the group booking to be modified',
 		routing: {
 			request: {
-				url: '=/booking/v1/groups/{{$value}}',
+				method: 'PATCH',
+				url: '=/booking/v1/groups/{{$parameter["BookingGroupsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -2683,10 +2695,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["BookingGroupsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -2726,10 +2738,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the group booking the reservations should be attached to',
+		description: 'Id of the group booking the reservations should be attached to',
 		routing: {
 			request: {
-				url: '=/booking/v1/groups/{{$value}}/reservations',
+				method: 'POST',
+				url: '=/booking/v1/groups/{{$parameter["BookingGroupsByIdReservationsPost_id"]}}/reservations',
 			},
 		},
 	},
@@ -2746,10 +2759,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2025-09-14",\n      "departure": "2025-09-16",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2025-09-15",\n      "departure": "2025-09-17",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
-		description: 'The list of reservations you want to create',
+			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["BookingGroupsByIdReservationsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -2775,8 +2789,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -2822,6 +2835,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The property ID',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["BookingOffersGet_propertyId"]}}',
 				},
@@ -2841,10 +2855,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					arrival: '={{$parameter["BookingOffersGet_arrival"]}}',
 				},
@@ -2864,10 +2878,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					departure: '={{$parameter["BookingOffersGet_departure"]}}',
 				},
@@ -2890,6 +2904,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The number of adults you want offers for',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					adults: '={{$parameter["BookingOffersGet_adults"]}}',
 				},
@@ -2995,7 +3010,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -3122,6 +3137,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The rate plan ID',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					ratePlanId: '={{$parameter["BookingRate-plan-offersGet_ratePlanId"]}}',
 				},
@@ -3141,10 +3157,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					arrival: '={{$parameter["BookingRate-plan-offersGet_arrival"]}}',
 				},
@@ -3164,10 +3180,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					departure: '={{$parameter["BookingRate-plan-offersGet_departure"]}}',
 				},
@@ -3190,6 +3206,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The number of adults you want offers for',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					adults: '={{$parameter["BookingRate-plan-offersGet_adults"]}}',
 				},
@@ -3281,7 +3298,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -3341,6 +3358,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The rate plan ID',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					ratePlanId: '={{$parameter["BookingService-offersGet_ratePlanId"]}}',
 				},
@@ -3360,10 +3378,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					arrival: '={{$parameter["BookingService-offersGet_arrival"]}}',
 				},
@@ -3383,10 +3401,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					departure: '={{$parameter["BookingService-offersGet_departure"]}}',
 				},
@@ -3409,6 +3427,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The number of adults you want offers for',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					adults: '={{$parameter["BookingService-offersGet_adults"]}}',
 				},
@@ -3500,7 +3519,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -3514,8 +3533,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'onlyDefaultDates',
 				type: 'boolean',
 				default: false,
-				description:
-					"Depending on the postNextDay setting of a service it will be posted before or after midnight. Breakfast is usually delivered on the next morning, having 'postNextDay' set to true. Its 'default dates' are from the day after arrival until the departure day. For services like dinner 'postNextDay' is false, and default dates are day of arrival until one day before departure. With this query parameter set to 'false', you can also ask for dates outside of those default dates. It defaults to true.",
+				description: 'Depending on the postNextDay setting of a service it will be posted before or after midnight. Breakfast is usually delivered on the next morning, having \'postNextDay\' set to true. Its \'default dates\' are from the day after arrival until the departure day. For services like dinner \'postNextDay\' is false, and default dates are day of arrival until one day before departure. With this query parameter set to \'false\', you can also ask for dates outside of those default dates. It defaults to true.',
 				routing: {
 					request: {
 						qs: {
@@ -3561,6 +3579,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ratePlanId parameter',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					ratePlanId: '={{$parameter["BookingOffer-indexGet_ratePlanId"]}}',
 				},
@@ -3580,10 +3599,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["BookingOffer-indexGet_from"]}}',
 				},
@@ -3603,10 +3622,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["BookingOffer-indexGet_to"]}}',
 				},
@@ -3629,6 +3648,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The channelCode parameter',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					channelCode: '={{$parameter["BookingOffer-indexGet_channelCode"]}}',
 				},
@@ -3755,8 +3775,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'allFoliosHaveInvoice',
 				type: 'boolean',
 				default: false,
-				description:
-					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+				description: 'If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice',
 				routing: {
 					request: {
 						qs: {
@@ -3770,8 +3789,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -3799,7 +3817,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'bookingId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by booking ID',
+				description: 'Filter result by booking id',
 				routing: {
 					request: {
 						qs: {
@@ -3841,8 +3859,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'options',
 				default: 'Arrival',
-				description:
-					"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
+				description: 'Filter by date and time attributes of reservation. Use in combination with the \'To\' and \'From\' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for \'stay\', which will return all reservations that are overlapping with the interval specified by from and to.',
 				options: [
 					{
 						name: 'Arrival',
@@ -3905,8 +3922,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'externalCode',
 				type: 'string',
 				default: '',
-				description:
-					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+				description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
 				routing: {
 					request: {
 						qs: {
@@ -3935,8 +3951,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -3950,8 +3965,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'isPreCheckedIn',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+				description: 'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
 				routing: {
 					request: {
 						qs: {
@@ -4038,7 +4052,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, ID:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
+					'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, id:asc, id:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -4080,8 +4094,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
+				description: 'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation id, unit name. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -4095,8 +4108,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -4200,8 +4212,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'allFoliosHaveInvoice',
 				type: 'boolean',
 				default: false,
-				description:
-					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+				description: 'If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice',
 				routing: {
 					request: {
 						qs: {
@@ -4215,8 +4226,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -4244,7 +4254,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'bookingId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by booking ID',
+				description: 'Filter result by booking id',
 				routing: {
 					request: {
 						qs: {
@@ -4286,8 +4296,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'options',
 				default: 'Arrival',
-				description:
-					"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
+				description: 'Filter by date and time attributes of reservation. Use in combination with the \'To\' and \'From\' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for \'stay\', which will return all reservations that are overlapping with the interval specified by from and to.',
 				options: [
 					{
 						name: 'Arrival',
@@ -4335,8 +4344,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'externalCode',
 				type: 'string',
 				default: '',
-				description:
-					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+				description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
 				routing: {
 					request: {
 						qs: {
@@ -4365,8 +4373,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -4380,8 +4387,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'isPreCheckedIn',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+				description: 'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
 				routing: {
 					request: {
 						qs: {
@@ -4465,8 +4471,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
+				description: 'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation id, unit name. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -4480,8 +4485,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -4580,10 +4584,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation to be retrieved',
+		description: 'Id of the reservation to be retrieved',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservations/{{$value}}',
+				method: 'GET',
+				url: '=/booking/v1/reservations/{{$parameter["BookingReservationsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -4649,10 +4654,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation to be modified',
+		description: 'Id of the reservation to be modified',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservations/{{$value}}',
+				method: 'PATCH',
+				url: '=/booking/v1/reservations/{{$parameter["BookingReservationsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -4669,10 +4675,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["BookingReservationsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -4712,10 +4718,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation to be amended',
+		description: 'Id of the reservation to be amended',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservations/{{$value}}/offers',
+				method: 'GET',
+				url: '=/booking/v1/reservations/{{$parameter["BookingReservationsByIdOffersGet_id"]}}/offers',
 			},
 		},
 	},
@@ -4751,8 +4758,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'arrival',
 				type: 'string',
 				default: '',
-				description:
-					'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -4832,8 +4838,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'departure',
 				type: 'string',
 				default: '',
-				description:
-					'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -4848,7 +4853,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -4876,8 +4881,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'requote',
 				type: 'boolean',
 				default: false,
-				description:
-					"Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to 'false'.",
+				description: 'Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to \'false\'',
 				routing: {
 					request: {
 						qs: {
@@ -4934,10 +4938,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation',
+		description: 'Id of the reservation',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservations/{{$value}}/service-offers',
+				method: 'GET',
+				url: '=/booking/v1/reservations/{{$parameter["BookingReservationsByIdService-offersGet_id"]}}/service-offers',
 			},
 		},
 	},
@@ -5012,7 +5017,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -5026,8 +5031,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'onlyDefaultDates',
 				type: 'boolean',
 				default: false,
-				description:
-					'Depending on the postNextDay setting of a service it will by default be posted before or after midnight. Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day are default dates and will have this flag set to true. For services like a dinner it is the other way around. With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true.',
+				description: 'Depending on the postNextDay setting of a service it will by default be posted before or after midnight. Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day are default dates and will have this flag set to true. For services like a dinner it is the other way around. With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true.',
 				routing: {
 					request: {
 						qs: {
@@ -5070,10 +5074,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation',
+		description: 'Id of the reservation',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservations/{{$value}}/services',
+				method: 'GET',
+				url: '=/booking/v1/reservations/{{$parameter["BookingReservationsByIdServicesGet_id"]}}/services',
 			},
 		},
 	},
@@ -5109,10 +5114,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation',
+		description: 'Id of the reservation',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservations/{{$value}}/services',
+				method: 'DELETE',
+				url: '=/booking/v1/reservations/{{$parameter["BookingReservationsByIdServicesDelete_id"]}}/services',
 			},
 		},
 	},
@@ -5129,9 +5135,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the service to delete',
+		description: 'The id of the service to delete',
 		routing: {
 			request: {
+				method: 'DELETE',
 				qs: {
 					serviceId: '={{$parameter["BookingReservationsByIdServicesDelete_serviceId"]}}',
 				},
@@ -5170,10 +5177,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation a unit should be assigned to',
+		description: 'Id of the reservation a unit should be assigned to',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/assign-unit',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdAssign-unitPut_id"]}}/assign-unit',
 			},
 		},
 	},
@@ -5238,10 +5246,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation the unit should be assigned to',
+		description: 'Id of the reservation the unit should be assigned to',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/assign-unit/{unitId}',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdAssign-unitByUnitIdPut_id"]}}/assign-unit/{{$parameter["BookingReservation-actionsByIdAssign-unitByUnitIdPut_unitId"]}}',
 			},
 		},
 	},
@@ -5258,10 +5267,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit to be assigned',
+		description: 'The id of the unit to be assigned',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{id}/assign-unit/{{$value}}',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdAssign-unitByUnitIdPut_id"]}}/assign-unit/{{$parameter["BookingReservation-actionsByIdAssign-unitByUnitIdPut_unitId"]}}',
 			},
 		},
 	},
@@ -5283,8 +5293,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'string',
 				default: '',
-				description:
-					'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -5313,8 +5322,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'string',
 				default: '',
-				description:
-					'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -5357,10 +5365,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation the unit should be unassigned for',
+		description: 'Id of the reservation the unit should be unassigned for',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/unassign-units',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdUnassign-unitsPut_id"]}}/unassign-units',
 			},
 		},
 	},
@@ -5396,10 +5405,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation that should be processed',
+		description: 'Id of the reservation that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/checkin',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdCheckinPut_id"]}}/checkin',
 			},
 		},
 	},
@@ -5468,7 +5478,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the reservation to reverse the check-in for',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/revert-checkin',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdRevert-checkinPut_id"]}}/revert-checkin',
 			},
 		},
 	},
@@ -5504,10 +5515,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation that should be processed',
+		description: 'Id of the reservation that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/checkout',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdCheckoutPut_id"]}}/checkout',
 			},
 		},
 	},
@@ -5543,10 +5555,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation that should be processed',
+		description: 'Id of the reservation that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/cancel',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdCancelPut_id"]}}/cancel',
 			},
 		},
 	},
@@ -5582,10 +5595,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation that should be processed',
+		description: 'Id of the reservation that should be processed',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/noshow',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdNoshowPut_id"]}}/noshow',
 			},
 		},
 	},
@@ -5621,10 +5635,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation that should be modified',
+		description: 'Id of the reservation that should be modified',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/amend',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdAmendPut_id"]}}/amend',
 			},
 		},
 	},
@@ -5641,10 +5656,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "arrival": "2025-09-14T17:00:00+02:00",\n  "departure": "2025-09-16T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
-		description: 'The new stay details that should be applied to the reservation',
+			'{\n  "arrival": "2025-09-26T17:00:00+02:00",\n  "departure": "2025-09-28T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["BookingReservation-actionsByIdAmendPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -5684,10 +5700,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation that should be modified',
+		description: 'Id of the reservation that should be modified',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/amend/$force',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdAmend$forcePut_id"]}}/amend/$force',
 			},
 		},
 	},
@@ -5704,10 +5721,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "arrival": "2025-09-14T17:00:00+02:00",\n  "departure": "2025-09-16T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
-		description: 'The new stay details that should be applied to the reservation',
+			'{\n  "arrival": "2025-09-26T17:00:00+02:00",\n  "departure": "2025-09-28T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["BookingReservation-actionsByIdAmend$forcePut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -5747,10 +5765,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation',
+		description: 'Id of the reservation',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/book-service',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdBook-servicePut_id"]}}/book-service',
 			},
 		},
 	},
@@ -5767,10 +5786,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-09-12",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-09-13"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-09-24",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-09-25"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["BookingReservation-actionsByIdBook-servicePut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -5810,10 +5830,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation',
+		description: 'Id of the reservation',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/book-service/$force',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdBook-service$forcePut_id"]}}/book-service/$force',
 			},
 		},
 	},
@@ -5830,10 +5851,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-09-12",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-09-13"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-09-24",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-09-25"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["BookingReservation-actionsByIdBook-service$forcePut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -5873,10 +5895,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation',
+		description: 'Id of the reservation',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/remove-city-tax',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdRemove-city-taxPut_id"]}}/remove-city-tax',
 			},
 		},
 	},
@@ -5912,10 +5935,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of the reservation',
+		description: 'Id of the reservation',
 		routing: {
 			request: {
-				url: '=/booking/v1/reservation-actions/{{$value}}/add-city-tax',
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdAdd-city-taxPut_id"]}}/add-city-tax',
 			},
 		},
 	},
@@ -5973,7 +5997,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The type to provide allowed values for',
 		routing: {
 			request: {
-				url: '=/booking/v1/types/{{$value}}/allowed-values',
+				method: 'GET',
+				url: '=/booking/v1/types/{{$parameter["BookingTypesByTypeAllowed-valuesGet_type"]}}/allowed-values',
 			},
 		},
 		options: [
@@ -6000,10 +6025,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
+		description: 'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					countryCode: '={{$parameter["BookingTypesByTypeAllowed-valuesGet_countryCode"]}}',
 				},
@@ -6073,8 +6098,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'Filter the result by the provided free text. If specified, only values that contain one of the provided values will be returned.',
+				description: 'Filter the result by the provided free text. If specified, only values that contain one of the provided values will be returned.',
 				routing: {
 					request: {
 						qs: {
@@ -6122,8 +6146,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -6151,8 +6174,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				description: 'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
 				routing: {
 					request: {
 						qs: {
@@ -6180,8 +6202,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6196,8 +6217,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6213,7 +6233,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
+					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>',
 				routing: {
 					request: {
 						qs: {
@@ -6271,8 +6291,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'isEmpty',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+				description: 'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
 				routing: {
 					request: {
 						qs: {
@@ -6382,8 +6401,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
+				description: 'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio id. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -6429,8 +6447,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6445,8 +6462,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6491,9 +6507,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "reservationId": "TS23XF",\n  "debitor": {\n    "title": "Dr",\n    "firstName": "Jon",\n    "name": "Doe",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    },\n    "company": {\n      "name": "Horns & Hooves Inc",\n      "taxId": "TAX-12345",\n      "additionalTaxId": "TAX2-12345",\n      "additionalTaxId2": "TAX3-12345"\n    },\n    "personalTaxId": "123456789",\n    "reference": "SRC-1232",\n    "phone": "123456789"\n  },\n  "type": "Guest"\n}',
-		description: 'The definition of the folio',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -6519,8 +6536,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -6568,8 +6584,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -6597,8 +6612,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				description: 'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
 				routing: {
 					request: {
 						qs: {
@@ -6626,8 +6640,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6642,8 +6655,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6659,7 +6671,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
+					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>',
 				routing: {
 					request: {
 						qs: {
@@ -6702,8 +6714,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'isEmpty',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+				description: 'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
 				routing: {
 					request: {
 						qs: {
@@ -6783,8 +6794,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
+				description: 'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio id. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -6830,8 +6840,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6846,8 +6855,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6894,7 +6902,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the folio',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}',
+				method: 'GET',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByIdGet_id"]}}',
 			},
 		},
 	},
@@ -6963,7 +6972,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}',
+				method: 'PATCH',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -6980,10 +6990,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/. See the FolioDebitorModel in GET for values that can be changed.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["FinanceFoliosByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7023,10 +7033,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID parameter',
+		description: 'The id parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}',
+				method: 'HEAD',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByIdHead_id"]}}',
 			},
 		},
 	},
@@ -7065,7 +7076,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/charges',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdChargesPost_folioId"]}}/charges',
 			},
 		},
 	},
@@ -7083,9 +7095,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "serviceType": "FoodAndBeverages",\n  "vatType": "Normal",\n  "subAccountId": "MUC-BEER",\n  "name": "Restaurant",\n  "amount": {\n    "amount": 23,\n    "currency": "EUR"\n  },\n  "receipt": "R23412"\n}',
-		description: 'The charge to be added',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdChargesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7111,8 +7124,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -7158,7 +7170,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/transitory-charges',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdTransitory-chargesPost_folioId"]}}/transitory-charges',
 			},
 		},
 	},
@@ -7176,9 +7189,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "name": "Restaurant",\n  "amount": {\n    "amount": 23,\n    "currency": "EUR"\n  },\n  "receipt": "R23412"\n}',
-		description: 'The transitory charge to be added',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdTransitory-chargesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7204,8 +7218,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -7251,7 +7264,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/cancellation-fee',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdCancellation-feePost_folioId"]}}/cancellation-fee',
 			},
 		},
 	},
@@ -7268,9 +7282,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The cancellation fee to be added',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdCancellation-feePost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7296,8 +7311,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -7343,7 +7357,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/no-show-fee',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdNo-show-feePost_folioId"]}}/no-show-fee',
 			},
 		},
 	},
@@ -7360,9 +7375,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The no-show fee to be added',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdNo-show-feePost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7388,8 +7404,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -7435,7 +7450,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/close',
+				method: 'PUT',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdClosePut_folioId"]}}/close',
 			},
 		},
 	},
@@ -7474,7 +7490,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/reopen',
+				method: 'PUT',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdReopenPut_folioId"]}}/reopen',
 			},
 		},
 	},
@@ -7513,7 +7530,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the source folio from where the charges should be moved away',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/move-charges',
+				method: 'PUT',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdMove-chargesPut_folioId"]}}/move-charges',
 			},
 		},
 	},
@@ -7531,9 +7549,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "targetFolioId": "KFCSQUID-1",\n  "reason": "Test",\n  "chargeIds": [\n    "KFCSQUID-1-C-1",\n    "KFCSQUID-1-C-5"\n  ],\n  "allowanceIds": [\n    "KFCSQUID-1-A-1",\n    "KFCSQUID-1-A-2"\n  ],\n  "transitoryChargeIds": [\n    "KFCSQUID-1-TC-1",\n    "KFCSQUID-1-TC-2"\n  ]\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdMove-chargesPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7574,9 +7593,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "items": [\n    {\n      "sourceFolioId": "SPRJDQNU-1",\n      "targetFolioId": "KFCSQUID-1",\n      "chargeIds": [\n        "SPRJDQNU-1-C-1",\n        "SPRJDQNU-1-C-5"\n      ]\n    },\n    {\n      "sourceFolioId": "TTDKOWNC-1",\n      "targetFolioId": "YXPZMQAS-1",\n      "chargeIds": [\n        "TTDKOWNC-1-C-2",\n        "TTDKOWNC-1-C-3"\n      ]\n    }\n  ],\n  "reason": "Test"\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsBulk-movePut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7619,7 +7639,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the source folio from where the charges should be moved away',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/move-all-charges',
+				method: 'PUT',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdMove-all-chargesPut_folioId"]}}/move-all-charges',
 			},
 		},
 	},
@@ -7636,9 +7657,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '{\n  "targetFolioId": "KFCSQUID-1",\n  "reason": "Test"\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdMove-all-chargesPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7681,7 +7703,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/charges/{chargeId}/allowances',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_folioId"]}}/charges/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_chargeId"]}}/allowances',
 			},
 		},
 	},
@@ -7701,7 +7724,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the charge allowance posted for',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{folioId}/charges/{{$value}}/allowances',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_folioId"]}}/charges/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_chargeId"]}}/allowances',
 			},
 		},
 	},
@@ -7719,9 +7743,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "reason": "Reason",\n  "amount": {\n    "amount": 1,\n    "currency": "EUR"\n  }\n}',
-		description: 'Allowance data',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdAllowancesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7747,8 +7772,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -7794,7 +7818,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/allowances',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdAllowancesPost_folioId"]}}/allowances',
 			},
 		},
 	},
@@ -7812,9 +7837,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "serviceType": "Other",\n  "vatType": "Normal",\n  "subAccountId": "MUC-REST",\n  "reason": "Good guy discount",\n  "amount": {\n    "amount": 22,\n    "currency": "EUR"\n  }\n}',
-		description: 'Allowance amount and post reason',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdAllowancesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7840,8 +7866,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -7887,7 +7912,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the folio',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/bulk-allowances',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdBulk-allowancesPost_folioId"]}}/bulk-allowances',
 			},
 		},
 	},
@@ -7905,9 +7931,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "items": [\n    {\n      "chargeId": "IDDQD-1-1-TS-1",\n      "amount": {\n        "amount": 13,\n        "currency": "EUR"\n      }\n    },\n    {\n      "chargeId": "IDDQD-1-1-ES-2",\n      "amount": {\n        "amount": 37,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "reason": "discount"\n}',
-		description: 'Allowance amount and post reason',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdBulk-allowancesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -7933,8 +7960,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -7980,7 +8006,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/post-charges',
+				method: 'PUT',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdPost-chargesPut_folioId"]}}/post-charges',
 			},
 		},
 	},
@@ -8019,7 +8046,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the source folio from where the payments should be moved away',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/move-payments',
+				method: 'PUT',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdMove-paymentsPut_folioId"]}}/move-payments',
 			},
 		},
 	},
@@ -8037,9 +8065,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "targetFolioId": "KFCSQUID-1",\n  "reason": "Test",\n  "paymentIds": [\n    "KFCSQUID-1-C-1",\n    "KFCSQUID-1-C-5"\n  ]\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdMove-paymentsPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8082,7 +8111,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/correct',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdCorrectPost_folioId"]}}/correct',
 			},
 		},
 	},
@@ -8100,9 +8130,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "reason": "Minibar is not paid by the company",\n  "chargeIds": [\n    "IDDQD-1-C-1",\n    "IDDQD-1-C-5"\n  ],\n  "allowanceIds": [\n    "IDDQD-1-A-1",\n    "IDDQD-1-A-5"\n  ],\n  "transitoryChargeIds": [\n    "IDDQD-1-TC-1",\n    "IDDQD-1-TC-5"\n  ]\n}',
-		description: 'Array of chargeIds to move and reason',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdCorrectPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8128,8 +8159,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -8175,7 +8205,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/charges/{chargeId}/split',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_folioId"]}}/charges/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_chargeId"]}}/split',
 			},
 		},
 	},
@@ -8195,7 +8226,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the charge',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{folioId}/charges/{{$value}}/split',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_folioId"]}}/charges/{{$parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_chargeId"]}}/split',
 			},
 		},
 	},
@@ -8212,9 +8244,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '{\n  "percent": 51,\n  "type": "ByPercent"\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8240,8 +8273,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -8287,7 +8319,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folio ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{{$value}}/payments/{paymentId}/split',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_folioId"]}}/payments/{{$parameter["FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_paymentId"]}}/split',
 			},
 		},
 	},
@@ -8307,7 +8340,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the payment',
 		routing: {
 			request: {
-				url: '=/finance/v1/folio-actions/{folioId}/payments/{{$value}}/split',
+				method: 'POST',
+				url: '=/finance/v1/folio-actions/{{$parameter["FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_folioId"]}}/payments/{{$parameter["FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_paymentId"]}}/split',
 			},
 		},
 	},
@@ -8324,9 +8358,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '{\n  "percent": 51,\n  "type": "ByPercent"\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8352,8 +8387,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -8399,7 +8433,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments',
+				method: 'GET',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsGet_folioId"]}}/payments',
 			},
 		},
 	},
@@ -8512,7 +8547,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsPost_folioId"]}}/payments',
 			},
 		},
 	},
@@ -8530,9 +8566,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "method": "Cash",\n  "receipt": "BLIPKWXP-1",\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
-		description: 'The definition of the payment',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosByFolioIdPaymentsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8558,8 +8595,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -8605,7 +8641,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments/{paymentId}',
+				method: 'GET',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdGet_folioId"]}}/payments/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdGet_paymentId"]}}',
 			},
 		},
 	},
@@ -8625,7 +8662,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The payment ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{folioId}/payments/{{$value}}',
+				method: 'GET',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdGet_folioId"]}}/payments/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdGet_paymentId"]}}',
 			},
 		},
 	},
@@ -8694,7 +8732,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments/by-terminal',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsBy-terminalPost_folioId"]}}/payments/by-terminal',
 			},
 		},
 	},
@@ -8712,9 +8751,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "terminalId": "V400m-324689704",\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
-		description: 'The definition of the payment',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosByFolioIdPaymentsBy-terminalPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8740,8 +8780,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -8787,7 +8826,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments/by-authorization',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsBy-authorizationPost_folioId"]}}/payments/by-authorization',
 			},
 		},
 	},
@@ -8805,9 +8845,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "transactionReference": "564578124534890J",\n  "referenceType": "PspReference",\n  "amount": {\n    "amount": 330,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
-		description: 'The definition of the payment',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosByFolioIdPaymentsBy-authorizationPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8833,8 +8874,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -8880,7 +8920,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments/by-payment-account',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsBy-payment-accountPost_folioId"]}}/payments/by-payment-account',
 			},
 		},
 	},
@@ -8898,9 +8939,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 200\n    }\n  ]\n}',
-		description: 'The definition of the payment',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosByFolioIdPaymentsBy-payment-accountPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -8926,8 +8968,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -8973,7 +9014,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments/by-link',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsBy-linkPost_folioId"]}}/payments/by-link',
 			},
 		},
 	},
@@ -8990,10 +9032,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "expiresAt": "2025-09-14T16:18:24.6685763Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
-		description: 'The definition of the payment link',
+			'{\n  "expiresAt": "2025-09-27T10:00:36.3352474Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosByFolioIdPaymentsBy-linkPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -9019,8 +9062,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -9066,7 +9108,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments/{paymentId}/cancel',
+				method: 'PUT',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut_folioId"]}}/payments/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut_paymentId"]}}/cancel',
 			},
 		},
 	},
@@ -9083,10 +9126,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the payment',
+		description: 'The id of the payment',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{folioId}/payments/{{$value}}/cancel',
+				method: 'PUT',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut_folioId"]}}/payments/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdCancelPut_paymentId"]}}/cancel',
 			},
 		},
 	},
@@ -9125,7 +9169,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/refunds',
+				method: 'GET',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdRefundsGet_folioId"]}}/refunds',
 			},
 		},
 	},
@@ -9223,7 +9268,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/refunds',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdRefundsPost_folioId"]}}/refunds',
 			},
 		},
 	},
@@ -9240,10 +9286,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2025-09-12",\n  "reason": "Refund for the cancelled service"\n}',
-		description: 'The definition of the refund',
+			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2025-09-24",\n  "reason": "Refund for the cancelled service"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosByFolioIdRefundsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -9269,8 +9316,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -9316,7 +9362,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/refunds/{refundId}',
+				method: 'GET',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdRefundsByRefundIdGet_folioId"]}}/refunds/{{$parameter["FinanceFoliosByFolioIdRefundsByRefundIdGet_refundId"]}}',
 			},
 		},
 	},
@@ -9336,7 +9383,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The refund ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{folioId}/refunds/{{$value}}',
+				method: 'GET',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdRefundsByRefundIdGet_folioId"]}}/refunds/{{$parameter["FinanceFoliosByFolioIdRefundsByRefundIdGet_refundId"]}}',
 			},
 		},
 	},
@@ -9375,7 +9423,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The folioId parameter',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{{$value}}/payments/{paymentId}/refunds',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_folioId"]}}/payments/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_paymentId"]}}/refunds',
 			},
 		},
 	},
@@ -9392,10 +9441,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The payment ID',
+		description: 'The payment Id',
 		routing: {
 			request: {
-				url: '=/finance/v1/folios/{folioId}/payments/{{$value}}/refunds',
+				method: 'POST',
+				url: '=/finance/v1/folios/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_folioId"]}}/payments/{{$parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_paymentId"]}}/refunds',
 			},
 		},
 	},
@@ -9412,10 +9462,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2025-09-12",\n  "reason": "Refund for the cancelled service"\n}',
-		description: 'The definition of the refund',
+			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2025-09-24",\n  "reason": "Refund for the cancelled service"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceFoliosByFolioIdPaymentsByPaymentIdRefundsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -9441,8 +9492,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -9488,6 +9538,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The language in which the invoice should be produced',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					languageCode: '={{$parameter["FinanceInvoicesPreview-pdfGet_languageCode"]}}',
 				},
@@ -9510,6 +9561,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the folio for which the invoice should be created',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					folioId: '={{$parameter["FinanceInvoicesPreview-pdfGet_folioId"]}}',
 				},
@@ -9551,6 +9603,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the folio for which the invoice should be created',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					folioId: '={{$parameter["FinanceInvoicesPreviewGet_folioId"]}}',
 				},
@@ -9638,8 +9691,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all',
+				description: 'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all',
 				routing: {
 					request: {
 						qs: {
@@ -9667,8 +9719,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -9740,8 +9791,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'outstandingPaymentFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -9814,8 +9864,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'recipientType',
 				type: 'options',
 				default: 'Company',
-				description:
-					'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
+				description: 'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
 				options: [
 					{
 						name: 'Company',
@@ -9910,9 +9959,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '{\n  "folioId": "HBCXQZ-1",\n  "languageCode": "en"\n}',
-		description: 'The folio ID to create the invoice for',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["FinanceInvoicesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -9938,8 +9988,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -9985,7 +10034,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The invoice ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/invoices/{{$value}}/pdf',
+				method: 'GET',
+				url: '=/finance/v1/invoices/{{$parameter["FinanceInvoicesByIdPdfGet_id"]}}/pdf',
 			},
 		},
 	},
@@ -10024,7 +10074,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The invoice ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/invoices/{{$value}}',
+				method: 'GET',
+				url: '=/finance/v1/invoices/{{$parameter["FinanceInvoicesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -10093,7 +10144,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The invoice ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/invoice-actions/{{$value}}/pay',
+				method: 'PUT',
+				url: '=/finance/v1/invoice-actions/{{$parameter["FinanceInvoice-actionsByIdPayPut_id"]}}/pay',
 			},
 		},
 	},
@@ -10110,9 +10162,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '{\n  "paymentMethod": "BankTransfer",\n  "receipt": "BANK-123456"\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["FinanceInvoice-actionsByIdPayPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -10155,7 +10208,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The invoice ID',
 		routing: {
 			request: {
-				url: '=/finance/v1/invoice-actions/{{$value}}/cancel',
+				method: 'PUT',
+				url: '=/finance/v1/invoice-actions/{{$parameter["FinanceInvoice-actionsByIdCancelPut_id"]}}/cancel',
 			},
 		},
 	},
@@ -10172,9 +10226,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '{\n  "reasonCode": "ChangeOfRecipientDetails"\n}',
-		description: 'See class',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["FinanceInvoice-actionsByIdCancelPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -10217,6 +10272,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Specifies the property transactions will be aggregated for',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_propertyId"]}}',
 				},
@@ -10239,6 +10295,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive start date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					from: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_from"] ? new Date($parameter["FinanceAccountsAggregate-pairs-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -10261,6 +10318,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The exclusive end date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					to: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_to"] ? new Date($parameter["FinanceAccountsAggregate-pairs-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -10388,8 +10446,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -10417,8 +10474,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description: 'Filter transactions by reference (reservation id/external folio id/property id for house folio)',
 				routing: {
 					request: {
 						qs: {
@@ -10464,6 +10520,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Specifies the property transactions will be aggregated for',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsAggregate-dailyPost_propertyId"]}}',
 				},
@@ -10486,6 +10543,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive start date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					from: '={{$parameter["FinanceAccountsAggregate-dailyPost_from"] ? new Date($parameter["FinanceAccountsAggregate-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -10508,6 +10566,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The exclusive end date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					to: '={{$parameter["FinanceAccountsAggregate-dailyPost_to"] ? new Date($parameter["FinanceAccountsAggregate-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -10635,8 +10694,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -10664,8 +10722,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description: 'Filter transactions by reference (reservation id/external folio id/property id for house folio)',
 				routing: {
 					request: {
 						qs: {
@@ -10711,6 +10768,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Specifies the property for which transactions will be exported',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsAggregatePost_propertyId"]}}',
 				},
@@ -10730,10 +10788,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					from: '={{$parameter["FinanceAccountsAggregatePost_from"] ? new Date($parameter["FinanceAccountsAggregatePost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -10753,10 +10811,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					to: '={{$parameter["FinanceAccountsAggregatePost_to"] ? new Date($parameter["FinanceAccountsAggregatePost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -10884,8 +10942,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -10945,6 +11002,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Specifies the property for which transactions will be exported',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsExportPost_propertyId"]}}',
 				},
@@ -10964,10 +11022,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					from: '={{$parameter["FinanceAccountsExportPost_from"] ? new Date($parameter["FinanceAccountsExportPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -10987,10 +11045,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					to: '={{$parameter["FinanceAccountsExportPost_to"] ? new Date($parameter["FinanceAccountsExportPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -11118,8 +11176,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -11179,6 +11236,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Specifies the property transactions will be aggregated for',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsExport-dailyPost_propertyId"]}}',
 				},
@@ -11201,6 +11259,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive start date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					from: '={{$parameter["FinanceAccountsExport-dailyPost_from"] ? new Date($parameter["FinanceAccountsExport-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -11223,6 +11282,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The exclusive end date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					to: '={{$parameter["FinanceAccountsExport-dailyPost_to"] ? new Date($parameter["FinanceAccountsExport-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -11350,8 +11410,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -11379,8 +11438,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description: 'Filter transactions by reference (reservation id/external folio id/property id for house folio)',
 				routing: {
 					request: {
 						qs: {
@@ -11426,6 +11484,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Specifies the property transactions will be aggregated for',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsExport-gross-dailyPost_propertyId"]}}',
 				},
@@ -11448,6 +11507,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive start date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					from: '={{$parameter["FinanceAccountsExport-gross-dailyPost_from"] ? new Date($parameter["FinanceAccountsExport-gross-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -11470,6 +11530,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The exclusive end date of the interval',
 		routing: {
 			request: {
+				method: 'POST',
 				qs: {
 					to: '={{$parameter["FinanceAccountsExport-gross-dailyPost_to"] ? new Date($parameter["FinanceAccountsExport-gross-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -11519,8 +11580,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -11534,8 +11594,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description: 'Filter transactions by reference (reservation id/external folio id/property id for house folio)',
 				routing: {
 					request: {
 						qs: {
@@ -11581,6 +11640,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Filter account list by property ID',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsSchemaGet_propertyId"]}}',
 				},
@@ -11645,7 +11705,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -11706,6 +11766,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Filter account list by property ID',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["FinanceGlobal-accountsGet_propertyId"]}}',
 				},
@@ -11725,9 +11786,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					parent: '={{$parameter["FinanceGlobal-accountsGet_parent"]}}',
 				},
@@ -11777,7 +11839,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -11864,9 +11926,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Filter account list by property ID',
+		description: 'Filter account list by property id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["FinanceGuest-accountsGet_propertyId"]}}',
 				},
@@ -11886,9 +11949,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Filter account list by reservation ID',
+		description: 'Filter account list by reservation id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					reservationId: '={{$parameter["FinanceGuest-accountsGet_reservationId"]}}',
 				},
@@ -11957,7 +12021,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'parent',
 				type: 'string',
 				default: '',
-				description: "Filter account list by the parent account's number",
+				description: 'Filter account list by the parent account\'s number',
 				routing: {
 					request: {
 						qs: {
@@ -12000,9 +12064,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Filter account list by property ID',
+		description: 'Filter account list by property id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["FinanceExternal-accountsGet_propertyId"]}}',
 				},
@@ -12022,9 +12087,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Filter account list by folio ID',
+		description: 'Filter account list by folio id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					folioId: '={{$parameter["FinanceExternal-accountsGet_folioId"]}}',
 				},
@@ -12093,7 +12159,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'parent',
 				type: 'string',
 				default: '',
-				description: "Filter account list by the parent account's number",
+				description: 'Filter account list by the parent account\'s number',
 				routing: {
 					request: {
 						qs: {
@@ -12139,7 +12205,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The account number',
 		routing: {
 			request: {
-				url: '=/finance/v1/accounts/{{$value}}',
+				method: 'GET',
+				url: '=/finance/v1/accounts/{{$parameter["FinanceAccountsByNumberGet_number"]}}',
 			},
 		},
 	},
@@ -12159,6 +12226,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Specifies the property the account is in',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsByNumberGet_propertyId"]}}',
 				},
@@ -12209,7 +12277,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -12237,8 +12305,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'transactionLimit',
 				type: 'number',
 				default: '',
-				description:
-					'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
+				description: 'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
 				routing: {
 					request: {
 						qs: {
@@ -12281,9 +12348,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Filter account list by property ID',
+		description: 'Filter account list by property id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["FinanceAccountsChild-accountsGet_propertyId"]}}',
 				},
@@ -12303,9 +12371,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					parent: '={{$parameter["FinanceAccountsChild-accountsGet_parent"]}}',
 				},
@@ -12355,7 +12424,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -12502,6 +12571,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The 2-letter ISO country code',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					isoCountryCode: '={{$parameter["FinanceTypesVatGet_isoCountryCode"]}}',
 				},
@@ -12526,8 +12596,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'atDate',
 				type: 'dateTime',
 				default: '',
-				description:
-					'If specified, returns the VAT types that are effective for this specific date. If nothing specified, returns the VAT types that are effective for the current date in UTC timezone.',
+				description: 'If specified, returns the VAT types that are effective for this specific date. If nothing specified, returns the VAT types that are effective for the current date in UTC timezone.',
 				routing: {
 					request: {
 						qs: {
@@ -12606,7 +12675,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties.',
+					'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties',
 				routing: {
 					request: {
 						qs: {
@@ -12694,9 +12763,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "MUC",\n  "name": {\n    "en": "Demo Hotel Munich",\n    "de": "Demo Hotel München"\n  },\n  "companyName": "Hotel Münchner GmbH",\n  "managingDirectors": "Franz-Josef Gruber",\n  "commercialRegisterEntry": "Amtsgericht München, HRB 279336",\n  "taxId": "DE311053702",\n  "description": {\n    "en": "This is the demo hotel Munich",\n    "de": "Dies ist das Demo Hotel München"\n  },\n  "location": {\n    "addressLine1": "Marienplatz 1",\n    "postalCode": "80331",\n    "city": "München",\n    "countryCode": "DE"\n  },\n  "bankAccount": {\n    "iban": "DE44 5001 0517 5407 3249 31",\n    "bic": "SSKMDEMMXXX",\n    "bank": "Stadtsparkasse München"\n  },\n  "paymentTerms": {\n    "en": "Pay on checkout",\n    "de": "Zahlung bei Checkout"\n  },\n  "timeZone": "Europe/Berlin",\n  "defaultCheckInTime": "17:00:00",\n  "defaultCheckOutTime": "11:00:00",\n  "currencyCode": "EUR"\n}',
-		description: 'The definition of the property',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["InventoryPropertiesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -12722,8 +12792,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -12766,10 +12835,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the property',
+		description: 'The id of the property',
 		routing: {
 			request: {
-				url: '=/inventory/v1/properties/{{$value}}',
+				method: 'GET',
+				url: '=/inventory/v1/properties/{{$parameter["InventoryPropertiesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -12806,7 +12876,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -12849,10 +12919,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the property',
+		description: 'The id of the property',
 		routing: {
 			request: {
-				url: '=/inventory/v1/properties/{{$value}}',
+				method: 'PATCH',
+				url: '=/inventory/v1/properties/{{$parameter["InventoryPropertiesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -12869,10 +12940,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["InventoryPropertiesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -12912,10 +12983,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit',
+		description: 'The id of the unit',
 		routing: {
 			request: {
-				url: '=/inventory/v1/units/{{$value}}',
+				method: 'PATCH',
+				url: '=/inventory/v1/units/{{$parameter["InventoryUnitsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -12932,10 +13004,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["InventoryUnitsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -12975,10 +13047,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit',
+		description: 'The id of the unit',
 		routing: {
 			request: {
-				url: '=/inventory/v1/units/{{$value}}',
+				method: 'GET',
+				url: '=/inventory/v1/units/{{$parameter["InventoryUnitsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -13015,7 +13088,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -13058,10 +13131,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit',
+		description: 'The id of the unit',
 		routing: {
 			request: {
-				url: '=/inventory/v1/units/{{$value}}',
+				method: 'HEAD',
+				url: '=/inventory/v1/units/{{$parameter["InventoryUnitsByIdHead_id"]}}',
 			},
 		},
 	},
@@ -13097,10 +13171,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit',
+		description: 'The id of the unit',
 		routing: {
 			request: {
-				url: '=/inventory/v1/units/{{$value}}',
+				method: 'DELETE',
+				url: '=/inventory/v1/units/{{$parameter["InventoryUnitsByIdDelete_id"]}}',
 			},
 		},
 	},
@@ -13139,6 +13214,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The unitIds parameter',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					unitIds: '={{$parameter["InventoryUnitsPatch_unitIds"]}}',
 				},
@@ -13176,10 +13252,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["InventoryUnitsPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -13383,7 +13459,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
+					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>',
 				routing: {
 					request: {
 						qs: {
@@ -13441,9 +13517,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "propertyId": "MUC",\n  "name": "S.102",\n  "description": {\n    "en": "Suite room",\n    "de": "Suite Zimmer"\n  },\n  "unitGroupId": "MUC-SUI",\n  "maxPersons": 3,\n  "condition": "Clean",\n  "attributes": [],\n  "connectedUnits": [\n    {\n      "unitId": "MUC-MTA"\n    },\n    {\n      "unitId": "MUC-JQI"\n    }\n  ]\n}',
-		description: 'The definition of the unit',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["InventoryUnitsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -13469,8 +13546,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -13632,7 +13708,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
+					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>',
 				routing: {
 					request: {
 						qs: {
@@ -13690,9 +13766,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "units": [\n    {\n      "propertyId": "MUC",\n      "name": "A.201",\n      "description": {\n        "en": "Single room",\n        "de": "Einzelzimmer"\n      },\n      "unitGroupId": "MUC-SGL",\n      "maxPersons": 1,\n      "condition": "Clean",\n      "attributes": [],\n      "connectedUnits": []\n    },\n    {\n      "propertyId": "MUC",\n      "name": "A.103",\n      "description": {\n        "en": "Double room",\n        "de": "Doppelzimmer"\n      },\n      "unitGroupId": "MUC-DBL",\n      "maxPersons": 2,\n      "condition": "Clean",\n      "attributes": [],\n      "connectedUnits": []\n    },\n    {\n      "propertyId": "MUC",\n      "name": "S.102",\n      "description": {\n        "en": "Suite room",\n        "de": "Suite Zimmer"\n      },\n      "unitGroupId": "MUC-SUI",\n      "maxPersons": 3,\n      "condition": "Clean",\n      "attributes": [],\n      "connectedUnits": [\n        {\n          "unitId": "MUC-MTA"\n        },\n        {\n          "unitId": "MUC-JQI"\n        }\n      ]\n    }\n  ]\n}',
-		description: 'The definition of the units',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["InventoryUnitsBulkPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -13718,8 +13795,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -13762,10 +13838,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit attribute',
+		description: 'The id of the unit attribute',
 		routing: {
 			request: {
-				url: '=/inventory/v1/unit-attributes/{{$value}}',
+				method: 'GET',
+				url: '=/inventory/v1/unit-attributes/{{$parameter["InventoryUnit-attributesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -13801,10 +13878,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'ID of unit attribute',
+		description: 'Id of unit attribute',
 		routing: {
 			request: {
-				url: '=/inventory/v1/unit-attributes/{{$value}}',
+				method: 'PATCH',
+				url: '=/inventory/v1/unit-attributes/{{$parameter["InventoryUnit-attributesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -13821,10 +13899,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["InventoryUnit-attributesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -13864,10 +13942,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit attribute',
+		description: 'The id of the unit attribute',
 		routing: {
 			request: {
-				url: '=/inventory/v1/unit-attributes/{{$value}}',
+				method: 'HEAD',
+				url: '=/inventory/v1/unit-attributes/{{$parameter["InventoryUnit-attributesByIdHead_id"]}}',
 			},
 		},
 	},
@@ -13967,9 +14046,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '{\n  "name": "Floor 1",\n  "description": "Floor number"\n}',
-		description: 'The unit attribute',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["InventoryUnit-attributesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -13995,8 +14075,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -14040,9 +14119,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "DBL",\n  "propertyId": "MUC",\n  "name": {\n    "en": "Double Room",\n    "de": "Doppelzimmer"\n  },\n  "description": {\n    "en": "This is a nice room with as kingsize bed and flat screen",\n    "de": "Dies ist ein schönes Zimmer mit Kingsize-Bett und Flachbildschirm"\n  },\n  "maxPersons": 4,\n  "rank": 1,\n  "type": "BedRoom"\n}',
-		description: 'The definition of the unit group',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["InventoryUnit-groupsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -14068,8 +14148,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -14281,10 +14360,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit group',
+		description: 'The id of the unit group',
 		routing: {
 			request: {
-				url: '=/inventory/v1/unit-groups/{{$value}}',
+				method: 'HEAD',
+				url: '=/inventory/v1/unit-groups/{{$parameter["InventoryUnit-groupsByIdHead_id"]}}',
 			},
 		},
 	},
@@ -14320,10 +14400,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit group',
+		description: 'The id of the unit group',
 		routing: {
 			request: {
-				url: '=/inventory/v1/unit-groups/{{$value}}',
+				method: 'GET',
+				url: '=/inventory/v1/unit-groups/{{$parameter["InventoryUnit-groupsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -14360,7 +14441,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -14403,10 +14484,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the unit group',
+		description: 'The id of the unit group',
 		routing: {
 			request: {
-				url: '=/inventory/v1/unit-groups/{{$value}}',
+				method: 'PUT',
+				url: '=/inventory/v1/unit-groups/{{$parameter["InventoryUnit-groupsByIdPut_id"]}}',
 			},
 		},
 	},
@@ -14424,9 +14506,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "name": {\n    "en": "Double Room",\n    "de": "Doppelzimmer"\n  },\n  "description": {\n    "en": "This is a nice room with as kingsize bed and flat screen",\n    "de": "Dies ist ein schönes Zimmer mit Kingsize-Bett und Flachbildschirm"\n  },\n  "maxPersons": 4,\n  "rank": 2\n}',
-		description: 'The definition of the unit group',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["InventoryUnit-groupsByIdPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -14486,8 +14569,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -14651,8 +14733,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -14786,8 +14867,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -14907,8 +14987,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -15043,8 +15122,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15088,7 +15166,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'propertyId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by property ID',
+				description: 'Filter result by property id',
 				routing: {
 					request: {
 						qs: {
@@ -15102,8 +15180,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15131,7 +15208,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by unit ID',
+				description: 'Filter result by unit id',
 				routing: {
 					request: {
 						qs: {
@@ -15174,10 +15251,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "unitId": "MUC-JQI",\n  "from": "2025-09-12T10:23:23+02:00",\n  "to": "2025-09-14T10:23:23+02:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
-		description: 'The definition of the maintenance',
+			'{\n  "unitId": "MUC-JQI",\n  "from": "2025-09-24T13:17:54+02:00",\n  "to": "2025-09-26T13:17:54+02:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["OperationsMaintenancesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -15203,8 +15281,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -15252,8 +15329,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15267,7 +15343,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'propertyId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by property ID',
+				description: 'Filter result by property id',
 				routing: {
 					request: {
 						qs: {
@@ -15281,8 +15357,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15310,7 +15385,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by unit ID',
+				description: 'Filter result by unit id',
 				routing: {
 					request: {
 						qs: {
@@ -15353,10 +15428,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2025-09-12T10:23:23+02:00",\n      "to": "2025-09-14T10:23:23+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2025-09-12T10:23:23+02:00",\n      "to": "2025-09-14T10:23:23+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
-		description: 'The definition of the maintenances',
+			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2025-09-24T13:17:54+02:00",\n      "to": "2025-09-26T13:17:54+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2025-09-24T13:17:54+02:00",\n      "to": "2025-09-26T13:17:54+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["OperationsMaintenancesBulkPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -15382,8 +15458,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -15429,7 +15504,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the maintenance',
 		routing: {
 			request: {
-				url: '=/operations/v1/maintenances/{{$value}}',
+				method: 'PATCH',
+				url: '=/operations/v1/maintenances/{{$parameter["OperationsMaintenancesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -15446,10 +15522,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["OperationsMaintenancesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -15492,7 +15568,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the maintenance',
 		routing: {
 			request: {
-				url: '=/operations/v1/maintenances/{{$value}}',
+				method: 'DELETE',
+				url: '=/operations/v1/maintenances/{{$parameter["OperationsMaintenancesByIdDelete_id"]}}',
 			},
 		},
 	},
@@ -15531,7 +15608,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the maintenance',
 		routing: {
 			request: {
-				url: '=/operations/v1/maintenances/{{$value}}',
+				method: 'GET',
+				url: '=/operations/v1/maintenances/{{$parameter["OperationsMaintenancesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -15600,7 +15678,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the maintenance',
 		routing: {
 			request: {
-				url: '=/operations/v1/maintenances/{{$value}}',
+				method: 'HEAD',
+				url: '=/operations/v1/maintenances/{{$parameter["OperationsMaintenancesByIdHead_id"]}}',
 			},
 		},
 	},
@@ -15639,6 +15718,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The property the night audit should be performed for',
 		routing: {
 			request: {
+				method: 'PUT',
 				qs: {
 					propertyId: '={{$parameter["OperationsNight-auditPut_propertyId"]}}',
 				},
@@ -15663,8 +15743,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'setReservationsToNoShow',
 				type: 'boolean',
 				default: false,
-				description:
-					'Flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show. The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.',
+				description: 'Flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show. The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.',
 				routing: {
 					request: {
 						qs: {
@@ -15708,9 +15787,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "unitsConditions": [\n    {\n      "id": "UNI-EXA",\n      "condition": "Clean"\n    },\n    {\n      "id": "UNI-DBL",\n      "condition": "Dirty"\n    }\n  ]\n}',
-		description: 'Array of unit IDs with their respective new condition',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["OperationsUnits-conditionPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -15750,10 +15830,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the age category',
+		description: 'The id of the age category',
 		routing: {
 			request: {
-				url: '=/settings/v1/age-categories/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/age-categories/{{$parameter["SettingsAge-categoriesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -15775,7 +15856,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -15818,10 +15899,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the age category to be modified',
+		description: 'The id of the age category to be modified',
 		routing: {
 			request: {
-				url: '=/settings/v1/age-categories/{{$value}}',
+				method: 'PATCH',
+				url: '=/settings/v1/age-categories/{{$parameter["SettingsAge-categoriesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -15838,10 +15920,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsAge-categoriesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -15882,9 +15964,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "BABY",\n  "propertyId": "MUC",\n  "name": {\n    "en": "Baby",\n    "de": "Kind"\n  },\n  "minAge": 0,\n  "maxAge": 2\n}',
-		description: 'The definition of the age category',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["SettingsAge-categoriesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -15910,8 +15993,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -15957,6 +16039,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Return age categories for the specific property',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["SettingsAge-categoriesGet_propertyId"]}}',
 				},
@@ -15996,9 +16079,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "FLE",\n  "name": {\n    "en": "Flexible",\n    "de": "Flexibel"\n  },\n  "description": {\n    "en": "Free cancellation until 36 hours before arrival.",\n    "de": "Kostenfreies Storno bis 36 Stunden vor Ankunft."\n  },\n  "propertyId": "MUC",\n  "periodFromReference": {\n    "hours": 12,\n    "days": 1\n  },\n  "reference": "PriorToArrival",\n  "fee": {\n    "vatType": "Reduced",\n    "percentValue": {\n      "percent": 100,\n      "limit": 1,\n      "includeServiceIds": [\n        "MUC-BRK"\n      ]\n    }\n  }\n}',
-		description: 'The definition of the cancellation policy',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["RateplanCancellation-policiesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -16024,8 +16108,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -16146,10 +16229,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the cancellation policy',
+		description: 'The id of the cancellation policy',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/cancellation-policies/{{$value}}',
+				method: 'GET',
+				url: '=/rateplan/v1/cancellation-policies/{{$parameter["RateplanCancellation-policiesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -16171,7 +16255,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -16214,10 +16298,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the cancellation policy to be modified',
+		description: 'The id of the cancellation policy to be modified',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/cancellation-policies/{{$value}}',
+				method: 'PATCH',
+				url: '=/rateplan/v1/cancellation-policies/{{$parameter["RateplanCancellation-policiesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -16234,10 +16319,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["RateplanCancellation-policiesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -16278,9 +16363,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "UMBRELLA",\n  "propertyId": "MUC",\n  "name": "Umbrella Corp.",\n  "invoicingEmail": "umbrella@corp.com",\n  "taxId": "Tax 123456",\n  "additionalTaxId": "123456789",\n  "address": {\n    "addressLine1": "Marienplatz 1",\n    "postalCode": "80331",\n    "city": "München",\n    "countryCode": "DE"\n  },\n  "canCheckOutOnAr": true,\n  "ratePlans": [\n    {\n      "id": "MUC-DBL",\n      "corporateCode": "UMBRELLAINC"\n    }\n  ]\n}',
-		description: 'The definition of the company',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["RateplanCompaniesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -16306,8 +16392,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -16427,8 +16512,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values.',
+				description: 'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values',
 				routing: {
 					request: {
 						qs: {
@@ -16474,7 +16558,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the company',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/companies/{{$value}}',
+				method: 'GET',
+				url: '=/rateplan/v1/companies/{{$parameter["RateplanCompaniesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -16513,7 +16598,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the company to be modified',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/companies/{{$value}}',
+				method: 'PATCH',
+				url: '=/rateplan/v1/companies/{{$parameter["RateplanCompaniesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -16530,10 +16616,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["RateplanCompaniesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -16652,9 +16738,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "NONREF",\n  "name": {\n    "en": "No-Show Fee",\n    "de": "No-Show Fee"\n  },\n  "description": {\n    "en": "100% of the accommodation fees, for the complete stay.",\n    "de": "100% of the accommodation fees, for the complete stay."\n  },\n  "propertyId": "MUC",\n  "fee": {\n    "vatType": "Null",\n    "fixedValue": {\n      "amount": 100,\n      "currency": "EUR"\n    }\n  }\n}',
-		description: 'The definition of the no-show policy',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["RateplanNo-show-policiesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -16680,8 +16767,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -16802,10 +16888,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the no-show policy',
+		description: 'The id of the no-show policy',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/no-show-policies/{{$value}}',
+				method: 'GET',
+				url: '=/rateplan/v1/no-show-policies/{{$parameter["RateplanNo-show-policiesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -16827,7 +16914,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -16870,10 +16957,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the no-show policy to be modified',
+		description: 'The id of the no-show policy to be modified',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/no-show-policies/{{$value}}',
+				method: 'PATCH',
+				url: '=/rateplan/v1/no-show-policies/{{$parameter["RateplanNo-show-policiesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -16890,10 +16978,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["RateplanNo-show-policiesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -17011,10 +17099,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the rate plan',
+		description: 'The id of the rate plan',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/rate-plans/{{$value}}/rates',
+				method: 'GET',
+				url: '=/rateplan/v1/rate-plans/{{$parameter["RateplanRate-plansByIdRatesGet_id"]}}/rates',
 			},
 		},
 	},
@@ -17031,10 +17120,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["RateplanRate-plansByIdRatesGet_from"]}}',
 				},
@@ -17054,10 +17143,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["RateplanRate-plansByIdRatesGet_to"]}}',
 				},
@@ -17141,10 +17230,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the rate plan',
+		description: 'The id of the rate plan',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/rate-plans/{{$value}}/rates',
+				method: 'PUT',
+				url: '=/rateplan/v1/rate-plans/{{$parameter["RateplanRate-plansByIdRatesPut_id"]}}/rates',
 			},
 		},
 	},
@@ -17161,10 +17251,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "rates": [\n    {\n      "from": "2025-09-12T17:00:00+02:00",\n      "to": "2025-09-13T11:00:00+02:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
-		description: 'The definition of the rates',
+			'{\n  "rates": [\n    {\n      "from": "2025-09-24T17:00:00+02:00",\n      "to": "2025-09-25T11:00:00+02:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["RateplanRate-plansByIdRatesPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -17204,9 +17295,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: {},
-		description: 'Filter rates for patching by rate plan IDs',
+		description: 'Filter rates for patching by rate plan ids',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					ratePlanIds: '={{$parameter["RateplanRatesPatch_ratePlanIds"]}}',
 				},
@@ -17225,7 +17317,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: 'Filter rates for patching by rate plan IDs',
+						description: 'Filter rates for patching by rate plan ids',
 					},
 				],
 			},
@@ -17244,10 +17336,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					from: '={{$parameter["RateplanRatesPatch_from"]}}',
 				},
@@ -17267,10 +17359,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					to: '={{$parameter["RateplanRatesPatch_to"]}}',
 				},
@@ -17290,10 +17382,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["RateplanRatesPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -17424,8 +17516,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'derivationLevelFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -17454,7 +17545,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeArchived',
 				type: 'boolean',
 				default: false,
-				description: 'Return archived rate plans. Defaults to false.',
+				description: 'Return archived rate plans. Defaults to false',
 				routing: {
 					request: {
 						qs: {
@@ -17691,10 +17782,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2025-09-05T09:58:27.8698613+02:00",\n      "to": "2025-09-19T09:58:27.8698613+02:00"\n    },\n    {\n      "from": "2025-09-22T09:58:27.8698613+02:00",\n      "to": "2025-11-11T09:58:27.8698613+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ]\n}',
-		description: 'The definition of the rate plan',
+			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2025-09-17T14:04:16.333999+02:00",\n      "to": "2025-10-01T14:04:16.333999+02:00"\n    },\n    {\n      "from": "2025-10-04T14:04:16.333999+02:00",\n      "to": "2025-11-23T14:04:16.333999+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["RateplanRate-plansPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -17720,8 +17812,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -17767,6 +17858,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Comma-separated list of rate plan IDs, at least one',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					ratePlanIds: '={{$parameter["RateplanRate-plansPatch_ratePlanIds"]}}',
 				},
@@ -17804,10 +17896,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["RateplanRate-plansPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -17847,10 +17939,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the rate plan',
+		description: 'The id of the rate plan',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/rate-plans/{{$value}}',
+				method: 'GET',
+				url: '=/rateplan/v1/rate-plans/{{$parameter["RateplanRate-plansByIdGet_id"]}}',
 			},
 		},
 	},
@@ -17887,7 +17980,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -17930,10 +18023,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the rate plan',
+		description: 'The id of the rate plan',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/rate-plans/{{$value}}',
+				method: 'PUT',
+				url: '=/rateplan/v1/rate-plans/{{$parameter["RateplanRate-plansByIdPut_id"]}}',
 			},
 		},
 	},
@@ -17950,10 +18044,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2025-09-05T09:58:27.8698613+02:00",\n      "to": "2025-09-19T09:58:27.8698613+02:00"\n    },\n    {\n      "from": "2025-09-22T09:58:27.8698613+02:00",\n      "to": "2025-11-11T09:58:27.8698613+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ]\n}',
-		description: 'The definition of the rate plan',
+			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2025-09-17T14:04:16.333999+02:00",\n      "to": "2025-10-01T14:04:16.333999+02:00"\n    },\n    {\n      "from": "2025-10-04T14:04:16.333999+02:00",\n      "to": "2025-11-23T14:04:16.333999+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["RateplanRate-plansByIdPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -17994,9 +18089,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "BRK",\n  "name": {\n    "en": "Breakfast",\n    "de": "Frühstück"\n  },\n  "description": {\n    "en": "Yummy yummy breakfast",\n    "de": "Leckeres Frühstück"\n  },\n  "propertyId": "MUC",\n  "defaultGrossPrice": {\n    "amount": 20,\n    "currency": "EUR"\n  },\n  "pricingUnit": "Person",\n  "postNextDay": true,\n  "availability": {\n    "mode": "Daily",\n    "quantity": 3,\n    "daysOfWeek": [\n      "Monday",\n      "Tuesday",\n      "Wednesday",\n      "Thursday",\n      "Friday",\n      "Saturday",\n      "Sunday"\n    ]\n  },\n  "channelCodes": [\n    "Direct",\n    "Ibe",\n    "BookingCom",\n    "ChannelManager"\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ],\n  "ageCategoryId": "MUC-BABY"\n}',
-		description: 'The definition of the service',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["RateplanServicesPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -18022,8 +18118,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -18173,8 +18268,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description:
-					'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
+				description: 'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
 				routing: {
 					request: {
 						qs: {
@@ -18217,10 +18311,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the service',
+		description: 'The id of the service',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/services/{{$value}}',
+				method: 'PATCH',
+				url: '=/rateplan/v1/services/{{$parameter["RateplanServicesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -18237,10 +18332,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["RateplanServicesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -18280,10 +18375,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the service',
+		description: 'The id of the service',
 		routing: {
 			request: {
-				url: '=/rateplan/v1/services/{{$value}}',
+				method: 'GET',
+				url: '=/rateplan/v1/services/{{$parameter["RateplanServicesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -18320,7 +18416,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -18363,9 +18459,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Property ID',
+		description: 'Property Id',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["ReportsReportsOrdered-servicesGet_propertyId"]}}',
 				},
@@ -18385,9 +18482,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: {},
-		description: 'Service IDs the report should be generated for',
+		description: 'Service ids the report should be generated for',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					serviceIds: '={{$parameter["ReportsReportsOrdered-servicesGet_serviceIds"]}}',
 				},
@@ -18406,7 +18504,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: 'Service IDs the report should be generated for',
+						description: 'Service ids the report should be generated for',
 					},
 				],
 			},
@@ -18428,6 +18526,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive start date of the interval',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["ReportsReportsOrdered-servicesGet_from"] ? new Date($parameter["ReportsReportsOrdered-servicesGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -18450,6 +18549,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The exclusive end date of the interval',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["ReportsReportsOrdered-servicesGet_to"] ? new Date($parameter["ReportsReportsOrdered-servicesGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -18491,6 +18591,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Requested property',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["ReportsReportsArrivalsGet_propertyId"]}}',
 				},
@@ -18513,6 +18614,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Requested month for the report',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					month: '={{$parameter["ReportsReportsArrivalsGet_month"]}}',
 				},
@@ -18535,6 +18637,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Requested year for the report',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					year: '={{$parameter["ReportsReportsArrivalsGet_year"]}}',
 				},
@@ -18576,6 +18679,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the property',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["ReportsReportsProperty-performanceGet_propertyId"]}}',
 				},
@@ -18598,6 +18702,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive start date of the interval',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["ReportsReportsProperty-performanceGet_from"] ? new Date($parameter["ReportsReportsProperty-performanceGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -18620,6 +18725,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive end date of the interval',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["ReportsReportsProperty-performanceGet_to"] ? new Date($parameter["ReportsReportsProperty-performanceGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -18813,6 +18919,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Property ID',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["ReportsReportsCompany-invoices-vatGet_propertyId"]}}',
 				},
@@ -18851,8 +18958,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7.",
+				description: 'Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				routing: {
 					request: {
 						qs: {
@@ -18898,6 +19004,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Property ID',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["ReportsReportsRevenuesGet_propertyId"]}}',
 				},
@@ -18920,6 +19027,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The inclusive start date of the interval',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					from: '={{$parameter["ReportsReportsRevenuesGet_from"] ? new Date($parameter["ReportsReportsRevenuesGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -18942,6 +19050,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The exclusive end date of the interval. The interval is limited to one year.',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					to: '={{$parameter["ReportsReportsRevenuesGet_to"] ? new Date($parameter["ReportsReportsRevenuesGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
 				},
@@ -19090,7 +19199,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the capture policy',
 		routing: {
 			request: {
-				url: '=/settings/v1/capture-policies/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/capture-policies/{{$parameter["SettingsCapture-policiesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -19126,10 +19236,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the capture policy to be modified',
+		description: 'The id of the capture policy to be modified',
 		routing: {
 			request: {
-				url: '=/settings/v1/capture-policies/{{$value}}',
+				method: 'PATCH',
+				url: '=/settings/v1/capture-policies/{{$parameter["SettingsCapture-policiesByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -19146,10 +19257,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsCapture-policiesByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -19190,9 +19301,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "name": {\n    "en": "City tax",\n    "de": "City-Tax"\n  },\n  "description": {\n    "en": "2 Euro per person and night. Business travellers and close family members of citizens do not have to pay city tax.",\n    "de": "2 Euro pro Person und Nacht. Geschäftsreisende und nahe Familienmitglieder von Anwohnern müssen keine City-Tax bezahlen."\n  },\n  "propertyId": "MUC",\n  "type": "PerPersonPerNight",\n  "taxHandlingType": "BeforeTax",\n  "value": 2,\n  "vatType": "Normal",\n  "code": "TAX",\n  "priority": 1,\n  "includeCityTaxInRateAmount": false,\n  "subcategories": [\n    {\n      "name": {\n        "en": "Children under 12 don\'t have to pay city tax",\n        "de": "Kinder unter 12 Jahren zahlen keine City-Tax"\n      },\n      "value": 0,\n      "age": {\n        "min": 0,\n        "max": 12\n      }\n    }\n  ],\n  "ignoredFor": [\n    {\n      "distributionChannel": {\n        "channelCode": "ChannelManager",\n        "sources": [\n          "bookingcom"\n        ]\n      }\n    }\n  ]\n}',
-		description: 'The definition of the city tax',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["SettingsCity-taxPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -19218,8 +19330,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -19313,7 +19424,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the city tax',
 		routing: {
 			request: {
-				url: '=/settings/v1/city-tax/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/city-tax/{{$parameter["SettingsCity-taxByIdGet_id"]}}',
 			},
 		},
 	},
@@ -19335,7 +19447,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				routing: {
 					request: {
 						qs: {
@@ -19378,10 +19490,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the city tax to be modified',
+		description: 'The id of the city tax to be modified',
 		routing: {
 			request: {
-				url: '=/settings/v1/city-tax/{{$value}}',
+				method: 'PATCH',
+				url: '=/settings/v1/city-tax/{{$parameter["SettingsCity-taxByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -19398,10 +19511,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsCity-taxByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -19444,6 +19557,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'ID of the property',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["SettingsSub-accountsGet_propertyId"]}}',
 				},
@@ -19528,9 +19642,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "propertyId": "MUC",\n  "code": "TEA",\n  "name": "Finest green tea",\n  "type": "FoodAndBeverages"\n}',
-		description: 'The definition of the sub-account',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["SettingsSub-accountsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -19556,8 +19671,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -19603,6 +19717,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'ID of the property',
 		routing: {
 			request: {
+				method: 'GET',
 				qs: {
 					propertyId: '={{$parameter["SettingsSub-accounts$countGet_propertyId"]}}',
 				},
@@ -19644,7 +19759,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the sub-account',
 		routing: {
 			request: {
-				url: '=/settings/v1/sub-accounts/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/sub-accounts/{{$parameter["SettingsSub-accountsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -19683,7 +19799,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the sub-account',
 		routing: {
 			request: {
-				url: '=/settings/v1/sub-accounts/{{$value}}',
+				method: 'PATCH',
+				url: '=/settings/v1/sub-accounts/{{$parameter["SettingsSub-accountsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -19700,10 +19817,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsSub-accountsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -19746,7 +19863,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the sub-account',
 		routing: {
 			request: {
-				url: '=/settings/v1/sub-accounts/{{$value}}',
+				method: 'HEAD',
+				url: '=/settings/v1/sub-accounts/{{$parameter["SettingsSub-accountsByIdHead_id"]}}',
 			},
 		},
 	},
@@ -19785,7 +19903,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the property',
 		routing: {
 			request: {
-				url: '=/settings/v1/features/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/features/{{$parameter["SettingsFeaturesByPropertyIdGet_propertyId"]}}',
 			},
 		},
 	},
@@ -19824,7 +19943,8 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The ID of the property you want to toggle features for',
 		routing: {
 			request: {
-				url: '=/settings/v1/features/{{$value}}',
+				method: 'PATCH',
+				url: '=/settings/v1/features/{{$parameter["SettingsFeaturesByPropertyIdPatch_propertyId"]}}',
 			},
 		},
 	},
@@ -19841,10 +19961,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsFeaturesByPropertyIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -19935,6 +20055,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The propertyIds parameter',
 		routing: {
 			request: {
+				method: 'PUT',
 				qs: {
 					propertyIds: '={{$parameter["SettingsInvoice-addressPut_propertyIds"]}}',
 				},
@@ -19973,9 +20094,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "addressLine1": "Marienplatz 1",\n  "postalCode": "80331",\n  "city": "München",\n  "regionCode": "DE-BY",\n  "countryCode": "DE"\n}',
-		description: 'Address displayed on invoices',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["SettingsInvoice-addressPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20018,6 +20140,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'The propertyIds parameter',
 		routing: {
 			request: {
+				method: 'PATCH',
 				qs: {
 					propertyIds: '={{$parameter["SettingsInvoice-addressPatch_propertyIds"]}}',
 				},
@@ -20058,6 +20181,7 @@ export const parameterFields: INodeProperties[] = [
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsInvoice-addressPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20117,9 +20241,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "languages": [\n    {\n      "code": "en",\n      "mandatory": true\n    },\n    {\n      "code": "de",\n      "mandatory": false\n    }\n  ]\n}',
-		description: 'The definition of the language settings',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["SettingsLanguagesPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20159,10 +20284,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the market segment',
+		description: 'The id of the market segment',
 		routing: {
 			request: {
-				url: '=/settings/v1/market-segments/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/market-segments/{{$parameter["SettingsMarket-segmentsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -20198,10 +20324,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the market segment',
+		description: 'The id of the market segment',
 		routing: {
 			request: {
-				url: '=/settings/v1/market-segments/{{$value}}',
+				method: 'HEAD',
+				url: '=/settings/v1/market-segments/{{$parameter["SettingsMarket-segmentsByIdHead_id"]}}',
 			},
 		},
 	},
@@ -20237,10 +20364,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the market segment to be modified',
+		description: 'The id of the market segment to be modified',
 		routing: {
 			request: {
-				url: '=/settings/v1/market-segments/{{$value}}',
+				method: 'PATCH',
+				url: '=/settings/v1/market-segments/{{$parameter["SettingsMarket-segmentsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -20257,10 +20385,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsMarket-segmentsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20335,7 +20463,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'propertyIds',
 				type: 'string',
 				default: '',
-				description: 'Return market segments with any of the specified property IDs',
+				description: 'Return market segments with any of the specified property ids',
 				routing: {
 					request: {
 						qs: {
@@ -20379,9 +20507,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "code": "BUSR",\n  "name": "Business Groups",\n  "description": "Social groups (Weddings etc.)",\n  "propertyIds": [\n    "MUC",\n    "BER"\n  ]\n}',
-		description: 'The definition of the market segment',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["SettingsMarket-segmentsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20407,8 +20536,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -20456,7 +20584,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'propertyIds',
 				type: 'string',
 				default: '',
-				description: 'Return market segments with any of the specified property IDs',
+				description: 'Return market segments with any of the specified property ids',
 				routing: {
 					request: {
 						qs: {
@@ -20499,10 +20627,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the property',
+		description: 'The id of the property',
 		routing: {
 			request: {
-				url: '=/settings/v1/properties/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/properties/{{$parameter["SettingsPropertiesByIdGet_id"]}}',
 			},
 		},
 	},
@@ -20538,10 +20667,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the property',
+		description: 'The id of the property',
 		routing: {
 			request: {
-				url: '=/settings/v1/properties/{{$value}}/time-slice-definitions/{id}',
+				method: 'GET',
+				url: '=/settings/v1/properties/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet_propertyId"]}}/time-slice-definitions/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -20558,10 +20688,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the time slice definition',
+		description: 'The id of the time slice definition',
 		routing: {
 			request: {
-				url: '=/settings/v1/properties/{propertyId}/time-slice-definitions/{{$value}}',
+				method: 'GET',
+				url: '=/settings/v1/properties/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet_propertyId"]}}/time-slice-definitions/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -20627,10 +20758,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the property',
+		description: 'The id of the property',
 		routing: {
 			request: {
-				url: '=/settings/v1/properties/{{$value}}/time-slice-definitions/{id}',
+				method: 'PATCH',
+				url: '=/settings/v1/properties/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch_propertyId"]}}/time-slice-definitions/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -20647,10 +20779,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the time slice definition',
+		description: 'The id of the time slice definition',
 		routing: {
 			request: {
-				url: '=/settings/v1/properties/{propertyId}/time-slice-definitions/{{$value}}',
+				method: 'PATCH',
+				url: '=/settings/v1/properties/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch_propertyId"]}}/time-slice-definitions/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch_id"]}}',
 			},
 		},
 	},
@@ -20667,10 +20800,10 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PATCH',
 				body: '={{JSON.parse($parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20710,10 +20843,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the property',
+		description: 'The id of the property',
 		routing: {
 			request: {
-				url: '=/settings/v1/properties/{{$value}}/time-slice-definitions',
+				method: 'GET',
+				url: '=/settings/v1/properties/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsGet_propertyId"]}}/time-slice-definitions',
 			},
 		},
 	},
@@ -20779,10 +20913,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID of the property',
+		description: 'The id of the property',
 		routing: {
 			request: {
-				url: '=/settings/v1/properties/{{$value}}/time-slice-definitions',
+				method: 'POST',
+				url: '=/settings/v1/properties/{{$parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsPost_propertyId"]}}/time-slice-definitions',
 			},
 		},
 	},
@@ -20800,9 +20935,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "name": "Over Night",\n  "template": "OverNight",\n  "checkInTime": "17:00:00",\n  "checkOutTime": "11:00:00"\n}',
-		description: 'The payload of the time slice definition',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["SettingsPropertiesByPropertyIdTime-slice-definitionsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20828,8 +20964,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
 				routing: {
 					request: {
 						headers: {
@@ -20940,9 +21075,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "endpointUrl": "https://example.com",\n  "events": [\n    "booking/created",\n    "booking/changed",\n    "reservation/*"\n  ],\n  "propertyIds": [\n    "MUC",\n    "BER"\n  ]\n}',
-		description: 'Subscription details',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'POST',
 				body: '={{JSON.parse($parameter["SubscriptionsPost_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -20982,10 +21118,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The ID parameter',
+		description: 'The id parameter',
 		routing: {
 			request: {
-				url: '=/v1/subscriptions/{{$value}}',
+				method: 'GET',
+				url: '=/v1/subscriptions/{{$parameter["SubscriptionsByIdGet_id"]}}',
 			},
 		},
 	},
@@ -21021,10 +21158,11 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Subscription ID',
+		description: 'Subscription id',
 		routing: {
 			request: {
-				url: '=/v1/subscriptions/{{$value}}',
+				method: 'PUT',
+				url: '=/v1/subscriptions/{{$parameter["SubscriptionsByIdPut_id"]}}',
 			},
 		},
 	},
@@ -21042,9 +21180,10 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default:
 			'{\n  "endpointUrl": "https://www.example.com",\n  "events": [\n    "booking/created",\n    "booking/changed",\n    "reservation/*"\n  ],\n  "propertyIds": [\n    "MUC",\n    "BER"\n  ]\n}',
-		description: 'Subscription details',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		routing: {
 			request: {
+				method: 'PUT',
 				body: '={{JSON.parse($parameter["SubscriptionsByIdPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
@@ -21087,7 +21226,8 @@ export const parameterFields: INodeProperties[] = [
 		description: "Subscription's ID",
 		routing: {
 			request: {
-				url: '=/v1/subscriptions/{{$value}}',
+				method: 'DELETE',
+				url: '=/v1/subscriptions/{{$parameter["SubscriptionsByIdDelete_id"]}}',
 			},
 		},
 	},
