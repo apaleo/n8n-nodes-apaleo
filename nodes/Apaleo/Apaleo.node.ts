@@ -1,6 +1,7 @@
-import { INodeType, INodeTypeDescription, NodeConnectionType } from 'n8n-workflow';
+import { INodeType, INodeTypeDescription, NodeConnectionTypes } from 'n8n-workflow';
 
 import { allProperties } from './descriptions';
+import { version } from '../../package.json';
 
 export class Apaleo implements INodeType {
 	description: INodeTypeDescription = {
@@ -15,8 +16,8 @@ export class Apaleo implements INodeType {
 			name: 'Apaleo Official',
 		},
 		usableAsTool: true,
-		inputs: [NodeConnectionType.Main],
-		outputs: [NodeConnectionType.Main],
+		inputs: [NodeConnectionTypes.Main],
+		outputs: [NodeConnectionTypes.Main],
 		credentials: [
 			{
 				name: 'apaleoOAuth2Api',
@@ -28,6 +29,8 @@ export class Apaleo implements INodeType {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				'X-Source': 'n8n-apaleo',
+				'X-Source-Version': version, 
 			},
 		},
 		properties: allProperties,
