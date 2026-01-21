@@ -65,7 +65,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					from: '={{$parameter["AvailabilityUnitsGet_from"] ? new Date($parameter["AvailabilityUnitsGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["AvailabilityUnitsGet_from"] ? new Date($parameter["AvailabilityUnitsGet_from"]).toISOString().slice(0, -5) + "Z" : ""}}',
 				},
 			},
 		},
@@ -90,7 +90,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					to: '={{$parameter["AvailabilityUnitsGet_to"] ? new Date($parameter["AvailabilityUnitsGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["AvailabilityUnitsGet_to"] ? new Date($parameter["AvailabilityUnitsGet_to"]).toISOString().slice(0, -5) + "Z" : ""}}',
 				},
 			},
 		},
@@ -160,9 +160,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitAttributeIds',
 				name: 'unitAttributeIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return units with the specific unit attributes',
 				placeholder: 'Return units with the specific unit attributes',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -281,7 +284,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					from: '={{$parameter["AvailabilityUnit-groupsGet_from"] ? new Date($parameter["AvailabilityUnit-groupsGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["AvailabilityUnit-groupsGet_from"] ? new Date($parameter["AvailabilityUnit-groupsGet_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -307,7 +310,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					to: '={{$parameter["AvailabilityUnit-groupsGet_to"] ? new Date($parameter["AvailabilityUnit-groupsGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["AvailabilityUnit-groupsGet_to"] ? new Date($parameter["AvailabilityUnit-groupsGet_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -344,9 +347,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChildrenAges',
 				name: 'childrenAges',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The ages of the children you want availability for',
 				placeholder: 'The ages of the children you want availability for',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -407,9 +413,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The time slice definition ids',
 				placeholder: 'The time slice definition IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -447,9 +456,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The unit group ids',
 				placeholder: 'The unit group IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -462,9 +474,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested unit group types',
 				placeholder: 'Filter result by requested unit group types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -535,7 +550,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'PATCH',
 				qs: {
-					from: '={{$parameter["AvailabilityUnit-groupsByIdPatch_from"] ? new Date($parameter["AvailabilityUnit-groupsByIdPatch_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["AvailabilityUnit-groupsByIdPatch_from"] ? new Date($parameter["AvailabilityUnit-groupsByIdPatch_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -559,7 +574,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'PATCH',
 				qs: {
-					to: '={{$parameter["AvailabilityUnit-groupsByIdPatch_to"] ? new Date($parameter["AvailabilityUnit-groupsByIdPatch_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["AvailabilityUnit-groupsByIdPatch_to"] ? new Date($parameter["AvailabilityUnit-groupsByIdPatch_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -689,7 +704,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					from: '={{$parameter["AvailabilityServicesGet_from"] ? new Date($parameter["AvailabilityServicesGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["AvailabilityServicesGet_from"] ? new Date($parameter["AvailabilityServicesGet_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -715,7 +730,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					to: '={{$parameter["AvailabilityServicesGet_to"] ? new Date($parameter["AvailabilityServicesGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["AvailabilityServicesGet_to"] ? new Date($parameter["AvailabilityServicesGet_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -737,9 +752,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChannelCodes',
 				name: 'channelCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The channel code used to filter the services',
 				placeholder: 'The channel code used to filter the services',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -784,9 +802,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The time slice definition ids',
 				placeholder: 'The time slice definition IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -960,9 +981,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitAttributeIds',
 				name: 'unitAttributeIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return units with the specific unit attributes',
 				placeholder: 'Return units with the specific unit attributes',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1129,11 +1153,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1209,9 +1236,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks filtered by properties',
 				placeholder: 'Return blocks filtered by properties',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1224,9 +1254,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'RatePlanIds',
 				name: 'ratePlanIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified rate plans',
 				placeholder: 'Return blocks with any of the specified rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1239,9 +1272,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks filtered by statuses',
 				placeholder: 'Return blocks filtered by statuses',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1254,9 +1290,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified time slice definitions',
 				placeholder: 'Return blocks with any of the specified time slice definitions',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1310,9 +1349,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified unit groups',
 				placeholder: 'Return blocks with any of the specified unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1325,9 +1367,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified unit group types',
 				placeholder: 'Return blocks with any of the specified unit group types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1405,9 +1450,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks filtered by properties',
 				placeholder: 'Return blocks filtered by properties',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1420,9 +1468,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'RatePlanIds',
 				name: 'ratePlanIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified rate plans',
 				placeholder: 'Return blocks with any of the specified rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1435,9 +1486,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks filtered by statuses',
 				placeholder: 'Return blocks filtered by statuses',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1450,9 +1504,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified time slice definitions',
 				placeholder: 'Return blocks with any of the specified time slice definitions',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1506,9 +1563,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified unit groups',
 				placeholder: 'Return blocks with any of the specified unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1521,9 +1581,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return blocks with any of the specified unit group types',
 				placeholder: 'Return blocks with any of the specified unit group types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1592,11 +1655,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1950,11 +2016,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChannelCode',
 				name: 'channelCode',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code',
 				placeholder:
 					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -1967,11 +2036,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -2412,11 +2484,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations, propertyValues. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations, propertyValues. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -2606,11 +2681,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -2671,9 +2749,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested properties',
 				placeholder: 'Filter result by requested properties',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -2775,11 +2856,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3142,9 +3226,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChildrenAges',
 				name: 'childrenAges',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The ages of the children you want offers for',
 				placeholder: 'The ages of the children you want offers for',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3204,9 +3291,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Time slice definition IDs, used to filter rate plans',
 				placeholder: 'Time slice definition IDs, used to filter rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3246,9 +3336,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Unit group IDs, used to filter rate plans',
 				placeholder: 'Unit group IDs, used to filter rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3261,9 +3354,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Unit group types, used to filter rate plans',
 				placeholder: 'Unit group types, used to filter rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3461,9 +3557,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChildrenAges',
 				name: 'childrenAges',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The ages of the children you want offers for',
 				placeholder: 'The ages of the children you want offers for',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3493,9 +3592,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'OverridePrices',
 				name: 'overridePrices',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Desired prices for each timeslice',
 				placeholder: 'Desired prices for each timeslice',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3693,9 +3795,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChildrenAges',
 				name: 'childrenAges',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The ages of the children you want offers for',
 				placeholder: 'The ages of the children you want offers for',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -3995,10 +4100,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BalanceFilter',
 				name: 'balanceFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4011,9 +4119,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BlockIds',
 				name: 'blockIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested blocks',
 				placeholder: 'Filter result by requested blocks',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4041,9 +4152,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChannelCode',
 				name: 'channelCode',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by the channel code',
 				placeholder: 'Filter result by the channel code',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4056,9 +4170,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested companies',
 				placeholder: 'Filter result by requested companies',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4122,11 +4239,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: booker, actions, timeSlices, services, assignedUnits, company. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: booker, actions, timeSlices, services, assignedUnits, company. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4156,11 +4276,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ExternalReferences',
 				name: 'externalReferences',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
 				placeholder:
 					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4206,9 +4329,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'MarketSegmentIds',
 				name: 'marketSegmentIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested market segments',
 				placeholder: 'Filter result by requested market segments',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4253,9 +4379,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested properties',
 				placeholder: 'Filter result by requested properties',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4268,9 +4397,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'RatePlanIds',
 				name: 'ratePlanIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested rate plans',
 				placeholder: 'Filter result by requested rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4283,11 +4415,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Sort',
 				name: 'sort',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, ID:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
 				placeholder:
 					'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, ID:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4300,9 +4435,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Sources',
 				name: 'sources',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by source',
 				placeholder: 'Filter result by source',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4315,9 +4453,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by reservation status',
 				placeholder: 'Filter result by reservation status',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4363,9 +4504,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested unit groups',
 				placeholder: 'Filter result by requested unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4378,9 +4522,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested unit group types',
 				placeholder: 'Filter result by requested unit group types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4393,9 +4540,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitIds',
 				name: 'unitIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by assigned units',
 				placeholder: 'Filter result by assigned units',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4408,9 +4558,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ValidationMessageCategory',
 				name: 'validationMessageCategory',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by validation message category',
 				placeholder: 'Filter result by validation message category',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4474,10 +4627,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BalanceFilter',
 				name: 'balanceFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4490,9 +4646,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BlockIds',
 				name: 'blockIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested blocks',
 				placeholder: 'Filter result by requested blocks',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4520,9 +4679,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChannelCode',
 				name: 'channelCode',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by the channel code',
 				placeholder: 'Filter result by the channel code',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4535,9 +4697,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested companies',
 				placeholder: 'Filter result by requested companies',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4618,11 +4783,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ExternalReferences',
 				name: 'externalReferences',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
 				placeholder:
 					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4668,9 +4836,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'MarketSegmentIds',
 				name: 'marketSegmentIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested market segments',
 				placeholder: 'Filter result by requested market segments',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4683,9 +4854,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested properties',
 				placeholder: 'Filter result by requested properties',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4698,9 +4872,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'RatePlanIds',
 				name: 'ratePlanIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested rate plans',
 				placeholder: 'Filter result by requested rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4713,9 +4890,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Sources',
 				name: 'sources',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by source',
 				placeholder: 'Filter result by source',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4728,9 +4908,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by reservation status',
 				placeholder: 'Filter result by reservation status',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4776,9 +4959,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested unit groups',
 				placeholder: 'Filter result by requested unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4791,9 +4977,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by requested unit group types',
 				placeholder: 'Filter result by requested unit group types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4806,9 +4995,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitIds',
 				name: 'unitIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by assigned units',
 				placeholder: 'Filter result by assigned units',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4821,9 +5013,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ValidationMessageCategory',
 				name: 'validationMessageCategory',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by validation message category',
 				placeholder: 'Filter result by validation message category',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -4892,11 +5087,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: timeSlices, services, booker, actions, company, assignedUnits. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: timeSlices, services, booker, actions, company, assignedUnits. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -5116,9 +5314,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChildrenAges',
 				name: 'childrenAges',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Ages of children',
 				placeholder: 'Ages of children',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -5196,9 +5397,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The list of unit groups used to filter the offers',
 				placeholder: 'The list of unit groups used to filter the offers.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -5516,9 +5720,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitConditions',
 				name: 'unitConditions',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The optional unit conditions for unit that you want to auto assign for',
 				placeholder: 'The optional unit conditions for unit that you want to auto assign for.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6428,11 +6635,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Sort',
 				name: 'sort',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all fields that can be used to sort the results. Possible values are: value:asc, value:desc. All other values will be silently ignored.',
 				placeholder:
 					'List of all fields that can be used to sort the results. Possible values are: value:asc, value:desc. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6496,10 +6706,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BalanceFilter',
 				name: 'balanceFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6512,9 +6725,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BookingIds',
 				name: 'bookingIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by booking IDs',
 				placeholder: 'Filter folio list by booking IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6543,9 +6759,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by company IDs',
 				placeholder: 'Filter folio list by company IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6609,11 +6828,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: allowances, allowedActions, transitoryCharges, charges, company, payments, warnings. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: allowances, allowedActions, transitoryCharges, charges, company, payments, warnings. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6724,9 +6946,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by property IDs',
 				placeholder: 'Filter folio list by property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6739,9 +6964,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ReservationIds',
 				name: 'reservationIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by reservation IDs',
 				placeholder: 'Filter folio list by reservation IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6973,10 +7201,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BalanceFilter',
 				name: 'balanceFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -6989,9 +7220,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BookingIds',
 				name: 'bookingIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by booking IDs',
 				placeholder: 'Filter folio list by booking IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -7020,9 +7254,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by company IDs',
 				placeholder: 'Filter folio list by company IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -7152,9 +7389,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by property IDs',
 				placeholder: 'Filter folio list by property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -7167,9 +7407,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ReservationIds',
 				name: 'reservationIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter folio list by reservation IDs',
 				placeholder: 'Filter folio list by reservation IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -7347,11 +7590,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: folios. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: folios. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -8938,11 +9184,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -8987,9 +9236,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'StatusCodes',
 				name: 'statusCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter payments by one or more status',
 				placeholder: 'Filter payments by one or more status.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -9178,11 +9430,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -9738,9 +9993,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'StatusCodes',
 				name: 'statusCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter refunds by one or more status',
 				placeholder: 'Filter refunds by one or more status',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10159,11 +10417,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10210,9 +10471,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BookingIds',
 				name: 'bookingIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by booking IDs',
 				placeholder: 'Filter by booking IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10241,9 +10505,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by company IDs',
 				placeholder: 'Filter by company IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10256,10 +10523,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'DateFilter',
 				name: 'dateFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"Filter by invoice date<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10272,11 +10542,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: allowedActions, company. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: allowedActions, company. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10289,9 +10562,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'FolioIds',
 				name: 'folioIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by folio IDs',
 				placeholder: 'Filter by folio IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10336,10 +10612,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'OutstandingPaymentFilter',
 				name: 'outstandingPaymentFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"Filter for the outstanding balance for invoices<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10401,9 +10680,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by property IDs',
 				placeholder: 'Filter by property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10443,9 +10725,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ReservationIds',
 				name: 'reservationIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by reservation IDs',
 				placeholder: 'Filter by reservation IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10659,11 +10944,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -10868,7 +11156,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					from: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_from"] ? new Date($parameter["FinanceAccountsAggregate-pairs-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_from"] ? new Date($parameter["FinanceAccountsAggregate-pairs-dailyPost_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -10892,7 +11180,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					to: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_to"] ? new Date($parameter["FinanceAccountsAggregate-pairs-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["FinanceAccountsAggregate-pairs-dailyPost_to"] ? new Date($parameter["FinanceAccountsAggregate-pairs-dailyPost_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -11128,7 +11416,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					from: '={{$parameter["FinanceAccountsAggregate-dailyPost_from"] ? new Date($parameter["FinanceAccountsAggregate-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["FinanceAccountsAggregate-dailyPost_from"] ? new Date($parameter["FinanceAccountsAggregate-dailyPost_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -11152,7 +11440,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					to: '={{$parameter["FinanceAccountsAggregate-dailyPost_to"] ? new Date($parameter["FinanceAccountsAggregate-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["FinanceAccountsAggregate-dailyPost_to"] ? new Date($parameter["FinanceAccountsAggregate-dailyPost_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -11389,7 +11677,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					from: '={{$parameter["FinanceAccountsAggregatePost_from"] ? new Date($parameter["FinanceAccountsAggregatePost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["FinanceAccountsAggregatePost_from"] ? new Date($parameter["FinanceAccountsAggregatePost_from"]).toISOString().slice(0, -5) + "Z" : ""}}',
 				},
 			},
 		},
@@ -11414,7 +11702,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					to: '={{$parameter["FinanceAccountsAggregatePost_to"] ? new Date($parameter["FinanceAccountsAggregatePost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["FinanceAccountsAggregatePost_to"] ? new Date($parameter["FinanceAccountsAggregatePost_to"]).toISOString().slice(0, -5) + "Z" : ""}}',
 				},
 			},
 		},
@@ -11635,7 +11923,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					from: '={{$parameter["FinanceAccountsExportPost_from"] ? new Date($parameter["FinanceAccountsExportPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["FinanceAccountsExportPost_from"] ? new Date($parameter["FinanceAccountsExportPost_from"]).toISOString().slice(0, -5) + "Z" : ""}}',
 				},
 			},
 		},
@@ -11660,7 +11948,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					to: '={{$parameter["FinanceAccountsExportPost_to"] ? new Date($parameter["FinanceAccountsExportPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["FinanceAccountsExportPost_to"] ? new Date($parameter["FinanceAccountsExportPost_to"]).toISOString().slice(0, -5) + "Z" : ""}}',
 				},
 			},
 		},
@@ -11880,7 +12168,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					from: '={{$parameter["FinanceAccountsExport-dailyPost_from"] ? new Date($parameter["FinanceAccountsExport-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["FinanceAccountsExport-dailyPost_from"] ? new Date($parameter["FinanceAccountsExport-dailyPost_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -11904,7 +12192,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					to: '={{$parameter["FinanceAccountsExport-dailyPost_to"] ? new Date($parameter["FinanceAccountsExport-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["FinanceAccountsExport-dailyPost_to"] ? new Date($parameter["FinanceAccountsExport-dailyPost_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -12140,7 +12428,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					from: '={{$parameter["FinanceAccountsExport-gross-dailyPost_from"] ? new Date($parameter["FinanceAccountsExport-gross-dailyPost_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["FinanceAccountsExport-gross-dailyPost_from"] ? new Date($parameter["FinanceAccountsExport-gross-dailyPost_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -12164,7 +12452,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				qs: {
-					to: '={{$parameter["FinanceAccountsExport-gross-dailyPost_to"] ? new Date($parameter["FinanceAccountsExport-gross-dailyPost_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["FinanceAccountsExport-gross-dailyPost_to"] ? new Date($parameter["FinanceAccountsExport-gross-dailyPost_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -13331,9 +13619,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CountryCode',
 				name: 'countryCode',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by country code',
 				placeholder: 'Filter result by country code',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -13346,11 +13637,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -13412,9 +13706,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Status',
 				name: 'status',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by property status',
 				placeholder: 'Filter result by property status',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -13516,6 +13813,7 @@ export const parameterFields: INodeProperties[] = [
 		routing: {
 			request: {
 				method: 'GET',
+				url: '/inventory/v1/properties/{id}',
 			},
 		},
 	},
@@ -13558,11 +13856,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -13575,9 +13876,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -13780,11 +14084,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -13797,9 +14104,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -13914,7 +14224,7 @@ export const parameterFields: INodeProperties[] = [
 	{
 		displayName: 'UnitIds',
 		name: 'InventoryUnitsPatch_unitIds',
-		type: 'fixedCollection',
+		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
@@ -13923,35 +14233,20 @@ export const parameterFields: INodeProperties[] = [
 				operation: ['InventoryUnitsPatch'],
 			},
 		},
-		default: {},
+		default: [],
 		description: 'The unitIds parameter',
 		placeholder: 'The unitIds parameter',
 		routing: {
 			request: {
 				method: 'PATCH',
 				qs: {
-					unitIds: '={{$parameter["InventoryUnitsPatch_unitIds"]}}',
+					unitIds: '={{$parameter["InventoryUnitsPatch_unitIds"].join(",")}}',
 				},
 			},
 		},
 		typeOptions: {
 			multipleValues: true,
 		},
-		options: [
-			{
-				name: 'unitIdsValues',
-				displayName: 'UnitIds',
-				values: [
-					{
-						displayName: 'Value',
-						name: 'value',
-						type: 'string',
-						default: '',
-						description: 'The unitIds value',
-					},
-				],
-			},
-		],
 	},
 	{
 		displayName: 'Body',
@@ -14044,11 +14339,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -14169,9 +14467,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitAttributeIds',
 				name: 'unitAttributeIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return units with the specific unit attributes',
 				placeholder: 'Return units with the specific unit attributes',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -14201,9 +14502,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return units with the specific unit groups',
 				placeholder: 'Return units with the specific unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -14431,9 +14735,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitAttributeIds',
 				name: 'unitAttributeIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return units with the specific unit attributes',
 				placeholder: 'Return units with the specific unit attributes',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -14463,9 +14770,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return units with the specific unit groups',
 				placeholder: 'Return units with the specific unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -14954,11 +15264,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15018,9 +15331,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The unitGroupTypes parameter',
 				placeholder: 'The unitGroupTypes parameter',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15082,9 +15398,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The unitGroupTypes parameter',
 				placeholder: 'The unitGroupTypes parameter',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15194,11 +15513,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15211,9 +15533,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15327,11 +15652,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ClientIds',
 				name: 'clientIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'Filter the log entries by client IDs (which application triggered this event)',
 				placeholder:
 					'Filter the log entries by client IDs (which application triggered this event)',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15344,10 +15672,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'DateFilter',
 				name: 'dateFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15360,9 +15691,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'EventTypes',
 				name: 'eventTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by event types',
 				placeholder: 'Filter the log entries by event types.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15375,11 +15709,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: changes. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: changes. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15424,9 +15761,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by property IDs',
 				placeholder: 'Filter the log entries by property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15439,9 +15779,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ReservationIds',
 				name: 'reservationIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by reservation IDs',
 				placeholder: 'Filter the log entries by reservation IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15454,9 +15797,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'SubjectIds',
 				name: 'subjectIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
 				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15503,11 +15849,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ClientIds',
 				name: 'clientIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'Filter the log entries by client IDs (which application triggered this event)',
 				placeholder:
 					'Filter the log entries by client IDs (which application triggered this event)',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15520,10 +15869,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'DateFilter',
 				name: 'dateFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15536,9 +15888,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'EventTypes',
 				name: 'eventTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by event types',
 				placeholder: 'Filter the log entries by event types.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15551,9 +15906,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'FolioIds',
 				name: 'folioIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by folio IDs',
 				placeholder: 'Filter the log entries by folio IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15598,9 +15956,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by property IDs',
 				placeholder: 'Filter the log entries by property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15613,9 +15974,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'SubjectIds',
 				name: 'subjectIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
 				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15662,10 +16026,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'DateFilter',
 				name: 'dateFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15710,9 +16077,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by property IDs',
 				placeholder: 'Filter the log entries by property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15725,9 +16095,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Statuses',
 				name: 'statuses',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by status',
 				placeholder: 'Filter the log entries by status.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15740,9 +16113,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'SubjectIds',
 				name: 'subjectIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
 				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15789,10 +16165,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'DateFilter',
 				name: 'dateFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15837,9 +16216,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by property IDs',
 				placeholder: 'Filter the log entries by property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15852,9 +16234,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'SubjectIds',
 				name: 'subjectIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
 				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15867,9 +16252,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Types',
 				name: 'types',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter the log entries by export log types',
 				placeholder: 'Filter the log entries by export log types.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -15916,11 +16304,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -16012,9 +16403,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Types',
 				name: 'types',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by maintenance types',
 				placeholder: 'Filter result by maintenance types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -16199,9 +16593,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Types',
 				name: 'types',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Filter result by maintenance types',
 				placeholder: 'Filter result by maintenance types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -16469,11 +16866,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -16702,9 +17102,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -17116,9 +17519,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -17308,9 +17714,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CorporateCodes',
 				name: 'corporateCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return companies that have any of the requested corporate codes',
 				placeholder: 'Return companies that have any of the requested corporate codes.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -17370,9 +17779,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'RatePlanIds',
 				name: 'ratePlanIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return companies with any of the specified rate plans',
 				placeholder: 'Return companies with any of the specified rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -17804,9 +18216,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18192,7 +18607,7 @@ export const parameterFields: INodeProperties[] = [
 	{
 		displayName: 'RatePlanIds',
 		name: 'RateplanRatesPatch_ratePlanIds',
-		type: 'fixedCollection',
+		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
@@ -18201,35 +18616,20 @@ export const parameterFields: INodeProperties[] = [
 				operation: ['RateplanRatesPatch'],
 			},
 		},
-		default: {},
+		default: [],
 		description: 'Filter rates for patching by rate plan ids',
 		placeholder: 'Filter rates for patching by rate plan IDs',
 		routing: {
 			request: {
 				method: 'PATCH',
 				qs: {
-					ratePlanIds: '={{$parameter["RateplanRatesPatch_ratePlanIds"]}}',
+					ratePlanIds: '={{$parameter["RateplanRatesPatch_ratePlanIds"].join(",")}}',
 				},
 			},
 		},
 		typeOptions: {
 			multipleValues: true,
 		},
-		options: [
-			{
-				name: 'ratePlanIdsValues',
-				displayName: 'RatePlanIds',
-				values: [
-					{
-						displayName: 'Value',
-						name: 'value',
-						type: 'string',
-						default: '',
-						description: 'Filter rates for patching by rate plan ids',
-					},
-				],
-			},
-		],
 	},
 	{
 		displayName: 'From',
@@ -18324,11 +18724,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'WeekDays',
 				name: 'weekDays',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'The weekdays that will be patched. If not specified, all weekdays will be patched.',
 				placeholder:
 					'The weekdays that will be patched. If not specified, all weekdays will be patched.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18375,9 +18778,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'BaseRatePlanIds',
 				name: 'baseRatePlanIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans derived from any of the specified rate plans',
 				placeholder: 'Return rate plans derived from any of the specified rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18390,9 +18796,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CancellationPolicyIds',
 				name: 'cancellationPolicyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans with any of the specified cancellation policies',
 				placeholder: 'Return rate plans with any of the specified cancellation policies',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18405,9 +18814,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChannelCodes',
 				name: 'channelCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans that are sold though any of the specified channels',
 				placeholder: 'Return rate plans that are sold though any of the specified channels',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18420,9 +18832,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans filtered by requested companies',
 				placeholder: 'Return rate plans filtered by requested companies',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18435,10 +18850,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'DerivationLevelFilter',
 				name: 'derivationLevelFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"This will filter rate plans based on their derivation level.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18451,11 +18869,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, cancellationPolicy, services, bookingPeriods, surcharges, ageCategories. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, cancellationPolicy, services, bookingPeriods, surcharges, ageCategories. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18483,9 +18904,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'IncludedServiceIds',
 				name: 'includedServiceIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans that have any of the requested included services',
 				placeholder: 'Return rate plans that have any of the requested included services',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18513,9 +18937,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'MinGuaranteeTypes',
 				name: 'minGuaranteeTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans with any of the specified min guarantee types',
 				placeholder: 'Return rate plans with any of the specified min guarantee types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18528,9 +18955,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'NoShowPolicyIds',
 				name: 'noShowPolicyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans with any of the specified no-show policies',
 				placeholder: 'Return rate plans with any of the specified no-show policies',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18575,9 +19005,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PromoCodes',
 				name: 'promoCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans that have any of the requested promo codes',
 				placeholder: 'Return rate plans that have any of the requested promo codes',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18605,9 +19038,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'RatePlanCodes',
 				name: 'ratePlanCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans filtered by requested codes',
 				placeholder: 'Return rate plans filtered by requested codes',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18620,9 +19056,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans with any of the specified time slice definitions',
 				placeholder: 'Return rate plans with any of the specified time slice definitions',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18660,9 +19099,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans with any of the specified unit groups',
 				placeholder: 'Return rate plans with any of the specified unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18675,9 +19117,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return rate plans with any of the specified unit group types',
 				placeholder: 'Return rate plans with any of the specified unit group types',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18786,7 +19231,7 @@ export const parameterFields: INodeProperties[] = [
 	{
 		displayName: 'RatePlanIds',
 		name: 'RateplanRate-plansPatch_ratePlanIds',
-		type: 'fixedCollection',
+		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
@@ -18795,35 +19240,20 @@ export const parameterFields: INodeProperties[] = [
 				operation: ['RateplanRate-plansPatch'],
 			},
 		},
-		default: {},
+		default: [],
 		description: 'Comma-separated list of rate plan IDs, at least one',
 		placeholder: 'Comma separated list of rate plan IDs, at least one.',
 		routing: {
 			request: {
 				method: 'PATCH',
 				qs: {
-					ratePlanIds: '={{$parameter["RateplanRate-plansPatch_ratePlanIds"]}}',
+					ratePlanIds: '={{$parameter["RateplanRate-plansPatch_ratePlanIds"].join(",")}}',
 				},
 			},
 		},
 		typeOptions: {
 			multipleValues: true,
 		},
-		options: [
-			{
-				name: 'ratePlanIdsValues',
-				displayName: 'RatePlanIds',
-				values: [
-					{
-						displayName: 'Value',
-						name: 'value',
-						type: 'string',
-						default: '',
-						description: 'Comma-separated list of rate plan IDs, at least one',
-					},
-				],
-			},
-		],
 	},
 	{
 		displayName: 'Body',
@@ -18909,11 +19339,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, cancellationPolicy. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, cancellationPolicy. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -18926,9 +19359,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19118,9 +19554,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChannelCodes',
 				name: 'channelCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The channel codes the service is sold through',
 				placeholder: 'The channel codes the service is sold through',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19133,11 +19572,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19214,9 +19656,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ServiceTypes',
 				name: 'serviceTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The service types offered',
 				placeholder: 'The service types offered',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19369,11 +19814,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19386,9 +19834,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19445,7 +19896,7 @@ export const parameterFields: INodeProperties[] = [
 	{
 		displayName: 'ServiceIds',
 		name: 'ReportsReportsOrdered-servicesGet_serviceIds',
-		type: 'fixedCollection',
+		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
@@ -19454,35 +19905,20 @@ export const parameterFields: INodeProperties[] = [
 				operation: ['ReportsReportsOrdered-servicesGet'],
 			},
 		},
-		default: {},
+		default: [],
 		description: 'Service ids the report should be generated for',
 		placeholder: 'Service IDs the report should be generated for',
 		routing: {
 			request: {
 				method: 'GET',
 				qs: {
-					serviceIds: '={{$parameter["ReportsReportsOrdered-servicesGet_serviceIds"]}}',
+					serviceIds: '={{$parameter["ReportsReportsOrdered-servicesGet_serviceIds"].join(",")}}',
 				},
 			},
 		},
 		typeOptions: {
 			multipleValues: true,
 		},
-		options: [
-			{
-				name: 'serviceIdsValues',
-				displayName: 'ServiceIds',
-				values: [
-					{
-						displayName: 'Value',
-						name: 'value',
-						type: 'string',
-						default: '',
-						description: 'Service ids the report should be generated for',
-					},
-				],
-			},
-		],
 	},
 	{
 		displayName: 'From',
@@ -19503,7 +19939,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					from: '={{$parameter["ReportsReportsOrdered-servicesGet_from"] ? new Date($parameter["ReportsReportsOrdered-servicesGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["ReportsReportsOrdered-servicesGet_from"] ? new Date($parameter["ReportsReportsOrdered-servicesGet_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -19527,7 +19963,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					to: '={{$parameter["ReportsReportsOrdered-servicesGet_to"] ? new Date($parameter["ReportsReportsOrdered-servicesGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["ReportsReportsOrdered-servicesGet_to"] ? new Date($parameter["ReportsReportsOrdered-servicesGet_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -19685,7 +20121,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					from: '={{$parameter["ReportsReportsProperty-performanceGet_from"] ? new Date($parameter["ReportsReportsProperty-performanceGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["ReportsReportsProperty-performanceGet_from"] ? new Date($parameter["ReportsReportsProperty-performanceGet_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -19709,7 +20145,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					to: '={{$parameter["ReportsReportsProperty-performanceGet_to"] ? new Date($parameter["ReportsReportsProperty-performanceGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["ReportsReportsProperty-performanceGet_to"] ? new Date($parameter["ReportsReportsProperty-performanceGet_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -19731,9 +20167,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'ChannelCodes',
 				name: 'channelCodes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The channel codes used to filter the retrieved data',
 				placeholder: 'The channel codes used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19746,9 +20185,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The company IDs used to filter the retrieved data',
 				placeholder: 'The company IDs used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19761,11 +20203,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: businessDays. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: businessDays. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19778,9 +20223,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'MarketSegmentIds',
 				name: 'marketSegmentIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The market segment IDs used to filter the retrieved data',
 				placeholder: 'The market segment IDs used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19793,9 +20241,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'RatePlanIds',
 				name: 'ratePlanIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The rate plan IDs used to filter the retrieved data',
 				placeholder: 'The rate plan IDs used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19808,9 +20259,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The time slice definition IDs used to filter the retrieved data',
 				placeholder: 'The time slice definition IDs used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19848,9 +20302,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupIds',
 				name: 'unitGroupIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The unit group IDs used to filter the retrieved data',
 				placeholder: 'The unit group IDs used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19863,9 +20320,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'UnitGroupTypes',
 				name: 'unitGroupTypes',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The unit group types used to filter the retrieved data',
 				placeholder: 'The unit group types used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19936,9 +20396,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Company IDs the report should be generated for',
 				placeholder: 'Company IDs the report should be generated for',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -19951,10 +20414,13 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'DateFilter',
 				name: 'dateFilter',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
 				placeholder:
 					"Set a date interval to get the report for. Cannot be more than 1 month.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -20027,7 +20493,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					from: '={{$parameter["ReportsReportsRevenuesGet_from"] ? new Date($parameter["ReportsReportsRevenuesGet_from"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					from: '={{$parameter["ReportsReportsRevenuesGet_from"] ? new Date($parameter["ReportsReportsRevenuesGet_from"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -20051,7 +20517,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				qs: {
-					to: '={{$parameter["ReportsReportsRevenuesGet_to"] ? new Date($parameter["ReportsReportsRevenuesGet_to"]).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+					to: '={{$parameter["ReportsReportsRevenuesGet_to"] ? new Date($parameter["ReportsReportsRevenuesGet_to"]).toISOString().slice(0, 10) : ""}}',
 				},
 			},
 		},
@@ -20458,9 +20924,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Languages',
 				name: 'languages',
 				type: 'string',
-				default: '',
+				default: [],
 				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -21040,9 +21509,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'The propertyIds parameter',
 				placeholder: 'The propertyIds parameter',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -21075,7 +21547,7 @@ export const parameterFields: INodeProperties[] = [
 	{
 		displayName: 'PropertyIds',
 		name: 'SettingsInvoice-addressPut_propertyIds',
-		type: 'fixedCollection',
+		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
@@ -21084,35 +21556,20 @@ export const parameterFields: INodeProperties[] = [
 				operation: ['SettingsInvoice-addressPut'],
 			},
 		},
-		default: {},
+		default: [],
 		description: 'The propertyIds parameter',
 		placeholder: 'The propertyIds parameter',
 		routing: {
 			request: {
 				method: 'PUT',
 				qs: {
-					propertyIds: '={{$parameter["SettingsInvoice-addressPut_propertyIds"]}}',
+					propertyIds: '={{$parameter["SettingsInvoice-addressPut_propertyIds"].join(",")}}',
 				},
 			},
 		},
 		typeOptions: {
 			multipleValues: true,
 		},
-		options: [
-			{
-				name: 'propertyIdsValues',
-				displayName: 'PropertyIds',
-				values: [
-					{
-						displayName: 'Value',
-						name: 'value',
-						type: 'string',
-						default: '',
-						description: 'The propertyIds value',
-					},
-				],
-			},
-		],
 	},
 	{
 		displayName: 'Body',
@@ -21162,7 +21619,7 @@ export const parameterFields: INodeProperties[] = [
 	{
 		displayName: 'PropertyIds',
 		name: 'SettingsInvoice-addressPatch_propertyIds',
-		type: 'fixedCollection',
+		type: 'string',
 		required: true,
 		displayOptions: {
 			show: {
@@ -21171,35 +21628,20 @@ export const parameterFields: INodeProperties[] = [
 				operation: ['SettingsInvoice-addressPatch'],
 			},
 		},
-		default: {},
+		default: [],
 		description: 'The propertyIds parameter',
 		placeholder: 'The propertyIds parameter',
 		routing: {
 			request: {
 				method: 'PATCH',
 				qs: {
-					propertyIds: '={{$parameter["SettingsInvoice-addressPatch_propertyIds"]}}',
+					propertyIds: '={{$parameter["SettingsInvoice-addressPatch_propertyIds"].join(",")}}',
 				},
 			},
 		},
 		typeOptions: {
 			multipleValues: true,
 		},
-		options: [
-			{
-				name: 'propertyIdsValues',
-				displayName: 'PropertyIds',
-				values: [
-					{
-						displayName: 'Value',
-						name: 'value',
-						type: 'string',
-						default: '',
-						description: 'The propertyIds value',
-					},
-				],
-			},
-		],
 	},
 	{
 		displayName: 'Body',
@@ -21507,9 +21949,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return market segments with any of the specified property ids',
 				placeholder: 'Return market segments with any of the specified property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -21632,9 +22077,12 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'PropertyIds',
 				name: 'propertyIds',
 				type: 'string',
-				default: '',
+				default: [],
 				description: 'Return market segments with any of the specified property ids',
 				placeholder: 'Return market segments with any of the specified property IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -21766,11 +22214,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
@@ -21928,11 +22379,14 @@ export const parameterFields: INodeProperties[] = [
 				displayName: 'Expand',
 				name: 'expand',
 				type: 'string',
-				default: '',
+				default: [],
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
 				routing: {
 					request: {
 						qs: {
