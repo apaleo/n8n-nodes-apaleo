@@ -29,4 +29,13 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run bu
+        run: npm run build
+
+      - name: Audit signatures
+        run: npm audit signatures
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Publish to npm (OIDC)
+        run: npm publish
