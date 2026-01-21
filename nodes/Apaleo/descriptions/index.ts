@@ -1,6 +1,6 @@
 export { groupOptions, groups } from './groups';
 export { resourcesByGroup, resourceOptions } from './resources';
-export { operationsByResource, operationOptions } from './operations';
+export { operationOptions } from './operations';
 export { parameterFields } from './parameters';
 
 import { INodeProperties } from 'n8n-workflow';

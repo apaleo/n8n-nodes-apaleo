@@ -1,6 +1,6 @@
 {
   "name": "@apaleo/n8n-nodes-apaleo-official",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "Apaleo API Official Node for n8n",
   "keywords": [
     "n8n-community-node-package",
@@ -49,13 +49,14 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^24.0.3",
-    "@typescript-eslint/parser": "~8.32.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-n8n-nodes-base": "^1.16.3",
-    "gulp": "^5.0.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
+    "@types/node": "^25.0.8",
+    "@typescript-eslint/parser": "~8.53.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-n8n-nodes-base": "^1.16.4",
+    "gulp": "^5.0.1",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.0"
   },
   "peerDependencies": {
     "n8n-workflow": "*"

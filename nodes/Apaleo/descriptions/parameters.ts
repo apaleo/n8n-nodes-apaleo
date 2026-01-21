@@ -35,6 +35,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The property ID',
+		placeholder: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -57,8 +58,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The from date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -81,8 +83,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The to date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -110,8 +113,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeOutOfService',
 				type: 'boolean',
 				default: false,
-				description:
-					'Should units that are set OutOfService in the defined time period be returned as available',
+				description: 'Should units that are set OutOfService in the defined time period be returned as available',
+				placeholder:
+					'Should units that are set OutOfService in the defined time period be returned as available.',
 				routing: {
 					request: {
 						qs: {
@@ -126,7 +130,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -140,8 +146,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -156,6 +162,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units with the specific unit attributes',
+				placeholder: 'Return units with the specific unit attributes',
 				routing: {
 					request: {
 						qs: {
@@ -170,6 +177,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Clean',
 				description: 'The unit condition',
+				placeholder: 'The unit condition',
 				options: [
 					{
 						name: 'Clean',
@@ -198,6 +206,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The unit group ID',
+				placeholder: 'The unit group ID',
 				routing: {
 					request: {
 						qs: {
@@ -241,6 +250,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The property ID',
+		placeholder: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -265,6 +275,8 @@ export const parameterFields: INodeProperties[] = [
 		default: '',
 		description:
 			'First day of the requested time period. The given day will be included in the response.',
+		placeholder:
+			'First day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -288,6 +300,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
+			'Last day of the requested time period. The given day will be included in the response.',
+		placeholder:
 			'Last day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
@@ -317,6 +331,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: '',
 				description: 'The number of adults you want availability for, defaults to 1',
+				placeholder: 'The number of adults you want availability for, defaults to 1',
 				routing: {
 					request: {
 						qs: {
@@ -331,6 +346,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The ages of the children you want availability for',
+				placeholder: 'The ages of the children you want availability for',
 				routing: {
 					request: {
 						qs: {
@@ -345,7 +361,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					"When set to 'true', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned",
+					"When set to 'true', only the unit groups sold by the specified time slice template and time slice definition ids are returned, otherwise all unit groups are returned",
+				placeholder: 'When set to \'true\', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned',
 				routing: {
 					request: {
 						qs: {
@@ -360,7 +377,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -374,8 +393,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -389,7 +408,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
 				default: '',
-				description: 'The time slice definition IDs',
+				description: 'The time slice definition ids',
+				placeholder: 'The time slice definition IDs',
 				routing: {
 					request: {
 						qs: {
@@ -404,6 +424,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'DayUse',
 				description: "The time slice template, defaults to 'over night'",
+				placeholder: "The time slice template, defaults to 'over night'",
 				options: [
 					{
 						name: 'DayUse',
@@ -427,7 +448,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitGroupIds',
 				type: 'string',
 				default: '',
-				description: 'The unit group IDs',
+				description: 'The unit group ids',
+				placeholder: 'The unit group IDs',
 				routing: {
 					request: {
 						qs: {
@@ -442,6 +464,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested unit group types',
+				placeholder: 'Filter result by requested unit group types',
 				routing: {
 					request: {
 						qs: {
@@ -472,7 +495,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'AvailabilityUnit-groupsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -485,6 +508,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the unit group to be modified',
+		placeholder: 'ID of the unit group to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -506,6 +530,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'First day of the time period from which availability will be modified',
+		placeholder: 'First day of the time period from which availability will be modified',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -529,6 +554,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Last day of the time period until which availability will be modified',
+		placeholder: 'Last day of the time period until which availability will be modified',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -552,6 +578,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: 'DayUse',
 		description: 'The time slice template',
+		placeholder: 'The time slice template',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -586,6 +613,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -629,6 +658,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The property ID',
+		placeholder: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -653,6 +683,8 @@ export const parameterFields: INodeProperties[] = [
 		default: '',
 		description:
 			'First day of the requested time period. The given day will be included in the response.',
+		placeholder:
+			'First day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -676,6 +708,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
+			'Last day of the requested time period. The given day will be included in the response.',
+		placeholder:
 			'Last day of the requested time period. The given day will be included in the response.',
 		routing: {
 			request: {
@@ -705,6 +739,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The channel code used to filter the services',
+				placeholder: 'The channel code used to filter the services',
 				routing: {
 					request: {
 						qs: {
@@ -719,7 +754,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -733,8 +770,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -748,7 +785,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
 				default: '',
-				description: 'The time slice definition IDs',
+				description: 'The time slice definition ids',
+				placeholder: 'The time slice definition IDs',
 				routing: {
 					request: {
 						qs: {
@@ -763,6 +801,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'DayUse',
 				description: "The time slice template, defaults to 'over night'",
+				placeholder: "The time slice template, defaults to 'over night'",
 				options: [
 					{
 						name: 'DayUse',
@@ -803,7 +842,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'AvailabilityReservationsByIdUnitsGet_id',
 		type: 'string',
 		required: true,
@@ -816,6 +855,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the reservation',
+		placeholder: 'The ID of the reservation',
 		routing: {
 			request: {
 				method: 'GET',
@@ -841,8 +881,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'The from date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The from date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -856,8 +897,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeOutOfService',
 				type: 'boolean',
 				default: false,
-				description:
-					'Should units that are set OutOfService in the defined time period be returned as available',
+				description: 'Should units that are set OutOfService in the defined time period be returned as available',
+				placeholder:
+					'Should units that are set OutOfService in the defined time period be returned as available.',
 				routing: {
 					request: {
 						qs: {
@@ -872,7 +914,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -886,8 +930,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -901,8 +945,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'The to date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The to date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -917,6 +962,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units with the specific unit attributes',
+				placeholder: 'Return units with the specific unit attributes',
 				routing: {
 					request: {
 						qs: {
@@ -931,6 +977,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Clean',
 				description: 'The unit condition',
+				placeholder: 'The unit condition',
 				options: [
 					{
 						name: 'Clean',
@@ -959,6 +1006,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The unit group ID',
+				placeholder: 'The unit group ID',
 				routing: {
 					request: {
 						qs: {
@@ -1001,8 +1049,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2025-09-29",\n  "to": "2025-10-02",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
+			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2026-01-19",\n  "to": "2026-01-22",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The details for the block you want to create.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -1031,8 +1080,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -1082,6 +1132,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -1095,8 +1147,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1111,6 +1164,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks for the specific group',
+				placeholder: 'Return blocks for the specific group',
 				routing: {
 					request: {
 						qs: {
@@ -1125,7 +1179,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -1139,8 +1195,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -1155,6 +1211,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks filtered by properties',
+				placeholder: 'Return blocks filtered by properties',
 				routing: {
 					request: {
 						qs: {
@@ -1169,6 +1226,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified rate plans',
+				placeholder: 'Return blocks with any of the specified rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -1183,6 +1241,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks filtered by statuses',
+				placeholder: 'Return blocks filtered by statuses',
 				routing: {
 					request: {
 						qs: {
@@ -1197,6 +1256,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified time slice definitions',
+				placeholder: 'Return blocks with any of the specified time slice definitions',
 				routing: {
 					request: {
 						qs: {
@@ -1211,6 +1271,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'DayUse',
 				description: "The time slice template, defaults to 'over night'",
+				placeholder: "The time slice template, defaults to 'over night'",
 				options: [
 					{
 						name: 'DayUse',
@@ -1234,8 +1295,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1250,6 +1312,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified unit groups',
+				placeholder: 'Return blocks with any of the specified unit groups',
 				routing: {
 					request: {
 						qs: {
@@ -1264,6 +1327,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified unit group types',
+				placeholder: 'Return blocks with any of the specified unit group types',
 				routing: {
 					request: {
 						qs: {
@@ -1311,8 +1375,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1327,6 +1392,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks for the specific group',
+				placeholder: 'Return blocks for the specific group',
 				routing: {
 					request: {
 						qs: {
@@ -1341,6 +1407,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks filtered by properties',
+				placeholder: 'Return blocks filtered by properties',
 				routing: {
 					request: {
 						qs: {
@@ -1355,6 +1422,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified rate plans',
+				placeholder: 'Return blocks with any of the specified rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -1369,6 +1437,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks filtered by statuses',
+				placeholder: 'Return blocks filtered by statuses',
 				routing: {
 					request: {
 						qs: {
@@ -1383,6 +1452,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified time slice definitions',
+				placeholder: 'Return blocks with any of the specified time slice definitions',
 				routing: {
 					request: {
 						qs: {
@@ -1397,6 +1467,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'DayUse',
 				description: "The time slice template, defaults to 'over night'",
+				placeholder: "The time slice template, defaults to 'over night'",
 				options: [
 					{
 						name: 'DayUse',
@@ -1420,8 +1491,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -1436,6 +1508,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified unit groups',
+				placeholder: 'Return blocks with any of the specified unit groups',
 				routing: {
 					request: {
 						qs: {
@@ -1450,6 +1523,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return blocks with any of the specified unit group types',
+				placeholder: 'Return blocks with any of the specified unit group types',
 				routing: {
 					request: {
 						qs: {
@@ -1480,7 +1554,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBlocksByIdGet_id',
 		type: 'string',
 		required: true,
@@ -1493,6 +1567,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the block to be retrieved',
+		placeholder: 'ID of the block to be retrieved.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -1519,6 +1594,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions, timeSlices. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -1550,7 +1627,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBlock-actionsByIdConfirmPut_id',
 		type: 'string',
 		required: true,
@@ -1563,6 +1640,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the block that should be processed',
+		placeholder: 'ID of the block that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -1590,7 +1668,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBlock-actionsByIdReleasePut_id',
 		type: 'string',
 		required: true,
@@ -1603,6 +1681,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the block that should be processed',
+		placeholder: 'ID of the block that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -1630,7 +1709,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBlock-actionsByIdCancelPut_id',
 		type: 'string',
 		required: true,
@@ -1643,6 +1722,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the block that should be processed',
+		placeholder: 'ID of the block that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -1670,7 +1750,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBlock-actionsByIdWashPut_id',
 		type: 'string',
 		required: true,
@@ -1683,6 +1763,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the block that should be processed',
+		placeholder: 'ID of the block that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -1710,7 +1791,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBlock-actionsByIdAmendPut_id',
 		type: 'string',
 		required: true,
@@ -1723,6 +1804,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the block to be modified',
+		placeholder: 'ID of the block to be modified.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -1743,8 +1825,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "from": "2025-09-29",\n  "to": "2025-10-02",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
+			'{\n  "from": "2026-01-19",\n  "to": "2026-01-22",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the block.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -1787,8 +1870,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The list of reservations you want to create.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -1817,8 +1901,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -1867,7 +1952,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
+					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code',
+				placeholder:
+					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code',
 				routing: {
 					request: {
 						qs: {
@@ -1883,6 +1970,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -1897,7 +1986,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value.',
+					'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value',
+				placeholder:
+					'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value',
 				routing: {
 					request: {
 						qs: {
@@ -1912,7 +2003,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by group ID. The result set will contain all bookings having groups with the specified id.',
+					'Filter result by group ID. The result set will contain all bookings having groups with the specified ID',
+				placeholder:
+					'Filter result by group ID. The result set will contain all bookings having groups with the specified ID',
 				routing: {
 					request: {
 						qs: {
@@ -1927,7 +2020,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -1941,8 +2036,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -1957,7 +2052,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified id.',
+					'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID',
+				placeholder:
+					'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID',
 				routing: {
 					request: {
 						qs: {
@@ -1972,7 +2069,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values.',
+					'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values',
+				placeholder:
+					'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values',
 				routing: {
 					request: {
 						qs: {
@@ -2015,8 +2114,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The list of reservations you want to create.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2045,8 +2145,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -2077,7 +2178,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBookingsByIdReservationsPost_id',
 		type: 'string',
 		required: true,
@@ -2090,6 +2191,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the booking the reservations should be attached to',
+		placeholder: 'ID of the booking the reservations should be attached to.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2110,8 +2212,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+			'{\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The list of reservations you want to add.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2140,8 +2243,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -2172,7 +2276,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBookingsByIdReservations$forcePost_id',
 		type: 'string',
 		required: true,
@@ -2185,6 +2289,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the booking the reservations should be attached to',
+		placeholder: 'ID of the booking the reservations should be attached to.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2205,8 +2310,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2025-09-27",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+			'{\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The list of reservations you want to add.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2235,8 +2341,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -2267,7 +2374,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBookingsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -2280,6 +2387,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the booking to be retrieved',
+		placeholder: 'ID of the booking to be retrieved.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2306,6 +2414,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations, propertyValues. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, ratePlan, services, reservations, propertyValues. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -2337,7 +2447,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingBookingsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -2350,6 +2460,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the booking to be modified',
+		placeholder: 'ID of the booking to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -2371,6 +2482,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -2413,8 +2526,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "name": "apaleo Summer Festival 2026",\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "propertyIds": [\n    "MUC"\n  ]\n}',
+			'{\n  "name": "apaleo Summer Festival 2027",\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "registeredCard": {\n    "cardNumber": "1111",\n    "cardHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "note": "Credit card will be available after 2025-06-23 10:00:00",\n    "isVirtual": false\n  },\n  "propertyIds": [\n    "MUC"\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The details of the group that should be created.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2443,8 +2557,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -2494,6 +2609,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -2507,8 +2624,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -2523,7 +2641,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -2537,8 +2657,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -2553,6 +2673,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested properties',
+				placeholder: 'Filter result by requested properties',
 				routing: {
 					request: {
 						qs: {
@@ -2567,7 +2688,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.',
+					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values',
+				placeholder:
+					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values',
 				routing: {
 					request: {
 						qs: {
@@ -2581,8 +2704,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returnedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -2613,7 +2737,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingGroupsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -2626,6 +2750,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the group booking to be retrieved',
+		placeholder: 'ID of the group booking to be retrieved.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2652,6 +2777,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: blocks, actions. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -2683,7 +2810,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingGroupsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -2696,6 +2823,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the group booking to be modified',
+		placeholder: 'ID of the group booking to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -2717,6 +2845,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -2747,7 +2877,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingGroupsByIdReservationsPost_id',
 		type: 'string',
 		required: true,
@@ -2760,6 +2890,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the group booking the reservations should be attached to',
+		placeholder: 'ID of the group booking the reservations should be attached to.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2780,8 +2911,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2025-09-26",\n      "departure": "2025-09-28",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2025-09-27",\n      "departure": "2025-09-29",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
+			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The list of reservations you want to create.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -2810,8 +2942,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -2855,6 +2988,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The property ID',
+		placeholder: 'The property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2877,8 +3011,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2901,8 +3036,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2926,6 +3062,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The number of adults you want offers for',
+		placeholder: 'The number of adults you want offers for',
 		routing: {
 			request: {
 				method: 'GET',
@@ -2954,6 +3091,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AltoVita',
 				description: 'Channel code, used to filter the rate plans',
+				placeholder: 'Channel code, used to filter the rate plans',
 				options: [
 					{
 						name: 'AltoVita',
@@ -3006,6 +3144,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The ages of the children you want offers for',
+				placeholder: 'The ages of the children you want offers for',
 				routing: {
 					request: {
 						qs: {
@@ -3020,6 +3159,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The code associated with a corporate rate',
+				placeholder: 'The code associated with a corporate rate',
 				routing: {
 					request: {
 						qs: {
@@ -3034,7 +3174,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
+				placeholder:
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -3049,6 +3191,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The promo code associated with a certain special offer',
+				placeholder: 'The promo code associated with a certain special offer',
 				routing: {
 					request: {
 						qs: {
@@ -3063,6 +3206,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Time slice definition IDs, used to filter rate plans',
+				placeholder: 'Time slice definition IDs, used to filter rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -3077,6 +3221,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'DayUse',
 				description:
+					"The time slice template used to filter the rate plans, defaults to 'over night'",
+				placeholder:
 					"The time slice template used to filter the rate plans, defaults to 'over night'",
 				options: [
 					{
@@ -3102,6 +3248,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Unit group IDs, used to filter rate plans',
+				placeholder: 'Unit group IDs, used to filter rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -3116,6 +3263,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Unit group types, used to filter rate plans',
+				placeholder: 'Unit group types, used to filter rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -3159,6 +3307,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The rate plan ID',
+		placeholder: 'The rate plan ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3181,8 +3330,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3205,8 +3355,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3230,6 +3381,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The number of adults you want offers for',
+		placeholder: 'The number of adults you want offers for',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3258,6 +3410,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AltoVita',
 				description: 'The channel code',
+				placeholder: 'The channel code',
 				options: [
 					{
 						name: 'AltoVita',
@@ -3310,6 +3463,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The ages of the children you want offers for',
+				placeholder: 'The ages of the children you want offers for',
 				routing: {
 					request: {
 						qs: {
@@ -3324,7 +3478,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
+				placeholder:
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -3339,6 +3495,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Desired prices for each timeslice',
+				placeholder: 'Desired prices for each timeslice',
 				routing: {
 					request: {
 						qs: {
@@ -3382,6 +3539,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The rate plan ID',
+		placeholder: 'The rate plan ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3404,8 +3562,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3428,8 +3587,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3453,6 +3613,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The number of adults you want offers for',
+		placeholder: 'The number of adults you want offers for',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3481,6 +3642,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AltoVita',
 				description: 'The channel code used to filter the services',
+				placeholder: 'The channel code used to filter the services',
 				options: [
 					{
 						name: 'AltoVita',
@@ -3533,6 +3695,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The ages of the children you want offers for',
+				placeholder: 'The ages of the children you want offers for',
 				routing: {
 					request: {
 						qs: {
@@ -3547,7 +3710,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
+				placeholder:
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -3562,6 +3727,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
+					"Depending on the postNextDay setting of a service it will be posted before or after midnight. Breakfast is usually delivered on the next morning, having 'postNextDay' set to true. Its 'default dates' are from the day after arrival until the departure day. For services like dinner 'postNextDay' is false, and default dates are day of arrival until one day before departure. With this query parameter set to 'false', you can also ask for dates outside of those default dates. It defaults to true.",
+				placeholder:
 					"Depending on the postNextDay setting of a service it will be posted before or after midnight. Breakfast is usually delivered on the next morning, having 'postNextDay' set to true. Its 'default dates' are from the day after arrival until the departure day. For services like dinner 'postNextDay' is false, and default dates are day of arrival until one day before departure. With this query parameter set to 'false', you can also ask for dates outside of those default dates. It defaults to true.",
 				routing: {
 					request: {
@@ -3606,6 +3773,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ratePlanId parameter',
+		placeholder: 'The ratePlanId parameter',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3628,8 +3796,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3652,8 +3821,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		description: 'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3677,6 +3847,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: 'AltoVita',
 		description: 'The channelCode parameter',
+		placeholder: 'The channelCode parameter',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3743,7 +3914,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -3757,8 +3930,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -3807,7 +3980,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
+				placeholder:
+					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
 				routing: {
 					request: {
 						qs: {
@@ -3821,8 +3996,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -3837,6 +4013,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested blocks',
+				placeholder: 'Filter result by requested blocks',
 				routing: {
 					request: {
 						qs: {
@@ -3851,6 +4028,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by booking ID',
+				placeholder: 'Filter result by booking ID',
 				routing: {
 					request: {
 						qs: {
@@ -3865,6 +4043,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by the channel code',
+				placeholder: 'Filter result by the channel code',
 				routing: {
 					request: {
 						qs: {
@@ -3879,6 +4058,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested companies',
+				placeholder: 'Filter result by requested companies',
 				routing: {
 					request: {
 						qs: {
@@ -3893,6 +4073,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Arrival',
 				description:
+					"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
+				placeholder:
 					"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
 				options: [
 					{
@@ -3943,6 +4125,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: booker, actions, timeSlices, services, assignedUnits, company. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: booker, actions, timeSlices, services, assignedUnits, company. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -3957,7 +4141,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
+				placeholder:
+					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
 				routing: {
 					request: {
 						qs: {
@@ -3973,6 +4159,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
+				placeholder:
+					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
 				routing: {
 					request: {
 						qs: {
@@ -3986,8 +4174,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
 				routing: {
 					request: {
 						qs: {
@@ -4003,6 +4192,8 @@ export const parameterFields: INodeProperties[] = [
 				default: false,
 				description:
 					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+				placeholder:
+					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
 				routing: {
 					request: {
 						qs: {
@@ -4017,6 +4208,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested market segments',
+				placeholder: 'Filter result by requested market segments',
 				routing: {
 					request: {
 						qs: {
@@ -4031,7 +4223,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -4045,8 +4239,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -4061,6 +4255,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested properties',
+				placeholder: 'Filter result by requested properties',
 				routing: {
 					request: {
 						qs: {
@@ -4075,6 +4270,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested rate plans',
+				placeholder: 'Filter result by requested rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -4089,7 +4285,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, id:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
+					'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, ID:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
+				placeholder:
+					'List of all fields that can be used to sort the results. Possible values are: arrival:asc, arrival:desc, departure:asc, departure:desc, created:asc, created:desc, updated:asc, updated:desc, balance:asc, balance:desc, ID:asc, ID:desc, firstname:asc, firstname:desc, lastname:asc, lastname:desc, unitname:asc, unitname:desc. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -4104,6 +4302,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by source',
+				placeholder: 'Filter result by source',
 				routing: {
 					request: {
 						qs: {
@@ -4118,6 +4317,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by reservation status',
+				placeholder: 'Filter result by reservation status',
 				routing: {
 					request: {
 						qs: {
@@ -4132,7 +4332,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
+				placeholder:
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
 				routing: {
 					request: {
 						qs: {
@@ -4146,8 +4348,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
 				routing: {
 					request: {
 						qs: {
@@ -4162,6 +4365,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested unit groups',
+				placeholder: 'Filter result by requested unit groups',
 				routing: {
 					request: {
 						qs: {
@@ -4176,6 +4380,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested unit group types',
+				placeholder: 'Filter result by requested unit group types',
 				routing: {
 					request: {
 						qs: {
@@ -4190,6 +4395,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by assigned units',
+				placeholder: 'Filter result by assigned units',
 				routing: {
 					request: {
 						qs: {
@@ -4204,6 +4410,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by validation message category',
+				placeholder: 'Filter result by validation message category',
 				routing: {
 					request: {
 						qs: {
@@ -4252,7 +4459,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
+				placeholder:
+					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
 				routing: {
 					request: {
 						qs: {
@@ -4266,8 +4475,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -4282,6 +4492,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested blocks',
+				placeholder: 'Filter result by requested blocks',
 				routing: {
 					request: {
 						qs: {
@@ -4296,6 +4507,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by booking ID',
+				placeholder: 'Filter result by booking ID',
 				routing: {
 					request: {
 						qs: {
@@ -4310,6 +4522,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by the channel code',
+				placeholder: 'Filter result by the channel code',
 				routing: {
 					request: {
 						qs: {
@@ -4324,6 +4537,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested companies',
+				placeholder: 'Filter result by requested companies',
 				routing: {
 					request: {
 						qs: {
@@ -4338,6 +4552,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Arrival',
 				description:
+					"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
+				placeholder:
 					"Filter by date and time attributes of reservation. Use in combination with the 'To' and 'From' attributes. All filters will check if the date specified by the filter type is between from (included) and to (excluded). The exception being filtering for 'stay', which will return all reservations that are overlapping with the interval specified by from and to.",
 				options: [
 					{
@@ -4387,7 +4603,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
+				placeholder:
+					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
 				routing: {
 					request: {
 						qs: {
@@ -4403,6 +4621,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
+				placeholder:
+					'This will filter all reservation where the provided external references have an exact match on at least one of the properties in Apaleo.Api.Modules.Booking.Models.Reservation.ExternalReferencesModel',
 				routing: {
 					request: {
 						qs: {
@@ -4416,8 +4636,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
 				routing: {
 					request: {
 						qs: {
@@ -4433,6 +4654,8 @@ export const parameterFields: INodeProperties[] = [
 				default: false,
 				description:
 					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+				placeholder:
+					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
 				routing: {
 					request: {
 						qs: {
@@ -4447,6 +4670,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested market segments',
+				placeholder: 'Filter result by requested market segments',
 				routing: {
 					request: {
 						qs: {
@@ -4461,6 +4685,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested properties',
+				placeholder: 'Filter result by requested properties',
 				routing: {
 					request: {
 						qs: {
@@ -4475,6 +4700,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested rate plans',
+				placeholder: 'Filter result by requested rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -4489,6 +4715,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by source',
+				placeholder: 'Filter result by source',
 				routing: {
 					request: {
 						qs: {
@@ -4503,6 +4730,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by reservation status',
+				placeholder: 'Filter result by reservation status',
 				routing: {
 					request: {
 						qs: {
@@ -4517,7 +4745,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'This will filter all reservations where the provided text is contained in: booker first name or last name or email or company name, primary guest first name or last name or email or company name, external code, reservation ID, unit name. The search is case insensitive.',
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
+				placeholder:
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
 				routing: {
 					request: {
 						qs: {
@@ -4531,8 +4761,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>.",
+				description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specifiedA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
 				routing: {
 					request: {
 						qs: {
@@ -4547,6 +4778,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested unit groups',
+				placeholder: 'Filter result by requested unit groups',
 				routing: {
 					request: {
 						qs: {
@@ -4561,6 +4793,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by requested unit group types',
+				placeholder: 'Filter result by requested unit group types',
 				routing: {
 					request: {
 						qs: {
@@ -4575,6 +4808,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by assigned units',
+				placeholder: 'Filter result by assigned units',
 				routing: {
 					request: {
 						qs: {
@@ -4589,6 +4823,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by validation message category',
+				placeholder: 'Filter result by validation message category',
 				routing: {
 					request: {
 						qs: {
@@ -4619,7 +4854,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservationsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -4632,6 +4867,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation to be retrieved',
+		placeholder: 'ID of the reservation to be retrieved.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -4658,6 +4894,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: timeSlices, services, booker, actions, company, assignedUnits. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: timeSlices, services, booker, actions, company, assignedUnits. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -4689,7 +4927,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservationsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -4702,6 +4940,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation to be modified',
+		placeholder: 'ID of the reservation to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -4723,6 +4962,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -4753,7 +4994,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservationsByIdOffersGet_id',
 		type: 'string',
 		required: true,
@@ -4766,6 +5007,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation to be amended',
+		placeholder: 'ID of the reservation to be amended.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -4792,6 +5034,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: '',
 				description: 'Number of adults',
+				placeholder: 'Number of adults',
 				routing: {
 					request: {
 						qs: {
@@ -4805,8 +5048,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'arrival',
 				type: 'string',
 				default: '',
-				description:
-					'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Date and optional time of arrivalSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'Date and optional time of arrival<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -4821,6 +5065,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AltoVita',
 				description: 'The channel code used to filter the rate plans',
+				placeholder: 'The channel code used to filter the rate plans',
 				options: [
 					{
 						name: 'AltoVita',
@@ -4873,6 +5118,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Ages of children',
+				placeholder: 'Ages of children',
 				routing: {
 					request: {
 						qs: {
@@ -4886,8 +5132,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'departure',
 				type: 'string',
 				default: '',
-				description:
-					'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'Date and optional time of departure. Cannot be more than 5 years after arrival.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'Date and optional time of departure. Cannot be more than 5 years after arrival.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -4902,7 +5149,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
+				placeholder:
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -4917,6 +5166,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The promo code associated with a certain special offer, like corporate rate',
+				placeholder: 'The promo code associated with a certain special offer, like corporate rate',
 				routing: {
 					request: {
 						qs: {
@@ -4931,7 +5181,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					"Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to 'false'.",
+					"Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to 'false'",
+				placeholder:
+					"Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to 'false'",
 				routing: {
 					request: {
 						qs: {
@@ -4946,6 +5198,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The list of unit groups used to filter the offers',
+				placeholder: 'The list of unit groups used to filter the offers.',
 				routing: {
 					request: {
 						qs: {
@@ -4976,7 +5229,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservationsByIdService-offersGet_id',
 		type: 'string',
 		required: true,
@@ -4989,6 +5242,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -5015,6 +5269,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AltoVita',
 				description: 'The channel code used to filter the services',
+				placeholder: 'The channel code used to filter the services',
 				options: [
 					{
 						name: 'AltoVita',
@@ -5067,7 +5322,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
+				placeholder:
+					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
 					request: {
 						qs: {
@@ -5082,6 +5339,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
+					'Depending on the postNextDay setting of a service it will by default be posted before or after midnight. Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day are default dates and will have this flag set to true. For services like a dinner it is the other way around. With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true.',
+				placeholder:
 					'Depending on the postNextDay setting of a service it will by default be posted before or after midnight. Breakfast is usually delivered on the next morning, so all the dates from the day after arrival to the departure day are default dates and will have this flag set to true. For services like a dinner it is the other way around. With this query parameter, you can also ask for the dates, that usually the service will not be booked. It defaults to true.',
 				routing: {
 					request: {
@@ -5113,7 +5372,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservationsByIdServicesGet_id',
 		type: 'string',
 		required: true,
@@ -5126,6 +5385,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -5153,7 +5413,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservationsByIdServicesDelete_id',
 		type: 'string',
 		required: true,
@@ -5166,6 +5426,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation.',
 		routing: {
 			request: {
 				method: 'DELETE',
@@ -5187,6 +5448,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the service to delete',
+		placeholder: 'The ID of the service to delete',
 		routing: {
 			request: {
 				method: 'DELETE',
@@ -5216,7 +5478,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdAssign-unitPut_id',
 		type: 'string',
 		required: true,
@@ -5229,6 +5491,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation a unit should be assigned to',
+		placeholder: 'ID of the reservation a unit should be assigned to.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5255,6 +5518,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The optional unit conditions for unit that you want to auto assign for',
+				placeholder: 'The optional unit conditions for unit that you want to auto assign for.',
 				routing: {
 					request: {
 						qs: {
@@ -5285,7 +5549,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdAssign-unitByUnitIdPut_id',
 		type: 'string',
 		required: true,
@@ -5298,6 +5562,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation the unit should be assigned to',
+		placeholder: 'ID of the reservation the unit should be assigned to.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5319,6 +5584,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit to be assigned',
+		placeholder: 'The ID of the unit to be assigned.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5344,8 +5610,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'string',
 				default: '',
-				description:
-					'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The start date and optional time for the unit assignment. If not specified, the reservation\'s arrival will be used.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -5361,6 +5628,8 @@ export const parameterFields: INodeProperties[] = [
 				default: false,
 				description:
 					'Whether to lock the unit for the duration of the reservation. If not specified, the unit will not be locked.',
+				placeholder:
+					'Whether to lock the unit for the duration of the reservation. If not specified, the unit will not be locked.',
 				routing: {
 					request: {
 						qs: {
@@ -5374,8 +5643,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'string',
 				default: '',
-				description:
-					'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The end date and optional time for the unit assignment. If not specified, the reservation\'s departure will be used.<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -5406,7 +5676,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdUnassign-unitsPut_id',
 		type: 'string',
 		required: true,
@@ -5419,6 +5689,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation the unit should be unassigned for',
+		placeholder: 'ID of the reservation the unit should be unassigned for.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5446,7 +5717,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdCheckinPut_id',
 		type: 'string',
 		required: true,
@@ -5459,6 +5730,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation that should be processed',
+		placeholder: 'ID of the reservation that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5485,6 +5757,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
+					'Define if city tax should be added for this reservation or not. The default is "true".',
+				placeholder:
 					'Define if city tax should be added for this reservation or not. The default is "true".',
 				routing: {
 					request: {
@@ -5516,7 +5790,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdRevert-checkinPut_id',
 		type: 'string',
 		required: true,
@@ -5529,6 +5803,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the reservation to reverse the check-in for',
+		placeholder: 'The ID of the reservation to reverse the check-in for.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5556,7 +5831,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdCheckoutPut_id',
 		type: 'string',
 		required: true,
@@ -5569,6 +5844,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation that should be processed',
+		placeholder: 'ID of the reservation that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5596,7 +5872,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdCancelPut_id',
 		type: 'string',
 		required: true,
@@ -5609,6 +5885,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation that should be processed',
+		placeholder: 'ID of the reservation that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5636,7 +5913,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdNoshowPut_id',
 		type: 'string',
 		required: true,
@@ -5649,6 +5926,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation that should be processed',
+		placeholder: 'ID of the reservation that should be processed.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5676,7 +5954,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdAmendPut_id',
 		type: 'string',
 		required: true,
@@ -5689,6 +5967,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation that should be modified',
+		placeholder: 'ID of the reservation that should be modified',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5709,8 +5988,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "arrival": "2025-09-26T17:00:00+02:00",\n  "departure": "2025-09-28T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+			'{\n  "arrival": "2026-01-16T17:00:00+01:00",\n  "departure": "2026-01-18T11:00:00+01:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The new stay details that should be applied to the reservation.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5741,7 +6021,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdAmend$forcePut_id',
 		type: 'string',
 		required: true,
@@ -5754,6 +6034,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation that should be modified',
+		placeholder: 'ID of the reservation that should be modified',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5774,8 +6055,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "arrival": "2025-09-26T17:00:00+02:00",\n  "departure": "2025-09-28T11:00:00+02:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+			'{\n  "arrival": "2026-01-16T17:00:00+01:00",\n  "departure": "2026-01-18T11:00:00+01:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The new stay details that should be applied to the reservation.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5806,7 +6088,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdBook-servicePut_id',
 		type: 'string',
 		required: true,
@@ -5819,6 +6101,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5839,8 +6122,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-09-24",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-09-25"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2026-01-14",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2026-01-15"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The body parameter',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5871,7 +6155,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdBook-service$forcePut_id',
 		type: 'string',
 		required: true,
@@ -5884,6 +6168,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5904,8 +6189,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2025-09-24",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2025-09-25"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2026-01-14",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2026-01-15"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The body parameter',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5936,7 +6222,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdRemove-city-taxPut_id',
 		type: 'string',
 		required: true,
@@ -5949,6 +6235,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -5976,7 +6263,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'BookingReservation-actionsByIdAdd-city-taxPut_id',
 		type: 'string',
 		required: true,
@@ -5989,6 +6276,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -6048,6 +6336,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: 'Gender',
 		description: 'The type to provide allowed values for',
+		placeholder: 'The type to provide allowed values for',
 		routing: {
 			request: {
 				method: 'GET',
@@ -6078,8 +6367,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
+		description: 'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
+		placeholder:
+			'The code of the country in which the property is located in ISO 3166-1 alpha-2 format.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -6108,7 +6398,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -6122,8 +6414,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -6139,6 +6431,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all fields that can be used to sort the results. Possible values are: value:asc, value:desc. All other values will be silently ignored.',
+				placeholder:
+					'List of all fields that can be used to sort the results. Possible values are: value:asc, value:desc. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -6153,6 +6447,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'Filter the result by the provided free text. If specified, only values that contain one of the provided values will be returned.',
+				placeholder:
 					'Filter the result by the provided free text. If specified, only values that contain one of the provided values will be returned.',
 				routing: {
 					request: {
@@ -6201,8 +6497,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -6217,6 +6514,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by booking IDs',
+				placeholder: 'Filter folio list by booking IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6230,8 +6528,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				description: 'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				placeholder:
+					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all.',
 				routing: {
 					request: {
 						qs: {
@@ -6246,6 +6545,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by company IDs',
+				placeholder: 'Filter folio list by company IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6259,8 +6559,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The inclusive start time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6275,8 +6576,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The exclusive end time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6292,7 +6594,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
+					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>',
+				placeholder:
+					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>',
 				routing: {
 					request: {
 						qs: {
@@ -6308,6 +6612,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: allowances, allowedActions, transitoryCharges, charges, company, payments, warnings. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: allowances, allowedActions, transitoryCharges, charges, company, payments, warnings. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -6322,7 +6628,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Allows filtering external folios by code.\r\nUseful when you use external folios with custom codes.\r\nSpecifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
+					'Allows filtering external folios by code. Useful when you use external folios with custom codes. Specifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
+				placeholder:
+					'Allows filtering external folios by code. Useful when you use external folios with custom codes. Specifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
 				routing: {
 					request: {
 						qs: {
@@ -6336,7 +6644,10 @@ export const parameterFields: INodeProperties[] = [
 				name: 'hasInvoices',
 				type: 'boolean',
 				default: false,
-				description: 'If set to `true`, only return folios that been invoices',
+				description:
+					'If set to `true`, only folios <b>with</b> invoices are returned. If set to `false`, only folios <b>without</b> invoices are returned. If omitted/`null`, <b>all</b> folios are returned.',
+				placeholder:
+					'If set to `true`, only folios <b>with</b> invoices are returned. If set to `false`, only folios <b>without</b> invoices are returned. If omitted/`null`, <b>all</b> folios are returned.',
 				routing: {
 					request: {
 						qs: {
@@ -6351,7 +6662,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
+				placeholder:
+					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
 				routing: {
 					request: {
 						qs: {
@@ -6366,6 +6679,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description: 'If set to `true`, only main folios are returned, otherwise all',
+				placeholder: 'If set to `true`, only main folios are returned, otherwise all.',
 				routing: {
 					request: {
 						qs: {
@@ -6380,7 +6694,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -6394,8 +6710,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -6410,6 +6726,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by property IDs',
+				placeholder: 'Filter folio list by property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6424,6 +6741,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by reservation IDs',
+				placeholder: 'Filter folio list by reservation IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6438,6 +6756,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Closed',
 				description: 'The status of the folio',
+				placeholder: 'The status of the folio',
 				options: [
 					{
 						name: 'Closed',
@@ -6463,6 +6782,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
+				placeholder:
+					'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -6477,6 +6798,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Booking',
 				description: 'The type of the folio',
+				placeholder: 'The type of the folio',
 				options: [
 					{
 						name: 'Booking',
@@ -6508,8 +6830,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The inclusive start time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6524,8 +6847,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The exclusive end time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6571,6 +6895,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "reservationId": "TS23XF",\n  "debitor": {\n    "title": "Dr",\n    "firstName": "Jon",\n    "name": "Doe",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    },\n    "company": {\n      "name": "Horns & Hooves Inc",\n      "taxId": "TAX-12345",\n      "additionalTaxId": "TAX2-12345",\n      "additionalTaxId2": "TAX3-12345"\n    },\n    "personalTaxId": "123456789",\n    "reference": "SRC-1232",\n    "phone": "123456789"\n  },\n  "type": "Guest"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the folio.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -6599,8 +6924,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -6648,8 +6974,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'balanceFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter reservations based on their balance.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"This will filter reservations based on their balance.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -6664,6 +6991,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by booking IDs',
+				placeholder: 'Filter folio list by booking IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6677,8 +7005,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				description: 'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				placeholder:
+					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all.',
 				routing: {
 					request: {
 						qs: {
@@ -6693,6 +7022,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by company IDs',
+				placeholder: 'Filter folio list by company IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6706,8 +7036,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The inclusive start time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6722,8 +7053,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of creation. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The exclusive end time of the date of creation. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6739,7 +7071,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>.',
+					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>',
+				placeholder:
+					'If set to `true`, closed folios are filtered out from the result collection - <b>DEPRECATED: This field will be removed soon. Please use Status=Open instead.</b>',
 				routing: {
 					request: {
 						qs: {
@@ -6754,7 +7088,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Allows filtering external folios by code.\r\nUseful when you use external folios with custom codes.\r\nSpecifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
+					'Allows filtering external folios by code. Useful when you use external folios with custom codes. Specifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
+				placeholder:
+					'Allows filtering external folios by code. Useful when you use external folios with custom codes. Specifying this parameter will ignore the <b>Type</b> parameter and treat as if it would be set to "External" instead.',
 				routing: {
 					request: {
 						qs: {
@@ -6768,7 +7104,10 @@ export const parameterFields: INodeProperties[] = [
 				name: 'hasInvoices',
 				type: 'boolean',
 				default: false,
-				description: 'If set to `true`, only return folios that been invoices',
+				description:
+					'If set to `true`, only folios <b>with</b> invoices are returned. If set to `false`, only folios <b>without</b> invoices are returned. If omitted/`null`, <b>all</b> folios are returned.',
+				placeholder:
+					'If set to `true`, only folios <b>with</b> invoices are returned. If set to `false`, only folios <b>without</b> invoices are returned. If omitted/`null`, <b>all</b> folios are returned.',
 				routing: {
 					request: {
 						qs: {
@@ -6783,7 +7122,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
+				placeholder:
+					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
 				routing: {
 					request: {
 						qs: {
@@ -6798,6 +7139,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description: 'If set to `true`, only main folios are returned, otherwise all',
+				placeholder: 'If set to `true`, only main folios are returned, otherwise all.',
 				routing: {
 					request: {
 						qs: {
@@ -6812,6 +7154,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by property IDs',
+				placeholder: 'Filter folio list by property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6826,6 +7169,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter folio list by reservation IDs',
+				placeholder: 'Filter folio list by reservation IDs',
 				routing: {
 					request: {
 						qs: {
@@ -6840,6 +7184,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Closed',
 				description: 'The status of the folio',
+				placeholder: 'The status of the folio',
 				options: [
 					{
 						name: 'Closed',
@@ -6865,6 +7210,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
+				placeholder:
+					'This will filter all folios where the provided text is contained in: debitor first name or last name or company name, folio ID. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -6879,6 +7226,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Booking',
 				description: 'The type of the folio',
+				placeholder: 'The type of the folio',
 				options: [
 					{
 						name: 'Booking',
@@ -6910,8 +7258,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedFrom',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The inclusive start time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The inclusive start time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6926,8 +7275,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedTo',
 				type: 'dateTime',
 				default: '',
-				description:
-					'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+				description: 'The exclusive end time of the date of the last update. Mostly useful for external foliosA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'The exclusive end time of the date of the last update. Mostly useful for external folios<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -6959,7 +7309,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'FinanceFoliosByIdGet_id',
 		type: 'string',
 		required: true,
@@ -6972,6 +7322,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the folio',
+		placeholder: 'The ID of the folio.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -6998,6 +7349,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: folios. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: folios. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -7029,7 +7382,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'FinanceFoliosByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -7042,6 +7395,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -7063,6 +7417,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.             See the FolioDebitorModel in GET for values that can be changed.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -7093,7 +7449,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'FinanceFoliosByIdHead_id',
 		type: 'string',
 		required: true,
@@ -7106,6 +7462,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID parameter',
+		placeholder: 'The ID parameter',
 		routing: {
 			request: {
 				method: 'HEAD',
@@ -7146,6 +7503,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7168,6 +7526,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "serviceType": "FoodAndBeverages",\n  "vatType": "Normal",\n  "subAccountId": "MUC-BEER",\n  "name": "Restaurant",\n  "amount": {\n    "amount": 23,\n    "currency": "EUR"\n  },\n  "receipt": "R23412"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The charge to be added',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7196,8 +7555,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -7241,6 +7601,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7263,6 +7624,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "name": "Restaurant",\n  "amount": {\n    "amount": 23,\n    "currency": "EUR"\n  },\n  "receipt": "R23412"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The transitory charge to be added',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7291,8 +7653,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -7336,6 +7699,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7357,6 +7721,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The cancellation fee to be added',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7385,8 +7750,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -7430,6 +7796,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7451,6 +7818,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The no-show fee to be added',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7479,8 +7847,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -7524,6 +7893,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -7564,6 +7934,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -7604,6 +7975,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the source folio from where the charges should be moved away',
+		placeholder: 'The ID of the source folio from where the charges should be moved away.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -7626,6 +7998,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "targetFolioId": "KFCSQUID-1",\n  "reason": "Test",\n  "chargeIds": [\n    "KFCSQUID-1-C-1",\n    "KFCSQUID-1-C-5"\n  ],\n  "allowanceIds": [\n    "KFCSQUID-1-A-1",\n    "KFCSQUID-1-A-2"\n  ],\n  "transitoryChargeIds": [\n    "KFCSQUID-1-TC-1",\n    "KFCSQUID-1-TC-2"\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'See class.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -7670,6 +8043,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "items": [\n    {\n      "sourceFolioId": "SPRJDQNU-1",\n      "targetFolioId": "KFCSQUID-1",\n      "chargeIds": [\n        "SPRJDQNU-1-C-1",\n        "SPRJDQNU-1-C-5"\n      ]\n    },\n    {\n      "sourceFolioId": "TTDKOWNC-1",\n      "targetFolioId": "YXPZMQAS-1",\n      "chargeIds": [\n        "TTDKOWNC-1-C-2",\n        "TTDKOWNC-1-C-3"\n      ]\n    }\n  ],\n  "reason": "Test"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'See class.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -7713,6 +8087,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the source folio from where the charges should be moved away',
+		placeholder: 'The ID of the source folio from where the charges should be moved away.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -7734,6 +8109,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '{\n  "targetFolioId": "KFCSQUID-1",\n  "reason": "Test"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'See class.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -7777,6 +8153,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7798,6 +8175,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the charge allowance posted for',
+		placeholder: 'The ID of the charge allowance posted for',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7820,6 +8198,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "reason": "Reason",\n  "amount": {\n    "amount": 1,\n    "currency": "EUR"\n  }\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Allowance data',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7848,8 +8227,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -7893,6 +8273,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7915,6 +8296,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "serviceType": "Other",\n  "vatType": "Normal",\n  "subAccountId": "MUC-REST",\n  "reason": "Good guy discount",\n  "amount": {\n    "amount": 22,\n    "currency": "EUR"\n  }\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Allowance amount and post reason',
 		routing: {
 			request: {
 				method: 'POST',
@@ -7943,8 +8325,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -7988,6 +8371,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the folio',
+		placeholder: 'The ID of the folio.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8010,6 +8394,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "items": [\n    {\n      "chargeId": "IDDQD-1-1-TS-1",\n      "amount": {\n        "amount": 13,\n        "currency": "EUR"\n      }\n    },\n    {\n      "chargeId": "IDDQD-1-1-ES-2",\n      "amount": {\n        "amount": 37,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "reason": "discount"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Allowance amount and post reason',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8038,8 +8423,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -8083,6 +8469,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -8123,6 +8510,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the source folio from where the payments should be moved away',
+		placeholder: 'The ID of the source folio from where the payments should be moved away.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -8145,6 +8533,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "targetFolioId": "KFCSQUID-1",\n  "reason": "Test",\n  "paymentIds": [\n    "KFCSQUID-1-C-1",\n    "KFCSQUID-1-C-5"\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'See class.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -8188,6 +8577,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8210,6 +8600,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "reason": "Minibar is not paid by the company",\n  "chargeIds": [\n    "IDDQD-1-C-1",\n    "IDDQD-1-C-5"\n  ],\n  "allowanceIds": [\n    "IDDQD-1-A-1",\n    "IDDQD-1-A-5"\n  ],\n  "transitoryChargeIds": [\n    "IDDQD-1-TC-1",\n    "IDDQD-1-TC-5"\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Array of chargeIds to move and reason',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8238,8 +8629,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -8283,6 +8675,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8304,6 +8697,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the charge',
+		placeholder: 'The ID of the charge',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8325,6 +8719,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '{\n  "percent": 51,\n  "type": "ByPercent"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'See class',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8353,8 +8748,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -8398,6 +8794,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folio ID',
+		placeholder: 'The folio ID',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8419,6 +8816,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the payment',
+		placeholder: 'The ID of the payment',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8440,6 +8838,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '{\n  "percent": 51,\n  "type": "ByPercent"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'See class',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8468,8 +8867,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -8513,6 +8913,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'GET',
@@ -8540,6 +8941,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -8554,7 +8957,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -8568,8 +8973,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -8584,6 +8989,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter payments by one or more status',
+				placeholder: 'Filter payments by one or more status.',
 				routing: {
 					request: {
 						qs: {
@@ -8627,6 +9033,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8649,6 +9056,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "method": "Cash",\n  "receipt": "BLIPKWXP-1",\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8677,8 +9085,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -8722,6 +9131,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'GET',
@@ -8743,6 +9153,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The payment ID',
+		placeholder: 'The payment ID.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -8769,6 +9180,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -8813,6 +9226,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8835,6 +9249,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "terminalId": "V400m-324689704",\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8863,8 +9278,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -8908,6 +9324,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8930,6 +9347,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "transactionReference": "564578124534890J",\n  "referenceType": "PspReference",\n  "amount": {\n    "amount": 330,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -8958,8 +9376,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -9003,6 +9422,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9025,6 +9445,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 200\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9053,8 +9474,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -9098,6 +9520,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9118,8 +9541,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "expiresAt": "2025-09-27T10:00:36.3352474Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
+			'{\n  "expiresAt": "2026-01-16T15:39:24.02364Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment link.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9148,8 +9572,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -9193,6 +9618,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -9214,6 +9640,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the payment',
+		placeholder: 'The ID of the payment.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -9254,6 +9681,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'GET',
@@ -9280,7 +9708,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -9294,8 +9724,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -9310,6 +9740,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter refunds by one or more status',
+				placeholder: 'Filter refunds by one or more status',
 				routing: {
 					request: {
 						qs: {
@@ -9353,6 +9784,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9373,8 +9805,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2025-09-24",\n  "reason": "Refund for the cancelled service"\n}',
+			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2026-01-14",\n  "reason": "Refund for the cancelled service"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the refund.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9403,8 +9836,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -9448,6 +9882,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'GET',
@@ -9469,6 +9904,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The refund ID',
+		placeholder: 'The refund ID.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -9509,6 +9945,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The folioId parameter',
+		placeholder: 'The folioId parameter',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9530,6 +9967,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The payment ID',
+		placeholder: 'The payment ID.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9550,8 +9988,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2025-09-24",\n  "reason": "Refund for the cancelled service"\n}',
+			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2026-01-14",\n  "reason": "Refund for the cancelled service"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the refund.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -9580,8 +10019,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -9625,6 +10065,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The language in which the invoice should be produced',
+		placeholder: 'The language in which the invoice should be produced.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -9648,6 +10089,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the folio for which the invoice should be created',
+		placeholder: 'The ID of the folio for which the invoice should be created.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -9690,6 +10132,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the folio for which the invoice should be created',
+		placeholder: 'The ID of the folio for which the invoice should be created.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -9718,6 +10161,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -9767,6 +10212,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter by booking IDs',
+				placeholder: 'Filter by booking IDs',
 				routing: {
 					request: {
 						qs: {
@@ -9780,8 +10226,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description:
-					'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all',
+				description: 'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all',
+				placeholder:
+					'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all.',
 				routing: {
 					request: {
 						qs: {
@@ -9796,6 +10243,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter by company IDs',
+				placeholder: 'Filter by company IDs',
 				routing: {
 					request: {
 						qs: {
@@ -9809,8 +10257,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by invoice dateYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"Filter by invoice date<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -9826,6 +10275,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: allowedActions, company. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: allowedActions, company. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -9840,6 +10291,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter by folio IDs',
+				placeholder: 'Filter by folio IDs',
 				routing: {
 					request: {
 						qs: {
@@ -9855,6 +10307,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'Find invoices for a recipient name or company. Provide at least three characters.',
+				placeholder:
+					'Find invoices for a recipient name or company. Provide at least three characters.',
 				routing: {
 					request: {
 						qs: {
@@ -9869,6 +10323,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The invoice number',
+				placeholder: 'The invoice number',
 				routing: {
 					request: {
 						qs: {
@@ -9882,8 +10337,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'outstandingPaymentFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter for the outstanding balance for invoicesYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"Filter for the outstanding balance for invoices<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -9898,7 +10354,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -9912,8 +10370,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -9928,7 +10386,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to `true`, returns only invoices having no outstanding payments or marked as settled.\r\nIf set to `false`, returns only invoices with outstanding payment and not marked as settled.\r\nIf not set, returns all invoices. - <b>DEPRECATED: This field will be removed at 25.06.2022. Use filtering by `Status` instead</b>',
+					'If set to `true`, returns only invoices having no outstanding payments or marked as settled. If set to `false`, returns only invoices with outstanding payment and not marked as settled. If not set, returns all invoices. - <b>DEPRECATED: This field will be removed at 25.06.2022. Use filtering by `Status` instead</b>',
+				placeholder:
+					'If set to `true`, returns only invoices having no outstanding payments or marked as settled. If set to `false`, returns only invoices with outstanding payment and not marked as settled. If not set, returns all invoices. - <b>DEPRECATED: This field will be removed at 25.06.2022. Use filtering by `Status` instead</b>',
 				routing: {
 					request: {
 						qs: {
@@ -9943,6 +10403,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter by property IDs',
+				placeholder: 'Filter by property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -9957,6 +10418,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Company',
 				description:
+					'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
+				placeholder:
 					'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
 				options: [
 					{
@@ -9982,6 +10445,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter by reservation IDs',
+				placeholder: 'Filter by reservation IDs',
 				routing: {
 					request: {
 						qs: {
@@ -9996,6 +10460,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'FullyPaid',
 				description: 'Filter by invoice status',
+				placeholder: 'Filter by invoice status',
 				options: [
 					{
 						name: 'FullyPaid',
@@ -10053,6 +10518,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '{\n  "folioId": "HBCXQZ-1",\n  "languageCode": "en"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The folio ID to create the invoice for.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10081,8 +10547,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -10113,7 +10580,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'FinanceInvoicesByIdPdfGet_id',
 		type: 'string',
 		required: true,
@@ -10126,6 +10593,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The invoice ID',
+		placeholder: 'The invoice ID.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -10153,7 +10621,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'FinanceInvoicesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -10166,6 +10634,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The invoice ID',
+		placeholder: 'The invoice ID.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -10192,6 +10661,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: company. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -10223,7 +10694,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'FinanceInvoice-actionsByIdPayPut_id',
 		type: 'string',
 		required: true,
@@ -10236,6 +10707,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The invoice ID',
+		placeholder: 'The invoice ID',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -10257,6 +10729,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '{\n  "paymentMethod": "BankTransfer",\n  "receipt": "BANK-123456"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'see class',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -10287,7 +10760,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'FinanceInvoice-actionsByIdCancelPut_id',
 		type: 'string',
 		required: true,
@@ -10300,6 +10773,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The invoice ID',
+		placeholder: 'The invoice ID',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -10321,6 +10795,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '{\n  "reasonCode": "ChangeOfRecipientDetails"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'see class',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -10364,6 +10839,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Specifies the property transactions will be aggregated for',
+		placeholder: 'Specifies the property transactions will be aggregated for.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10387,6 +10863,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive start date of the interval',
+		placeholder: 'The inclusive start date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10410,6 +10887,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The exclusive end date of the interval',
+		placeholder: 'The exclusive end date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10439,6 +10917,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -10463,6 +10943,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter transactions by account number',
+				placeholder: 'Filter transactions by account number',
 				routing: {
 					request: {
 						qs: {
@@ -10477,6 +10958,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AccountsReceivable',
 				description: 'Filter transactions by type',
+				placeholder: 'Filter transactions by type',
 				options: [
 					{
 						name: 'AccountsReceivable',
@@ -10540,8 +11022,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -10556,6 +11039,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report (2-letter ISO code)',
+				placeholder: 'The language for the the report (2-letter ISO code)',
 				routing: {
 					request: {
 						qs: {
@@ -10569,8 +11053,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio id/property id for house folio)',
+				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				placeholder:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
 					request: {
 						qs: {
@@ -10614,6 +11099,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Specifies the property transactions will be aggregated for',
+		placeholder: 'Specifies the property transactions will be aggregated for.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10637,6 +11123,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive start date of the interval',
+		placeholder: 'The inclusive start date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10660,6 +11147,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The exclusive end date of the interval',
+		placeholder: 'The exclusive end date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10689,6 +11177,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -10713,6 +11203,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter transactions by account number',
+				placeholder: 'Filter transactions by account number',
 				routing: {
 					request: {
 						qs: {
@@ -10727,6 +11218,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AccountsReceivable',
 				description: 'Filter transactions by type',
+				placeholder: 'Filter transactions by type',
 				options: [
 					{
 						name: 'AccountsReceivable',
@@ -10790,8 +11282,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -10806,6 +11299,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report (2-letter ISO code)',
+				placeholder: 'The language for the the report (2-letter ISO code)',
 				routing: {
 					request: {
 						qs: {
@@ -10819,8 +11313,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio id/property id for house folio)',
+				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				placeholder:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
 					request: {
 						qs: {
@@ -10864,6 +11359,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Specifies the property for which transactions will be exported',
+		placeholder: 'Specifies the property for which transactions will be exported',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10886,8 +11382,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10910,8 +11407,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'POST',
@@ -10941,6 +11439,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -10965,6 +11465,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter transactions by account number',
+				placeholder: 'Filter transactions by account number',
 				routing: {
 					request: {
 						qs: {
@@ -10979,6 +11480,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AccountsReceivable',
 				description: 'Filter transactions by type',
+				placeholder: 'Filter transactions by type',
 				options: [
 					{
 						name: 'AccountsReceivable',
@@ -11042,8 +11544,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -11058,6 +11561,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -11101,6 +11605,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Specifies the property for which transactions will be exported',
+		placeholder: 'Specifies the property for which transactions will be exported',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11123,8 +11628,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The inclusive start time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The inclusive start time of the posting date. Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11147,8 +11653,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The exclusive end time of the posting date. Either posting date or business date interval should be specified.A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The exclusive end time of the posting date. Either posting date or business date interval should be specified.<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11178,6 +11685,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -11202,6 +11711,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter transactions by account number',
+				placeholder: 'Filter transactions by account number',
 				routing: {
 					request: {
 						qs: {
@@ -11216,6 +11726,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AccountsReceivable',
 				description: 'Filter transactions by type',
+				placeholder: 'Filter transactions by type',
 				options: [
 					{
 						name: 'AccountsReceivable',
@@ -11279,8 +11790,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -11295,6 +11807,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -11338,6 +11851,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Specifies the property transactions will be aggregated for',
+		placeholder: 'Specifies the property transactions will be aggregated for.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11361,6 +11875,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive start date of the interval',
+		placeholder: 'The inclusive start date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11384,6 +11899,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The exclusive end date of the interval',
+		placeholder: 'The exclusive end date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11413,6 +11929,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -11437,6 +11955,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter transactions by account number',
+				placeholder: 'Filter transactions by account number',
 				routing: {
 					request: {
 						qs: {
@@ -11451,6 +11970,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'AccountsReceivable',
 				description: 'Filter transactions by type',
+				placeholder: 'Filter transactions by type',
 				options: [
 					{
 						name: 'AccountsReceivable',
@@ -11514,8 +12034,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -11530,6 +12051,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report (2-letter ISO code)',
+				placeholder: 'The language for the the report (2-letter ISO code)',
 				routing: {
 					request: {
 						qs: {
@@ -11543,8 +12065,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio id/property id for house folio)',
+				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				placeholder:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
 					request: {
 						qs: {
@@ -11588,6 +12111,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Specifies the property transactions will be aggregated for',
+		placeholder: 'Specifies the property transactions will be aggregated for.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11611,6 +12135,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive start date of the interval',
+		placeholder: 'The inclusive start date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11634,6 +12159,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The exclusive end date of the interval',
+		placeholder: 'The exclusive end date of the interval',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11663,6 +12189,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -11686,8 +12214,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -11701,8 +12230,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description:
-					'Filter transactions by reference (reservation ID/external folio id/property id for house folio)',
+				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				placeholder:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
 					request: {
 						qs: {
@@ -11746,6 +12276,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Filter account list by property ID',
+		placeholder: 'Filter account list by property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -11775,6 +12306,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -11799,6 +12332,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: '',
 				description: 'How many hierarchy levels to include (between 1 and 4, default is 1)',
+				placeholder: 'How many hierarchy levels to include (between 1 and 4, default is 1).',
 				routing: {
 					request: {
 						qs: {
@@ -11813,7 +12347,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
+				placeholder:
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -11828,6 +12364,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'The language for the the report. If not specified, language code from "Accept-Language" will be used.',
+				placeholder:
 					'The language for the the report. If not specified, language code from "Accept-Language" will be used.',
 				routing: {
 					request: {
@@ -11872,6 +12410,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Filter account list by property ID',
+		placeholder: 'Filter account list by property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -11894,7 +12433,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
+		placeholder: "Filter account list by the parent account's number.",
 		routing: {
 			request: {
 				method: 'GET',
@@ -11923,6 +12463,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Extended',
 				description: 'Allows to override the default accounting schema',
+				placeholder: 'Allows to override the default accounting schema',
 				options: [
 					{
 						name: 'Extended',
@@ -11947,7 +12488,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
+				placeholder:
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -11962,6 +12505,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -11976,7 +12520,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -11990,8 +12536,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -12035,6 +12581,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Filter account list by property ID',
+		placeholder: 'Filter account list by property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12058,6 +12605,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Filter account list by reservation ID',
+		placeholder: 'Filter account list by reservation ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12086,6 +12634,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -12100,7 +12649,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -12114,8 +12665,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -12129,7 +12680,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'parent',
 				type: 'string',
 				default: '',
-				description: "Filter account list by the parent account's number",
+				description: 'Filter account list by the parent account\'s number',
+				placeholder: "Filter account list by the parent account's number.",
 				routing: {
 					request: {
 						qs: {
@@ -12173,6 +12725,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Filter account list by property ID',
+		placeholder: 'Filter account list by property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12196,6 +12749,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Filter account list by folio ID',
+		placeholder: 'Filter account list by folio ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12224,6 +12778,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -12238,7 +12793,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -12252,8 +12809,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -12267,7 +12824,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'parent',
 				type: 'string',
 				default: '',
-				description: "Filter account list by the parent account's number",
+				description: 'Filter account list by the parent account\'s number',
+				placeholder: "Filter account list by the parent account's number.",
 				routing: {
 					request: {
 						qs: {
@@ -12311,6 +12869,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The account number',
+		placeholder: 'The account number',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12332,6 +12891,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Specifies the property the account is in',
+		placeholder: 'Specifies the property the account is in.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12361,6 +12921,8 @@ export const parameterFields: INodeProperties[] = [
 				default: 'Extended',
 				description:
 					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
+				placeholder:
+					'Allows to override the default accounting schema. Only specify this, when you know what you are doing.',
 				options: [
 					{
 						name: 'Extended',
@@ -12385,7 +12947,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
+				placeholder:
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -12400,6 +12964,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -12413,8 +12978,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'transactionLimit',
 				type: 'number',
 				default: '',
-				description:
-					'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
+				description: 'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
+				placeholder:
+					'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0).',
 				routing: {
 					request: {
 						qs: {
@@ -12458,6 +13024,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Filter account list by property ID',
+		placeholder: 'Filter account list by property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12480,7 +13047,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: "Filter account list by the parent account's number",
+		description: 'Filter account list by the parent account\'s number',
+		placeholder: "Filter account list by the parent account's number.",
 		routing: {
 			request: {
 				method: 'GET',
@@ -12509,6 +13077,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Extended',
 				description: 'Allows to override the default accounting schema',
+				placeholder: 'Allows to override the default accounting schema',
 				options: [
 					{
 						name: 'Extended',
@@ -12533,7 +13102,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
+				placeholder:
+					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
 					request: {
 						qs: {
@@ -12548,6 +13119,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -12562,7 +13134,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -12576,8 +13150,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -12678,6 +13252,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The 2-letter ISO country code',
+		placeholder: 'The 2-letter ISO country code',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12706,6 +13281,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
+					'If specified, returns the VAT types that are effective for this specific date. If nothing specified, returns the VAT types that are effective for the current date in UTC timezone.',
+				placeholder:
 					'If specified, returns the VAT types that are effective for this specific date. If nothing specified, returns the VAT types that are effective for the current date in UTC timezone.',
 				routing: {
 					request: {
@@ -12756,6 +13333,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by country code',
+				placeholder: 'Filter result by country code',
 				routing: {
 					request: {
 						qs: {
@@ -12771,6 +13349,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -12785,7 +13365,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties.',
+					'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties',
+				placeholder:
+					'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties',
 				routing: {
 					request: {
 						qs: {
@@ -12800,7 +13382,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -12814,8 +13398,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -12830,6 +13414,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by property status',
+				placeholder: 'Filter result by property status',
 				routing: {
 					request: {
 						qs: {
@@ -12874,6 +13459,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "MUC",\n  "name": {\n    "en": "Demo Hotel Munich",\n    "de": "Demo Hotel München"\n  },\n  "companyName": "Hotel Münchner GmbH",\n  "managingDirectors": "Franz-Josef Gruber",\n  "commercialRegisterEntry": "Amtsgericht München, HRB 279336",\n  "taxId": "DE311053702",\n  "description": {\n    "en": "This is the demo hotel Munich",\n    "de": "Dies ist das Demo Hotel München"\n  },\n  "location": {\n    "addressLine1": "Marienplatz 1",\n    "postalCode": "80331",\n    "city": "München",\n    "countryCode": "DE"\n  },\n  "bankAccount": {\n    "iban": "DE44 5001 0517 5407 3249 31",\n    "bic": "SSKMDEMMXXX",\n    "bank": "Stadtsparkasse München"\n  },\n  "paymentTerms": {\n    "en": "Pay on checkout",\n    "de": "Zahlung bei Checkout"\n  },\n  "timeZone": "Europe/Berlin",\n  "defaultCheckInTime": "17:00:00",\n  "defaultCheckOutTime": "11:00:00",\n  "currencyCode": "EUR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the property.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -12902,8 +13488,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -12929,12 +13516,11 @@ export const parameterFields: INodeProperties[] = [
 		routing: {
 			request: {
 				method: 'GET',
-				url: '/inventory/v1/properties/{id}',
 			},
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryPropertiesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -12947,6 +13533,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -12974,6 +13561,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -12987,7 +13576,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -13018,7 +13608,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryPropertiesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -13031,6 +13621,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -13052,6 +13643,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -13082,7 +13675,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnitsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -13095,6 +13688,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit',
+		placeholder: 'The ID of the unit.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -13116,6 +13710,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -13146,7 +13742,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnitsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -13159,6 +13755,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit',
+		placeholder: 'The ID of the unit.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -13186,6 +13783,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -13199,7 +13798,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -13230,7 +13830,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnitsByIdHead_id',
 		type: 'string',
 		required: true,
@@ -13243,6 +13843,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit',
+		placeholder: 'The ID of the unit.',
 		routing: {
 			request: {
 				method: 'HEAD',
@@ -13270,7 +13871,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnitsByIdDelete_id',
 		type: 'string',
 		required: true,
@@ -13283,6 +13884,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit',
+		placeholder: 'The ID of the unit.',
 		routing: {
 			request: {
 				method: 'DELETE',
@@ -13323,6 +13925,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: {},
 		description: 'The unitIds parameter',
+		placeholder: 'The unitIds parameter',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -13364,6 +13967,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -13412,6 +14017,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Clean',
 				description: 'Return units with a specific condition',
+				placeholder: 'Return units with a specific condition',
 				options: [
 					{
 						name: 'Clean',
@@ -13441,6 +14047,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -13455,6 +14063,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description: 'Return only occupied or vacant units',
+				placeholder: 'Return only occupied or vacant units',
 				routing: {
 					request: {
 						qs: {
@@ -13469,6 +14078,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'OutOfInventory',
 				description: 'Return units with the specific maintenance type',
+				placeholder: 'Return units with the specific maintenance type',
 				options: [
 					{
 						name: 'OutOfInventory',
@@ -13497,7 +14107,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -13511,8 +14123,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -13527,6 +14139,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units for specific property',
+				placeholder: 'Return units for specific property',
 				routing: {
 					request: {
 						qs: {
@@ -13542,6 +14155,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.',
+				placeholder:
+					'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -13556,6 +14171,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units with the specific unit attributes',
+				placeholder: 'Return units with the specific unit attributes',
 				routing: {
 					request: {
 						qs: {
@@ -13570,7 +14186,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
+					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>',
+				placeholder:
+					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>',
 				routing: {
 					request: {
 						qs: {
@@ -13585,6 +14203,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units with the specific unit groups',
+				placeholder: 'Return units with the specific unit groups',
 				routing: {
 					request: {
 						qs: {
@@ -13629,6 +14248,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "propertyId": "MUC",\n  "name": "S.102",\n  "description": {\n    "en": "Suite room",\n    "de": "Suite Zimmer"\n  },\n  "unitGroupId": "MUC-SUI",\n  "maxPersons": 3,\n  "condition": "Clean",\n  "attributes": [],\n  "connectedUnits": [\n    {\n      "unitId": "MUC-MTA"\n    },\n    {\n      "unitId": "MUC-JQI"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the unit.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -13657,8 +14277,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -13707,6 +14328,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Clean',
 				description: 'Return units with a specific condition',
+				placeholder: 'Return units with a specific condition',
 				options: [
 					{
 						name: 'Clean',
@@ -13735,6 +14357,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description: 'Return only occupied or vacant units',
+				placeholder: 'Return only occupied or vacant units',
 				routing: {
 					request: {
 						qs: {
@@ -13749,6 +14372,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'OutOfInventory',
 				description: 'Return units with the specific maintenance type',
+				placeholder: 'Return units with the specific maintenance type',
 				options: [
 					{
 						name: 'OutOfInventory',
@@ -13777,6 +14401,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units for specific property',
+				placeholder: 'Return units for specific property',
 				routing: {
 					request: {
 						qs: {
@@ -13792,6 +14417,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.',
+				placeholder:
+					'This will filter all units where the provided text is contained in the unit name. The search is case insensitive.',
 				routing: {
 					request: {
 						qs: {
@@ -13806,6 +14433,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units with the specific unit attributes',
+				placeholder: 'Return units with the specific unit attributes',
 				routing: {
 					request: {
 						qs: {
@@ -13820,7 +14448,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>.',
+					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>',
+				placeholder:
+					'Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>',
 				routing: {
 					request: {
 						qs: {
@@ -13835,6 +14465,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return units with the specific unit groups',
+				placeholder: 'Return units with the specific unit groups',
 				routing: {
 					request: {
 						qs: {
@@ -13879,6 +14510,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "units": [\n    {\n      "propertyId": "MUC",\n      "name": "A.201",\n      "description": {\n        "en": "Single room",\n        "de": "Einzelzimmer"\n      },\n      "unitGroupId": "MUC-SGL",\n      "maxPersons": 1,\n      "condition": "Clean",\n      "attributes": [],\n      "connectedUnits": []\n    },\n    {\n      "propertyId": "MUC",\n      "name": "A.103",\n      "description": {\n        "en": "Double room",\n        "de": "Doppelzimmer"\n      },\n      "unitGroupId": "MUC-DBL",\n      "maxPersons": 2,\n      "condition": "Clean",\n      "attributes": [],\n      "connectedUnits": []\n    },\n    {\n      "propertyId": "MUC",\n      "name": "S.102",\n      "description": {\n        "en": "Suite room",\n        "de": "Suite Zimmer"\n      },\n      "unitGroupId": "MUC-SUI",\n      "maxPersons": 3,\n      "condition": "Clean",\n      "attributes": [],\n      "connectedUnits": [\n        {\n          "unitId": "MUC-MTA"\n        },\n        {\n          "unitId": "MUC-JQI"\n        }\n      ]\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the units.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -13907,8 +14539,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -13939,7 +14572,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnit-attributesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -13952,6 +14585,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit attribute',
+		placeholder: 'The ID of the unit attribute',
 		routing: {
 			request: {
 				method: 'GET',
@@ -13979,7 +14613,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnit-attributesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -13992,6 +14626,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of unit attribute',
+		placeholder: 'ID of unit attribute',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -14013,6 +14648,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -14043,7 +14680,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnit-attributesByIdHead_id',
 		type: 'string',
 		required: true,
@@ -14056,6 +14693,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit attribute',
+		placeholder: 'The ID of the unit attribute.',
 		routing: {
 			request: {
 				method: 'HEAD',
@@ -14101,7 +14739,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -14115,8 +14755,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -14160,6 +14800,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '{\n  "name": "Floor 1",\n  "description": "Floor number"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The unit attribute.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -14188,8 +14829,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -14234,6 +14876,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "DBL",\n  "propertyId": "MUC",\n  "name": {\n    "en": "Double Room",\n    "de": "Doppelzimmer"\n  },\n  "description": {\n    "en": "This is a nice room with as kingsize bed and flat screen",\n    "de": "Dies ist ein schönes Zimmer mit Kingsize-Bett und Flachbildschirm"\n  },\n  "maxPersons": 4,\n  "rank": 1,\n  "type": "BedRoom"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the unit group.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -14262,8 +14905,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -14313,6 +14957,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -14327,7 +14973,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -14341,8 +14989,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -14357,6 +15005,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return unit groups for specific property',
+				placeholder: 'Return unit groups for specific property',
 				routing: {
 					request: {
 						qs: {
@@ -14371,6 +15020,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The unitGroupTypes parameter',
+				placeholder: 'The unitGroupTypes parameter',
 				routing: {
 					request: {
 						qs: {
@@ -14419,6 +15069,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return unit groups for specific property',
+				placeholder: 'Return unit groups for specific property',
 				routing: {
 					request: {
 						qs: {
@@ -14433,6 +15084,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The unitGroupTypes parameter',
+				placeholder: 'The unitGroupTypes parameter',
 				routing: {
 					request: {
 						qs: {
@@ -14463,7 +15115,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnit-groupsByIdHead_id',
 		type: 'string',
 		required: true,
@@ -14476,6 +15128,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit group',
+		placeholder: 'The ID of the unit group.',
 		routing: {
 			request: {
 				method: 'HEAD',
@@ -14503,7 +15156,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnit-groupsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -14516,6 +15169,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit group',
+		placeholder: 'The ID of the unit group.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -14543,6 +15197,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -14556,7 +15212,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -14587,7 +15244,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'InventoryUnit-groupsByIdPut_id',
 		type: 'string',
 		required: true,
@@ -14600,6 +15257,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the unit group',
+		placeholder: 'The ID of the unit group.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -14622,6 +15280,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "name": {\n    "en": "Double Room",\n    "de": "Doppelzimmer"\n  },\n  "description": {\n    "en": "This is a nice room with as kingsize bed and flat screen",\n    "de": "Dies ist ein schönes Zimmer mit Kingsize-Bett und Flachbildschirm"\n  },\n  "maxPersons": 4,\n  "rank": 2\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the unit group.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -14671,6 +15330,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'Filter the log entries by client IDs (which application triggered this event)',
+				placeholder:
+					'Filter the log entries by client IDs (which application triggered this event)',
 				routing: {
 					request: {
 						qs: {
@@ -14684,8 +15345,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -14700,6 +15362,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by event types',
+				placeholder: 'Filter the log entries by event types.',
 				routing: {
 					request: {
 						qs: {
@@ -14715,6 +15378,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: changes. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: changes. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -14729,7 +15394,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -14743,8 +15410,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -14759,6 +15426,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by property IDs',
+				placeholder: 'Filter the log entries by property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -14773,6 +15441,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by reservation IDs',
+				placeholder: 'Filter the log entries by reservation IDs',
 				routing: {
 					request: {
 						qs: {
@@ -14787,6 +15456,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
+				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
 				routing: {
 					request: {
 						qs: {
@@ -14836,6 +15506,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'Filter the log entries by client IDs (which application triggered this event)',
+				placeholder:
+					'Filter the log entries by client IDs (which application triggered this event)',
 				routing: {
 					request: {
 						qs: {
@@ -14849,8 +15521,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -14865,6 +15538,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by event types',
+				placeholder: 'Filter the log entries by event types.',
 				routing: {
 					request: {
 						qs: {
@@ -14879,6 +15553,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by folio IDs',
+				placeholder: 'Filter the log entries by folio IDs',
 				routing: {
 					request: {
 						qs: {
@@ -14893,7 +15568,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -14907,8 +15584,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -14923,6 +15600,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by property IDs',
+				placeholder: 'Filter the log entries by property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -14937,6 +15615,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
+				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
 				routing: {
 					request: {
 						qs: {
@@ -14984,8 +15663,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -15000,7 +15680,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -15014,8 +15696,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -15030,6 +15712,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by property IDs',
+				placeholder: 'Filter the log entries by property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -15044,6 +15727,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by status',
+				placeholder: 'Filter the log entries by status.',
 				routing: {
 					request: {
 						qs: {
@@ -15058,6 +15742,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
+				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
 				routing: {
 					request: {
 						qs: {
@@ -15105,8 +15790,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'Filter by event date and timeYou can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"Filter by event date and time<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -15121,7 +15807,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -15135,8 +15823,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -15151,6 +15839,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by property IDs',
+				placeholder: 'Filter the log entries by property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -15165,6 +15854,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by subject IDs (which user triggered this event)',
+				placeholder: 'Filter the log entries by subject IDs (which user triggered this event)',
 				routing: {
 					request: {
 						qs: {
@@ -15179,6 +15869,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter the log entries by export log types',
+				placeholder: 'Filter the log entries by export log types.',
 				routing: {
 					request: {
 						qs: {
@@ -15228,6 +15919,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -15241,8 +15934,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'Filter all maintenance windows that end after the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15257,7 +15951,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -15271,8 +15967,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -15287,6 +15983,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by property ID',
+				placeholder: 'Filter result by property ID',
 				routing: {
 					request: {
 						qs: {
@@ -15300,8 +15997,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'Filter all maintenance windows that start before the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15316,6 +16014,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by maintenance types',
+				placeholder: 'Filter result by maintenance types',
 				routing: {
 					request: {
 						qs: {
@@ -15330,6 +16029,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by unit ID',
+				placeholder: 'Filter result by unit ID',
 				routing: {
 					request: {
 						qs: {
@@ -15372,8 +16072,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "unitId": "MUC-JQI",\n  "from": "2025-09-24T13:17:54+02:00",\n  "to": "2025-09-26T13:17:54+02:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
+			'{\n  "unitId": "MUC-JQI",\n  "from": "2026-01-14T16:39:24+01:00",\n  "to": "2026-01-16T16:39:24+01:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the maintenance.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -15402,8 +16103,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -15451,8 +16153,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that end after the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'Filter all maintenance windows that end after the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15467,6 +16170,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by property ID',
+				placeholder: 'Filter result by property ID',
 				routing: {
 					request: {
 						qs: {
@@ -15480,8 +16184,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description:
-					'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				description: 'Filter all maintenance windows that start before the specified date and timeA date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+				placeholder:
+					'Filter all maintenance windows that start before the specified date and time<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 				routing: {
 					request: {
 						qs: {
@@ -15496,6 +16201,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by maintenance types',
+				placeholder: 'Filter result by maintenance types',
 				routing: {
 					request: {
 						qs: {
@@ -15510,6 +16216,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter result by unit ID',
+				placeholder: 'Filter result by unit ID',
 				routing: {
 					request: {
 						qs: {
@@ -15552,8 +16259,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2025-09-24T13:17:54+02:00",\n      "to": "2025-09-26T13:17:54+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2025-09-24T13:17:54+02:00",\n      "to": "2025-09-26T13:17:54+02:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
+			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2026-01-14T16:39:24+01:00",\n      "to": "2026-01-16T16:39:24+01:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2026-01-14T16:39:24+01:00",\n      "to": "2026-01-16T16:39:24+01:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the maintenances.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -15582,8 +16290,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -15614,7 +16323,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'OperationsMaintenancesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -15627,6 +16336,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the maintenance',
+		placeholder: 'The ID of the maintenance.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -15648,6 +16358,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -15678,7 +16390,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'OperationsMaintenancesByIdDelete_id',
 		type: 'string',
 		required: true,
@@ -15691,6 +16403,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the maintenance',
+		placeholder: 'The ID of the maintenance.',
 		routing: {
 			request: {
 				method: 'DELETE',
@@ -15718,7 +16431,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'OperationsMaintenancesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -15731,6 +16444,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the maintenance',
+		placeholder: 'The ID of the maintenance.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -15757,6 +16471,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: unit. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -15788,7 +16504,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'OperationsMaintenancesByIdHead_id',
 		type: 'string',
 		required: true,
@@ -15801,6 +16517,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the maintenance',
+		placeholder: 'The ID of the maintenance.',
 		routing: {
 			request: {
 				method: 'HEAD',
@@ -15841,6 +16558,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The property the night audit should be performed for',
+		placeholder: 'The property the night audit should be performed for',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -15868,8 +16586,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'setReservationsToNoShow',
 				type: 'boolean',
 				default: false,
-				description:
-					'Flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show. The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.',
+				description: 'Flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show. The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.',
+				placeholder:
+					'Flag if reservations in the state confirmed, which should have been checked in by now, should be marked as no show.              The default value is true and we strongly advise against setting it to false, because different reports rely on setting reservations which were not checked in correctly to no show.',
 				routing: {
 					request: {
 						qs: {
@@ -15914,6 +16633,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "unitsConditions": [\n    {\n      "id": "UNI-EXA",\n      "condition": "Clean"\n    },\n    {\n      "id": "UNI-DBL",\n      "condition": "Dirty"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Array of unit IDs with their respective new condition',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -15944,7 +16664,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsAge-categoriesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -15957,6 +16677,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the age category',
+		placeholder: 'The ID of the age category.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -15982,7 +16703,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -16013,7 +16735,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsAge-categoriesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -16026,6 +16748,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the age category to be modified',
+		placeholder: 'The ID of the age category to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -16047,6 +16770,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -16091,6 +16816,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "BABY",\n  "propertyId": "MUC",\n  "name": {\n    "en": "Baby",\n    "de": "Kind"\n  },\n  "minAge": 0,\n  "maxAge": 2\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the age category.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -16119,8 +16845,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -16164,6 +16891,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Return age categories for the specific property',
+		placeholder: 'Return age categories for the specific property',
 		routing: {
 			request: {
 				method: 'GET',
@@ -16207,6 +16935,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "FLE",\n  "name": {\n    "en": "Flexible",\n    "de": "Flexibel"\n  },\n  "description": {\n    "en": "Free cancellation until 36 hours before arrival.",\n    "de": "Kostenfreies Storno bis 36 Stunden vor Ankunft."\n  },\n  "propertyId": "MUC",\n  "periodFromReference": {\n    "hours": 12,\n    "days": 1\n  },\n  "reference": "PriorToArrival",\n  "fee": {\n    "vatType": "Reduced",\n    "percentValue": {\n      "percent": 100,\n      "limit": 1,\n      "includeServiceIds": [\n        "MUC-BRK"\n      ]\n    }\n  }\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the cancellation policy.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -16235,8 +16964,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -16285,7 +17015,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -16299,8 +17031,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -16315,6 +17047,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter cancellation policies by the specified property',
+				placeholder: 'Filter cancellation policies by the specified property',
 				routing: {
 					request: {
 						qs: {
@@ -16345,7 +17078,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanCancellation-policiesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -16358,6 +17091,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the cancellation policy',
+		placeholder: 'The ID of the cancellation policy.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -16383,7 +17117,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -16414,7 +17149,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanCancellation-policiesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -16427,6 +17162,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the cancellation policy to be modified',
+		placeholder: 'The ID of the cancellation policy to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -16448,6 +17184,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -16492,6 +17230,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "UMBRELLA",\n  "propertyId": "MUC",\n  "name": "Umbrella Corp.",\n  "invoicingEmail": "umbrella@corp.com",\n  "taxId": "Tax 123456",\n  "additionalTaxId": "123456789",\n  "address": {\n    "addressLine1": "Marienplatz 1",\n    "postalCode": "80331",\n    "city": "München",\n    "countryCode": "DE"\n  },\n  "canCheckOutOnAr": true,\n  "ratePlans": [\n    {\n      "id": "MUC-DBL",\n      "corporateCode": "UMBRELLAINC"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the company.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -16520,8 +17259,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -16570,6 +17310,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return companies that have any of the requested corporate codes',
+				placeholder: 'Return companies that have any of the requested corporate codes.',
 				routing: {
 					request: {
 						qs: {
@@ -16584,7 +17325,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -16598,8 +17341,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -16614,6 +17357,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter by the specified property',
+				placeholder: 'Filter by the specified property',
 				routing: {
 					request: {
 						qs: {
@@ -16628,6 +17372,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return companies with any of the specified rate plans',
+				placeholder: 'Return companies with any of the specified rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -16642,7 +17387,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values.',
+					'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values',
+				placeholder:
+					'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values',
 				routing: {
 					request: {
 						qs: {
@@ -16673,7 +17420,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanCompaniesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -16686,6 +17433,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the company',
+		placeholder: 'The ID of the company.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -16713,7 +17461,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanCompaniesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -16726,6 +17474,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the company to be modified',
+		placeholder: 'The ID of the company to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -16747,6 +17496,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -16795,7 +17546,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -16809,8 +17562,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -16825,6 +17578,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return codes for a specific property',
+				placeholder: 'Return codes for a specific property',
 				routing: {
 					request: {
 						qs: {
@@ -16869,6 +17623,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "NONREF",\n  "name": {\n    "en": "No-Show Fee",\n    "de": "No-Show Fee"\n  },\n  "description": {\n    "en": "100% of the accommodation fees, for the complete stay.",\n    "de": "100% of the accommodation fees, for the complete stay."\n  },\n  "propertyId": "MUC",\n  "fee": {\n    "vatType": "Null",\n    "fixedValue": {\n      "amount": 100,\n      "currency": "EUR"\n    }\n  }\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the no-show policy.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -16897,8 +17652,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -16947,7 +17703,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -16961,8 +17719,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -16977,6 +17735,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter no-show policies by the specified property',
+				placeholder: 'Filter no-show policies by the specified property',
 				routing: {
 					request: {
 						qs: {
@@ -17007,7 +17766,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanNo-show-policiesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -17020,6 +17779,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the no-show policy',
+		placeholder: 'The ID of the no-show policy.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -17045,7 +17805,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -17076,7 +17837,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanNo-show-policiesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -17089,6 +17850,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the no-show policy to be modified',
+		placeholder: 'The ID of the no-show policy to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17110,6 +17872,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17158,7 +17922,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -17172,8 +17938,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -17188,6 +17954,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return codes for a specific property',
+				placeholder: 'Return codes for a specific property',
 				routing: {
 					request: {
 						qs: {
@@ -17218,7 +17985,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanRate-plansByIdRatesGet_id',
 		type: 'string',
 		required: true,
@@ -17231,6 +17998,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the rate plan',
+		placeholder: 'The ID of the rate plan.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -17251,8 +18019,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -17275,8 +18044,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'GET',
@@ -17305,7 +18075,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -17319,8 +18091,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -17351,7 +18123,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanRate-plansByIdRatesPut_id',
 		type: 'string',
 		required: true,
@@ -17364,6 +18136,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the rate plan',
+		placeholder: 'The ID of the rate plan.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -17384,8 +18157,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "rates": [\n    {\n      "from": "2025-09-24T17:00:00+02:00",\n      "to": "2025-09-25T11:00:00+02:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
+			'{\n  "rates": [\n    {\n      "from": "2026-01-14T17:00:00+01:00",\n      "to": "2026-01-15T11:00:00+01:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the rates.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -17428,7 +18202,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: {},
-		description: 'Filter rates for patching by rate plan IDs',
+		description: 'Filter rates for patching by rate plan ids',
+		placeholder: 'Filter rates for patching by rate plan IDs',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17450,7 +18225,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: 'Filter rates for patching by rate plan IDs',
+						description: 'Filter rates for patching by rate plan ids',
 					},
 				],
 			},
@@ -17469,8 +18244,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17493,8 +18269,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>.',
+		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affectedSpecify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
+		placeholder:
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected<br />Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601:2004</a>',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17518,6 +18295,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -17547,6 +18326,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'The weekdays that will be patched. If not specified, all weekdays will be patched.',
+				placeholder:
 					'The weekdays that will be patched. If not specified, all weekdays will be patched.',
 				routing: {
 					request: {
@@ -17596,6 +18377,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans derived from any of the specified rate plans',
+				placeholder: 'Return rate plans derived from any of the specified rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -17610,6 +18392,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans with any of the specified cancellation policies',
+				placeholder: 'Return rate plans with any of the specified cancellation policies',
 				routing: {
 					request: {
 						qs: {
@@ -17624,6 +18407,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans that are sold though any of the specified channels',
+				placeholder: 'Return rate plans that are sold though any of the specified channels',
 				routing: {
 					request: {
 						qs: {
@@ -17638,6 +18422,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans filtered by requested companies',
+				placeholder: 'Return rate plans filtered by requested companies',
 				routing: {
 					request: {
 						qs: {
@@ -17651,8 +18436,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'derivationLevelFilter',
 				type: 'string',
 				default: '',
-				description:
-					"This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7",
+				description: 'This will filter rate plans based on their derivation level.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"This will filter rate plans based on their derivation level.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -17668,6 +18454,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, cancellationPolicy, services, bookingPeriods, surcharges, ageCategories. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, cancellationPolicy, services, bookingPeriods, surcharges, ageCategories. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -17681,7 +18469,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeArchived',
 				type: 'boolean',
 				default: false,
-				description: 'Return archived rate plans. Defaults to false.',
+				description: 'Return archived rate plans. Defaults to false',
+				placeholder: 'Return archived rate plans. Defaults to false',
 				routing: {
 					request: {
 						qs: {
@@ -17696,6 +18485,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans that have any of the requested included services',
+				placeholder: 'Return rate plans that have any of the requested included services',
 				routing: {
 					request: {
 						qs: {
@@ -17710,6 +18500,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description: 'Return only derived or base rate plans',
+				placeholder: 'Return only derived or base rate plans',
 				routing: {
 					request: {
 						qs: {
@@ -17724,6 +18515,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans with any of the specified min guarantee types',
+				placeholder: 'Return rate plans with any of the specified min guarantee types',
 				routing: {
 					request: {
 						qs: {
@@ -17738,6 +18530,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans with any of the specified no-show policies',
+				placeholder: 'Return rate plans with any of the specified no-show policies',
 				routing: {
 					request: {
 						qs: {
@@ -17752,7 +18545,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -17766,8 +18561,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -17782,6 +18577,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans that have any of the requested promo codes',
+				placeholder: 'Return rate plans that have any of the requested promo codes',
 				routing: {
 					request: {
 						qs: {
@@ -17796,6 +18592,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans for the specific property',
+				placeholder: 'Return rate plans for the specific property',
 				routing: {
 					request: {
 						qs: {
@@ -17810,6 +18607,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans filtered by requested codes',
+				placeholder: 'Return rate plans filtered by requested codes',
 				routing: {
 					request: {
 						qs: {
@@ -17824,6 +18622,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans with any of the specified time slice definitions',
+				placeholder: 'Return rate plans with any of the specified time slice definitions',
 				routing: {
 					request: {
 						qs: {
@@ -17838,6 +18637,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'DayUse',
 				description: "The time slice template, defaults to 'over night'",
+				placeholder: "The time slice template, defaults to 'over night'",
 				options: [
 					{
 						name: 'DayUse',
@@ -17862,6 +18662,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans with any of the specified unit groups',
+				placeholder: 'Return rate plans with any of the specified unit groups',
 				routing: {
 					request: {
 						qs: {
@@ -17876,6 +18677,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Return rate plans with any of the specified unit group types',
+				placeholder: 'Return rate plans with any of the specified unit group types',
 				routing: {
 					request: {
 						qs: {
@@ -17918,8 +18720,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2025-09-17T14:04:16.333999+02:00",\n      "to": "2025-10-01T14:04:16.333999+02:00"\n    },\n    {\n      "from": "2025-10-04T14:04:16.333999+02:00",\n      "to": "2025-11-23T14:04:16.333999+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ]\n}',
+			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2026-01-07T15:33:48.5100326+01:00",\n      "to": "2026-01-21T15:33:48.5100326+01:00"\n    },\n    {\n      "from": "2026-01-24T15:33:48.5100326+01:00",\n      "to": "2026-03-15T15:33:48.5100326+01:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the rate plan.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -17948,8 +18751,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -17993,6 +18797,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: {},
 		description: 'Comma-separated list of rate plan IDs, at least one',
+		placeholder: 'Comma separated list of rate plan IDs, at least one.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -18034,6 +18839,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -18064,7 +18871,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanRate-plansByIdGet_id',
 		type: 'string',
 		required: true,
@@ -18077,6 +18884,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the rate plan',
+		placeholder: 'The ID of the rate plan.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18104,6 +18912,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property, cancellationPolicy. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, cancellationPolicy. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -18117,7 +18927,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -18148,7 +18959,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanRate-plansByIdPut_id',
 		type: 'string',
 		required: true,
@@ -18161,6 +18972,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the rate plan',
+		placeholder: 'The ID of the rate plan.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -18181,8 +18993,9 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2025-09-17T14:04:16.333999+02:00",\n      "to": "2025-10-01T14:04:16.333999+02:00"\n    },\n    {\n      "from": "2025-10-04T14:04:16.333999+02:00",\n      "to": "2025-11-23T14:04:16.333999+02:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ]\n}',
+			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2026-01-07T15:33:48.5100326+01:00",\n      "to": "2026-01-21T15:33:48.5100326+01:00"\n    },\n    {\n      "from": "2026-01-24T15:33:48.5100326+01:00",\n      "to": "2026-03-15T15:33:48.5100326+01:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the rate plan.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -18227,6 +19040,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "BRK",\n  "name": {\n    "en": "Breakfast",\n    "de": "Frühstück"\n  },\n  "description": {\n    "en": "Yummy yummy breakfast",\n    "de": "Leckeres Frühstück"\n  },\n  "propertyId": "MUC",\n  "defaultGrossPrice": {\n    "amount": 20,\n    "currency": "EUR"\n  },\n  "pricingUnit": "Person",\n  "postNextDay": true,\n  "availability": {\n    "mode": "Daily",\n    "quantity": 3,\n    "daysOfWeek": [\n      "Monday",\n      "Tuesday",\n      "Wednesday",\n      "Thursday",\n      "Friday",\n      "Saturday",\n      "Sunday"\n    ]\n  },\n  "channelCodes": [\n    "Direct",\n    "Ibe",\n    "BookingCom",\n    "ChannelManager"\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ],\n  "ageCategoryId": "MUC-BABY"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the service.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -18255,8 +19069,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -18305,6 +19120,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The channel codes the service is sold through',
+				placeholder: 'The channel codes the service is sold through',
 				routing: {
 					request: {
 						qs: {
@@ -18319,6 +19135,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -18335,6 +19153,8 @@ export const parameterFields: INodeProperties[] = [
 				default: false,
 				description:
 					'If set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only.',
+				placeholder:
+					'If set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only.',
 				routing: {
 					request: {
 						qs: {
@@ -18349,7 +19169,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -18363,8 +19185,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -18379,6 +19201,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter services by the specified property',
+				placeholder: 'Filter services by the specified property',
 				routing: {
 					request: {
 						qs: {
@@ -18393,6 +19216,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The service types offered',
+				placeholder: 'The service types offered',
 				routing: {
 					request: {
 						qs: {
@@ -18407,6 +19231,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
+				placeholder:
 					'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
 				routing: {
 					request: {
@@ -18438,7 +19264,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanServicesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -18451,6 +19277,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the service',
+		placeholder: 'The ID of the service.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -18472,6 +19299,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -18502,7 +19331,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'RateplanServicesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -18515,6 +19344,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the service',
+		placeholder: 'The ID of the service.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18542,6 +19372,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: property. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -18555,7 +19387,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -18599,6 +19432,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Property ID',
+		placeholder: 'Property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18621,7 +19455,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: {},
-		description: 'Service IDs the report should be generated for',
+		description: 'Service ids the report should be generated for',
+		placeholder: 'Service IDs the report should be generated for',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18643,7 +19478,7 @@ export const parameterFields: INodeProperties[] = [
 						name: 'value',
 						type: 'string',
 						default: '',
-						description: 'Service IDs the report should be generated for',
+						description: 'Service ids the report should be generated for',
 					},
 				],
 			},
@@ -18663,6 +19498,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive start date of the interval',
+		placeholder: 'The inclusive start date of the interval.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18686,6 +19522,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The exclusive end date of the interval',
+		placeholder: 'The exclusive end date of the interval.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18728,6 +19565,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Requested property',
+		placeholder: 'Requested property.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18751,6 +19589,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Requested month for the report',
+		placeholder: 'Requested month for the report.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18774,6 +19613,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Requested year for the report',
+		placeholder: 'Requested year for the report.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18816,6 +19656,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18839,6 +19680,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive start date of the interval',
+		placeholder: 'The inclusive start date of the interval',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18862,6 +19704,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive end date of the interval',
+		placeholder: 'The inclusive end date of the interval',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18890,6 +19733,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The channel codes used to filter the retrieved data',
+				placeholder: 'The channel codes used to filter the retrieved data',
 				routing: {
 					request: {
 						qs: {
@@ -18904,6 +19748,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The company IDs used to filter the retrieved data',
+				placeholder: 'The company IDs used to filter the retrieved data',
 				routing: {
 					request: {
 						qs: {
@@ -18919,6 +19764,8 @@ export const parameterFields: INodeProperties[] = [
 				default: '',
 				description:
 					'List of all embedded resources that should be expanded in the response. Possible values are: businessDays. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: businessDays. All other values will be silently ignored.',
 				routing: {
 					request: {
 						qs: {
@@ -18933,6 +19780,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The market segment IDs used to filter the retrieved data',
+				placeholder: 'The market segment IDs used to filter the retrieved data',
 				routing: {
 					request: {
 						qs: {
@@ -18947,6 +19795,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The rate plan IDs used to filter the retrieved data',
+				placeholder: 'The rate plan IDs used to filter the retrieved data',
 				routing: {
 					request: {
 						qs: {
@@ -18961,6 +19810,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The time slice definition IDs used to filter the retrieved data',
+				placeholder: 'The time slice definition IDs used to filter the retrieved data',
 				routing: {
 					request: {
 						qs: {
@@ -18975,6 +19825,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Business',
 				description: 'The travel purpose to filter the retrieved data',
+				placeholder: 'The travel purpose to filter the retrieved data',
 				options: [
 					{
 						name: 'Business',
@@ -18999,6 +19850,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The unit group IDs used to filter the retrieved data',
+				placeholder: 'The unit group IDs used to filter the retrieved data',
 				routing: {
 					request: {
 						qs: {
@@ -19013,6 +19865,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The unit group types used to filter the retrieved data',
+				placeholder: 'The unit group types used to filter the retrieved data',
 				routing: {
 					request: {
 						qs: {
@@ -19056,6 +19909,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Property ID',
+		placeholder: 'Property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19084,6 +19938,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Company IDs the report should be generated for',
+				placeholder: 'Company IDs the report should be generated for',
 				routing: {
 					request: {
 						qs: {
@@ -19097,8 +19952,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: '',
-				description:
-					"Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:'eq' for equals'neq' for not equals'lt' for less than'gt' for greater than'lte' for less than or equals'gte' for greater than or equalsFor instance'eq_5' would mean the value should equal 5'lte_7' would mean the value should be less than or equal to 7.",
+				description: 'Set a date interval to get the report for. Cannot be more than 1 month.You can provide an array of string expressions which all need to apply.Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be:\'eq\' for equals\'neq\' for not equals\'lt\' for less than\'gt\' for greater than\'lte\' for less than or equals\'gte\' for greater than or equalsFor instance\'eq_5\' would mean the value should equal 5\'lte_7\' would mean the value should be less than or equal to 7',
+				placeholder:
+					"Set a date interval to get the report for. Cannot be more than 1 month.<br />You can provide an array of string expressions which all need to apply.<br />Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be:<br />'eq' for equals<br />'neq' for not equals<br />'lt' for less than<br />'gt' for greater than<br />'lte' for less than or equals<br />'gte' for greater than or equals<br />For instance<br />'eq_5' would mean the value should equal 5<br />'lte_7' would mean the value should be less than or equal to 7",
 				routing: {
 					request: {
 						qs: {
@@ -19142,6 +19998,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Property ID',
+		placeholder: 'Property ID',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19165,6 +20022,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The inclusive start date of the interval',
+		placeholder: 'The inclusive start date of the interval.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19188,6 +20046,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The exclusive end date of the interval. The interval is limited to one year.',
+		placeholder: 'The exclusive end date of the interval. The interval is limited to one year.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19216,6 +20075,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The language for the the report',
+				placeholder: 'The language for the the report',
 				routing: {
 					request: {
 						qs: {
@@ -19264,7 +20124,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -19278,8 +20140,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -19294,6 +20156,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter capture policies by the specified property',
+				placeholder: 'Filter capture policies by the specified property',
 				routing: {
 					request: {
 						qs: {
@@ -19324,7 +20187,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsCapture-policiesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -19337,6 +20200,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the capture policy',
+		placeholder: 'The ID of the capture policy.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19364,7 +20228,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsCapture-policiesByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -19377,6 +20241,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the capture policy to be modified',
+		placeholder: 'The ID of the capture policy to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -19398,6 +20263,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -19442,6 +20309,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "name": {\n    "en": "City tax",\n    "de": "City-Tax"\n  },\n  "description": {\n    "en": "2 Euro per person and night. Business travellers and close family members of citizens do not have to pay city tax.",\n    "de": "2 Euro pro Person und Nacht. Geschäftsreisende und nahe Familienmitglieder von Anwohnern müssen keine City-Tax bezahlen."\n  },\n  "propertyId": "MUC",\n  "type": "PerPersonPerNight",\n  "taxHandlingType": "BeforeTax",\n  "value": 2,\n  "vatType": "Normal",\n  "code": "TAX",\n  "priority": 1,\n  "includeCityTaxInRateAmount": false,\n  "subcategories": [\n    {\n      "name": {\n        "en": "Children under 12 don\'t have to pay city tax",\n        "de": "Kinder unter 12 Jahren zahlen keine City-Tax"\n      },\n      "value": 0,\n      "age": {\n        "min": 0,\n        "max": 12\n      }\n    }\n  ],\n  "ignoredFor": [\n    {\n      "distributionChannel": {\n        "channelCode": "ChannelManager",\n        "sources": [\n          "bookingcom"\n        ]\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the city tax.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -19470,8 +20338,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -19520,6 +20389,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'Filter by the specified property',
+				placeholder: 'Filter by the specified property',
 				routing: {
 					request: {
 						qs: {
@@ -19550,7 +20420,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsCity-taxByIdGet_id',
 		type: 'string',
 		required: true,
@@ -19563,6 +20433,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the city tax',
+		placeholder: 'The ID of the city tax.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19588,7 +20459,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: '',
-				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
+				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				routing: {
 					request: {
 						qs: {
@@ -19619,7 +20491,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsCity-taxByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -19632,6 +20504,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the city tax to be modified',
+		placeholder: 'The ID of the city tax to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -19653,6 +20526,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -19696,6 +20571,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the property',
+		placeholder: 'ID of the property',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19724,7 +20600,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -19738,8 +20616,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -19784,6 +20662,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "propertyId": "MUC",\n  "code": "TEA",\n  "name": "Finest green tea",\n  "type": "FoodAndBeverages"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the sub-account.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -19812,8 +20691,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -19857,6 +20737,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'ID of the property',
+		placeholder: 'ID of the property',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19886,7 +20767,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsSub-accountsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -19899,6 +20780,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the sub-account',
+		placeholder: 'The ID of the sub-account.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -19926,7 +20808,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsSub-accountsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -19939,6 +20821,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the sub-account',
+		placeholder: 'The ID of the sub-account.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -19960,6 +20843,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -19990,7 +20875,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsSub-accountsByIdHead_id',
 		type: 'string',
 		required: true,
@@ -20003,6 +20888,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the sub-account',
+		placeholder: 'The ID of the sub-account.',
 		routing: {
 			request: {
 				method: 'HEAD',
@@ -20043,6 +20929,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -20083,6 +20970,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property you want to toggle features for',
+		placeholder: 'The ID of the property you want to toggle features for.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20104,6 +20992,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20152,6 +21042,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The propertyIds parameter',
+				placeholder: 'The propertyIds parameter',
 				routing: {
 					request: {
 						qs: {
@@ -20195,6 +21086,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: {},
 		description: 'The propertyIds parameter',
+		placeholder: 'The propertyIds parameter',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -20237,6 +21129,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "addressLine1": "Marienplatz 1",\n  "postalCode": "80331",\n  "city": "München",\n  "regionCode": "DE-BY",\n  "countryCode": "DE"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Address displayed on invoices.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -20280,6 +21173,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: {},
 		description: 'The propertyIds parameter',
+		placeholder: 'The propertyIds parameter',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20321,6 +21215,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The body parameter',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20384,6 +21279,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "languages": [\n    {\n      "code": "en",\n      "mandatory": true\n    },\n    {\n      "code": "de",\n      "mandatory": false\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the language settings.',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -20414,7 +21310,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsMarket-segmentsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -20427,6 +21323,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the market segment',
+		placeholder: 'The ID of the market segment.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -20454,7 +21351,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsMarket-segmentsByIdHead_id',
 		type: 'string',
 		required: true,
@@ -20467,6 +21364,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the market segment',
+		placeholder: 'The ID of the market segment.',
 		routing: {
 			request: {
 				method: 'HEAD',
@@ -20494,7 +21392,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsMarket-segmentsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -20507,6 +21405,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the market segment to be modified',
+		placeholder: 'The ID of the market segment to be modified.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20528,6 +21427,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20576,7 +21477,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'number',
 				default: 1,
 				description:
-					'Page number, 1-based. Default value is 1 (if this is not set or not positive). Results in 204 if there are no items on that page.',
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
 				routing: {
 					request: {
 						qs: {
@@ -20590,8 +21493,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description:
-					'Page size. If this is not set or not positive, the pageNumber is ignored and all items are returned.',
+				description: 'Items per page. Default: 20. Maximum: 200.',
+				placeholder: 'Items per page. Default: 20. Maximum: 200.',
 				routing: {
 					request: {
 						qs: {
@@ -20605,7 +21508,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'propertyIds',
 				type: 'string',
 				default: '',
-				description: 'Return market segments with any of the specified property IDs',
+				description: 'Return market segments with any of the specified property ids',
+				placeholder: 'Return market segments with any of the specified property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -20650,6 +21554,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "code": "BUSR",\n  "name": "Business Groups",\n  "description": "Social groups (Weddings etc.)",\n  "propertyIds": [\n    "MUC",\n    "BER"\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the market segment.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -20678,8 +21583,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -20727,7 +21633,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'propertyIds',
 				type: 'string',
 				default: '',
-				description: 'Return market segments with any of the specified property IDs',
+				description: 'Return market segments with any of the specified property ids',
+				placeholder: 'Return market segments with any of the specified property IDs',
 				routing: {
 					request: {
 						qs: {
@@ -20758,7 +21665,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsPropertiesByIdGet_id',
 		type: 'string',
 		required: true,
@@ -20771,6 +21678,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -20811,6 +21719,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -20819,7 +21728,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -20832,6 +21741,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the time slice definition',
+		placeholder: 'The ID of the time slice definition.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -20858,6 +21768,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -20902,6 +21814,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20910,7 +21823,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdPatch_id',
 		type: 'string',
 		required: true,
@@ -20923,6 +21836,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the time slice definition',
+		placeholder: 'The ID of the time slice definition.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20944,6 +21858,8 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -20987,6 +21903,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'GET',
@@ -21013,6 +21930,8 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
 					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
 				routing: {
 					request: {
@@ -21057,6 +21976,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -21079,6 +21999,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "name": "Over Night",\n  "template": "OverNight",\n  "checkInTime": "17:00:00",\n  "checkOutTime": "11:00:00"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The payload of the time slice definition.',
 		routing: {
 			request: {
 				method: 'POST',
@@ -21107,8 +22028,9 @@ export const parameterFields: INodeProperties[] = [
 				name: 'Idempotency-Key',
 				type: 'string',
 				default: '',
-				description:
-					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				description: 'Unique key for safely retrying requests without accidentally performing the same operation twice. We\'ll always send back the same response for requests made with the same key, and keys can\'t be reused with different request parameters. Keys expire after 24 hours.',
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice.  We'll always send back the same response for requests made with the same key,  and keys can't be reused with different request parameters. Keys expire after 24 hours.",
 				routing: {
 					request: {
 						headers: {
@@ -21157,6 +22079,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description: 'The URL parameter',
+				placeholder: 'The url parameter',
 				routing: {
 					request: {
 						qs: {
@@ -21220,6 +22143,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "endpointUrl": "https://example.com",\n  "events": [\n    "booking/created",\n    "booking/changed",\n    "reservation/*"\n  ],\n  "propertyIds": [\n    "MUC",\n    "BER"\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Subscription details',
 		routing: {
 			request: {
 				method: 'POST',
@@ -21250,7 +22174,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SubscriptionsByIdGet_id',
 		type: 'string',
 		required: true,
@@ -21263,6 +22187,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'The ID parameter',
+		placeholder: 'The ID parameter',
 		routing: {
 			request: {
 				method: 'GET',
@@ -21290,7 +22215,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SubscriptionsByIdPut_id',
 		type: 'string',
 		required: true,
@@ -21303,6 +22228,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: 'Subscription ID',
+		placeholder: 'Subscription ID',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -21325,6 +22251,7 @@ export const parameterFields: INodeProperties[] = [
 		default:
 			'{\n  "endpointUrl": "https://www.example.com",\n  "events": [\n    "booking/created",\n    "booking/changed",\n    "reservation/*"\n  ],\n  "propertyIds": [\n    "MUC",\n    "BER"\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'Subscription details',
 		routing: {
 			request: {
 				method: 'PUT',
@@ -21355,7 +22282,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'ID',
+		displayName: 'Id',
 		name: 'SubscriptionsByIdDelete_id',
 		type: 'string',
 		required: true,
@@ -21368,6 +22295,7 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description: "Subscription's ID",
+		placeholder: "Subscription's ID",
 		routing: {
 			request: {
 				method: 'DELETE',
