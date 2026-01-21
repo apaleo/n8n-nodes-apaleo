@@ -5,9 +5,15 @@ on:
     tags:
       - 'v*.*.*'
 
+permissions:
+  contents: read
+  id-token: write   # REQUIRED for OIDC
+
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: npm-publish   # must match npm Trusted Publisher (recommended)
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -15,9 +21,9 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '>=20.15'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -31,7 +37,5 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Publish to npm
+      - name: Publish to npm (OIDC)
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
