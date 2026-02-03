@@ -171,7 +171,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitAttributeIds: '={{$value}}',
+							unitAttributeIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -358,7 +358,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							childrenAges: '={{$value}}',
+							childrenAges: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -424,7 +424,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							timeSliceDefinitionIds: '={{$value}}',
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -467,7 +467,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -485,7 +485,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -763,7 +763,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							channelCodes: '={{$value}}',
+							channelCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -813,7 +813,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							timeSliceDefinitionIds: '={{$value}}',
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -994,7 +994,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitAttributeIds: '={{$value}}',
+							unitAttributeIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1169,7 +1169,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1251,7 +1251,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1269,7 +1269,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							ratePlanIds: '={{$value}}',
+							ratePlanIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1287,7 +1287,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							status: '={{$value}}',
+							status: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1305,7 +1305,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							timeSliceDefinitionIds: '={{$value}}',
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1365,7 +1365,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1383,7 +1383,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1467,7 +1467,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1485,7 +1485,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							ratePlanIds: '={{$value}}',
+							ratePlanIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1503,7 +1503,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							status: '={{$value}}',
+							status: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1521,7 +1521,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							timeSliceDefinitionIds: '={{$value}}',
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1581,7 +1581,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1599,7 +1599,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -1675,7 +1675,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -2037,7 +2037,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							channelCode: '={{$value}}',
+							channelCode: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -2057,7 +2057,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -2508,7 +2508,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -2706,7 +2706,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -2773,7 +2773,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -2883,7 +2883,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -3254,7 +3254,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							childrenAges: '={{$value}}',
+							childrenAges: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -3319,7 +3319,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							timeSliceDefinitionIds: '={{$value}}',
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -3364,7 +3364,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -3382,7 +3382,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -3587,7 +3587,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							childrenAges: '={{$value}}',
+							childrenAges: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -3622,7 +3622,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							overridePrices: '={{$value}}',
+							overridePrices: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -3827,7 +3827,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							childrenAges: '={{$value}}',
+							childrenAges: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4136,7 +4136,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							balanceFilter: '={{$value}}',
+							balanceFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4154,7 +4154,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							blockIds: '={{$value}}',
+							blockIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4187,7 +4187,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							channelCode: '={{$value}}',
+							channelCode: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4205,7 +4205,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4276,7 +4276,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4313,7 +4313,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							externalReferences: '={{$value}}',
+							externalReferences: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4365,7 +4365,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							marketSegmentIds: '={{$value}}',
+							marketSegmentIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4415,7 +4415,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4433,7 +4433,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							ratePlanIds: '={{$value}}',
+							ratePlanIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4453,7 +4453,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							sort: '={{$value}}',
+							sort: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4471,7 +4471,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							sources: '={{$value}}',
+							sources: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4489,7 +4489,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							status: '={{$value}}',
+							status: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4541,7 +4541,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4559,7 +4559,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4577,7 +4577,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitIds: '={{$value}}',
+							unitIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4595,7 +4595,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							validationMessageCategory: '={{$value}}',
+							validationMessageCategory: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4666,7 +4666,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							balanceFilter: '={{$value}}',
+							balanceFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4684,7 +4684,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							blockIds: '={{$value}}',
+							blockIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4717,7 +4717,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							channelCode: '={{$value}}',
+							channelCode: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4735,7 +4735,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4823,7 +4823,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							externalReferences: '={{$value}}',
+							externalReferences: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4875,7 +4875,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							marketSegmentIds: '={{$value}}',
+							marketSegmentIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4893,7 +4893,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4911,7 +4911,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							ratePlanIds: '={{$value}}',
+							ratePlanIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4929,7 +4929,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							sources: '={{$value}}',
+							sources: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4947,7 +4947,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							status: '={{$value}}',
+							status: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -4999,7 +4999,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -5017,7 +5017,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -5035,7 +5035,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitIds: '={{$value}}',
+							unitIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -5053,7 +5053,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							validationMessageCategory: '={{$value}}',
+							validationMessageCategory: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -5129,7 +5129,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -5355,7 +5355,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							childrenAges: '={{$value}}',
+							childrenAges: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -5439,7 +5439,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -5762,7 +5762,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitConditions: '={{$value}}',
+							unitConditions: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -6681,7 +6681,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							sort: '={{$value}}',
+							sort: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -6752,7 +6752,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							balanceFilter: '={{$value}}',
+							balanceFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -6770,7 +6770,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							bookingIds: '={{$value}}',
+							bookingIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -6804,7 +6804,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -6877,7 +6877,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -6993,7 +6993,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7011,7 +7011,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							reservationIds: '={{$value}}',
+							reservationIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7253,7 +7253,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							balanceFilter: '={{$value}}',
+							balanceFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7271,7 +7271,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							bookingIds: '={{$value}}',
+							bookingIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7305,7 +7305,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7442,7 +7442,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7460,7 +7460,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							reservationIds: '={{$value}}',
+							reservationIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7647,7 +7647,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -9251,7 +9251,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -9301,7 +9301,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							statusCodes: '={{$value}}',
+							statusCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -9498,7 +9498,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10063,7 +10063,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							statusCodes: '={{$value}}',
+							statusCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10491,7 +10491,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10543,7 +10543,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							bookingIds: '={{$value}}',
+							bookingIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10577,7 +10577,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10597,7 +10597,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							dateFilter: '={{$value}}',
+							dateFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10617,7 +10617,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10635,7 +10635,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							folioIds: '={{$value}}',
+							folioIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10687,7 +10687,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							outstandingPaymentFilter: '={{$value}}',
+							outstandingPaymentFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10754,7 +10754,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -10799,7 +10799,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							reservationIds: '={{$value}}',
+							reservationIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -11021,7 +11021,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -13704,7 +13704,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							countryCode: '={{$value}}',
+							countryCode: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -13724,7 +13724,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -13791,7 +13791,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							status: '={{$value}}',
+							status: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -13944,7 +13944,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -13962,7 +13962,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -14172,7 +14172,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -14190,7 +14190,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -14427,7 +14427,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -14553,7 +14553,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitAttributeIds: '={{$value}}',
+							unitAttributeIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -14588,7 +14588,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -14822,7 +14822,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitAttributeIds: '={{$value}}',
+							unitAttributeIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -14857,7 +14857,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15356,7 +15356,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15421,7 +15421,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15488,7 +15488,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15605,7 +15605,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15623,7 +15623,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15744,7 +15744,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							clientIds: '={{$value}}',
+							clientIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15764,7 +15764,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							dateFilter: '={{$value}}',
+							dateFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15782,7 +15782,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							eventTypes: '={{$value}}',
+							eventTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15802,7 +15802,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15852,7 +15852,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15870,7 +15870,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							reservationIds: '={{$value}}',
+							reservationIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15888,7 +15888,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							subjectIds: '={{$value}}',
+							subjectIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15942,7 +15942,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							clientIds: '={{$value}}',
+							clientIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15962,7 +15962,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							dateFilter: '={{$value}}',
+							dateFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15980,7 +15980,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							eventTypes: '={{$value}}',
+							eventTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -15998,7 +15998,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							folioIds: '={{$value}}',
+							folioIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16048,7 +16048,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16066,7 +16066,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							subjectIds: '={{$value}}',
+							subjectIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16120,7 +16120,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							dateFilter: '={{$value}}',
+							dateFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16170,7 +16170,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16188,7 +16188,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							statuses: '={{$value}}',
+							statuses: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16206,7 +16206,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							subjectIds: '={{$value}}',
+							subjectIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16260,7 +16260,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							dateFilter: '={{$value}}',
+							dateFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16310,7 +16310,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16328,7 +16328,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							subjectIds: '={{$value}}',
+							subjectIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16346,7 +16346,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							types: '={{$value}}',
+							types: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16400,7 +16400,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16499,7 +16499,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							types: '={{$value}}',
+							types: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16692,7 +16692,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							types: '={{$value}}',
+							types: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -16968,7 +16968,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -17203,7 +17203,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -17622,7 +17622,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -17818,7 +17818,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							corporateCodes: '={{$value}}',
+							corporateCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -17883,7 +17883,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							ratePlanIds: '={{$value}}',
+							ratePlanIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18321,7 +18321,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18835,7 +18835,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							weekDays: '={{$value}}',
+							weekDays: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18887,7 +18887,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							baseRatePlanIds: '={{$value}}',
+							baseRatePlanIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18905,7 +18905,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							cancellationPolicyIds: '={{$value}}',
+							cancellationPolicyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18923,7 +18923,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							channelCodes: '={{$value}}',
+							channelCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18941,7 +18941,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18961,7 +18961,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							derivationLevelFilter: '={{$value}}',
+							derivationLevelFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -18981,7 +18981,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19014,7 +19014,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							includedServiceIds: '={{$value}}',
+							includedServiceIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19047,7 +19047,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							minGuaranteeTypes: '={{$value}}',
+							minGuaranteeTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19065,7 +19065,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							noShowPolicyIds: '={{$value}}',
+							noShowPolicyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19115,7 +19115,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							promoCodes: '={{$value}}',
+							promoCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19148,7 +19148,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							ratePlanCodes: '={{$value}}',
+							ratePlanCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19166,7 +19166,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							timeSliceDefinitionIds: '={{$value}}',
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19209,7 +19209,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19227,7 +19227,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19452,7 +19452,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19470,7 +19470,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19666,7 +19666,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							channelCodes: '={{$value}}',
+							channelCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19686,7 +19686,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19768,7 +19768,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							serviceTypes: '={{$value}}',
+							serviceTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19928,7 +19928,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -19946,7 +19946,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20279,7 +20279,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							channelCodes: '={{$value}}',
+							channelCodes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20297,7 +20297,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20317,7 +20317,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20335,7 +20335,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							marketSegmentIds: '={{$value}}',
+							marketSegmentIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20353,7 +20353,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							ratePlanIds: '={{$value}}',
+							ratePlanIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20371,7 +20371,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							timeSliceDefinitionIds: '={{$value}}',
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20414,7 +20414,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupIds: '={{$value}}',
+							unitGroupIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20432,7 +20432,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							unitGroupTypes: '={{$value}}',
+							unitGroupTypes: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20508,7 +20508,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							companyIds: '={{$value}}',
+							companyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -20528,7 +20528,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							dateFilter: '={{$value}}',
+							dateFilter: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -21038,7 +21038,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							languages: '={{$value}}',
+							languages: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -21624,7 +21624,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -22064,7 +22064,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -22193,7 +22193,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							propertyIds: '={{$value}}',
+							propertyIds: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -22332,7 +22332,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -22497,7 +22497,7 @@ export const parameterFields: INodeProperties[] = [
 				routing: {
 					request: {
 						qs: {
-							expand: '={{$value}}',
+							expand: "={{$value.join(',')}}",
 						},
 					},
 				},
