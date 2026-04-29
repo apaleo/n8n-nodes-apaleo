@@ -8,7 +8,7 @@ import type {
 	IHttpRequestOptions,
 	IHttpRequestMethods,
 } from 'n8n-workflow';
-import { NodeConnectionType, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
 import { ACCOUNT_LEVEL_EVENTS } from '../../constants';
 
@@ -52,7 +52,7 @@ export class ApaleoTrigger implements INodeType {
 		eventTriggerDescription: 'Waiting for Apaleo webhook events',
 		activationMessage: 'Your Apaleo webhook is now active and will trigger on the selected events.',
 		inputs: [],
-		outputs: [NodeConnectionType.Main],
+		outputs: [NodeConnectionTypes.Main],
 		credentials: [
 			{
 				name: 'apaleoOAuth2Api',
