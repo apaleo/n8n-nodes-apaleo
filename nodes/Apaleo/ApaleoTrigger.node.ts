@@ -71,9 +71,9 @@ export class ApaleoTrigger implements INodeType {
 			header: 'Apaleo Webhook Events',
 			executionsHelp: {
 				inactive:
-					"Webhooks have two modes: test and production. <br /><br /><b>Use test mode while you build your workflow</b>. Click the 'listen' button, then trigger events in Apaleo. The executions will show up in the editor.<br /><br /><b>Use production mode to run your workflow automatically</b>. Activate the workflow, then events from Apaleo will trigger executions automatically.",
+					"Webhooks have two modes: test and production. Use test mode while you build your workflow. Click the 'listen' button, then trigger events in Apaleo. The executions will show up in the editor. Use production mode to run your workflow automatically. Activate the workflow, then events from Apaleo will trigger executions automatically.",
 				active:
-					"Webhooks have two modes: test and production. <br /><br /><b>Use test mode while you build your workflow</b>. Click the 'listen' button, then trigger events in Apaleo. The executions will show up in the editor.<br /><br /><b>Use production mode to run your workflow automatically</b>. Since the workflow is activated, events from Apaleo will trigger executions automatically.",
+					"Webhooks have two modes: test and production. Use test mode while you build your workflow. Click the 'listen' button, then trigger events in Apaleo. The executions will show up in the editor. Use production mode to run your workflow automatically. Since the workflow is activated, events from Apaleo will trigger executions automatically.",
 			},
 			activationHint:
 				"Once you've finished building your workflow, activate it to start receiving Apaleo webhook events automatically.",
