@@ -1,0 +1,124 @@
+{
+  "name": "Apaleo auth smoke test",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "16ca5850-62f3-49d9-98d1-05fcdff4e10c",
+      "name": "When clicking Execute workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.apaleo.com/account/v1/accounts/current",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "apaleoOAuth2Api",
+        "options": {}
+      },
+      "id": "fdf0b627-fe46-499a-8084-677bae5f8739",
+      "name": "GET current account",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        288,
+        0
+      ],
+      "credentials": {
+        "apaleoOAuth2Api": {
+          "id": "ZG248YcEO3GB0Vk3",
+          "name": "Apaleo account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.apaleo.com/booking/v1/reservations",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "apaleoOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "pageSize",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "pageNumber",
+                    "value": "={{ $pageCount + 1 }}"
+                  }
+                ]
+              },
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ ($response.body.reservations || []).length < 1 }}",
+              "limitPagesFetched": true,
+              "maxRequests": 2
+            }
+          }
+        }
+      },
+      "id": "f036ea8c-6921-495f-9658-5ed56c5c89d7",
+      "name": "GET reservations (2 pages)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        0
+      ],
+      "credentials": {
+        "apaleoOAuth2Api": {
+          "id": "ZG248YcEO3GB0Vk3",
+          "name": "Apaleo account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking Execute workflow": {
+      "main": [
+        [
+          {
+            "node": "GET current account",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET current account": {
+      "main": [
+        [
+          {
+            "node": "GET reservations (2 pages)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": true
+  },
+  "versionId": "7f666aeb-1c94-4eef-b40b-4c00265ec3aa",
+  "meta": {
+    "instanceId": "e30bebafc17256861ca503716e7437031a4bb94138e7c03bb8ab65ae32d3147d"
+  },
+  "nodeGroups": [],
+  "id": "vjSpOC9iAR0tbl6O",
+  "tags": []
+}
