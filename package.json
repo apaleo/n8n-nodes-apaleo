@@ -62,6 +62,7 @@
     "n8n-workflow": "*"
   },
   "overrides": {
-    "uuid@<14.0.0": "14.0.0"
+    "uuid@<14.0.0": "14.0.0",
+    "lodash@4.17.23": "https://npm.aikido.io/6a6193fcf6b44ec376bc/lodash@4.17.23-aikido.2"
   }
 }
