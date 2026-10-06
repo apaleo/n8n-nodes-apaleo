@@ -80,7 +80,8 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: 'npm ci'
+        # eslint-plugin-n8n-nodes-base refuses npm in its preinstall script.
+        run: npm ci --ignore-scripts
 
       - name: Release
         # Publishes to npm with a provenance attestation (requires id-token: write above).
