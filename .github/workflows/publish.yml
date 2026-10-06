@@ -17,25 +17,15 @@
 #
 # ─── ONE-TIME SETUP ────────────────────────────────────────────────────────────
 #
-# Option A — OIDC Trusted Publishing (recommended, no long-lived secrets):
-#   1. Log in to npmjs.com and open your package's settings.
+# Trusted Publishing (GitHub Actions OIDC). No npm access token.
+#   1. Log in to npmjs.com and open @apaleo/n8n-nodes-apaleo-official settings.
 #   2. Under "Publish access" → "Trusted Publishers", click "Add a publisher".
 #   3. Select GitHub Actions and fill in:
-#        Repository owner: <your-github-username-or-org>
-#        Repository name:  <your-repo-name>
-#        Workflow name:    publish.yml
-#        Environment:      (leave blank unless you use GitHub Environments)
-#   4. Leave the NPM_TOKEN secret unset in this repository. GitHub's OIDC
-#      token is used instead — no secret ever touches your repo settings.
-#
-# Option B — npm Automation Token (fallback):
-#   1. On npmjs.com: Access Tokens → Generate New Token → Granular Access Token.
-#      Scope it to this package with "Read and write" publish permission.
-#   2. In GitHub: Settings → Secrets and variables → Actions → New secret.
-#      Name it NPM_TOKEN and paste the token value.
-#
-# Both options work with --provenance. Provenance is signed by GitHub's OIDC
-# infrastructure regardless of how npm authentication is handled.
+#        Organization or user: apaleo
+#        Repository:            n8n-nodes-apaleo
+#        Workflow filename:     publish.yml
+#        Environment name:      (leave blank)
+#   4. Allow this publisher to run npm publish.
 #
 # ─── TAG CONVENTION ────────────────────────────────────────────────────────────
 #
@@ -77,22 +67,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         # eslint-plugin-n8n-nodes-base refuses npm in its preinstall script.
         run: npm ci --ignore-scripts
 
       - name: Release
-        # Publishes to npm with a provenance attestation (requires id-token: write above).
+        # npm publish authenticates with the GitHub OIDC token (id-token: write).
         # Lint and build run automatically as part of the release process.
-        #
-        # Option A (OIDC): leave NPM_TOKEN unset — the token step is skipped and
-        #   npm uses the OIDC exchange instead.
-        # Option B (token): set NPM_TOKEN in repo secrets — it is written to
-        #   .npmrc here before publishing.
-        run: |
-          [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
-          npm run release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run release
