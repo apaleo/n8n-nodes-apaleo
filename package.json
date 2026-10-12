@@ -1,6 +1,6 @@
 {
   "name": "@apaleo/n8n-nodes-apaleo-official",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "Apaleo API Official Node for n8n",
   "keywords": [
     "n8n-community-node-package",
@@ -11,7 +11,7 @@
     "api"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/apaleo/n8n-nodes-apaleo#readme",
   "author": {
     "name": "Apaleo Official",
     "email": "support@apaleo.com"
@@ -63,8 +63,5 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
-  },
-  "overrides": {
-    "uuid@<14.0.0": "14.0.0"
   }
 }

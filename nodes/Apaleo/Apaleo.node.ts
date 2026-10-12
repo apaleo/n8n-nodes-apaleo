@@ -7,7 +7,7 @@ export class Apaleo implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Apaleo Official',
 		name: 'apaleo',
-		icon: 'file:apaleo.svg',
+		icon: { light: 'file:apaleo.svg', dark: 'file:apaleo-dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
