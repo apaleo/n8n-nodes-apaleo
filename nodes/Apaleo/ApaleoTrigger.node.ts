@@ -7,6 +7,7 @@ import type {
 	IWebhookResponseData,
 	IHttpRequestOptions,
 	IHttpRequestMethods,
+	JsonObject,
 } from 'n8n-workflow';
 import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
@@ -42,8 +43,9 @@ export class ApaleoTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Apaleo Official Trigger',
 		name: 'apaleoTrigger',
-		icon: 'file:apaleo.svg',
+		icon: { light: 'file:apaleo.svg', dark: 'file:apaleo-dark.svg' },
 		group: ['trigger'],
+		subtitle: '={{$parameter["events"]}}',
 		version: 1,
 		description: 'Apaleo Official Trigger Node',
 		defaults: {
@@ -877,7 +879,7 @@ export class ApaleoTrigger implements INodeType {
 						}
 					}
 				} catch (error) {
-					return false;
+					throw new NodeOperationError(this.getNode(), error as JsonObject);
 				}
 
 				return false;
@@ -929,13 +931,7 @@ export class ApaleoTrigger implements INodeType {
 					webhookData.webhookId = responseData.id as string;
 					return true;
 				} catch (error) {
-					if (error instanceof NodeOperationError) {
-						throw error;
-					}
-					throw new NodeOperationError(
-						this.getNode(),
-						`Failed to create webhook subscription: ${error instanceof Error ? error.message : 'Unknown error'}`,
-					);
+					throw new NodeOperationError(this.getNode(), error as JsonObject);
 				}
 			},
 

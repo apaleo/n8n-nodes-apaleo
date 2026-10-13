@@ -975,7 +975,7 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Get Unit Attribute',
 				value: 'InventoryUnit-attributesByIdGet',
 				action: 'Get unit attribute',
-				description: 'Get unit attribute by id',
+				description: 'Get unit attribute by ID',
 			},
 			{
 				name: 'List Unit Attributes',

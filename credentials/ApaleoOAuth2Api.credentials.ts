@@ -6,6 +6,7 @@ export class ApaleoOAuth2Api implements ICredentialType {
 	name = 'apaleoOAuth2Api';
 	extends = ['oAuth2Api'];
 	displayName = 'Apaleo OAuth2 API';
+	icon = 'file:apaleo.svg' as const;
 	documentationUrl = 'https://docs.apaleo.com/';
 
 	properties: INodeProperties[] = [
