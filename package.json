@@ -63,5 +63,10 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "overrides": {
+    "zod@<4.6.6": "4.6.7",
+    "uuid@<11.1.1": "11.1.1",
+    "yargs@<18.1.0": "18.1.0"
   }
 }
