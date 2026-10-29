@@ -33,6 +33,10 @@ export const resourcesByGroup = {
 			value: 'Offer',
 		},
 		{
+			displayName: 'PaymentAccount',
+			value: 'PaymentAccount',
+		},
+		{
 			displayName: 'Reservation',
 			value: 'Reservation',
 		},
@@ -79,6 +83,14 @@ export const resourcesByGroup = {
 		{
 			displayName: 'Property',
 			value: 'Property',
+		},
+		{
+			displayName: 'PropertyActions',
+			value: 'PropertyActions',
+		},
+		{
+			displayName: 'Types',
+			value: 'Types',
 		},
 		{
 			displayName: 'Unit',
@@ -232,6 +244,7 @@ export const resourceOptions: INodeProperties[] = [
 			{ name: 'Booking', value: 'Booking' },
 			{ name: 'Group', value: 'Group' },
 			{ name: 'Offer', value: 'Offer' },
+			{ name: 'PaymentAccount', value: 'PaymentAccount' },
 			{ name: 'Reservation', value: 'Reservation' },
 			{ name: 'ReservationAction', value: 'ReservationActions' },
 			{ name: 'Type', value: 'Types' },
@@ -263,6 +276,8 @@ export const resourceOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['inventory-v1'] } },
 		options: [
 			{ name: 'Property', value: 'Property' },
+			{ name: 'PropertyAction', value: 'PropertyActions' },
+			{ name: 'Type', value: 'Types' },
 			{ name: 'Unit', value: 'Unit' },
 			{ name: 'UnitAttribute', value: 'UnitAttribute' },
 			{ name: 'UnitGroup', value: 'UnitGroup' },

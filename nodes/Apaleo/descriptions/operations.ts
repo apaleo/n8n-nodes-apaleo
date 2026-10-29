@@ -59,6 +59,12 @@ export const operationOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['booking-v1'], resource: ['Block'] } },
 		options: [
 			{
+				name: 'Check Block Exists',
+				value: 'BookingBlocksByIdHead',
+				action: 'Check block exists',
+				description: 'Check if a block exists',
+			},
+			{
 				name: 'Count Blocks',
 				value: 'BookingBlocks$countGet',
 				action: 'Count blocks',
@@ -69,6 +75,12 @@ export const operationOptions: INodeProperties[] = [
 				value: 'BookingBlocksPost',
 				action: 'Create block',
 				description: 'Creates a block',
+			},
+			{
+				name: 'Delete Block',
+				value: 'BookingBlocksByIdDelete',
+				action: 'Delete block',
+				description: 'Delete a block',
 			},
 			{
 				name: 'Get Block',
@@ -83,7 +95,7 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Returns a list of blocks',
 			},
 		],
-		default: 'BookingBlocks$countGet',
+		default: 'BookingBlocksByIdHead',
 	},
 	{
 		displayName: 'Operation',
@@ -191,10 +203,28 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Add one or multiple reservations to an existing group booking using blocked inventory',
 			},
 			{
+				name: 'Check Group Exists',
+				value: 'BookingGroupsByIdHead',
+				action: 'Check group exists',
+				description: 'Check if a group booking exists',
+			},
+			{
+				name: 'Count Groups',
+				value: 'BookingGroups$countGet',
+				action: 'Count groups',
+				description: 'Returns number of group bookings',
+			},
+			{
 				name: 'Create Group',
 				value: 'BookingGroupsPost',
 				action: 'Create group',
 				description: 'Creates a group booking',
+			},
+			{
+				name: 'Delete Group',
+				value: 'BookingGroupsByIdDelete',
+				action: 'Delete group',
+				description: 'Delete a group booking',
 			},
 			{
 				name: 'Get Group',
@@ -250,6 +280,53 @@ export const operationOptions: INodeProperties[] = [
 			},
 		],
 		default: 'BookingOffer-indexGet',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['booking-v1'], resource: ['PaymentAccount'] } },
+		options: [
+			{
+				name: 'Create Payment Account by Authorization',
+				value: 'BookingPayment-accountsBy-authorizationPost',
+				action: 'Create payment account by authorization',
+				description:
+					'Create a payment account based on an existing authorization created prior externally with the Payment Service Provider',
+			},
+			{
+				name: 'Create Payment Account by Link',
+				value: 'BookingPayment-accountsBy-linkPost',
+				action: 'Create payment account by link',
+				description: 'Create a payment account by using a link',
+			},
+			{
+				name: 'Create Payment Account by Stored Payment Method',
+				value: 'BookingPayment-accountsBy-stored-payment-methodPost',
+				action: 'Create payment account by stored payment method',
+				description: 'Create a payment account based on an existing stored payment method',
+			},
+			{
+				name: 'Create Payment Account by Terminal',
+				value: 'BookingPayment-accountsBy-terminalPost',
+				action: 'Create payment account by terminal',
+				description: 'Create a payment account by using the terminal',
+			},
+			{
+				name: 'Get Payment Account by ID',
+				value: 'BookingPayment-accountsByIdGet',
+				action: 'Get payment account by id',
+				description: 'Get a single payment account by ID',
+			},
+			{
+				name: 'List Payment Accounts',
+				value: 'BookingPayment-accountsGet',
+				action: 'List payment accounts',
+				description: 'Get a list of payment accounts based on the query parameters',
+			},
+		],
+		default: 'BookingPayment-accountsBy-authorizationPost',
 	},
 	{
 		displayName: 'Operation',
@@ -449,6 +526,12 @@ export const operationOptions: INodeProperties[] = [
 				value: 'FinanceFoliosPost',
 				action: 'Create folio',
 				description: 'Create additional folios for a reservation, or new external folios',
+			},
+			{
+				name: 'Delete Folio',
+				value: 'FinanceFoliosByIdDelete',
+				action: 'Delete folio',
+				description: 'Delete a folio',
 			},
 			{
 				name: 'Get Folio',
@@ -863,6 +946,18 @@ export const operationOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['inventory-v1'], resource: ['Property'] } },
 		options: [
 			{
+				name: 'Check Property Exists',
+				value: 'InventoryPropertiesByIdHead',
+				action: 'Check property exists',
+				description: 'Check if a property exists',
+			},
+			{
+				name: 'Count Properties',
+				value: 'InventoryProperties$countGet',
+				action: 'Count properties',
+				description: 'Returns number of properties',
+			},
+			{
 				name: 'Create Property',
 				value: 'InventoryPropertiesPost',
 				action: 'Create property',
@@ -887,7 +982,57 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Allows to modify property',
 			},
 		],
-		default: 'InventoryPropertiesPost',
+		default: 'InventoryPropertiesByIdHead',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['inventory-v1'], resource: ['PropertyActions'] } },
+		options: [
+			{
+				name: 'Archive Property',
+				value: 'InventoryProperty-actionsByIdArchivePut',
+				action: 'Archive property',
+				description: 'Archive a property',
+			},
+			{
+				name: 'Clone Property',
+				value: 'InventoryProperty-actionsByIdClonePost',
+				action: 'Clone property',
+				description: 'Clone a property',
+			},
+			{
+				name: 'Reset Property',
+				value: 'InventoryProperty-actionsByIdResetPut',
+				action: 'Reset property',
+				description: 'Reset a property',
+			},
+			{
+				name: 'Set Property Live',
+				value: 'InventoryProperty-actionsByIdSet-livePut',
+				action: 'Set property live',
+				description: 'Set a property live',
+			},
+		],
+		default: 'InventoryProperty-actionsByIdArchivePut',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['inventory-v1'], resource: ['Types'] } },
+		options: [
+			{
+				name: 'List Countries',
+				value: 'InventoryTypesCountriesGet',
+				action: 'List countries',
+				description: 'Returns a list of countries',
+			},
+		],
+		default: 'InventoryTypesCountriesGet',
 	},
 	{
 		displayName: 'Operation',
@@ -972,10 +1117,16 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Create a unit attribute',
 			},
 			{
+				name: 'Delete Unit Attribute',
+				value: 'InventoryUnit-attributesByIdDelete',
+				action: 'Delete unit attribute',
+				description: 'Delete a unit attribute',
+			},
+			{
 				name: 'Get Unit Attribute',
 				value: 'InventoryUnit-attributesByIdGet',
 				action: 'Get unit attribute',
-				description: 'Get unit attribute by ID',
+				description: 'Get unit attribute by id',
 			},
 			{
 				name: 'List Unit Attributes',
@@ -1016,6 +1167,12 @@ export const operationOptions: INodeProperties[] = [
 				value: 'InventoryUnit-groupsPost',
 				action: 'Create unit group',
 				description: 'Create a unit group',
+			},
+			{
+				name: 'Delete Unit Group',
+				value: 'InventoryUnit-groupsByIdDelete',
+				action: 'Delete unit group',
+				description: 'Delete a unit group',
 			},
 			{
 				name: 'Get Unit Group',
@@ -1175,6 +1332,12 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Create an age category',
 			},
 			{
+				name: 'Delete Age Category',
+				value: 'SettingsAge-categoriesByIdDelete',
+				action: 'Delete age category',
+				description: 'Delete an age category',
+			},
+			{
 				name: 'Get Age Category',
 				value: 'SettingsAge-categoriesByIdGet',
 				action: 'Get age category',
@@ -1209,6 +1372,12 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Create a cancellation policy',
 			},
 			{
+				name: 'Delete Cancellation Policy',
+				value: 'RateplanCancellation-policiesByIdDelete',
+				action: 'Delete cancellation policy',
+				description: 'Delete a cancellation policy',
+			},
+			{
 				name: 'Get Cancellation Policy',
 				value: 'RateplanCancellation-policiesByIdGet',
 				action: 'Get cancellation policy',
@@ -1241,6 +1410,12 @@ export const operationOptions: INodeProperties[] = [
 				value: 'RateplanCompaniesPost',
 				action: 'Create company',
 				description: 'Create a company',
+			},
+			{
+				name: 'Delete Company',
+				value: 'RateplanCompaniesByIdDelete',
+				action: 'Delete company',
+				description: 'Delete a company',
 			},
 			{
 				name: 'Get Company',
@@ -1293,6 +1468,12 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Create a no-show policy',
 			},
 			{
+				name: 'Delete No Show Policy',
+				value: 'RateplanNo-show-policiesByIdDelete',
+				action: 'Delete no show policy',
+				description: 'Delete a no-show policy',
+			},
+			{
 				name: 'Get No Show Policy',
 				value: 'RateplanNo-show-policiesByIdGet',
 				action: 'Get no show policy',
@@ -1337,6 +1518,12 @@ export const operationOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['rateplan-v1'], resource: ['Rate'] } },
 		options: [
 			{
+				name: 'Count Rates',
+				value: 'RateplanRate-plansByIdRates$countGet',
+				action: 'Count rates',
+				description: 'Returns number of rates',
+			},
+			{
 				name: 'Get Rates',
 				value: 'RateplanRate-plansByIdRatesGet',
 				action: 'Get rates',
@@ -1355,7 +1542,7 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Initializes and changes the rates for the rate plan',
 			},
 		],
-		default: 'RateplanRate-plansByIdRatesGet',
+		default: 'RateplanRate-plansByIdRates$countGet',
 	},
 	{
 		displayName: 'Operation',
@@ -1365,10 +1552,33 @@ export const operationOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['rateplan-v1'], resource: ['RatePlan'] } },
 		options: [
 			{
+				name: 'Check Rate Plan Exists',
+				value: 'RateplanRate-plansByIdHead',
+				action: 'Check rate plan exists',
+				description: 'Check if a rate plan exists',
+			},
+			{
+				name: 'Count Rate Plans',
+				value: 'RateplanRate-plans$countGet',
+				action: 'Count rate plans',
+				description: 'Returns number of rate plans',
+			},
+			{
 				name: 'Create Rate Plan',
 				value: 'RateplanRate-plansPost',
 				action: 'Create rate plan',
 				description: 'Create a rate plan',
+			},
+			{
+				name: 'Delete Rate Plan',
+				value: 'RateplanRate-plansByIdDelete',
+				action: 'Delete rate plan',
+				description: 'Delete a rate plan',
+			},
+			{
+				name: 'Delete Rate Plans',
+				value: 'RateplanRate-plansDelete',
+				action: 'Delete rate plans',
 			},
 			{
 				name: 'Get Rate Plan',
@@ -1395,7 +1605,7 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Replace a rate plan',
 			},
 		],
-		default: 'RateplanRate-plansPost',
+		default: 'RateplanRate-plansByIdHead',
 	},
 	{
 		displayName: 'Operation',
@@ -1405,10 +1615,22 @@ export const operationOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['rateplan-v1'], resource: ['Service'] } },
 		options: [
 			{
+				name: 'Count Services',
+				value: 'RateplanServices$countGet',
+				action: 'Count services',
+				description: 'Returns number of services',
+			},
+			{
 				name: 'Create Service',
 				value: 'RateplanServicesPost',
 				action: 'Create service',
 				description: 'Create a service',
+			},
+			{
+				name: 'Delete Service',
+				value: 'RateplanServicesByIdDelete',
+				action: 'Delete service',
+				description: 'Delete a service',
 			},
 			{
 				name: 'Get Service',
@@ -1429,7 +1651,7 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Modify a service',
 			},
 		],
-		default: 'RateplanServicesPost',
+		default: 'RateplanServices$countGet',
 	},
 	{
 		displayName: 'Operation',
@@ -1514,6 +1736,12 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Create a city tax',
 			},
 			{
+				name: 'Delete City Tax',
+				value: 'SettingsCity-taxByIdDelete',
+				action: 'Delete city tax',
+				description: 'Delete a city tax',
+			},
+			{
 				name: 'Get City Tax',
 				value: 'SettingsCity-taxByIdGet',
 				action: 'Get city tax',
@@ -1558,6 +1786,12 @@ export const operationOptions: INodeProperties[] = [
 				value: 'SettingsSub-accountsPost',
 				action: 'Create sub account',
 				description: 'Create a sub-account',
+			},
+			{
+				name: 'Delete Sub Account',
+				value: 'SettingsSub-accountsByIdDelete',
+				action: 'Delete sub account',
+				description: 'Delete a sub-account',
 			},
 			{
 				name: 'Get Sub Account',
@@ -1678,6 +1912,12 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Create a market segment',
 			},
 			{
+				name: 'Delete Market Segment',
+				value: 'SettingsMarket-segmentsByIdDelete',
+				action: 'Delete market segment',
+				description: 'Delete a market segment',
+			},
+			{
 				name: 'Get Market Segment',
 				value: 'SettingsMarket-segmentsByIdGet',
 				action: 'Get market segment',
@@ -1725,6 +1965,12 @@ export const operationOptions: INodeProperties[] = [
 				value: 'SettingsPropertiesByPropertyIdTime-slice-definitionsPost',
 				action: 'Create time slice definition',
 				description: 'Creates a time slice definition',
+			},
+			{
+				name: 'Delete Time Slice Definition',
+				value: 'SettingsPropertiesByPropertyIdTime-slice-definitionsByIdDelete',
+				action: 'Delete time slice definition',
+				description: 'Delete a time slice definition',
 			},
 			{
 				name: 'Get Time Slice Definition',

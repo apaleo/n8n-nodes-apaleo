@@ -220,21 +220,17 @@ interface EnvironmentUrls {
 /**
  * Environment configurations for different environments
  */
+const stagingEnvironment = {
+	apiBaseUrl: 'https://api.apaleo-staging.com',
+	webhookBaseUrl: 'https://webhook.apaleo-staging.com',
+	integrationBaseUrl: 'https://integration.apaleo-staging.com',
+	swaggerBaseUrl: 'https://api.apaleo-staging.com/swagger',
+	identityBaseUrl: 'https://identity.apaleo-staging.com',
+};
+
 const ENVIRONMENT_CONFIGS = {
-	dev: {
-		apiBaseUrl: 'https://api.apaleo-staging.com',
-		webhookBaseUrl: 'https://webhook.apaleo-staging.com',
-		integrationBaseUrl: 'https://integration.apaleo-staging.com',
-		swaggerBaseUrl: 'https://api.apaleo-staging.com/swagger',
-		identityBaseUrl: 'https://identity.apaleo-staging.com',
-	},
-	staging: {
-		apiBaseUrl: 'https://api.apaleo-staging.com',
-		webhookBaseUrl: 'https://webhook.apaleo-staging.com',
-		integrationBaseUrl: 'https://integration.apaleo-staging.com',
-		swaggerBaseUrl: 'https://api.apaleo-staging.com/swagger',
-		identityBaseUrl: 'https://identity.apaleo-staging.com',
-	},
+	dev: stagingEnvironment,
+	staging: stagingEnvironment,
 	prod: {
 		apiBaseUrl: 'https://api.apaleo.com',
 		webhookBaseUrl: 'https://webhook.apaleo.com',
