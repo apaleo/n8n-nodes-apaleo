@@ -13,6 +13,13 @@ import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
 import { ACCOUNT_LEVEL_EVENTS } from '../../constants';
 
+interface ApaleoSubscription {
+	id?: string;
+	endpointUrl?: string;
+	events?: string[];
+	propertyIds?: string[];
+}
+
 /**
  * Make an API request to Apaleo
  */
@@ -20,10 +27,10 @@ async function apaleoApiRequest(
 	this: IHookFunctions | IWebhookFunctions,
 	method: IHttpRequestMethods,
 	resource: string,
-	body: any = {},
+	body: IDataObject = {},
 	qs: IDataObject = {},
 	uri?: string,
-): Promise<any> {
+): Promise<unknown> {
 	const options: IHttpRequestOptions = {
 		method,
 		body,
@@ -856,7 +863,11 @@ export class ApaleoTrigger implements INodeType {
 				const propertyIdsList = propertyIds ? propertyIds.split(',').map((id) => id.trim()) : [];
 
 				try {
-					const subscriptions = await apaleoApiRequest.call(this, 'GET', 'subscriptions');
+					const subscriptions = (await apaleoApiRequest.call(
+						this,
+						'GET',
+						'subscriptions',
+					)) as ApaleoSubscription[];
 
 					for (const subscription of subscriptions) {
 						if (subscription.endpointUrl === webhookUrl) {
@@ -919,7 +930,12 @@ export class ApaleoTrigger implements INodeType {
 				}
 
 				try {
-					const responseData = await apaleoApiRequest.call(this, 'POST', 'subscriptions', body);
+					const responseData = (await apaleoApiRequest.call(
+						this,
+						'POST',
+						'subscriptions',
+						body,
+					)) as ApaleoSubscription;
 
 					if (responseData?.id === undefined) {
 						throw new NodeOperationError(
@@ -928,7 +944,7 @@ export class ApaleoTrigger implements INodeType {
 						);
 					}
 
-					webhookData.webhookId = responseData.id as string;
+					webhookData.webhookId = responseData.id;
 					return true;
 				} catch (error) {
 					throw new NodeOperationError(this.getNode(), error as JsonObject);
