@@ -28,19 +28,22 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "npx rimraf dist && tsc && gulp build:icons",
-    "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials package.json",
-    "lintfix": "eslint nodes credentials package.json --fix",
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "format": "prettier nodes credentials test --write",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "test": "node --test test/*.test.ts",
     "release": "n8n-node release",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "prepublishOnly": "n8n-node prerelease"
   },
   "files": [
     "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
+    "strict": true,
     "credentials": [
       "dist/credentials/ApaleoOAuth2Api.credentials.js"
     ],
@@ -50,16 +53,12 @@
     ]
   },
   "devDependencies": {
-    "@n8n/node-cli": "^0.50.4",
-    "@types/node": "^25.0.8",
-    "@typescript-eslint/parser": "~8.53.0",
-    "eslint": "^9.39.2",
-    "eslint-plugin-n8n-nodes-base": "^1.16.4",
-    "gulp": "^5.0.1",
-    "prettier": "^3.7.4",
-    "release-it": "^19.0.4",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0"
+    "@n8n/node-cli": "^0.54.5",
+    "@types/node": "^22.20.5",
+    "eslint": "^9.39.5",
+    "prettier": "^3.9.10",
+    "release-it": "^20.2.0",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "n8n-workflow": "*"

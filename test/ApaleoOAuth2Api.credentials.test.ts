@@ -1,3 +1,5 @@
+// Dev-only test (not shipped in dist); node:test is fine here, the cloud import ban targets runtime code.
+/* eslint-disable @n8n/community-nodes/no-restricted-imports */
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
