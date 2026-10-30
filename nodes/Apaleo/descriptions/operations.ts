@@ -6,6 +6,28 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
+		displayOptions: { show: { group: ['account-v1'], resource: ['Account'] } },
+		options: [
+			{
+				name: 'Get the Current Account',
+				value: 'AccountAccountsCurrentGet',
+				action: 'Get the current account',
+				description: 'Returns the current account',
+			},
+			{
+				name: 'List Accounts',
+				value: 'AccountAccountsGet',
+				action: 'List accounts',
+				description: 'Returns all accounts',
+			},
+		],
+		default: 'AccountAccountsCurrentGet',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
 		displayOptions: { show: { group: ['availability-v1'], resource: ['Availability'] } },
 		options: [
 			{
@@ -25,6 +47,12 @@ export const operationOptions: INodeProperties[] = [
 				value: 'AvailabilityUnitsGet',
 				action: 'Get available units',
 				description: 'Get a list of all available units in a property',
+			},
+			{
+				name: 'Get Property Availability',
+				value: 'AvailabilityPropertiesByIdGet',
+				action: 'Get property availability',
+				description: 'Get house-level overbooking for a given property',
 			},
 			{
 				name: 'Update Unit Group Availability',
@@ -56,8 +84,92 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
+		displayOptions: { show: { group: ['booking-v1'], resource: ['Authorization'] } },
+		options: [
+			{
+				name: 'Create an Authorization From a Pre-Authorization',
+				value: 'BookingAuthorizationsBy-authorizationPost',
+				action: 'Create an authorization from a pre authorization',
+				description:
+					'Creates the authorization based on an existing pre-authorization created prior directly with the payment service provider',
+			},
+			{
+				name: 'Create an Authorization Payment Link',
+				value: 'BookingAuthorizationsBy-linkPost',
+				action: 'Create an authorization payment link',
+				description:
+					'Creates a link to a payment form that allows guests to complete the authorization',
+			},
+			{
+				name: 'Create an Authorization with a Payment Account',
+				value: 'BookingAuthorizationsBy-payment-accountPost',
+				action: 'Create an authorization with a payment account',
+				description: 'Creates authorization by using a previously created payment account',
+			},
+			{
+				name: 'Create an Authorization with a Terminal',
+				value: 'BookingAuthorizationsBy-terminalPost',
+				action: 'Create an authorization with a terminal',
+				description: 'Creates the authorization by using the terminal',
+			},
+			{
+				name: 'Get an Authorization',
+				value: 'BookingAuthorizationsByIdGet',
+				action: 'Get an authorization',
+				description: 'Returns a single authorization by ID',
+			},
+			{
+				name: 'Search Authorizations',
+				value: 'BookingAuthorizationsGet',
+				action: 'Search authorizations',
+				description: 'Returns a list of authorizations based on the query parameters',
+			},
+		],
+		default: 'BookingAuthorizationsBy-authorizationPost',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['booking-v1'], resource: ['AuthorizationActions'] } },
+		options: [
+			{
+				name: 'Cancel an Authorization',
+				value: 'BookingAuthorization-actionsByAuthorizationIdCancelPut',
+				action: 'Cancel an authorization',
+				description: 'Cancels the authorization',
+			},
+			{
+				name: 'Expire an Authorization Payment Link',
+				value: 'BookingAuthorization-actionsByAuthorizationIdExpire-payment-linkPut',
+				action: 'Expire an authorization payment link',
+				description:
+					'Expires the pending payment link with the payment provider and updates the status to Expired',
+			},
+			{
+				name: 'Refresh an Authorization',
+				value: 'BookingAuthorization-actionsByAuthorizationIdRefreshPut',
+				action: 'Refresh an authorization',
+				description:
+					'Updates the requested amount and extends the expiry date of the authorization',
+			},
+		],
+		default: 'BookingAuthorization-actionsByAuthorizationIdCancelPut',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
 		displayOptions: { show: { group: ['booking-v1'], resource: ['Block'] } },
 		options: [
+			{
+				name: 'Check Block Exists',
+				value: 'BookingBlocksByIdHead',
+				action: 'Check block exists',
+				description: 'Check if a block exists',
+			},
 			{
 				name: 'Count Blocks',
 				value: 'BookingBlocks$countGet',
@@ -191,6 +303,18 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Add one or multiple reservations to an existing group booking using blocked inventory',
 			},
 			{
+				name: 'Check Group Exists',
+				value: 'BookingGroupsByIdHead',
+				action: 'Check group exists',
+				description: 'Check if a group booking exists',
+			},
+			{
+				name: 'Count Groups',
+				value: 'BookingGroups$countGet',
+				action: 'Count groups',
+				description: 'Returns number of group bookings',
+			},
+			{
 				name: 'Create Group',
 				value: 'BookingGroupsPost',
 				action: 'Create group',
@@ -250,6 +374,77 @@ export const operationOptions: INodeProperties[] = [
 			},
 		],
 		default: 'BookingOffer-indexGet',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['booking-v1'], resource: ['PaymentAccount'] } },
+		options: [
+			{
+				name: 'Create Payment Account by Authorization',
+				value: 'BookingPayment-accountsBy-authorizationPost',
+				action: 'Create payment account by authorization',
+				description:
+					'Create a payment account based on an existing authorization created prior externally with the Payment Service Provider',
+			},
+			{
+				name: 'Create Payment Account by Link',
+				value: 'BookingPayment-accountsBy-linkPost',
+				action: 'Create payment account by link',
+				description: 'Create a payment account by using a link',
+			},
+			{
+				name: 'Create Payment Account by Stored Payment Method',
+				value: 'BookingPayment-accountsBy-stored-payment-methodPost',
+				action: 'Create payment account by stored payment method',
+				description: 'Create a payment account based on an existing stored payment method',
+			},
+			{
+				name: 'Create Payment Account by Terminal',
+				value: 'BookingPayment-accountsBy-terminalPost',
+				action: 'Create payment account by terminal',
+				description: 'Create a payment account by using the terminal',
+			},
+			{
+				name: 'Get Payment Account by ID',
+				value: 'BookingPayment-accountsByIdGet',
+				action: 'Get payment account by id',
+				description: 'Get a single payment account by ID',
+			},
+			{
+				name: 'List Payment Accounts',
+				value: 'BookingPayment-accountsGet',
+				action: 'List payment accounts',
+				description: 'Get a list of payment accounts based on the query parameters',
+			},
+		],
+		default: 'BookingPayment-accountsBy-authorizationPost',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['booking-v1'], resource: ['PaymentAccountActions'] } },
+		options: [
+			{
+				name: 'Cancel a Recurring Payment Account Authorization',
+				value: 'BookingPayment-account-actionsByPaymentAccountIdCancelPut',
+				action: 'Cancel a recurring payment account authorization',
+				description:
+					'Disables the recurring payment account authorization with the payment provider and updates the status to Canceled',
+			},
+			{
+				name: 'Expire a Payment Account Payment Link',
+				value: 'BookingPayment-account-actionsByPaymentAccountIdExpire-payment-linkPut',
+				action: 'Expire a payment account payment link',
+				description:
+					'Expires the pending payment link with the payment provider and updates the status to Expired',
+			},
+		],
+		default: 'BookingPayment-account-actionsByPaymentAccountIdCancelPut',
 	},
 	{
 		displayName: 'Operation',
@@ -377,6 +572,11 @@ export const operationOptions: INodeProperties[] = [
 				description: 'Check-out of a reservation',
 			},
 			{
+				name: 'Lock Unit Assignment for a Reservation',
+				value: 'BookingReservation-actionsByIdLock-unitPut',
+				action: 'Lock unit assignment for a reservation',
+			},
+			{
 				name: 'Mark No Show',
 				value: 'BookingReservation-actionsByIdNoshowPut',
 				action: 'Mark no show',
@@ -399,6 +599,11 @@ export const operationOptions: INodeProperties[] = [
 				value: 'BookingReservation-actionsByIdUnassign-unitsPut',
 				action: 'Unassign units',
 				description: 'Unassign units from a reservation',
+			},
+			{
+				name: 'Unlock Unit Assignment for a Reservation',
+				value: 'BookingReservation-actionsByIdUnlock-unitPut',
+				action: 'Unlock unit assignment for a reservation',
 			},
 		],
 		default: 'BookingReservation-actionsByIdAdd-city-taxPut',
@@ -863,6 +1068,18 @@ export const operationOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['inventory-v1'], resource: ['Property'] } },
 		options: [
 			{
+				name: 'Check Property Exists',
+				value: 'InventoryPropertiesByIdHead',
+				action: 'Check property exists',
+				description: 'Check if a property exists',
+			},
+			{
+				name: 'Count Properties',
+				value: 'InventoryProperties$countGet',
+				action: 'Count properties',
+				description: 'Returns number of properties',
+			},
+			{
 				name: 'Create Property',
 				value: 'InventoryPropertiesPost',
 				action: 'Create property',
@@ -888,6 +1105,22 @@ export const operationOptions: INodeProperties[] = [
 			},
 		],
 		default: 'InventoryPropertiesPost',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
+		displayOptions: { show: { group: ['inventory-v1'], resource: ['Types'] } },
+		options: [
+			{
+				name: 'List Countries',
+				value: 'InventoryTypesCountriesGet',
+				action: 'List countries',
+				description: 'Returns a list of countries',
+			},
+		],
+		default: 'InventoryTypesCountriesGet',
 	},
 	{
 		displayName: 'Operation',
@@ -975,7 +1208,7 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Get Unit Attribute',
 				value: 'InventoryUnit-attributesByIdGet',
 				action: 'Get unit attribute',
-				description: 'Get unit attribute by ID',
+				description: 'Get unit attribute by id',
 			},
 			{
 				name: 'List Unit Attributes',
@@ -1337,6 +1570,12 @@ export const operationOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['rateplan-v1'], resource: ['Rate'] } },
 		options: [
 			{
+				name: 'Count Rates',
+				value: 'RateplanRate-plansByIdRates$countGet',
+				action: 'Count rates',
+				description: 'Returns number of rates',
+			},
+			{
 				name: 'Get Rates',
 				value: 'RateplanRate-plansByIdRatesGet',
 				action: 'Get rates',
@@ -1354,6 +1593,12 @@ export const operationOptions: INodeProperties[] = [
 				action: 'Update rates',
 				description: 'Initializes and changes the rates for the rate plan',
 			},
+			{
+				name: 'Update Rates for a Rate Plan',
+				value: 'RateplanRate-plansByIdRatesPatch',
+				action: 'Update rates for a rate plan',
+				description: 'Allows to patch multiple rates of a single rate plan',
+			},
 		],
 		default: 'RateplanRate-plansByIdRatesGet',
 	},
@@ -1364,6 +1609,18 @@ export const operationOptions: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: { show: { group: ['rateplan-v1'], resource: ['RatePlan'] } },
 		options: [
+			{
+				name: 'Check Rate Plan Exists',
+				value: 'RateplanRate-plansByIdHead',
+				action: 'Check rate plan exists',
+				description: 'Check if a rate plan exists',
+			},
+			{
+				name: 'Count Rate Plans',
+				value: 'RateplanRate-plans$countGet',
+				action: 'Count rate plans',
+				description: 'Returns number of rate plans',
+			},
 			{
 				name: 'Create Rate Plan',
 				value: 'RateplanRate-plansPost',
@@ -1402,8 +1659,34 @@ export const operationOptions: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
+		displayOptions: { show: { group: ['rateplan-v1'], resource: ['RatePlanActions'] } },
+		options: [
+			{
+				name: 'Archive a Rate Plan',
+				value: 'RateplanRate-plan-actionsByIdArchivePut',
+				action: 'Archive a rate plan',
+			},
+		],
+		default: 'RateplanRate-plan-actionsByIdArchivePut',
+	},
+	{
+		displayName: 'Operation',
+		name: 'operation',
+		type: 'options',
+		noDataExpression: true,
 		displayOptions: { show: { group: ['rateplan-v1'], resource: ['Service'] } },
 		options: [
+			{
+				name: 'Check if a Service Exists',
+				value: 'RateplanServicesByIdHead',
+				action: 'Check if a service exists',
+			},
+			{
+				name: 'Count Services',
+				value: 'RateplanServices$countGet',
+				action: 'Count services',
+				description: 'Returns number of services',
+			},
 			{
 				name: 'Create Service',
 				value: 'RateplanServicesPost',
