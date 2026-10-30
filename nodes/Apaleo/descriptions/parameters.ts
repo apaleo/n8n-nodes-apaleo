@@ -3,6 +3,77 @@ import { INodeProperties } from 'n8n-workflow';
 // This will contain all parameter fields for operations
 export const parameterFields: INodeProperties[] = [
 	{
+		displayName: 'AccountAccountsCurrentGet',
+		name: 'AccountAccountsCurrentGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['account-v1'],
+				resource: ['Account'],
+				operation: ['AccountAccountsCurrentGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/account/v1/accounts/current',
+			},
+		},
+	},
+	{
+		displayName: 'AccountAccountsGet',
+		name: 'AccountAccountsGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['account-v1'],
+				resource: ['Account'],
+				operation: ['AccountAccountsGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/account/v1/accounts',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Account'],
+				operation: ['AccountAccountsGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'AccountCodes',
+				name: 'accountCodes',
+				type: 'string',
+				default: [],
+				description: 'Filter result by requested codes',
+				placeholder: 'Filter result by requested codes',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							accountCodes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+		],
+	},
+	{
 		displayName: 'AvailabilityUnitsGet',
 		name: 'AvailabilityUnitsGet',
 		type: 'hidden',
@@ -59,9 +130,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The from date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The from date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'The from date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The from date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -85,9 +156,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The to date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The to date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'The to date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The to date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -149,8 +220,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -403,8 +474,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -792,8 +863,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -844,6 +915,175 @@ export const parameterFields: INodeProperties[] = [
 						},
 					},
 				},
+			},
+		],
+	},
+	{
+		displayName: 'AvailabilityPropertiesByIdGet',
+		name: 'AvailabilityPropertiesByIdGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
+				operation: ['AvailabilityPropertiesByIdGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/availability/v1/properties/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'AvailabilityPropertiesByIdGet_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
+				operation: ['AvailabilityPropertiesByIdGet'],
+			},
+		},
+		default: '',
+		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
+		routing: {
+			request: {
+				method: 'GET',
+				url: '=/availability/v1/properties/{{$parameter["AvailabilityPropertiesByIdGet_id"]}}',
+			},
+		},
+	},
+	{
+		displayName: 'From',
+		name: 'AvailabilityPropertiesByIdGet_from',
+		type: 'dateTime',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
+				operation: ['AvailabilityPropertiesByIdGet'],
+			},
+		},
+		default: '',
+		description: 'The first day of the time period from which availability will be modified',
+		placeholder: 'The first day of the time period from which availability will be modified.',
+		routing: {
+			request: {
+				method: 'GET',
+				qs: {
+					from: '={{$parameter["AvailabilityPropertiesByIdGet_from"] ? new Date($parameter["AvailabilityPropertiesByIdGet_from"]).toISOString().slice(0, 10) : ""}}',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'To',
+		name: 'AvailabilityPropertiesByIdGet_to',
+		type: 'dateTime',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
+				operation: ['AvailabilityPropertiesByIdGet'],
+			},
+		},
+		default: '',
+		description: 'The last day of the time period until which availability will be modified',
+		placeholder: 'The last day of the time period until which availability will be modified.',
+		routing: {
+			request: {
+				method: 'GET',
+				qs: {
+					to: '={{$parameter["AvailabilityPropertiesByIdGet_to"] ? new Date($parameter["AvailabilityPropertiesByIdGet_to"]).toISOString().slice(0, 10) : ""}}',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'TimeSliceTemplate',
+		name: 'AvailabilityPropertiesByIdGet_timeSliceTemplate',
+		type: 'options',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
+				operation: ['AvailabilityPropertiesByIdGet'],
+			},
+		},
+		default: 'OverNight',
+		description: 'The time slice template',
+		placeholder: 'The time slice template.',
+		routing: {
+			request: {
+				method: 'GET',
+				qs: {
+					timeSliceTemplate: '={{$parameter["AvailabilityPropertiesByIdGet_timeSliceTemplate"]}}',
+				},
+			},
+		},
+		options: [
+			{
+				name: 'DayUse',
+				value: 'DayUse',
+			},
+			{
+				name: 'OverNight',
+				value: 'OverNight',
+			},
+		],
+	},
+	{
+		displayName: 'UnitGroupType',
+		name: 'AvailabilityPropertiesByIdGet_unitGroupType',
+		type: 'options',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['availability-v1'],
+				resource: ['Availability'],
+				operation: ['AvailabilityPropertiesByIdGet'],
+			},
+		},
+		default: 'BedRoom',
+		description: 'The unit group type',
+		placeholder: 'The unit group type.',
+		routing: {
+			request: {
+				method: 'GET',
+				qs: {
+					unitGroupType: '={{$parameter["AvailabilityPropertiesByIdGet_unitGroupType"]}}',
+				},
+			},
+		},
+		options: [
+			{
+				name: 'BedRoom',
+				value: 'BedRoom',
+			},
+			{
+				name: 'EventSpace',
+				value: 'EventSpace',
+			},
+			{
+				name: 'MeetingRoom',
+				value: 'MeetingRoom',
+			},
+			{
+				name: 'Other',
+				value: 'Other',
+			},
+			{
+				name: 'ParkingLot',
+				value: 'ParkingLot',
 			},
 		],
 	},
@@ -907,9 +1147,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The from date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The from date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'The from date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The from date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -957,8 +1197,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -973,9 +1213,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The to date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The to date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'The to date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The to date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -1049,6 +1289,801 @@ export const parameterFields: INodeProperties[] = [
 		],
 	},
 	{
+		displayName: 'BookingAuthorizationsBy-linkPost',
+		name: 'BookingAuthorizationsBy-linkPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-linkPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/authorizations/by-link',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingAuthorizationsBy-linkPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-linkPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL",\n    "propertyId": "MUC"\n  },\n  "expiresAt": "2026-10-31T10:27:07.2407881Z",\n  "countryCode": "DE",\n  "description": "Consumption authorization for the reservation",\n  "payerEmail": "0chai@hemenal5.space",\n  "returnUrl": "https://example.com/return",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  }\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the authorization to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingAuthorizationsBy-linkPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-linkPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingAuthorizationsBy-terminalPost',
+		name: 'BookingAuthorizationsBy-terminalPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-terminalPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/authorizations/by-terminal',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingAuthorizationsBy-terminalPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-terminalPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL",\n    "propertyId": "MUC"\n  },\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "terminalId": "V400m-324689704"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the authorization to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingAuthorizationsBy-terminalPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-terminalPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingAuthorizationsBy-Payment-accountPost',
+		name: 'BookingAuthorizationsBy-payment-accountPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-payment-accountPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/authorizations/by-payment-account',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingAuthorizationsBy-payment-accountPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-payment-accountPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL",\n    "propertyId": "MUC"\n  },\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "accountOwner": "Guest",\n  "paymentAccountId": "UBMFXUFH"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the authorization to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingAuthorizationsBy-payment-accountPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-payment-accountPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingAuthorizationsBy-authorizationPost',
+		name: 'BookingAuthorizationsBy-authorizationPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-authorizationPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/authorizations/by-authorization',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingAuthorizationsBy-authorizationPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-authorizationPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL",\n    "propertyId": "MUC"\n  },\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "transactionReference": "K9DTTJQD4HNG5S82"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the authorization to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingAuthorizationsBy-authorizationPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsBy-authorizationPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingAuthorizationsByIdGet',
+		name: 'BookingAuthorizationsByIdGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsByIdGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/booking/v1/authorizations/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'BookingAuthorizationsByIdGet_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsByIdGet'],
+			},
+		},
+		default: '',
+		description: 'The identifier of the authorization',
+		placeholder: 'The identifier of the authorization',
+		routing: {
+			request: {
+				method: 'GET',
+				url: '=/booking/v1/authorizations/{{$parameter["BookingAuthorizationsByIdGet_id"]}}',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsByIdGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'Expand',
+				name: 'expand',
+				type: 'string',
+				default: [],
+				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							expand: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingAuthorizationsGet',
+		name: 'BookingAuthorizationsGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/booking/v1/authorizations',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Authorization'],
+				operation: ['BookingAuthorizationsGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'BookingIds',
+				name: 'bookingIds',
+				type: 'string',
+				default: [],
+				description:
+					'Filter result by requested booking IDs. Returns authorizations that are related to the specified booking or booking reservations. Use in combination with the Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.TargetTypes to get authorizations related only to bookings or to reservations.',
+				placeholder:
+					'Filter result by requested booking IDs. Returns authorizations that are related to the specified booking or booking reservations. Use in combination with the Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.TargetTypes to get authorizations related only to bookings or to reservations.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							bookingIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'DateField',
+				name: 'dateField',
+				type: 'options',
+				default: 'Creation',
+				description:
+					'Filter result by date and time attributes of authorization. Use in combination with the Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To attributes. All filters will check if the date specified by the filter type is between Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From (included) and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To (excluded).',
+				placeholder:
+					'Filter result by date and time attributes of authorization. Use in combination with the Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To attributes. All filters will check if the date specified by the filter type is between Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From (included) and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To (excluded).',
+				options: [
+					{
+						name: 'Creation',
+						value: 'Creation',
+					},
+					{
+						name: 'Expiration',
+						value: 'Expiration',
+					},
+					{
+						name: 'Modification',
+						value: 'Modification',
+					},
+				],
+				routing: {
+					request: {
+						qs: {
+							dateField: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Expand',
+				name: 'expand',
+				type: 'string',
+				default: [],
+				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions, remainingBalance. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions, remainingBalance. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							expand: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'From',
+				name: 'from',
+				type: 'dateTime',
+				default: '',
+				description:
+					'The start of the time interval. When filtering by Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				placeholder:
+					'The start of the time interval. When filtering by Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+				routing: {
+					request: {
+						qs: {
+							from: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PageNumber',
+				name: 'pageNumber',
+				type: 'number',
+				default: 1,
+				description:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				routing: {
+					request: {
+						qs: {
+							pageNumber: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PageSize',
+				name: 'pageSize',
+				type: 'number',
+				default: '',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
+				routing: {
+					request: {
+						qs: {
+							pageSize: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PropertyIds',
+				name: 'propertyIds',
+				type: 'string',
+				default: [],
+				description: 'Filter result by requested properties',
+				placeholder: 'Filter result by requested properties',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							propertyIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'ReservationIds',
+				name: 'reservationIds',
+				type: 'string',
+				default: [],
+				description: 'Filter result by requested reservation IDs',
+				placeholder: 'Filter result by requested reservation IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							reservationIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Sort',
+				name: 'sort',
+				type: 'string',
+				default: [],
+				description:
+					'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, updated:asc, updated:desc, expiresat:asc, expiresat:desc. All other values will be silently ignored.',
+				placeholder:
+					'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, updated:asc, updated:desc, expiresat:asc, expiresat:desc. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							sort: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Status',
+				name: 'status',
+				type: 'string',
+				default: [],
+				description: 'Filter result by authorization status',
+				placeholder: 'Filter result by authorization status',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							status: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'TargetTypes',
+				name: 'targetTypes',
+				type: 'string',
+				default: [],
+				description: 'Filter by target types',
+				placeholder: 'Filter by target types',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							targetTypes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'To',
+				name: 'to',
+				type: 'dateTime',
+				default: '',
+				description:
+					'The end of the time interval, must be larger than Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From. When filtering by Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				placeholder:
+					'The end of the time interval, must be larger than Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From. When filtering by Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.From and Apaleo.Api.Modules.Booking.Models.Authorization.AuthorizationListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+				routing: {
+					request: {
+						qs: {
+							to: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingAuthorization-actionsByAuthorizationIdCancelPut',
+		name: 'BookingAuthorization-actionsByAuthorizationIdCancelPut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['AuthorizationActions'],
+				operation: ['BookingAuthorization-actionsByAuthorizationIdCancelPut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/authorization-actions/{authorizationId}/cancel',
+			},
+		},
+	},
+	{
+		displayName: 'AuthorizationId',
+		name: 'BookingAuthorization-actionsByAuthorizationIdCancelPut_authorizationId',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['AuthorizationActions'],
+				operation: ['BookingAuthorization-actionsByAuthorizationIdCancelPut'],
+			},
+		},
+		default: '',
+		description: 'The identifier of the authorization',
+		placeholder: 'The identifier of the authorization',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/booking/v1/authorization-actions/{{$parameter["BookingAuthorization-actionsByAuthorizationIdCancelPut_authorizationId"]}}/cancel',
+			},
+		},
+	},
+	{
+		displayName: 'BookingAuthorization-actionsByAuthorizationIdRefreshPut',
+		name: 'BookingAuthorization-actionsByAuthorizationIdRefreshPut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['AuthorizationActions'],
+				operation: ['BookingAuthorization-actionsByAuthorizationIdRefreshPut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/authorization-actions/{authorizationId}/refresh',
+			},
+		},
+	},
+	{
+		displayName: 'AuthorizationId',
+		name: 'BookingAuthorization-actionsByAuthorizationIdRefreshPut_authorizationId',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['AuthorizationActions'],
+				operation: ['BookingAuthorization-actionsByAuthorizationIdRefreshPut'],
+			},
+		},
+		default: '',
+		description: 'The identifier of the authorization',
+		placeholder: 'The identifier of the authorization',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/booking/v1/authorization-actions/{{$parameter["BookingAuthorization-actionsByAuthorizationIdRefreshPut_authorizationId"]}}/refresh',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingAuthorization-actionsByAuthorizationIdRefreshPut_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['AuthorizationActions'],
+				operation: ['BookingAuthorization-actionsByAuthorizationIdRefreshPut'],
+			},
+		},
+		default: '{\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  }\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the authorization refresh request',
+		routing: {
+			request: {
+				method: 'PUT',
+				body: '={{JSON.parse($parameter["BookingAuthorization-actionsByAuthorizationIdRefreshPut_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'BookingAuthorization-actionsByAuthorizationIdExpire-Payment-linkPut',
+		name: 'BookingAuthorization-actionsByAuthorizationIdExpire-payment-linkPut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['AuthorizationActions'],
+				operation: ['BookingAuthorization-actionsByAuthorizationIdExpire-payment-linkPut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/authorization-actions/{authorizationId}/expire-payment-link',
+			},
+		},
+	},
+	{
+		displayName: 'AuthorizationId',
+		name: 'BookingAuthorization-actionsByAuthorizationIdExpire-payment-linkPut_authorizationId',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['AuthorizationActions'],
+				operation: ['BookingAuthorization-actionsByAuthorizationIdExpire-payment-linkPut'],
+			},
+		},
+		default: '',
+		description: 'The identifier of the authorization',
+		placeholder: 'The identifier of the authorization',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/booking/v1/authorization-actions/{{$parameter["BookingAuthorization-actionsByAuthorizationIdExpire-payment-linkPut_authorizationId"]}}/expire-payment-link',
+			},
+		},
+	},
+	{
 		displayName: 'BookingBlocksPost',
 		name: 'BookingBlocksPost',
 		type: 'hidden',
@@ -1080,7 +2115,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2026-01-19",\n  "to": "2026-01-22",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
+			'{\n  "groupId": "XPGMSXGF",\n  "ratePlanId": "MUC-NONREF-SGL",\n  "from": "2026-11-03",\n  "to": "2026-11-06",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The details for the block you want to create.',
 		routing: {
@@ -1183,9 +2218,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -1231,8 +2266,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -1344,9 +2379,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -1431,9 +2466,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -1560,9 +2595,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -1684,6 +2719,47 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 		],
+	},
+	{
+		displayName: 'BookingBlocksByIdHead',
+		name: 'BookingBlocksByIdHead',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
+				operation: ['BookingBlocksByIdHead'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '/booking/v1/blocks/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'BookingBlocksByIdHead_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Block'],
+				operation: ['BookingBlocksByIdHead'],
+			},
+		},
+		default: '',
+		description: 'The ID of the block',
+		placeholder: 'The ID of the block.',
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '=/booking/v1/blocks/{{$parameter["BookingBlocksByIdHead_id"]}}',
+			},
+		},
 	},
 	{
 		displayName: 'BookingBlock-actionsByIdConfirmPut',
@@ -1903,7 +2979,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "from": "2026-01-19",\n  "to": "2026-01-22",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
+			'{\n  "from": "2026-11-03",\n  "to": "2026-11-06",\n  "grossDailyRate": {\n    "amount": 160,\n    "currency": "EUR"\n  },\n  "timeSlices": [\n    {\n      "blockedUnits": 3\n    },\n    {\n      "blockedUnits": 0\n    },\n    {\n      "blockedUnits": 7\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the block.',
 		routing: {
@@ -1948,7 +3024,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2026-10-31",\n      "departure": "2026-11-02",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-11-01",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2026-11-01",\n      "departure": "2026-11-03",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The list of reservations you want to create.',
 		routing: {
@@ -2026,6 +3102,26 @@ export const parameterFields: INodeProperties[] = [
 		},
 		options: [
 			{
+				displayName: 'BookingIds',
+				name: 'bookingIds',
+				type: 'string',
+				default: [],
+				description:
+					'Filter result by booking ID. Returns only the bookings matching the specified IDs.',
+				placeholder:
+					'Filter result by booking ID. Returns only the bookings matching the specified IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							bookingIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
 				displayName: 'ChannelCode',
 				name: 'channelCode',
 				type: 'string',
@@ -2100,6 +3196,23 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 			{
+				displayName: 'HasActivePaymentAccount',
+				name: 'hasActivePaymentAccount',
+				type: 'boolean',
+				default: false,
+				description:
+					"Whether to return only the bookings with an active payment account. If set to 'false', returns only the bookings without an active payment account.",
+				placeholder:
+					"If set to 'true', returns only the bookings with an active payment account. If set to 'false', returns only the bookings without an active payment account.",
+				routing: {
+					request: {
+						qs: {
+							hasActivePaymentAccount: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
 				displayName: 'PageNumber',
 				name: 'pageNumber',
 				type: 'number',
@@ -2121,8 +3234,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -2199,7 +3312,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
+			'{\n  "paymentAccount": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "s.hopper@test.com",\n    "payerReference": "4ea6462b-cca3-4c17-a035-c7b5132db83c",\n    "isVirtual": false\n  },\n  "booker": {\n    "title": "Mr",\n    "gender": "Male",\n    "firstName": "Jon",\n    "middleInitial": "D",\n    "lastName": "Doe",\n    "email": "john.d@doe.com",\n    "phone": "+4989123343",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    }\n  },\n  "reservations": [\n    {\n      "arrival": "2026-10-31",\n      "departure": "2026-11-02",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "guestComment": "I need a wake up service",\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "travelPurpose": "Business",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-FAMILY"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-11-01",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "prePaymentAmount": {\n        "amount": 50,\n        "currency": "EUR"\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    },\n    {\n      "arrival": "2026-11-01",\n      "departure": "2026-11-03",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 120,\n            "currency": "EUR"\n          }\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL",\n          "totalAmount": {\n            "amount": 125,\n            "currency": "EUR"\n          }\n        }\n      ],\n      "companyId": "BER-UMBRELLA",\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      },\n      "externalReferences": {\n        "globalDistributionSystemId": "A2PA6WHY",\n        "onlineTravelAgencyId": "5247241379",\n        "onlineBookingToolId": "APA_HQL-C26181420|WAW-MUN-BC2-1U1",\n        "channelManagerId": "123295310",\n        "centralReservationSystemId": "91200088"\n      }\n    }\n  ],\n  "transactionReference": "564578124534890J"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The list of reservations you want to create.',
 		routing: {
@@ -2298,7 +3411,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+			'{\n  "reservations": [\n    {\n      "arrival": "2026-10-31",\n      "departure": "2026-11-02",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-11-01",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2026-11-01",\n      "departure": "2026-11-03",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The list of reservations you want to add.',
 		routing: {
@@ -2397,7 +3510,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-01-17",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
+			'{\n  "reservations": [\n    {\n      "arrival": "2026-10-31",\n      "departure": "2026-11-02",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "externalCode": "812864414|381",\n      "channelCode": "BookingCom",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "Prepayment",\n      "timeSlices": [\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        },\n        {\n          "ratePlanId": "MUC-NONREF-DBL"\n        }\n      ],\n      "services": [\n        {\n          "serviceId": "MUC-BRKF"\n        },\n        {\n          "serviceId": "MUC-YOGA",\n          "dates": [\n            {\n              "serviceDate": "2026-11-01",\n              "amount": {\n                "amount": 35,\n                "currency": "EUR"\n              }\n            }\n          ]\n        }\n      ],\n      "companyId": "UMBRELLA",\n      "corporateCode": "UMBRELLA-MUC_NONREF_DBL"\n    },\n    {\n      "arrival": "2026-11-01",\n      "departure": "2026-11-03",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "channelCode": "Direct",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      },\n      "guaranteeType": "CreditCard",\n      "timeSlices": [\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        },\n        {\n          "ratePlanId": "BER-FLEX-DBL"\n        }\n      ],\n      "commission": {\n        "commissionAmount": {\n          "amount": 20,\n          "currency": "EUR"\n        },\n        "beforeCommissionAmount": {\n          "amount": 100,\n          "currency": "EUR"\n        }\n      }\n    }\n  ],\n  "transactionReference": "RFEUFHEW"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The list of reservations you want to add.',
 		routing: {
@@ -2720,13 +3833,30 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
 							from: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'HasActivePaymentAccount',
+				name: 'hasActivePaymentAccount',
+				type: 'boolean',
+				default: false,
+				description:
+					"Whether to return only the groups with an active payment account. If set to 'false', returns only the groups without an active payment account.",
+				placeholder:
+					"If set to 'true', returns only the groups with an active payment account. If set to 'false', returns only the groups without an active payment account.",
+				routing: {
+					request: {
+						qs: {
+							hasActivePaymentAccount: '={{$value}}',
 						},
 					},
 				},
@@ -2753,8 +3883,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -2804,9 +3934,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -2961,6 +4091,167 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'BookingGroupsByIdHead',
+		name: 'BookingGroupsByIdHead',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
+				operation: ['BookingGroupsByIdHead'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '/booking/v1/groups/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'BookingGroupsByIdHead_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
+				operation: ['BookingGroupsByIdHead'],
+			},
+		},
+		default: '',
+		description: 'ID of the group booking to be checked for existence',
+		placeholder: 'ID of the group booking to be checked for existence.',
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '=/booking/v1/groups/{{$parameter["BookingGroupsByIdHead_id"]}}',
+			},
+		},
+	},
+	{
+		displayName: 'BookingGroups$countGet',
+		name: 'BookingGroups$countGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['Group'],
+				operation: ['BookingGroups$countGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/booking/v1/groups/$count',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Group'],
+				operation: ['BookingGroups$countGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'From',
+				name: 'from',
+				type: 'dateTime',
+				default: '',
+				description:
+					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				placeholder:
+					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+				routing: {
+					request: {
+						qs: {
+							from: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'HasActivePaymentAccount',
+				name: 'hasActivePaymentAccount',
+				type: 'boolean',
+				default: false,
+				description:
+					"Whether to return only the groups with an active payment account. If set to 'false', returns only the groups without an active payment account.",
+				placeholder:
+					"If set to 'true', returns only the groups with an active payment account. If set to 'false', returns only the groups without an active payment account.",
+				routing: {
+					request: {
+						qs: {
+							hasActivePaymentAccount: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PropertyIds',
+				name: 'propertyIds',
+				type: 'string',
+				default: [],
+				description: 'Filter result by requested properties',
+				placeholder: 'Filter result by requested properties',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							propertyIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'TextSearch',
+				name: 'textSearch',
+				type: 'string',
+				default: '',
+				description:
+					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.',
+				placeholder:
+					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values',
+				routing: {
+					request: {
+						qs: {
+							textSearch: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'To',
+				name: 'to',
+				type: 'dateTime',
+				default: '',
+				description:
+					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				placeholder:
+					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+				routing: {
+					request: {
+						qs: {
+							to: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
 		displayName: 'BookingGroupsByIdReservationsPost',
 		name: 'BookingGroupsByIdReservationsPost',
 		type: 'hidden',
@@ -3014,7 +4305,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2026-01-16",\n      "departure": "2026-01-18",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2026-01-17",\n      "departure": "2026-01-19",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
+			'{\n  "reservations": [\n    {\n      "blockId": "MUC-QJNXJR",\n      "arrival": "2026-10-31",\n      "departure": "2026-11-02",\n      "adults": 1,\n      "comment": "I need a wake up service",\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Jon",\n        "middleInitial": "D",\n        "lastName": "Doe",\n        "email": "john.d@doe.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "company": {\n          "name": "Company GmbH",\n          "taxId": "1442"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    },\n    {\n      "blockId": "MUC-WKMCKT",\n      "arrival": "2026-11-01",\n      "departure": "2026-11-03",\n      "adults": 1,\n      "childrenAges": [\n        6\n      ],\n      "primaryGuest": {\n        "title": "Mr",\n        "gender": "Male",\n        "firstName": "Eric",\n        "middleInitial": "E",\n        "lastName": "Steinmetz",\n        "email": "eric.e@steinmetz.com",\n        "phone": "+4989123343",\n        "address": {\n          "addressLine1": "My Street 1",\n          "postalCode": "12453",\n          "city": "MyCity",\n          "countryCode": "GB"\n        },\n        "vehicleRegistration": {\n          "number": "APA322",\n          "countryCode": "DE"\n        }\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The list of reservations you want to create.',
 		routing: {
@@ -3116,9 +4407,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3142,9 +4433,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3222,6 +4513,10 @@ export const parameterFields: INodeProperties[] = [
 					{
 						name: 'Expedia',
 						value: 'Expedia',
+					},
+					{
+						name: 'Gimsi',
+						value: 'Gimsi',
 					},
 					{
 						name: 'Homelike',
@@ -3449,9 +4744,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3475,9 +4770,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3555,6 +4850,10 @@ export const parameterFields: INodeProperties[] = [
 					{
 						name: 'Expedia',
 						value: 'Expedia',
+					},
+					{
+						name: 'Gimsi',
+						value: 'Gimsi',
 					},
 					{
 						name: 'Homelike',
@@ -3689,9 +4988,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3715,9 +5014,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3795,6 +5094,10 @@ export const parameterFields: INodeProperties[] = [
 					{
 						name: 'Expedia',
 						value: 'Expedia',
+					},
+					{
+						name: 'Gimsi',
+						value: 'Gimsi',
 					},
 					{
 						name: 'Homelike',
@@ -3928,9 +5231,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -3954,9 +5257,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -4015,6 +5318,10 @@ export const parameterFields: INodeProperties[] = [
 				value: 'Expedia',
 			},
 			{
+				name: 'Gimsi',
+				value: 'Gimsi',
+			},
+			{
 				name: 'Homelike',
 				value: 'Homelike',
 			},
@@ -4063,8 +5370,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -4074,6 +5381,785 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 		],
+	},
+	{
+		displayName: 'BookingPayment-accountsBy-terminalPost',
+		name: 'BookingPayment-accountsBy-terminalPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-terminalPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/payment-accounts/by-terminal',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingPayment-accountsBy-terminalPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-terminalPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL"\n  },\n  "propertyId": "MUC",\n  "terminalId": "V400m-324689704"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment account to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingPayment-accountsBy-terminalPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-terminalPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingPayment-accountsBy-linkPost',
+		name: 'BookingPayment-accountsBy-linkPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-linkPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/payment-accounts/by-link',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingPayment-accountsBy-linkPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-linkPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL"\n  },\n  "propertyId": "MUC",\n  "expiresAt": "2026-10-31T10:27:07.5504375Z",\n  "countryCode": "DE",\n  "description": "Payment information for the booking",\n  "payerEmail": "user@email.com",\n  "returnUrl": "https://example.com/return"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment account to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingPayment-accountsBy-linkPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-linkPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingPayment-accountsBy-authorizationPost',
+		name: 'BookingPayment-accountsBy-authorizationPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-authorizationPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/payment-accounts/by-authorization',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingPayment-accountsBy-authorizationPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-authorizationPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL"\n  },\n  "transactionReference": "K9DTTJQD4HNG5S82"\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment account to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingPayment-accountsBy-authorizationPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-authorizationPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingPayment-accountsBy-Stored-Payment-methodPost',
+		name: 'BookingPayment-accountsBy-stored-payment-methodPost',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-stored-payment-methodPost'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'POST',
+				url: '/booking/v1/payment-accounts/by-stored-payment-method',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'BookingPayment-accountsBy-stored-payment-methodPost_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-stored-payment-methodPost'],
+			},
+		},
+		default:
+			'{\n  "target": {\n    "type": "Booking",\n    "id": "KYKXKLWL"\n  },\n  "payerReference": "4c5b0e9d-819e-481f-bc32-85068267e641",\n  "storedPaymentMethodId": "K9DTTJQD4HNG5S82",\n  "isVirtual": false,\n  "accountDetails": {\n    "accountNumber": "1111",\n    "accountHolder": "John Doe",\n    "expiryMonth": "8",\n    "expiryYear": "2018",\n    "paymentMethod": "visa",\n    "payerEmail": "john@example.com"\n  }\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder: 'The definition of the payment account to be created',
+		routing: {
+			request: {
+				method: 'POST',
+				body: '={{JSON.parse($parameter["BookingPayment-accountsBy-stored-payment-methodPost_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsBy-stored-payment-methodPost'],
+			},
+		},
+		options: [
+			{
+				displayName: 'IdempotencyKey',
+				name: 'Idempotency-Key',
+				type: 'string',
+				default: '',
+				description:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				placeholder:
+					"Unique key for safely retrying requests without accidentally performing the same operation twice. We'll always send back the same response for requests made with the same key, and keys can't be reused with different request parameters. Keys expire after 24 hours.",
+				routing: {
+					request: {
+						headers: {
+							'Idempotency-Key': '={{$value}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingPayment-accountsByIdGet',
+		name: 'BookingPayment-accountsByIdGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsByIdGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/booking/v1/payment-accounts/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'BookingPayment-accountsByIdGet_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsByIdGet'],
+			},
+		},
+		default: '',
+		description: 'The identifier of the payment account',
+		placeholder: 'The identifier of the payment account',
+		routing: {
+			request: {
+				method: 'GET',
+				url: '=/booking/v1/payment-accounts/{{$parameter["BookingPayment-accountsByIdGet_id"]}}',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsByIdGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'Expand',
+				name: 'expand',
+				type: 'string',
+				default: [],
+				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							expand: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingPayment-accountsGet',
+		name: 'BookingPayment-accountsGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/booking/v1/payment-accounts',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['PaymentAccount'],
+				operation: ['BookingPayment-accountsGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'BookingIds',
+				name: 'bookingIds',
+				type: 'string',
+				default: [],
+				description:
+					'Filter result by requested booking IDs. Returns payment accounts that are related to the specified booking or booking reservations. Use in combination with the Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.TargetTypes to get payment accounts related only to bookings or to reservations.',
+				placeholder:
+					'Filter result by requested booking IDs. Returns payment accounts that are related to the specified booking or booking reservations. Use in combination with the Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.TargetTypes to get payment accounts related only to bookings or to reservations.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							bookingIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'DateField',
+				name: 'dateField',
+				type: 'options',
+				default: 'Creation',
+				description:
+					'Filter result by date and time attributes of payment account. Use in combination with the Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To attributes. All filters will check if the date specified by the filter type is between Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From (included) and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To (excluded).',
+				placeholder:
+					'Filter result by date and time attributes of payment account. Use in combination with the Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To attributes. All filters will check if the date specified by the filter type is between Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From (included) and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To (excluded).',
+				options: [
+					{
+						name: 'Creation',
+						value: 'Creation',
+					},
+					{
+						name: 'Modification',
+						value: 'Modification',
+					},
+				],
+				routing: {
+					request: {
+						qs: {
+							dateField: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Expand',
+				name: 'expand',
+				type: 'string',
+				default: [],
+				description:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				placeholder:
+					'List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							expand: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'From',
+				name: 'from',
+				type: 'dateTime',
+				default: '',
+				description:
+					'The start of the time interval. When filtering by Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				placeholder:
+					'The start of the time interval. When filtering by Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+				routing: {
+					request: {
+						qs: {
+							from: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PageNumber',
+				name: 'pageNumber',
+				type: 'number',
+				default: 1,
+				description:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				placeholder:
+					'Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.',
+				routing: {
+					request: {
+						qs: {
+							pageNumber: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PageSize',
+				name: 'pageSize',
+				type: 'number',
+				default: '',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
+				routing: {
+					request: {
+						qs: {
+							pageSize: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PayerInteractions',
+				name: 'payerInteractions',
+				type: 'string',
+				default: [],
+				description: 'Filter result by payment account payer interactions',
+				placeholder: 'Filter result by payment account payer interactions',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							payerInteractions: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PaymentAccountIds',
+				name: 'paymentAccountIds',
+				type: 'string',
+				default: [],
+				description: 'Filter result by requested payment account IDs',
+				placeholder: 'Filter result by requested payment account IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							paymentAccountIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PaymentLinkUrls',
+				name: 'paymentLinkUrls',
+				type: 'string',
+				default: [],
+				description: 'Filter by payment link URLs',
+				placeholder: 'Filter by payment link urls',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							paymentLinkUrls: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PropertyIds',
+				name: 'propertyIds',
+				type: 'string',
+				default: [],
+				description: 'Filter result by requested properties',
+				placeholder: 'Filter result by requested properties',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							propertyIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'ReservationIds',
+				name: 'reservationIds',
+				type: 'string',
+				default: [],
+				description: 'Filter result by requested reservation IDs',
+				placeholder: 'Filter result by requested reservation IDs',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							reservationIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Sort',
+				name: 'sort',
+				type: 'string',
+				default: [],
+				description:
+					'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, updated:asc, updated:desc, expiresat:asc, expiresat:desc. All other values will be silently ignored.',
+				placeholder:
+					'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, updated:asc, updated:desc, expiresat:asc, expiresat:desc. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							sort: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Status',
+				name: 'status',
+				type: 'string',
+				default: [],
+				description: 'Filter result by payment account status',
+				placeholder: 'Filter result by payment account status',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							status: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'TargetTypes',
+				name: 'targetTypes',
+				type: 'string',
+				default: [],
+				description: 'Filter by target types',
+				placeholder: 'Filter by target types',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							targetTypes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'To',
+				name: 'to',
+				type: 'dateTime',
+				default: '',
+				description:
+					'The end of the time interval, must be larger than Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From. When filtering by Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				placeholder:
+					'The end of the time interval, must be larger than Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From. When filtering by Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.DateField, at least one of Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.From and Apaleo.Api.Modules.Booking.Models.PaymentAccountV2.PaymentAccountV2ListRequest.To has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+				routing: {
+					request: {
+						qs: {
+							to: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'BookingPayment-Account-actionsByPaymentAccountIdCancelPut',
+		name: 'BookingPayment-account-actionsByPaymentAccountIdCancelPut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccountActions'],
+				operation: ['BookingPayment-account-actionsByPaymentAccountIdCancelPut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/payment-account-actions/{paymentAccountId}/cancel',
+			},
+		},
+	},
+	{
+		displayName: 'PaymentAccountId',
+		name: 'BookingPayment-account-actionsByPaymentAccountIdCancelPut_paymentAccountId',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccountActions'],
+				operation: ['BookingPayment-account-actionsByPaymentAccountIdCancelPut'],
+			},
+		},
+		default: '',
+		description: 'The identifier of the payment account to cancel',
+		placeholder: 'The identifier of the payment account to cancel',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/booking/v1/payment-account-actions/{{$parameter["BookingPayment-account-actionsByPaymentAccountIdCancelPut_paymentAccountId"]}}/cancel',
+			},
+		},
+	},
+	{
+		displayName: 'BookingPayment-Account-actionsByPaymentAccountIdExpire-Payment-linkPut',
+		name: 'BookingPayment-account-actionsByPaymentAccountIdExpire-payment-linkPut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccountActions'],
+				operation: ['BookingPayment-account-actionsByPaymentAccountIdExpire-payment-linkPut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/payment-account-actions/{paymentAccountId}/expire-payment-link',
+			},
+		},
+	},
+	{
+		displayName: 'PaymentAccountId',
+		name: 'BookingPayment-account-actionsByPaymentAccountIdExpire-payment-linkPut_paymentAccountId',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['PaymentAccountActions'],
+				operation: ['BookingPayment-account-actionsByPaymentAccountIdExpire-payment-linkPut'],
+			},
+		},
+		default: '',
+		description: 'The identifier of the payment account with the payment link to expire',
+		placeholder: 'The identifier of the payment account with the payment link to expire',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/booking/v1/payment-account-actions/{{$parameter["BookingPayment-account-actionsByPaymentAccountIdExpire-payment-linkPut_paymentAccountId"]}}/expire-payment-link',
+			},
+		},
 	},
 	{
 		displayName: 'BookingReservationsGet',
@@ -4113,9 +6199,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					"Whether to return only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+					"Whether to return only reservations, in which all folios are closed and have an invoice. If set to 'false', returns only reservations, in which some of the folios are open or don't have an invoice.",
 				placeholder:
-					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
+					"If set to 'true', returns only reservations, in which all folios are closed and have an invoice. If set to 'false', returns only reservations, in which some of the folios are open or don't have an invoice",
 				routing: {
 					request: {
 						qs: {
@@ -4327,13 +6413,30 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
 					request: {
 						qs: {
 							from: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'HasActivePaymentAccount',
+				name: 'hasActivePaymentAccount',
+				type: 'boolean',
+				default: false,
+				description:
+					"Whether to return only the reservations with an active payment account. If set to 'false', returns only the reservations without an active payment account.",
+				placeholder:
+					"If set to 'true', returns only the reservations with an active payment account. If set to 'false', returns only the reservations without an active payment account.",
+				routing: {
+					request: {
+						qs: {
+							hasActivePaymentAccount: '={{$value}}',
 						},
 					},
 				},
@@ -4344,9 +6447,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether to return only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+					"Whether to return only the reservations marked as pre-checked-in. If set to 'false', returns only the reservations not marked as pre-checked-in.",
 				placeholder:
-					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+					"If set to 'true', returns only the reservations marked as pre-checked-in. If set to 'false', returns only the reservations not marked as pre-checked-in.",
 				routing: {
 					request: {
 						qs: {
@@ -4395,8 +6498,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -4503,9 +6606,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name.',
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name - Group name.',
 				placeholder:
-					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name - Group name',
 				routing: {
 					request: {
 						qs: {
@@ -4520,9 +6623,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
 					request: {
 						qs: {
@@ -4643,9 +6746,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					"Whether to return only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
+					"Whether to return only reservations, in which all folios are closed and have an invoice. If set to 'false', returns only reservations, in which some of the folios are open or don't have an invoice.",
 				placeholder:
-					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
+					"If set to 'true', returns only reservations, in which all folios are closed and have an invoice. If set to 'false', returns only reservations, in which some of the folios are open or don't have an invoice",
 				routing: {
 					request: {
 						qs: {
@@ -4837,13 +6940,30 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
-					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
 					request: {
 						qs: {
 							from: '={{$value ? new Date($value).toISOString().replace(/\\.\\d{3}Z$/, "Z") : ""}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'HasActivePaymentAccount',
+				name: 'hasActivePaymentAccount',
+				type: 'boolean',
+				default: false,
+				description:
+					"Whether to return only the reservations with an active payment account. If set to 'false', returns only the reservations without an active payment account.",
+				placeholder:
+					"If set to 'true', returns only the reservations with an active payment account. If set to 'false', returns only the reservations without an active payment account.",
+				routing: {
+					request: {
+						qs: {
+							hasActivePaymentAccount: '={{$value}}',
 						},
 					},
 				},
@@ -4854,9 +6974,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether to return only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+					"Whether to return only the reservations marked as pre-checked-in. If set to 'false', returns only the reservations not marked as pre-checked-in.",
 				placeholder:
-					'If set to `true`, returns only the reservations marked as pre-checked-in. If set to `false`, returns only the reservations not marked as pre-checked-in.',
+					"If set to 'true', returns only the reservations marked as pre-checked-in. If set to 'false', returns only the reservations not marked as pre-checked-in.",
 				routing: {
 					request: {
 						qs: {
@@ -4961,9 +7081,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name.',
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name - Group name.',
 				placeholder:
-					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name - Group name',
 				routing: {
 					request: {
 						qs: {
@@ -4978,9 +7098,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
-					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
 					request: {
 						qs: {
@@ -5281,9 +7401,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'Date and optional time of arrival Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Date and optional time of arrival Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -5325,6 +7445,10 @@ export const parameterFields: INodeProperties[] = [
 						value: 'Expedia',
 					},
 					{
+						name: 'Gimsi',
+						value: 'Gimsi',
+					},
+					{
 						name: 'Homelike',
 						value: 'Homelike',
 					},
@@ -5364,14 +7488,29 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 			{
+				displayName: 'CorporateCode',
+				name: 'corporateCode',
+				type: 'string',
+				default: '',
+				description: 'The code associated with a corporate rate',
+				placeholder: 'The code associated with a corporate rate',
+				routing: {
+					request: {
+						qs: {
+							corporateCode: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
 				displayName: 'Departure',
 				name: 'departure',
 				type: 'string',
 				default: '',
 				description:
-					'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Date and optional time of departure. Cannot be more than 5 years after arrival. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -5534,6 +7673,10 @@ export const parameterFields: INodeProperties[] = [
 					{
 						name: 'Expedia',
 						value: 'Expedia',
+					},
+					{
+						name: 'Gimsi',
+						value: 'Gimsi',
 					},
 					{
 						name: 'Homelike',
@@ -5854,9 +7997,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					"The start date and optional time for the unit assignment. If not specified, the reservation's arrival will be used. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The start date and optional time for the unit assignment. If not specified, the reservation's arrival will be used. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				placeholder:
-					"The start date and optional time for the unit assignment. If not specified, the reservation's arrival will be used. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The start date and optional time for the unit assignment. If not specified, the reservation's arrival will be used. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
 					request: {
 						qs: {
@@ -5888,9 +8031,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					"The end date and optional time for the unit assignment. If not specified, the reservation's departure will be used. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The end date and optional time for the unit assignment. If not specified, the reservation's departure will be used. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				placeholder:
-					"The end date and optional time for the unit assignment. If not specified, the reservation's departure will be used. Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
+					"The end date and optional time for the unit assignment. If not specified, the reservation's departure will be used. Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
 					request: {
 						qs: {
@@ -6002,7 +8145,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether city tax should be added for this reservation. The default is "true".',
+					'Whether city tax should be added for this reservation or not. The default is "true".',
 				placeholder:
 					'Define if city tax should be added for this reservation or not. The default is "true".',
 				routing: {
@@ -6233,7 +8376,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "arrival": "2026-01-16T17:00:00+01:00",\n  "departure": "2026-01-18T11:00:00+01:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+			'{\n  "arrival": "2026-10-31T17:00:00+01:00",\n  "departure": "2026-11-02T11:00:00+01:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The new stay details that should be applied to the reservation.',
 		routing: {
@@ -6300,7 +8443,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "arrival": "2026-01-16T17:00:00+01:00",\n  "departure": "2026-01-18T11:00:00+01:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
+			'{\n  "arrival": "2026-10-31T17:00:00+01:00",\n  "departure": "2026-11-02T11:00:00+01:00",\n  "adults": 1,\n  "childrenAges": [\n    6\n  ],\n  "requote": false,\n  "timeSlices": [\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 86,\n        "currency": "EUR"\n      }\n    },\n    {\n      "ratePlanId": "MUC-NONREF-DBL",\n      "totalGrossAmount": {\n        "amount": 101,\n        "currency": "EUR"\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The new stay details that should be applied to the reservation.',
 		routing: {
@@ -6367,7 +8510,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2026-01-14",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2026-01-15"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2026-10-29",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2026-10-30"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The body parameter',
 		routing: {
@@ -6434,7 +8577,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2026-01-14",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2026-01-15"\n    }\n  ]\n}',
+			'{\n  "serviceId": "MUC-SPA",\n  "dates": [\n    {\n      "serviceDate": "2026-10-29",\n      "amount": {\n        "amount": 25,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceDate": "2026-10-30"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The body parameter',
 		routing: {
@@ -6526,6 +8669,88 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'PUT',
 				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdAdd-city-taxPut_id"]}}/add-city-tax',
+			},
+		},
+	},
+	{
+		displayName: 'BookingReservation-actionsByIdLock-unitPut',
+		name: 'BookingReservation-actionsByIdLock-unitPut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
+				operation: ['BookingReservation-actionsByIdLock-unitPut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/reservation-actions/{id}/lock-unit',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'BookingReservation-actionsByIdLock-unitPut_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
+				operation: ['BookingReservation-actionsByIdLock-unitPut'],
+			},
+		},
+		default: '',
+		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdLock-unitPut_id"]}}/lock-unit',
+			},
+		},
+	},
+	{
+		displayName: 'BookingReservation-actionsByIdUnlock-unitPut',
+		name: 'BookingReservation-actionsByIdUnlock-unitPut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
+				operation: ['BookingReservation-actionsByIdUnlock-unitPut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/booking/v1/reservation-actions/{id}/unlock-unit',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'BookingReservation-actionsByIdUnlock-unitPut_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['booking-v1'],
+				resource: ['ReservationActions'],
+				operation: ['BookingReservation-actionsByIdUnlock-unitPut'],
+			},
+		},
+		default: '',
+		description: 'ID of the reservation',
+		placeholder: 'ID of the reservation',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/booking/v1/reservation-actions/{{$parameter["BookingReservation-actionsByIdUnlock-unitPut_id"]}}/unlock-unit',
 			},
 		},
 	},
@@ -6660,8 +8885,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -6780,23 +9005,6 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 			{
-				displayName: 'CheckedOutOnAccountsReceivable',
-				name: 'checkedOutOnAccountsReceivable',
-				type: 'boolean',
-				default: false,
-				description:
-					'Whether to only return folios that have been checked out on accounts receivables Otherwise, returns all',
-				placeholder:
-					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all.',
-				routing: {
-					request: {
-						qs: {
-							checkedOutOnAccountsReceivable: '={{$value}}',
-						},
-					},
-				},
-			},
-			{
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
@@ -6820,9 +9028,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -6838,9 +9046,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -6858,7 +9066,7 @@ export const parameterFields: INodeProperties[] = [
 				description:
 					'Whether closed folios are filtered out from the result collection - DEPRECATED: This field will be removed soon. Please use Status=Open instead.',
 				placeholder:
-					'If set to `true`, closed folios are filtered out from the result collection - DEPRECATED: This field will be removed soon. Please use Status=Open instead.',
+					"If set to 'true', closed folios are filtered out from the result collection - DEPRECATED: This field will be removed soon. Please use Status=Open instead.",
 				routing: {
 					request: {
 						qs: {
@@ -6910,9 +9118,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether only folios with invoices are returned. If set to `false`, only folios without invoices are returned. If omitted/`null`, all folios are returned.',
+					"Whether only folios with invoices are returned. If set to 'false', only folios without invoices are returned. If omitted/'null', all folios are returned.",
 				placeholder:
-					'If set to `true`, only folios with invoices are returned. If set to `false`, only folios without invoices are returned. If omitted/`null`, all folios are returned.',
+					"If set to 'true', only folios with invoices are returned. If set to 'false', only folios without invoices are returned. If omitted/'null', all folios are returned.",
 				routing: {
 					request: {
 						qs: {
@@ -6927,9 +9135,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+					"Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to 'false', only return non-empty folios.",
 				placeholder:
-					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
+					"If set to 'true', only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to 'false', only return non-empty folios",
 				routing: {
 					request: {
 						qs: {
@@ -6944,7 +9152,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description: 'Whether only main folios are returned, otherwise all',
-				placeholder: 'If set to `true`, only main folios are returned, otherwise all.',
+				placeholder: "If set to 'true', only main folios are returned, otherwise all.",
 				routing: {
 					request: {
 						qs: {
@@ -6975,8 +9183,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -7017,6 +9225,26 @@ export const parameterFields: INodeProperties[] = [
 					request: {
 						qs: {
 							reservationIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Sort',
+				name: 'sort',
+				type: 'string',
+				default: [],
+				description:
+					'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, balance:asc, balance:desc. All other values will be silently ignored.',
+				placeholder:
+					'List of all fields that can be used to sort the results. Possible values are: created:asc, created:desc, balance:asc, balance:desc. All other values will be silently ignored.',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							sort: "={{$value.join(',')}}",
 						},
 					},
 				},
@@ -7102,9 +9330,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -7120,9 +9348,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -7166,7 +9394,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "reservationId": "TS23XF",\n  "debitor": {\n    "title": "Dr",\n    "firstName": "Jon",\n    "name": "Doe",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    },\n    "company": {\n      "name": "Horns & Hooves Inc",\n      "taxId": "TAX-12345",\n      "additionalTaxId": "TAX2-12345",\n      "additionalTaxId2": "TAX3-12345"\n    },\n    "personalTaxId": "123456789",\n    "reference": "SRC-1232",\n    "phone": "123456789"\n  },\n  "type": "Guest"\n}',
+			'{\n  "reservationId": "TS23XF",\n  "debitor": {\n    "title": "Dr",\n    "firstName": "Jon",\n    "name": "Doe",\n    "address": {\n      "addressLine1": "My Street 1",\n      "postalCode": "12453",\n      "city": "MyCity",\n      "countryCode": "GB"\n    },\n    "company": {\n      "name": "Horns & Hooves Inc",\n      "taxId": "TAX-12345",\n      "additionalTaxId": "TAX2-12345",\n      "additionalTaxId2": "TAX3-12345",\n      "invoiceNetworkIdentity": {\n        "network": "Peppol",\n        "id": "0208:123456789"\n      }\n    },\n    "personalTaxId": "123456789",\n    "reference": "SRC-1232",\n    "phone": "123456789"\n  },\n  "type": "Guest"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the folio.',
 		routing: {
@@ -7282,23 +9510,6 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 			{
-				displayName: 'CheckedOutOnAccountsReceivable',
-				name: 'checkedOutOnAccountsReceivable',
-				type: 'boolean',
-				default: false,
-				description:
-					'Whether to only return folios that have been checked out on accounts receivables Otherwise, returns all',
-				placeholder:
-					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all.',
-				routing: {
-					request: {
-						qs: {
-							checkedOutOnAccountsReceivable: '={{$value}}',
-						},
-					},
-				},
-			},
-			{
 				displayName: 'CompanyIds',
 				name: 'companyIds',
 				type: 'string',
@@ -7322,9 +9533,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -7340,9 +9551,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -7360,7 +9571,7 @@ export const parameterFields: INodeProperties[] = [
 				description:
 					'Whether closed folios are filtered out from the result collection - DEPRECATED: This field will be removed soon. Please use Status=Open instead.',
 				placeholder:
-					'If set to `true`, closed folios are filtered out from the result collection - DEPRECATED: This field will be removed soon. Please use Status=Open instead.',
+					"If set to 'true', closed folios are filtered out from the result collection - DEPRECATED: This field will be removed soon. Please use Status=Open instead.",
 				routing: {
 					request: {
 						qs: {
@@ -7392,9 +9603,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether only folios with invoices are returned. If set to `false`, only folios without invoices are returned. If omitted/`null`, all folios are returned.',
+					"Whether only folios with invoices are returned. If set to 'false', only folios without invoices are returned. If omitted/'null', all folios are returned.",
 				placeholder:
-					'If set to `true`, only folios with invoices are returned. If set to `false`, only folios without invoices are returned. If omitted/`null`, all folios are returned.',
+					"If set to 'true', only folios with invoices are returned. If set to 'false', only folios without invoices are returned. If omitted/'null', all folios are returned.",
 				routing: {
 					request: {
 						qs: {
@@ -7409,9 +9620,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+					"Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to 'false', only return non-empty folios.",
 				placeholder:
-					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
+					"If set to 'true', only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to 'false', only return non-empty folios",
 				routing: {
 					request: {
 						qs: {
@@ -7426,7 +9637,7 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description: 'Whether only main folios are returned, otherwise all',
-				placeholder: 'If set to `true`, only main folios are returned, otherwise all.',
+				placeholder: "If set to 'true', only main folios are returned, otherwise all.",
 				routing: {
 					request: {
 						qs: {
@@ -7552,9 +9763,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -7570,9 +9781,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
-					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -9284,8 +11495,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -9763,7 +11974,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 200\n    }\n  ]\n}',
+			'{\n  "paymentAccountId": "UBMFXUFH",\n  "amount": {\n    "amount": 230,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 200\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the payment.',
 		routing: {
@@ -9862,7 +12073,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "expiresAt": "2026-01-16T15:39:24.02364Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
+			'{\n  "expiresAt": "2026-10-31T10:27:08.6445904Z",\n  "countryCode": "de",\n  "description": "Prepayment for the group booking apaleo Summer party",\n  "payerEmail": "0chai@hemenal5.space",\n  "returnUrl": "https://example.com/return",\n  "amount": {\n    "amount": 150,\n    "currency": "EUR"\n  },\n  "paidCharges": [\n    {\n      "chargeId": "BLIPKWXP-1-1-1",\n      "amount": 230\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the payment link.',
 		routing: {
@@ -10046,8 +12257,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -10130,7 +12341,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2026-01-14",\n  "reason": "Refund for the cancelled service"\n}',
+			'{\n  "method": "Cash",\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "receipt": "CSH-201824120003",\n  "businessDate": "2026-10-29",\n  "reason": "Refund for the cancelled service"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the refund.',
 		routing: {
@@ -10314,7 +12525,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2026-01-14",\n  "reason": "Refund for the cancelled service"\n}',
+			'{\n  "amount": {\n    "amount": 10,\n    "currency": "EUR"\n  },\n  "businessDate": "2026-10-29",\n  "reason": "Refund for the cancelled service"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the refund.',
 		routing: {
@@ -10562,7 +12773,7 @@ export const parameterFields: INodeProperties[] = [
 				description:
 					'Whether to only return invoices with an open balance (AR) Otherwise, returns all',
 				placeholder:
-					'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all.',
+					"If set to 'true', only return invoices with an open balance (AR) Otherwise, returns all.",
 				routing: {
 					request: {
 						qs: {
@@ -10721,8 +12932,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -10737,9 +12948,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'boolean',
 				default: false,
 				description:
-					'Whether to return only invoices having no outstanding payments or marked as settled. If set to `false`, returns only invoices with outstanding payment and not marked as settled. If not set, returns all invoices. - DEPRECATED: This field will be removed at 25.06.2022. Use filtering by `Status` instead',
+					"Whether to return only invoices having no outstanding payments or marked as settled. If set to 'false', returns only invoices with outstanding payment and not marked as settled. If not set, returns all invoices. - DEPRECATED: This field will be removed at 25.06.2022. Use filtering by 'Status' instead",
 				placeholder:
-					'If set to `true`, returns only invoices having no outstanding payments or marked as settled. If set to `false`, returns only invoices with outstanding payment and not marked as settled. If not set, returns all invoices. - DEPRECATED: This field will be removed at 25.06.2022. Use filtering by `Status` instead',
+					"If set to 'true', returns only invoices having no outstanding payments or marked as settled. If set to 'false', returns only invoices with outstanding payment and not marked as settled. If not set, returns all invoices. - DEPRECATED: This field will be removed at 25.06.2022. Use filtering by 'Status' instead",
 				routing: {
 					request: {
 						qs: {
@@ -10772,9 +12983,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'options',
 				default: 'Company',
 				description:
-					'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
+					"If nothing is set, invoices addressed both companies and individuals will be returned. If set to 'Person', invoices that addressed to individuals will be returned. If set to 'Company', invoice that addressed to companies will be returned.",
 				placeholder:
-					'If nothing is set, invoices addressed both companies and individuals will be returned. If set to `Person`, invoices that addressed to individuals will be returned. If set to `Company`, invoice that addressed to companies will be returned.',
+					"If nothing is set, invoices addressed both companies and individuals will be returned. If set to 'Person', invoices that addressed to individuals will be returned. If set to 'Company', invoice that addressed to companies will be returned.",
 				options: [
 					{
 						name: 'Company',
@@ -11330,6 +13541,10 @@ export const parameterFields: INodeProperties[] = [
 						value: 'CityTaxes',
 					},
 					{
+						name: 'GuestLevies',
+						value: 'GuestLevies',
+					},
+					{
 						name: 'House',
 						value: 'House',
 					},
@@ -11592,6 +13807,10 @@ export const parameterFields: INodeProperties[] = [
 						value: 'CityTaxes',
 					},
 					{
+						name: 'GuestLevies',
+						value: 'GuestLevies',
+					},
+					{
 						name: 'House',
 						value: 'House',
 					},
@@ -11748,9 +13967,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11774,9 +13993,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'POST',
@@ -11856,6 +14075,10 @@ export const parameterFields: INodeProperties[] = [
 					{
 						name: 'CityTaxes',
 						value: 'CityTaxes',
+					},
+					{
+						name: 'GuestLevies',
+						value: 'GuestLevies',
 					},
 					{
 						name: 'House',
@@ -11997,9 +14220,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The inclusive start time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'POST',
@@ -12023,9 +14246,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		placeholder:
-			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The exclusive end time of the posting date. Either posting date or business date interval should be specified. A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'POST',
@@ -12105,6 +14328,10 @@ export const parameterFields: INodeProperties[] = [
 					{
 						name: 'CityTaxes',
 						value: 'CityTaxes',
+					},
+					{
+						name: 'GuestLevies',
+						value: 'GuestLevies',
 					},
 					{
 						name: 'House',
@@ -12350,6 +14577,10 @@ export const parameterFields: INodeProperties[] = [
 					{
 						name: 'CityTaxes',
 						value: 'CityTaxes',
+					},
+					{
+						name: 'GuestLevies',
+						value: 'GuestLevies',
 					},
 					{
 						name: 'House',
@@ -12911,8 +15142,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -13040,8 +15271,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -13184,8 +15415,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -13526,8 +15757,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -13780,8 +16011,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -13886,6 +16117,66 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 		],
+	},
+	{
+		displayName: 'InventoryProperties$countGet',
+		name: 'InventoryProperties$countGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
+				operation: ['InventoryProperties$countGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/properties/$count',
+			},
+		},
+	},
+	{
+		displayName: 'InventoryPropertiesByIdHead',
+		name: 'InventoryPropertiesByIdHead',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
+				operation: ['InventoryPropertiesByIdHead'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '/inventory/v1/properties/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'InventoryPropertiesByIdHead_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['inventory-v1'],
+				resource: ['Property'],
+				operation: ['InventoryPropertiesByIdHead'],
+			},
+		},
+		default: '',
+		description: 'The ID of the property',
+		placeholder: 'The ID of the property.',
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '=/inventory/v1/properties/{{$parameter["InventoryPropertiesByIdHead_id"]}}',
+			},
+		},
 	},
 	{
 		displayName: 'InventoryPropertiesByIdGet',
@@ -14049,6 +16340,25 @@ export const parameterFields: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'InventoryTypesCountriesGet',
+		name: 'InventoryTypesCountriesGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['inventory-v1'],
+				resource: ['Types'],
+				operation: ['InventoryTypesCountriesGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/inventory/v1/types/countries',
+			},
+		},
+	},
+	{
 		displayName: 'InventoryUnitsByIdPatch',
 		name: 'InventoryUnitsByIdPatch',
 		type: 'hidden',
@@ -14175,9 +16485,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: [],
 				description:
-					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits, actions. All other values will be silently ignored.',
 				placeholder:
-					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits, actions. All other values will be silently ignored.',
 				typeOptions: {
 					multipleValues: true,
 				},
@@ -14430,9 +16740,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: [],
 				description:
-					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits, actions. All other values will be silently ignored.',
 				placeholder:
-					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.',
+					'List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits, actions. All other values will be silently ignored.',
 				typeOptions: {
 					multipleValues: true,
 				},
@@ -14510,8 +16820,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -14531,6 +16841,35 @@ export const parameterFields: INodeProperties[] = [
 					request: {
 						qs: {
 							propertyId: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'Status',
+				name: 'status',
+				type: 'options',
+				default: 'Active',
+				description: 'Return active units, archived units, or all units. Defaults to active.',
+				placeholder: 'Return active units, archived units, or all units. Defaults to active.',
+				options: [
+					{
+						name: 'Active',
+						value: 'Active',
+					},
+					{
+						name: 'All',
+						value: 'All',
+					},
+					{
+						name: 'Archived',
+						value: 'Archived',
+					},
+				],
+				routing: {
+					request: {
+						qs: {
+							status: '={{$value}}',
 						},
 					},
 				},
@@ -14576,9 +16915,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead.',
+					"Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use 'UnitGroupIds' instead.",
 				placeholder:
-					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead',
+					"Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use 'UnitGroupIds' instead",
 				routing: {
 					request: {
 						qs: {
@@ -14805,6 +17144,35 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 			{
+				displayName: 'Status',
+				name: 'status',
+				type: 'options',
+				default: 'Active',
+				description: 'Return active units, archived units, or all units. Defaults to active.',
+				placeholder: 'Return active units, archived units, or all units. Defaults to active.',
+				options: [
+					{
+						name: 'Active',
+						value: 'Active',
+					},
+					{
+						name: 'All',
+						value: 'All',
+					},
+					{
+						name: 'Archived',
+						value: 'Archived',
+					},
+				],
+				routing: {
+					request: {
+						qs: {
+							status: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
 				displayName: 'TextSearch',
 				name: 'textSearch',
 				type: 'string',
@@ -14845,9 +17213,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead.',
+					"Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use 'UnitGroupIds' instead.",
 				placeholder:
-					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead',
+					"Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use 'UnitGroupIds' instead",
 				routing: {
 					request: {
 						qs: {
@@ -15156,8 +17524,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -15395,8 +17763,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -15841,8 +18209,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -16037,8 +18405,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -16159,8 +18527,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -16299,8 +18667,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -16423,9 +18791,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'Filter all maintenance windows that end after the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that end after the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'Filter all maintenance windows that end after the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that end after the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -16456,8 +18824,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -16487,9 +18855,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'Filter all maintenance windows that start before the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that start before the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'Filter all maintenance windows that start before the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that start before the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -16565,7 +18933,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "unitId": "MUC-JQI",\n  "from": "2026-01-14T16:39:24+01:00",\n  "to": "2026-01-16T16:39:24+01:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
+			'{\n  "unitId": "MUC-JQI",\n  "from": "2026-10-29T11:23:40+01:00",\n  "to": "2026-10-31T11:23:40+01:00",\n  "type": "OutOfService",\n  "description": "The remote control for the TV needs to be replaced."\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the maintenance.',
 		routing: {
@@ -16648,9 +19016,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'Filter all maintenance windows that end after the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that end after the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'Filter all maintenance windows that end after the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that end after the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -16680,9 +19048,9 @@ export const parameterFields: INodeProperties[] = [
 				type: 'dateTime',
 				default: '',
 				description:
-					'Filter all maintenance windows that start before the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that start before the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				placeholder:
-					'Filter all maintenance windows that start before the specified date and time A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+					'Filter all maintenance windows that start before the specified date and time A date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
 					request: {
 						qs: {
@@ -16758,7 +19126,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2026-01-14T16:39:24+01:00",\n      "to": "2026-01-16T16:39:24+01:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2026-01-14T16:39:24+01:00",\n      "to": "2026-01-16T16:39:24+01:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
+			'{\n  "maintenances": [\n    {\n      "unitId": "MUC-JQI",\n      "from": "2026-10-29T11:23:40+01:00",\n      "to": "2026-10-31T11:23:40+01:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    },\n    {\n      "unitId": "MUC-MTA",\n      "from": "2026-10-29T11:23:40+01:00",\n      "to": "2026-10-31T11:23:40+01:00",\n      "type": "OutOfService",\n      "description": "The remote control for the TV needs to be replaced."\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the maintenances.',
 		routing: {
@@ -17540,8 +19908,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -17740,7 +20108,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "code": "UMBRELLA",\n  "propertyId": "MUC",\n  "name": "Umbrella Corp.",\n  "invoicingEmail": "umbrella@corp.com",\n  "taxId": "Tax 123456",\n  "additionalTaxId": "123456789",\n  "address": {\n    "addressLine1": "Marienplatz 1",\n    "postalCode": "80331",\n    "city": "München",\n    "countryCode": "DE"\n  },\n  "canCheckOutOnAr": true,\n  "ratePlans": [\n    {\n      "id": "MUC-DBL",\n      "corporateCode": "UMBRELLAINC"\n    }\n  ]\n}',
+			'{\n  "code": "UMBRELLA",\n  "propertyId": "MUC",\n  "name": "Umbrella Corp.",\n  "invoicingEmail": "umbrella@corp.com",\n  "taxId": "Tax 123456",\n  "additionalTaxId": "123456789",\n  "additionalTaxId2": "987654321",\n  "invoiceNetworkIdentity": {\n    "network": "Peppol",\n    "id": "0208:123456789"\n  },\n  "address": {\n    "addressLine1": "Marienplatz 1",\n    "postalCode": "80331",\n    "city": "München",\n    "countryCode": "DE"\n  },\n  "canCheckOutOnAr": true,\n  "ratePlans": [\n    {\n      "id": "MUC-DBL",\n      "corporateCode": "UMBRELLAINC"\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the company.',
 		routing: {
@@ -17857,8 +20225,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -18081,8 +20449,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -18239,8 +20607,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -18461,8 +20829,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -18543,9 +20911,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18569,9 +20937,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'GET',
@@ -18616,8 +20984,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -18682,7 +21050,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "rates": [\n    {\n      "from": "2026-01-14T17:00:00+01:00",\n      "to": "2026-01-15T11:00:00+01:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
+			'{\n  "rates": [\n    {\n      "from": "2026-10-29T17:00:00+01:00",\n      "to": "2026-10-30T11:00:00+01:00",\n      "price": {\n        "amount": 123.5,\n        "currency": "EUR"\n      },\n      "restrictions": {\n        "minLengthOfStay": 1,\n        "maxLengthOfStay": 30,\n        "closed": false,\n        "closedOnArrival": true,\n        "closedOnDeparture": true\n      }\n    }\n  ]\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the rates.',
 		routing: {
@@ -18691,6 +21059,167 @@ export const parameterFields: INodeProperties[] = [
 				body: '={{JSON.parse($parameter["RateplanRate-plansByIdRatesPut_body"])}}',
 				headers: {
 					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'RateplanRate-plansByIdRatesPatch',
+		name: 'RateplanRate-plansByIdRatesPatch',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
+				operation: ['RateplanRate-plansByIdRatesPatch'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PATCH',
+				url: '/rateplan/v1/rate-plans/{id}/rates',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'RateplanRate-plansByIdRatesPatch_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
+				operation: ['RateplanRate-plansByIdRatesPatch'],
+			},
+		},
+		default: '',
+		description: 'The ID of the rate plan',
+		placeholder: 'The ID of the rate plan.',
+		routing: {
+			request: {
+				method: 'PATCH',
+				url: '=/rateplan/v1/rate-plans/{{$parameter["RateplanRate-plansByIdRatesPatch_id"]}}/rates',
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'RateplanRate-plansByIdRatesPatch_body',
+		type: 'json',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
+				operation: ['RateplanRate-plansByIdRatesPatch'],
+			},
+		},
+		default:
+			'{\n  "rates": [\n    {\n      "from": "2026-10-29",\n      "to": "2026-10-30",\n      "weekDays": [\n        "Monday",\n        "Wednesday"\n      ],\n      "operations": [\n        {\n          "value": {\n            "amount": 25,\n            "currency": "EUR"\n          },\n          "path": "/price",\n          "op": "replace"\n        },\n        {\n          "value": true,\n          "path": "restrictions/closedOnArrival",\n          "op": "replace"\n        }\n      ]\n    }\n  ]\n}',
+		description: 'Request body (JSON format). See API documentation for the expected schema.',
+		placeholder:
+			'Define the list of operations to be applied to the resource. Learn more about JSON Patch here: http://jsonpatch.com/.',
+		routing: {
+			request: {
+				method: 'PATCH',
+				body: '={{JSON.parse($parameter["RateplanRate-plansByIdRatesPatch_body"])}}',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'RateplanRate-plansByIdRates$countGet',
+		name: 'RateplanRate-plansByIdRates$countGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
+				operation: ['RateplanRate-plansByIdRates$countGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans/{id}/rates/$count',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'RateplanRate-plansByIdRates$countGet_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
+				operation: ['RateplanRate-plansByIdRates$countGet'],
+			},
+		},
+		default: '',
+		description: 'The ID of the rate plan',
+		placeholder: 'The ID of the rate plan.',
+		routing: {
+			request: {
+				method: 'GET',
+				url: '=/rateplan/v1/rate-plans/{{$parameter["RateplanRate-plansByIdRates$countGet_id"]}}/rates/$count',
+			},
+		},
+	},
+	{
+		displayName: 'From',
+		name: 'RateplanRate-plansByIdRates$countGet_from',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
+				operation: ['RateplanRate-plansByIdRates$countGet'],
+			},
+		},
+		default: '',
+		description:
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+		placeholder:
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+		routing: {
+			request: {
+				method: 'GET',
+				qs: {
+					from: '={{$parameter["RateplanRate-plansByIdRates$countGet_from"]}}',
+				},
+			},
+		},
+	},
+	{
+		displayName: 'To',
+		name: 'RateplanRate-plansByIdRates$countGet_to',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Rate'],
+				operation: ['RateplanRate-plansByIdRates$countGet'],
+			},
+		},
+		default: '',
+		description:
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+		placeholder:
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+		routing: {
+			request: {
+				method: 'GET',
+				qs: {
+					to: '={{$parameter["RateplanRate-plansByIdRates$countGet_to"]}}',
 				},
 			},
 		},
@@ -18755,9 +21284,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
-			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -18781,9 +21310,9 @@ export const parameterFields: INodeProperties[] = [
 		},
 		default: '',
 		description:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
-			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
 			request: {
 				method: 'PATCH',
@@ -19104,8 +21633,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -19278,7 +21807,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2026-01-07T15:33:48.5100326+01:00",\n      "to": "2026-01-21T15:33:48.5100326+01:00"\n    },\n    {\n      "from": "2026-01-24T15:33:48.5100326+01:00",\n      "to": "2026-03-15T15:33:48.5100326+01:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
+			'{\n  "code": "NONREF",\n  "propertyId": "MUC",\n  "unitGroupId": "MUC-DBL",\n  "cancellationPolicyId": "MUC-FLE",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "promoCodes": [\n    "APA55100",\n    "DISCOUNT20"\n  ],\n  "isSubjectToCityTax": true,\n  "timeSliceDefinitionId": "MUC-NIGHT",\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "bookingPeriods": [\n    {\n      "from": "2026-10-22T11:27:07.3228196+01:00",\n      "to": "2026-11-05T11:27:07.3228196+01:00"\n    },\n    {\n      "from": "2026-11-08T11:27:07.3228196+01:00",\n      "to": "2026-12-28T11:27:07.3228196+01:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Absolute",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 20\n        }\n      ]\n    }\n  ],\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "accountingConfigs": [\n    {\n      "state": "Unknown",\n      "vatType": "Normal",\n      "serviceType": "FoodAndBeverages",\n      "subAccountId": "ALCO",\n      "validFrom": "2021-01-01"\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the rate plan.',
 		routing: {
@@ -19392,6 +21921,387 @@ export const parameterFields: INodeProperties[] = [
 				headers: {
 					'Content-Type': 'application/json',
 				},
+			},
+		},
+	},
+	{
+		displayName: 'RateplanRate-plans$countGet',
+		name: 'RateplanRate-plans$countGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
+				operation: ['RateplanRate-plans$countGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/rate-plans/$count',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['RatePlan'],
+				operation: ['RateplanRate-plans$countGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'BaseRatePlanIds',
+				name: 'baseRatePlanIds',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans derived from any of the specified rate plans',
+				placeholder: 'Return rate plans derived from any of the specified rate plans',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							baseRatePlanIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'CancellationPolicyIds',
+				name: 'cancellationPolicyIds',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans with any of the specified cancellation policies',
+				placeholder: 'Return rate plans with any of the specified cancellation policies',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							cancellationPolicyIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'ChannelCodes',
+				name: 'channelCodes',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans that are sold though any of the specified channels',
+				placeholder: 'Return rate plans that are sold though any of the specified channels',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							channelCodes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'CompanyIds',
+				name: 'companyIds',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans filtered by requested companies',
+				placeholder: 'Return rate plans filtered by requested companies',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							companyIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'DerivationLevelFilter',
+				name: 'derivationLevelFilter',
+				type: 'string',
+				default: [],
+				description:
+					"This will filter rate plans based on their derivation level. You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
+				placeholder:
+					"This will filter rate plans based on their derivation level. You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							derivationLevelFilter: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'IncludeArchived',
+				name: 'includeArchived',
+				type: 'boolean',
+				default: false,
+				description: 'Whether to return archived rate plans. Defaults to false.',
+				placeholder: 'Return archived rate plans. Defaults to false',
+				routing: {
+					request: {
+						qs: {
+							includeArchived: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'IncludedServiceIds',
+				name: 'includedServiceIds',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans that have any of the requested included services',
+				placeholder: 'Return rate plans that have any of the requested included services',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							includedServiceIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'IsDerived',
+				name: 'isDerived',
+				type: 'boolean',
+				default: false,
+				description: 'Whether to return only derived or base rate plans',
+				placeholder: 'Return only derived or base rate plans',
+				routing: {
+					request: {
+						qs: {
+							isDerived: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'MinGuaranteeTypes',
+				name: 'minGuaranteeTypes',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans with any of the specified min guarantee types',
+				placeholder: 'Return rate plans with any of the specified min guarantee types',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							minGuaranteeTypes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'NoShowPolicyIds',
+				name: 'noShowPolicyIds',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans with any of the specified no-show policies',
+				placeholder: 'Return rate plans with any of the specified no-show policies',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							noShowPolicyIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PromoCodes',
+				name: 'promoCodes',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans that have any of the requested promo codes',
+				placeholder: 'Return rate plans that have any of the requested promo codes',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							promoCodes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PropertyId',
+				name: 'propertyId',
+				type: 'string',
+				default: '',
+				description: 'Return rate plans for the specific property',
+				placeholder: 'Return rate plans for the specific property',
+				routing: {
+					request: {
+						qs: {
+							propertyId: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'RatePlanCodes',
+				name: 'ratePlanCodes',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans filtered by requested codes',
+				placeholder: 'Return rate plans filtered by requested codes',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							ratePlanCodes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'TimeSliceDefinitionIds',
+				name: 'timeSliceDefinitionIds',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans with any of the specified time slice definitions',
+				placeholder: 'Return rate plans with any of the specified time slice definitions',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							timeSliceDefinitionIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'TimeSliceTemplate',
+				name: 'timeSliceTemplate',
+				type: 'options',
+				default: 'DayUse',
+				description: "The time slice template, defaults to 'over night'",
+				placeholder: "The time slice template, defaults to 'over night'",
+				options: [
+					{
+						name: 'DayUse',
+						value: 'DayUse',
+					},
+					{
+						name: 'OverNight',
+						value: 'OverNight',
+					},
+				],
+				routing: {
+					request: {
+						qs: {
+							timeSliceTemplate: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'UnitGroupIds',
+				name: 'unitGroupIds',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans with any of the specified unit groups',
+				placeholder: 'Return rate plans with any of the specified unit groups',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							unitGroupIds: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'UnitGroupTypes',
+				name: 'unitGroupTypes',
+				type: 'string',
+				default: [],
+				description: 'Return rate plans with any of the specified unit group types',
+				placeholder: 'Return rate plans with any of the specified unit group types',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							unitGroupTypes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'RateplanRate-plansByIdHead',
+		name: 'RateplanRate-plansByIdHead',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
+				operation: ['RateplanRate-plansByIdHead'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '/rateplan/v1/rate-plans/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'RateplanRate-plansByIdHead_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlan'],
+				operation: ['RateplanRate-plansByIdHead'],
+			},
+		},
+		default: '',
+		description: 'The ID of the rate plan',
+		placeholder: 'The ID of the rate plan.',
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '=/rateplan/v1/rate-plans/{{$parameter["RateplanRate-plansByIdHead_id"]}}',
 			},
 		},
 	},
@@ -19543,7 +22453,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default:
-			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2026-01-07T15:33:48.5100326+01:00",\n      "to": "2026-01-21T15:33:48.5100326+01:00"\n    },\n    {\n      "from": "2026-01-24T15:33:48.5100326+01:00",\n      "to": "2026-03-15T15:33:48.5100326+01:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
+			'{\n  "name": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "description": {\n    "de": "Nicht Stornierbar",\n    "en": "Non Refundable"\n  },\n  "minGuaranteeType": "PM6Hold",\n  "priceCalculationMode": "Truncate",\n  "channelCodes": [\n    "Direct",\n    "BookingCom",\n    "Ibe"\n  ],\n  "cancellationPolicyId": "MUC-NONREF",\n  "bookingPeriods": [\n    {\n      "from": "2026-10-22T11:27:07.3228196+01:00",\n      "to": "2026-11-05T11:27:07.3228196+01:00"\n    },\n    {\n      "from": "2026-11-08T11:27:07.3228196+01:00",\n      "to": "2026-12-28T11:27:07.3228196+01:00"\n    }\n  ],\n  "restrictions": {\n    "minAdvance": {\n      "hours": 12,\n      "days": 180\n    },\n    "maxAdvance": {\n      "months": 24\n    }\n  },\n  "includedServices": [\n    {\n      "serviceId": "MUC-BRKF",\n      "grossPrice": {\n        "amount": 10,\n        "currency": "EUR"\n      }\n    },\n    {\n      "serviceId": "MUC-WLAN",\n      "grossPrice": {\n        "amount": 5,\n        "currency": "EUR"\n      }\n    }\n  ],\n  "companies": [\n    {\n      "id": "MUC-APA",\n      "corporateCode": "APA-DBL"\n    }\n  ],\n  "pricingRule": {\n    "baseRatePlanId": "MUC-NONREF-SGL",\n    "type": "Absolute",\n    "value": 20\n  },\n  "surcharges": [\n    {\n      "adults": 2,\n      "type": "Percent",\n      "value": 10\n    }\n  ],\n  "ageCategories": [\n    {\n      "id": "MUC-BABY",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 10\n        }\n      ]\n    },\n    {\n      "id": "MUC-CHILD",\n      "surcharges": [\n        {\n          "adults": 1,\n          "value": 40\n        }\n      ]\n    }\n  ],\n  "marketSegmentId": "BUSR"\n}',
 		description: 'Request body (JSON format). See API documentation for the expected schema.',
 		placeholder: 'The definition of the rate plan.',
 		routing: {
@@ -19553,6 +22463,47 @@ export const parameterFields: INodeProperties[] = [
 				headers: {
 					'Content-Type': 'application/json',
 				},
+			},
+		},
+	},
+	{
+		displayName: 'RateplanRate-Plan-actionsByIdArchivePut',
+		name: 'RateplanRate-plan-actionsByIdArchivePut',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlanActions'],
+				operation: ['RateplanRate-plan-actionsByIdArchivePut'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '/rateplan/v1/rate-plan-actions/{id}/archive',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'RateplanRate-plan-actionsByIdArchivePut_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['RatePlanActions'],
+				operation: ['RateplanRate-plan-actionsByIdArchivePut'],
+			},
+		},
+		default: '',
+		description: 'ID of the rate plan that should be archived',
+		placeholder: 'ID of the rate plan that should be archived.',
+		routing: {
+			request: {
+				method: 'PUT',
+				url: '=/rateplan/v1/rate-plan-actions/{{$parameter["RateplanRate-plan-actionsByIdArchivePut_id"]}}/archive',
 			},
 		},
 	},
@@ -19704,6 +22655,26 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 			{
+				displayName: 'Languages',
+				name: 'languages',
+				type: 'string',
+				default: [],
+				description:
+					"'all' or comma-separated list of two-letter language codes (ISO Alpha-2). Selects which translations are returned for each service. When omitted, the 'Accept-Language' header is used.",
+				placeholder:
+					"'all' or comma separated list of two-letter language codes (ISO Alpha-2). Selects which translations are returned for each service. When omitted, the 'Accept-Language' header is used.",
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							languages: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
 				displayName: 'OnlySoldAsExtras',
 				name: 'onlySoldAsExtras',
 				type: 'boolean',
@@ -19742,8 +22713,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -19959,6 +22930,166 @@ export const parameterFields: INodeProperties[] = [
 					request: {
 						qs: {
 							languages: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+		],
+	},
+	{
+		displayName: 'RateplanServicesByIdHead',
+		name: 'RateplanServicesByIdHead',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
+				operation: ['RateplanServicesByIdHead'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '/rateplan/v1/services/{id}',
+			},
+		},
+	},
+	{
+		displayName: 'ID',
+		name: 'RateplanServicesByIdHead_id',
+		type: 'string',
+		required: true,
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
+				operation: ['RateplanServicesByIdHead'],
+			},
+		},
+		default: '',
+		description: 'The ID of the service',
+		placeholder: 'The ID of the service.',
+		routing: {
+			request: {
+				method: 'HEAD',
+				url: '=/rateplan/v1/services/{{$parameter["RateplanServicesByIdHead_id"]}}',
+			},
+		},
+	},
+	{
+		displayName: 'RateplanServices$countGet',
+		name: 'RateplanServices$countGet',
+		type: 'hidden',
+		default: '',
+		displayOptions: {
+			show: {
+				group: ['rateplan-v1'],
+				resource: ['Service'],
+				operation: ['RateplanServices$countGet'],
+			},
+		},
+		routing: {
+			request: {
+				method: 'GET',
+				url: '/rateplan/v1/services/$count',
+			},
+		},
+	},
+	{
+		displayName: 'Additional Fields',
+		name: 'additionalFields',
+		type: 'collection',
+		default: {},
+		placeholder: 'Add Field',
+		displayOptions: {
+			show: {
+				resource: ['Service'],
+				operation: ['RateplanServices$countGet'],
+			},
+		},
+		options: [
+			{
+				displayName: 'ChannelCodes',
+				name: 'channelCodes',
+				type: 'string',
+				default: [],
+				description: 'The channel codes the service is sold through',
+				placeholder: 'The channel codes the service is sold through',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							channelCodes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'OnlySoldAsExtras',
+				name: 'onlySoldAsExtras',
+				type: 'boolean',
+				default: false,
+				description:
+					'Whether to return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only.',
+				placeholder:
+					'If set to true, return only services that can be sold as extras. Otherwise, it returns both, extras, and include-only.',
+				routing: {
+					request: {
+						qs: {
+							onlySoldAsExtras: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'PropertyId',
+				name: 'propertyId',
+				type: 'string',
+				default: '',
+				description: 'Filter services by the specified property',
+				placeholder: 'Filter services by the specified property',
+				routing: {
+					request: {
+						qs: {
+							propertyId: '={{$value}}',
+						},
+					},
+				},
+			},
+			{
+				displayName: 'ServiceTypes',
+				name: 'serviceTypes',
+				type: 'string',
+				default: [],
+				description: 'The service types offered',
+				placeholder: 'The service types offered',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							serviceTypes: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
+				displayName: 'TextSearch',
+				name: 'textSearch',
+				type: 'string',
+				default: '',
+				description:
+					'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
+				placeholder:
+					'This will filter all services for the provided free text. Currently it only looks up if the service name contains one of the provided values.',
+				routing: {
+					request: {
+						qs: {
+							textSearch: '={{$value}}',
 						},
 					},
 				},
@@ -20371,6 +23502,24 @@ export const parameterFields: INodeProperties[] = [
 				},
 			},
 			{
+				displayName: 'Sources',
+				name: 'sources',
+				type: 'string',
+				default: [],
+				description: 'The sources used to filter the retrieved data',
+				placeholder: 'The sources used to filter the retrieved data',
+				typeOptions: {
+					multipleValues: true,
+				},
+				routing: {
+					request: {
+						qs: {
+							sources: "={{$value.join(',')}}",
+						},
+					},
+				},
+			},
+			{
 				displayName: 'TimeSliceDefinitionIds',
 				name: 'timeSliceDefinitionIds',
 				type: 'string',
@@ -20722,8 +23871,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -21202,8 +24351,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -22053,8 +25202,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'pageSize',
 				type: 'number',
 				default: '',
-				description: 'Items per page. Default: 20. Maximum: 200.',
-				placeholder: 'Items per page. Default: 20. Maximum: 200.',
+				description: 'Items per page. Default: 500. Maximum: 500.',
+				placeholder: 'Items per page. Default: 500. Maximum: 500.',
 				routing: {
 					request: {
 						qs: {
@@ -22631,6 +25780,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				url: '/v1/pinger',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22680,6 +25830,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				url: '/v1/subscriptions',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22699,6 +25850,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'POST',
 				url: '/v1/subscriptions',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22744,6 +25896,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				url: '/v1/subscriptions/{id}',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22766,6 +25919,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'GET',
 				url: '=/v1/subscriptions/{{$parameter["SubscriptionsByIdGet_id"]}}',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22785,6 +25939,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'PUT',
 				url: '/v1/subscriptions/{id}',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22807,6 +25962,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'PUT',
 				url: '=/v1/subscriptions/{{$parameter["SubscriptionsByIdPut_id"]}}',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22852,6 +26008,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'DELETE',
 				url: '/v1/subscriptions/{id}',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
@@ -22874,6 +26031,7 @@ export const parameterFields: INodeProperties[] = [
 			request: {
 				method: 'DELETE',
 				url: '=/v1/subscriptions/{{$parameter["SubscriptionsByIdDelete_id"]}}',
+				baseURL: 'https://webhook.apaleo.com',
 			},
 		},
 	},
