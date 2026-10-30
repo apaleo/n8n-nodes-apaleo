@@ -142,7 +142,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Add Reservation To Booking Force',
 				value: 'BookingBookingsByIdReservations$forcePost',
 				action: 'Add reservation to booking force',
-				description: 'Add one or multiple reservations to an existing booking regardless of availability or restrictions',
+				description:
+					'Add one or multiple reservations to an existing booking regardless of availability or restrictions',
 			},
 			{
 				name: 'Create Booking',
@@ -154,7 +155,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Create Booking Force',
 				value: 'BookingBookings$forcePost',
 				action: 'Create booking force',
-				description: 'Creates a booking for one or more reservations regardless of availability or restrictions',
+				description:
+					'Creates a booking for one or more reservations regardless of availability or restrictions',
 			},
 			{
 				name: 'Get Booking',
@@ -188,7 +190,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Add Reservation To Group',
 				value: 'BookingGroupsByIdReservationsPost',
 				action: 'Add reservation to group',
-				description: 'Add one or multiple reservations to an existing group booking using blocked inventory',
+				description:
+					'Add one or multiple reservations to an existing group booking using blocked inventory',
 			},
 			{
 				name: 'Create Group',
@@ -262,7 +265,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Count Reservations',
 				value: 'BookingReservations$countGet',
 				action: 'Count reservations',
-				description: 'Returns the number of reservations fulfilling the criteria specified in the parameters',
+				description:
+					'Returns the number of reservations fulfilling the criteria specified in the parameters',
 			},
 			{
 				name: 'Get Reservation',
@@ -332,7 +336,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Amend Reservation Force',
 				value: 'BookingReservation-actionsByIdAmend$forcePut',
 				action: 'Amend reservation force',
-				description: 'Allows you to amend the stay details of a reservation regardless of availability or restrictions',
+				description:
+					'Allows you to amend the stay details of a reservation regardless of availability or restrictions',
 			},
 			{
 				name: 'Assign Specific Unit',
@@ -414,7 +419,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'List Allowed Values',
 				value: 'BookingTypesByTypeAllowed-valuesGet',
 				action: 'List allowed values',
-				description: 'Returns a list of values that a field of the specified type can take in the specified country',
+				description:
+					'Returns a list of values that a field of the specified type can take in the specified country',
 			},
 			{
 				name: 'List Sources',
@@ -554,7 +560,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Move Folio Charges',
 				value: 'FinanceFolio-actionsByFolioIdMove-chargesPut',
 				action: 'Move folio charges',
-				description: 'Move multiple charges, allowances and transitory charges from one folio to another',
+				description:
+					'Move multiple charges, allowances and transitory charges from one folio to another',
 			},
 			{
 				name: 'Move Folio Payments',
@@ -578,13 +585,15 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Split Folio Charge',
 				value: 'FinanceFolio-actionsByFolioIdChargesByChargeIdSplitPost',
 				action: 'Split folio charge',
-				description: 'Splits a charge into two using the percent or amount provided Creates an allowance and two new charges',
+				description:
+					'Splits a charge into two using the percent or amount provided Creates an allowance and two new charges',
 			},
 			{
 				name: 'Split Folio Payment',
 				value: 'FinanceFolio-actionsByFolioIdPaymentsByPaymentIdSplitPost',
 				action: 'Split folio payment',
-				description: 'Splits a payment into two using the percent or amount provided Creates a refund and two new payments',
+				description:
+					'Splits a payment into two using the percent or amount provided Creates a refund and two new payments',
 			},
 		],
 		default: 'FinanceFolio-actionsBulk-movePut',
@@ -612,7 +621,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Create Auth Payment',
 				value: 'FinanceFoliosByFolioIdPaymentsBy-authorizationPost',
 				action: 'Create auth payment',
-				description: 'Captures a specific amount from a pre-authorization and posts it to the folio',
+				description:
+					'Captures a specific amount from a pre-authorization and posts it to the folio',
 			},
 			{
 				name: 'Create Folio Payment',
@@ -756,25 +766,29 @@ export const operationOptions: INodeProperties[] = [
 				name: 'Export Accounts Daily',
 				value: 'FinanceAccountsExport-dailyPost',
 				action: 'Export accounts daily',
-				description: 'Returns transactions filtered by date (business day) for a property for a given period',
+				description:
+					'Returns transactions filtered by date (business day) for a property for a given period',
 			},
 			{
 				name: 'Export Accounts Gross',
 				value: 'FinanceAccountsExport-gross-dailyPost',
 				action: 'Export accounts gross',
-				description: 'Returns gross transactions filtered by date (business day) for a property for a given period',
+				description:
+					'Returns gross transactions filtered by date (business day) for a property for a given period',
 			},
 			{
 				name: 'Get Account Aggregate',
 				value: 'FinanceAccountsAggregate-dailyPost',
 				action: 'Get account aggregate',
-				description: 'Aggregates transactions by date (business day) for all accounts and a given period',
+				description:
+					'Aggregates transactions by date (business day) for all accounts and a given period',
 			},
 			{
 				name: 'Get Account Aggregate Pairs',
 				value: 'FinanceAccountsAggregate-pairs-dailyPost',
 				action: 'Get account aggregate pairs',
-				description: 'Aggregates transactions pairs by date (business day) for all accounts and a given period',
+				description:
+					'Aggregates transactions pairs by date (business day) for all accounts and a given period',
 			},
 			{
 				name: 'Get Account By Number',
@@ -1461,7 +1475,8 @@ export const operationOptions: INodeProperties[] = [
 				name: 'List Property Performance Report',
 				value: 'ReportsReportsProperty-performanceGet',
 				action: 'List property performance report',
-				description: 'Returns the property performance report which includes the ADR and the RevPAR for each business day',
+				description:
+					'Returns the property performance report which includes the ADR and the RevPAR for each business day',
 			},
 			{
 				name: 'List Revenues Report',

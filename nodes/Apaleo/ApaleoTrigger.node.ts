@@ -2,6 +2,7 @@ import type {
 	IHookFunctions,
 	IWebhookFunctions,
 	IDataObject,
+	INode,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
@@ -9,7 +10,7 @@ import type {
 	IHttpRequestMethods,
 	JsonObject,
 } from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
 import { ACCOUNT_LEVEL_EVENTS } from '../../constants';
 
@@ -18,6 +19,52 @@ interface ApaleoSubscription {
 	endpointUrl?: string;
 	events?: string[];
 	propertyIds?: string[];
+}
+
+/**
+ * Keep n8n's own errors (and their HTTP status and Apaleo response details) intact
+ * instead of re-wrapping them, which would reduce a 400 to a generic message.
+ */
+function toNodeError(node: INode, error: unknown): NodeApiError | NodeOperationError {
+	if (error instanceof NodeApiError || error instanceof NodeOperationError) {
+		return error;
+	}
+	return new NodeApiError(node, error as JsonObject);
+}
+
+/**
+ * Apaleo sends a health-check POST when a subscription is created and refuses the
+ * subscription unless the endpoint is reachable from the internet over HTTPS.
+ */
+function assertPublicHttpsUrl(node: INode, webhookUrl: string | undefined): string {
+	let url: URL | undefined;
+	try {
+		url = webhookUrl ? new URL(webhookUrl) : undefined;
+	} catch {
+		url = undefined;
+	}
+
+	const host = url?.hostname ?? '';
+	const isPrivateHost =
+		host === 'localhost' ||
+		host.endsWith('.localhost') ||
+		host.endsWith('.local') ||
+		host === '::1' ||
+		host === '[::1]' ||
+		/^(127\.|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+
+	if (!url || url.protocol !== 'https:' || isPrivateHost) {
+		throw new NodeOperationError(
+			node,
+			`Apaleo cannot reach the webhook URL "${webhookUrl ?? ''}"`,
+			{
+				description:
+					'Apaleo sends a health check to the webhook URL when creating a subscription and only accepts publicly reachable HTTPS endpoints. When running n8n locally, expose it through an HTTPS tunnel (for example `n8n start --tunnel` or ngrok) or set the WEBHOOK_URL environment variable to the public URL.',
+			},
+		);
+	}
+
+	return webhookUrl as string;
 }
 
 /**
@@ -42,7 +89,7 @@ async function apaleoApiRequest(
 	try {
 		return await this.helpers.httpRequestWithAuthentication.call(this, 'apaleoOAuth2Api', options);
 	} catch (error) {
-		throw new NodeOperationError(this.getNode(), error as Error);
+		throw toNodeError(this.getNode(), error);
 	}
 }
 
@@ -890,7 +937,7 @@ export class ApaleoTrigger implements INodeType {
 						}
 					}
 				} catch (error) {
-					throw new NodeOperationError(this.getNode(), error as JsonObject);
+					throw toNodeError(this.getNode(), error);
 				}
 
 				return false;
@@ -898,7 +945,7 @@ export class ApaleoTrigger implements INodeType {
 
 			async create(this: IHookFunctions): Promise<boolean> {
 				const webhookData = this.getWorkflowStaticData('node');
-				const webhookUrl = this.getNodeWebhookUrl('default');
+				const webhookUrl = assertPublicHttpsUrl(this.getNode(), this.getNodeWebhookUrl('default'));
 				const eventsParam = this.getNodeParameter('events') as string | string[];
 				const events = Array.isArray(eventsParam) ? eventsParam : [eventsParam];
 				const propertyIds = this.getNodeParameter('propertyIds') as string;
@@ -917,6 +964,17 @@ export class ApaleoTrigger implements INodeType {
 								(accountEvent.event === eventType || event.endsWith('/*')),
 						);
 					});
+				}
+
+				if (filteredEvents.length === 0) {
+					throw new NodeOperationError(
+						this.getNode(),
+						'No events left to subscribe to after filtering',
+						{
+							description:
+								'Account-level events cannot be combined with Property IDs while "Ignore Account Level Events Property Filter" is enabled. Select at least one property-level event or clear the Property IDs.',
+						},
+					);
 				}
 
 				const body: IDataObject = {
@@ -947,7 +1005,7 @@ export class ApaleoTrigger implements INodeType {
 					webhookData.webhookId = responseData.id;
 					return true;
 				} catch (error) {
-					throw new NodeOperationError(this.getNode(), error as JsonObject);
+					throw toNodeError(this.getNode(), error);
 				}
 			},
 
