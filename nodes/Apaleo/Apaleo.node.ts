@@ -30,7 +30,7 @@ export class Apaleo implements INodeType {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 				'X-Source': 'n8n-apaleo',
-				'X-Source-Version': version, 
+				'X-Source-Version': version,
 			},
 		},
 		properties: allProperties,

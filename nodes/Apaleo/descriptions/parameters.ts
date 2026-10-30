@@ -115,7 +115,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeOutOfService',
 				type: 'boolean',
 				default: false,
-				description: 'Whether units that are set OutOfService in the defined time period be returned as available',
+				description:
+					'Whether units that are set OutOfService in the defined time period be returned as available',
 				placeholder:
 					'Should units that are set OutOfService in the defined time period be returned as available.',
 				routing: {
@@ -368,8 +369,10 @@ export const parameterFields: INodeProperties[] = [
 				name: 'onlySellable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned',
-				placeholder: 'When set to \'true\', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned',
+				description:
+					'Whether only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned',
+				placeholder:
+					"When set to 'true', only the unit groups sold by the specified time slice template and time slice definition IDs are returned, otherwise all unit groups are returned",
 				routing: {
 					request: {
 						qs: {
@@ -920,7 +923,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeOutOfService',
 				type: 'boolean',
 				default: false,
-				description: 'Whether units that are set OutOfService in the defined time period be returned as available',
+				description:
+					'Whether units that are set OutOfService in the defined time period be returned as available',
 				placeholder:
 					'Should units that are set OutOfService in the defined time period be returned as available.',
 				routing: {
@@ -1178,7 +1182,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -1338,7 +1343,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -1424,7 +1430,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description: 'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The start of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -1552,7 +1559,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description: 'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The end of the time range. All blocks that are overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -2022,7 +2030,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'channelCode',
 				type: 'string',
 				default: [],
-				description: 'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
+				description:
+					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code.',
 				placeholder:
 					'Filter result by the channel code. The resul set will contain all bookings having reservations with the specified channel code',
 				typeOptions: {
@@ -2061,7 +2070,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'externalCode',
 				type: 'string',
 				default: '',
-				description: 'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value.',
+				description:
+					'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value.',
 				placeholder:
 					'Filter result by the external code. The result set will contain all bookings having reservations with external code starting with provided value',
 				routing: {
@@ -2077,7 +2087,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'groupId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by group ID. The result set will contain all bookings having groups with the specified ID.',
+				description:
+					'Filter result by group ID. The result set will contain all bookings having groups with the specified ID.',
 				placeholder:
 					'Filter result by group ID. The result set will contain all bookings having groups with the specified ID',
 				routing: {
@@ -2125,7 +2136,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reservationId',
 				type: 'string',
 				default: '',
-				description: 'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID.',
+				description:
+					'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID.',
 				placeholder:
 					'Filter result by reservation ID. The result set will contain all bookings having reservations with the specified ID',
 				routing: {
@@ -2141,7 +2153,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description: 'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values.',
+				description:
+					'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values.',
 				placeholder:
 					'This will filter all bookings for the provided free text. Currently it only looks up if either the lastname, firstname, email or company name of the booker contains one of the provided values',
 				routing: {
@@ -2706,7 +2719,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description: 'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The start of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -2772,7 +2786,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description: 'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.',
+				description:
+					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values.',
 				placeholder:
 					'This will filter all group bookings for the provided free text. Currently it only looks up if either the group name, lastname, firstname, email or company name of the booker contains one of the provided values',
 				routing: {
@@ -2788,7 +2803,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description: 'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The end of the time range. All groups that have blocks overlapping with the interval specified by from and to will be returned A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -3266,7 +3282,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeUnavailable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+				description:
+					'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 				placeholder:
 					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
@@ -3583,7 +3600,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeUnavailable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+				description:
+					'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 				placeholder:
 					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
@@ -3822,7 +3840,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeUnavailable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+				description:
+					'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 				placeholder:
 					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
@@ -4093,7 +4112,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'allFoliosHaveInvoice',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to return only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice.',
+				description:
+					"Whether to return only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
 				placeholder:
 					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
 				routing: {
@@ -4269,7 +4289,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'externalCode',
 				type: 'string',
 				default: '',
-				description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+				description:
+					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
 				placeholder:
 					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
 				routing: {
@@ -4305,7 +4326,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
 					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
@@ -4480,7 +4502,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description: 'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name.',
+				description:
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name.',
 				placeholder:
 					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
 				routing: {
@@ -4496,7 +4519,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
 					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
@@ -4618,7 +4642,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'allFoliosHaveInvoice',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to return only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don\'t have an invoice.',
+				description:
+					"Whether to return only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice.",
 				placeholder:
 					"If set to `true`, returns only reservations, in which all folios are closed and have an invoice. If set to `false`, returns only reservations, in which some of the folios are open or don't have an invoice",
 				routing: {
@@ -4774,7 +4799,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'externalCode',
 				type: 'string',
 				default: '',
-				description: 'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
+				description:
+					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value.',
 				placeholder:
 					'Filter result by the external code. The result set will contain all reservations that have an external code starting with the provided value',
 				routing: {
@@ -4810,7 +4836,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'from',
 				type: 'dateTime',
 				default: '',
-				description: 'The start of the time interval. When filtering by date, at least one of \'from\' and \'to\' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
 					"The start of the time interval. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
@@ -4933,7 +4960,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description: 'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name.',
+				description:
+					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name.',
 				placeholder:
 					'Filters reservations by searching for the provided text across multiple fields. The search is case-insensitive and includes: - Booker information (first name, last name, email, company name) - Primary guest information (first name, last name, email, company name) - Additional guest information (first name, last name, email, company name) - Reservation details (external code, external references, reservation ID) - Unit name',
 				routing: {
@@ -4949,7 +4977,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'to',
 				type: 'dateTime',
 				default: '',
-				description: 'The end of the time interval, must be larger than \'from\'. When filtering by date, at least one of \'from\' and \'to\' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).",
 				placeholder:
 					"The end of the time interval, must be larger than 'from'. When filtering by date, at least one of 'from' and 'to' has to be specified A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)",
 				routing: {
@@ -5356,7 +5385,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeUnavailable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+				description:
+					'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 				placeholder:
 					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
@@ -5387,7 +5417,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'requote',
 				type: 'boolean',
 				default: false,
-				description: 'Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to \'false\'.',
+				description:
+					"Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to 'false'.",
 				placeholder:
 					"Whether the offers should be re-quoted based on current prices, or only additions like change of number of adults should be calculated. Defaults to 'false'",
 				routing: {
@@ -5530,7 +5561,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeUnavailable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
+				description:
+					'Whether to return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned.',
 				placeholder:
 					'Return also offers that are currently not publicly bookable as restrictions are violated. By default only available offers are returned',
 				routing: {
@@ -6580,7 +6612,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
+		description:
+			'The code of the country in which the property is located in ISO 3166-1 alpha-2 format',
 		placeholder:
 			'The code of the country in which the property is located in ISO 3166-1 alpha-2 format.',
 		routing: {
@@ -6751,7 +6784,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				description:
+					'Whether to only return folios that have been checked out on accounts receivables Otherwise, returns all',
 				placeholder:
 					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all.',
 				routing: {
@@ -6785,7 +6819,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdFrom',
 				type: 'dateTime',
 				default: '',
-				description: 'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -6802,7 +6837,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdTo',
 				type: 'dateTime',
 				default: '',
-				description: 'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -6890,7 +6926,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'isEmpty',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+				description:
+					'Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
 				placeholder:
 					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
 				routing: {
@@ -7064,7 +7101,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedFrom',
 				type: 'dateTime',
 				default: '',
-				description: 'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -7081,7 +7119,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedTo',
 				type: 'dateTime',
 				default: '',
-				description: 'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -7247,7 +7286,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to only return folios that have been checked out on accounts receivables Otherwise, returns all',
+				description:
+					'Whether to only return folios that have been checked out on accounts receivables Otherwise, returns all',
 				placeholder:
 					'If set to `true`, only return folios that have been checked out on accounts receivables Otherwise, returns all.',
 				routing: {
@@ -7281,7 +7321,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdFrom',
 				type: 'dateTime',
 				default: '',
-				description: 'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The inclusive start time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -7298,7 +7339,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'createdTo',
 				type: 'dateTime',
 				default: '',
-				description: 'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The exclusive end time of the date of creation. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -7366,7 +7408,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'isEmpty',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
+				description:
+					'Whether to only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios.',
 				placeholder:
 					'If set to `true`, only return empty folios (no unmoved [transitory] charges, no unmoved payments, no allowances). If set to `false`, only return non-empty folios',
 				routing: {
@@ -7508,7 +7551,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedFrom',
 				type: 'dateTime',
 				default: '',
-				description: 'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The inclusive start time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -7525,7 +7569,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'updatedTo',
 				type: 'dateTime',
 				default: '',
-				description: 'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+				description:
+					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 				placeholder:
 					'The exclusive end time of the date of the last update. Mostly useful for external folios A date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 				routing: {
@@ -10514,7 +10559,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'checkedOutOnAccountsReceivable',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to only return invoices with an open balance (AR) Otherwise, returns all',
+				description:
+					'Whether to only return invoices with an open balance (AR) Otherwise, returns all',
 				placeholder:
 					'If set to `true`, only return invoices with an open balance (AR) Otherwise, returns all.',
 				routing: {
@@ -10548,7 +10594,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: [],
-				description: 'Filter by invoice date You can provide an array of string expressions which all need to apply. Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be: \'eq\' for equals \'neq\' for not equals \'lt\' for less than \'gt\' for greater than \'lte\' for less than or equals \'gte\' for greater than or equals For instance \'eq_5\' would mean the value should equal 5 \'lte_7\' would mean the value should be less than or equal to 7.',
+				description:
+					"Filter by invoice date You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7.",
 				placeholder:
 					"Filter by invoice date You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
 				typeOptions: {
@@ -10637,7 +10684,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'outstandingPaymentFilter',
 				type: 'string',
 				default: [],
-				description: 'Filter for the outstanding balance for invoices You can provide an array of string expressions which all need to apply. Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be: \'eq\' for equals \'neq\' for not equals \'lt\' for less than \'gt\' for greater than \'lte\' for less than or equals \'gte\' for greater than or equals For instance \'eq_5\' would mean the value should equal 5 \'lte_7\' would mean the value should be less than or equal to 7.',
+				description:
+					"Filter for the outstanding balance for invoices You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7.",
 				placeholder:
 					"Filter for the outstanding balance for invoices You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
 				typeOptions: {
@@ -11367,7 +11415,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 				placeholder:
 					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
@@ -11628,7 +11677,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 				placeholder:
 					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
@@ -12387,7 +12437,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 				placeholder:
 					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
@@ -12553,7 +12604,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'reference',
 				type: 'string',
 				default: '',
-				description: 'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
+				description:
+					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio)',
 				placeholder:
 					'Filter transactions by reference (reservation ID/external folio ID/property ID for house folio).',
 				routing: {
@@ -12669,7 +12721,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeArchived',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+				description:
+					'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 				placeholder:
 					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
@@ -12755,7 +12808,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Filter account list by the parent account\'s number',
+		description: "Filter account list by the parent account's number",
 		placeholder: "Filter account list by the parent account's number.",
 		routing: {
 			request: {
@@ -12809,7 +12862,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeArchived',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+				description:
+					'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 				placeholder:
 					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
@@ -13001,7 +13055,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'parent',
 				type: 'string',
 				default: '',
-				description: 'Filter account list by the parent account\'s number',
+				description: "Filter account list by the parent account's number",
 				placeholder: "Filter account list by the parent account's number.",
 				routing: {
 					request: {
@@ -13145,7 +13199,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'parent',
 				type: 'string',
 				default: '',
-				description: 'Filter account list by the parent account\'s number',
+				description: "Filter account list by the parent account's number",
 				placeholder: "Filter account list by the parent account's number.",
 				routing: {
 					request: {
@@ -13267,7 +13321,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeArchived',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+				description:
+					'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 				placeholder:
 					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
@@ -13298,7 +13353,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'transactionLimit',
 				type: 'number',
 				default: '',
-				description: 'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
+				description:
+					'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0)',
 				placeholder:
 					'Limit how many transactions should be included in the view (between 0 and 50, defaults to 0).',
 				routing: {
@@ -13367,7 +13423,7 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'Filter account list by the parent account\'s number',
+		description: "Filter account list by the parent account's number",
 		placeholder: "Filter account list by the parent account's number.",
 		routing: {
 			request: {
@@ -13421,7 +13477,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeArchived',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
+				description:
+					'Whether to also include archived accounts. If not set, or set to false, it only returns non-archived accounts.',
 				placeholder:
 					'If set to true, also includes archived accounts. If not set, or set to false, it only returns non-archived accounts',
 				routing: {
@@ -13689,7 +13746,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'includeArchived',
 				type: 'boolean',
 				default: false,
-				description: 'Whether to include archived properties in the result. If not set, or set to false, it only returns non-archived properties.',
+				description:
+					'Whether to include archived properties in the result. If not set, or set to false, it only returns non-archived properties.',
 				placeholder:
 					'Include archived properties in the result. If not set, or set to false, it only returns non-archived properties',
 				routing: {
@@ -13908,7 +13966,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -14136,7 +14194,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -14517,7 +14575,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitGroupId',
 				type: 'string',
 				default: '',
-				description: 'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead.',
+				description:
+					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead.',
 				placeholder:
 					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead',
 				routing: {
@@ -14785,7 +14844,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'unitGroupId',
 				type: 'string',
 				default: '',
-				description: 'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead.',
+				description:
+					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead.',
 				placeholder:
 					'Return units for the specific unit group - DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead',
 				routing: {
@@ -15567,7 +15627,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -15706,7 +15766,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: [],
-				description: 'Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be: \'eq\' for equals \'neq\' for not equals \'lt\' for less than \'gt\' for greater than \'lte\' for less than or equals \'gte\' for greater than or equals For instance \'eq_5\' would mean the value should equal 5 \'lte_7\' would mean the value should be less than or equal to 7.',
+				description:
+					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7.",
 				placeholder:
 					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
 				typeOptions: {
@@ -15903,7 +15964,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: [],
-				description: 'Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be: \'eq\' for equals \'neq\' for not equals \'lt\' for less than \'gt\' for greater than \'lte\' for less than or equals \'gte\' for greater than or equals For instance \'eq_5\' would mean the value should equal 5 \'lte_7\' would mean the value should be less than or equal to 7.',
+				description:
+					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7.",
 				placeholder:
 					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
 				typeOptions: {
@@ -16060,7 +16122,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: [],
-				description: 'Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be: \'eq\' for equals \'neq\' for not equals \'lt\' for less than \'gt\' for greater than \'lte\' for less than or equals \'gte\' for greater than or equals For instance \'eq_5\' would mean the value should equal 5 \'lte_7\' would mean the value should be less than or equal to 7.',
+				description:
+					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7.",
 				placeholder:
 					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
 				typeOptions: {
@@ -16199,7 +16262,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'dateFilter',
 				type: 'string',
 				default: [],
-				description: 'Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of \'OPERATION_VALUE\' where VALUE needs to be of the valid format of the property type and OPERATION can be: \'eq\' for equals \'neq\' for not equals \'lt\' for less than \'gt\' for greater than \'lte\' for less than or equals \'gte\' for greater than or equals For instance \'eq_5\' would mean the value should equal 5 \'lte_7\' would mean the value should be less than or equal to 7.',
+				description:
+					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7.",
 				placeholder:
 					"Filter by event date and time You can provide an array of string expressions which all need to apply. Each expression has the form of 'OPERATION_VALUE' where VALUE needs to be of the valid format of the property type and OPERATION can be: 'eq' for equals 'neq' for not equals 'lt' for less than 'gt' for greater than 'lte' for less than or equals 'gte' for greater than or equals For instance 'eq_5' would mean the value should equal 5 'lte_7' would mean the value should be less than or equal to 7",
 				typeOptions: {
@@ -17143,7 +17207,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -17562,7 +17626,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -17841,7 +17905,8 @@ export const parameterFields: INodeProperties[] = [
 				name: 'textSearch',
 				type: 'string',
 				default: '',
-				description: 'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values.',
+				description:
+					'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values.',
 				placeholder:
 					'This will filter all companies for the provided free text. Currently it only looks up if the company name contains one of the provided values',
 				routing: {
@@ -18260,7 +18325,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -18477,7 +18542,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+		description:
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
 			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
@@ -18502,7 +18568,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+		description:
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
 			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
@@ -18687,7 +18754,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+		description:
+			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
 			'The start of the time range to filter the rates by. All rates where the from date and time is equal or later than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
@@ -18712,7 +18780,8 @@ export const parameterFields: INodeProperties[] = [
 			},
 		},
 		default: '',
-		description: 'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
+		description:
+			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601).',
 		placeholder:
 			'The end of the time range to filter the rates by. All rates where the from date and time is earlier than the specified date and optional time will be affected Specify either a pure date or a date and time (without fractional second part) in UTC or with UTC offset as defined in ISO8601:2004 (https://en.wikipedia.org/wiki/ISO_8601)',
 		routing: {
@@ -19405,7 +19474,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -19881,7 +19950,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
@@ -20973,7 +21042,7 @@ export const parameterFields: INodeProperties[] = [
 				name: 'languages',
 				type: 'string',
 				default: [],
-				description: '\'all\' or comma-separated list of two-letter language codes (ISO Alpha-2)',
+				description: "'all' or comma-separated list of two-letter language codes (ISO Alpha-2)",
 				placeholder: "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
 				typeOptions: {
 					multipleValues: true,
