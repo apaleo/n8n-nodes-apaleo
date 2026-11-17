@@ -1,6 +1,7 @@
 import { INodeProperties } from 'n8n-workflow';
 
 export const groups = {
+	'account-v1': 'AccountV1',
 	'availability-v1': 'AvailabilityV1',
 	'booking-v1': 'BookingV1',
 	'finance-v1': 'FinanceV1',
@@ -19,6 +20,7 @@ export const groupOptions: INodeProperties = {
 	type: 'options',
 	noDataExpression: true,
 	options: [
+		{ name: 'AccountV1', value: 'account-v1' },
 		{ name: 'AvailabilityV1', value: 'availability-v1' },
 		{ name: 'BookingV1', value: 'booking-v1' },
 		{ name: 'FinanceV1', value: 'finance-v1' },
