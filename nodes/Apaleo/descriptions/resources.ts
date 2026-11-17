@@ -1,6 +1,12 @@
 import { INodeProperties } from 'n8n-workflow';
 
 export const resourcesByGroup = {
+	'account-v1': [
+		{
+			displayName: 'Account',
+			value: 'Account',
+		},
+	],
 	'availability-v1': [
 		{
 			displayName: 'Availability',
@@ -12,6 +18,14 @@ export const resourcesByGroup = {
 		},
 	],
 	'booking-v1': [
+		{
+			displayName: 'Authorization',
+			value: 'Authorization',
+		},
+		{
+			displayName: 'AuthorizationActions',
+			value: 'AuthorizationActions',
+		},
 		{
 			displayName: 'Block',
 			value: 'Block',
@@ -31,6 +45,14 @@ export const resourcesByGroup = {
 		{
 			displayName: 'Offer',
 			value: 'Offer',
+		},
+		{
+			displayName: 'PaymentAccount',
+			value: 'PaymentAccount',
+		},
+		{
+			displayName: 'PaymentAccountActions',
+			value: 'PaymentAccountActions',
 		},
 		{
 			displayName: 'Reservation',
@@ -79,6 +101,10 @@ export const resourcesByGroup = {
 		{
 			displayName: 'Property',
 			value: 'Property',
+		},
+		{
+			displayName: 'Types',
+			value: 'Types',
 		},
 		{
 			displayName: 'Unit',
@@ -147,6 +173,10 @@ export const resourcesByGroup = {
 			value: 'RatePlan',
 		},
 		{
+			displayName: 'RatePlanActions',
+			value: 'RatePlanActions',
+		},
+		{
 			displayName: 'Service',
 			value: 'Service',
 		},
@@ -213,6 +243,15 @@ export const resourceOptions: INodeProperties[] = [
 		name: 'resource',
 		type: 'options',
 		noDataExpression: true,
+		displayOptions: { show: { group: ['account-v1'] } },
+		options: [{ name: 'Account', value: 'Account' }],
+		default: 'Account',
+	},
+	{
+		displayName: 'Resource',
+		name: 'resource',
+		type: 'options',
+		noDataExpression: true,
 		displayOptions: { show: { group: ['availability-v1'] } },
 		options: [
 			{ name: 'Availability', value: 'Availability' },
@@ -227,11 +266,15 @@ export const resourceOptions: INodeProperties[] = [
 		noDataExpression: true,
 		displayOptions: { show: { group: ['booking-v1'] } },
 		options: [
+			{ name: 'Authorization', value: 'Authorization' },
+			{ name: 'AuthorizationAction', value: 'AuthorizationActions' },
 			{ name: 'Block', value: 'Block' },
 			{ name: 'BlockAction', value: 'BlockActions' },
 			{ name: 'Booking', value: 'Booking' },
 			{ name: 'Group', value: 'Group' },
 			{ name: 'Offer', value: 'Offer' },
+			{ name: 'PaymentAccount', value: 'PaymentAccount' },
+			{ name: 'PaymentAccountAction', value: 'PaymentAccountActions' },
 			{ name: 'Reservation', value: 'Reservation' },
 			{ name: 'ReservationAction', value: 'ReservationActions' },
 			{ name: 'Type', value: 'Types' },
@@ -263,6 +306,7 @@ export const resourceOptions: INodeProperties[] = [
 		displayOptions: { show: { group: ['inventory-v1'] } },
 		options: [
 			{ name: 'Property', value: 'Property' },
+			{ name: 'Type', value: 'Types' },
 			{ name: 'Unit', value: 'Unit' },
 			{ name: 'UnitAttribute', value: 'UnitAttribute' },
 			{ name: 'UnitGroup', value: 'UnitGroup' },
@@ -308,6 +352,7 @@ export const resourceOptions: INodeProperties[] = [
 			{ name: 'PromoCode', value: 'PromoCodes' },
 			{ name: 'Rate', value: 'Rate' },
 			{ name: 'RatePlan', value: 'RatePlan' },
+			{ name: 'RatePlanAction', value: 'RatePlanActions' },
 			{ name: 'Service', value: 'Service' },
 		],
 		default: 'AgeCategory',
