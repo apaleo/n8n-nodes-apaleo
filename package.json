@@ -62,5 +62,9 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "overrides": {
+    "zod@<4.6.0": "4.6.0",
+    "transliteration@<2.4.0": "2.4.0"
   }
 }
